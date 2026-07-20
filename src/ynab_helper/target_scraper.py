@@ -13,6 +13,20 @@ from ynab_helper.models import LineItem, TargetOrder
 ORDER_HISTORY_URL = "https://www.target.com/orders"
 
 
+def _build_browser_launch_kwargs(
+    headless: bool, profile_root: Path | None = None
+) -> dict[str, Any]:
+    resolved_profile_root = profile_root or Path.home() / ".config" / "google-chrome"
+    return {
+        "headless": headless,
+        "channel": "chrome",
+        "args": [
+            f"--user-data-dir={resolved_profile_root}",
+            "--profile-directory=Default",
+        ],
+    }
+
+
 def _parse_date(value: str) -> date:
     for fmt in ("%Y-%m-%d", "%m/%d/%Y", "%B %d, %Y", "%b %d, %Y"):
         try:
@@ -167,10 +181,19 @@ def scrape_target_orders(
 
     output_dir.mkdir(parents=True, exist_ok=True)
     captured: list[dict[str, Any]] = []
+    launch_kwargs = _build_browser_launch_kwargs(headless=headless)
+    profile_root = Path(launch_kwargs["args"][0].split("=", 1)[1])
+    browser_args = [
+        arg for arg in launch_kwargs["args"] if not arg.startswith("--user-data-dir=")
+    ]
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=headless)
-        context = browser.new_context(storage_state=str(auth_path))
+        context = p.chromium.launch_persistent_context(
+            str(profile_root),
+            headless=launch_kwargs["headless"],
+            channel=launch_kwargs["channel"],
+            args=browser_args,
+        )
         page = context.new_page()
 
         def on_response(response: Any) -> None:
@@ -203,7 +226,7 @@ def scrape_target_orders(
             else:
                 break
 
-        browser.close()
+        context.close()
 
     orders = _collect_orders_from_responses(captured, since_date)
     for order in orders:
@@ -247,13 +270,22 @@ def load_cached_orders(output_dir: Path, since_date: date) -> list[TargetOrder]:
 
 def save_target_session(auth_path: Path) -> None:
     auth_path.parent.mkdir(parents=True, exist_ok=True)
+    launch_kwargs = _build_browser_launch_kwargs(headless=False)
+    profile_root = Path(launch_kwargs["args"][0].split("=", 1)[1])
+    browser_args = [
+        arg for arg in launch_kwargs["args"] if not arg.startswith("--user-data-dir=")
+    ]
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
-        context = browser.new_context()
+        context = p.chromium.launch_persistent_context(
+            str(profile_root),
+            headless=launch_kwargs["headless"],
+            channel=launch_kwargs["channel"],
+            args=browser_args,
+        )
         page = context.new_page()
         page.goto("https://www.target.com/login", wait_until="domcontentloaded")
         print("Log in to Target in the browser window, then press Enter here...")
         input()
         context.storage_state(path=str(auth_path))
-        browser.close()
+        context.close()
     print(f"Saved Target session to {auth_path}")
