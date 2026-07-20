@@ -54,7 +54,7 @@ def sync_categories() -> None:
 @main.command("fetch")
 @click.option("--since", "since_str", default=None, help="Override start date YYYY-MM-DD")
 @click.option("--skip-scrape", is_flag=True, help="Use cached Target orders only")
-@click.option("--headed", is_flag=True, help="Run browser with visible window")
+@click.option("--headed/--headless", default=True, help="Run browser with visible window")
 def fetch_cmd(since_str: str | None, skip_scrape: bool, headed: bool) -> None:
     """Scrape Target, match YNAB txns, and write proposals."""
     since_override = date.fromisoformat(since_str) if since_str else None

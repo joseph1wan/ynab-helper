@@ -1,10 +1,13 @@
 from __future__ import annotations
 
 from datetime import date
+from types import SimpleNamespace
 
 import pytest
+from click.testing import CliRunner
 
 from ynab_helper.categorizer import Categorizer
+from ynab_helper.cli import main
 from ynab_helper.matcher import match_orders_to_transactions
 from ynab_helper.models import LineItem, TargetOrder, YnabTransaction
 from ynab_helper.split_calculator import compute_splits, round_to_dollar
@@ -107,3 +110,30 @@ def test_no_match_when_amount_differs(categorizer: Categorizer) -> None:
     assert len(proposals) == 0
     assert len(unmatched_orders) == 1
     assert len(unmatched_txns) == 1
+
+
+def test_fetch_defaults_to_visible_browser(monkeypatch: pytest.MonkeyPatch) -> None:
+    captured: dict[str, object] = {}
+
+    def fake_run_fetch(
+        *, since_override: date | None = None, skip_scrape: bool = False, headless: bool = True
+    ) -> SimpleNamespace:
+        captured["headless"] = headless
+        return SimpleNamespace(
+            proposals=[],
+            unmatched_orders=[],
+            unmatched_transactions=[],
+            since_date=date(2026, 7, 20),
+        )
+
+    monkeypatch.setattr("ynab_helper.cli.run_fetch", fake_run_fetch)
+    monkeypatch.setattr(
+        "ynab_helper.cli.load_config",
+        lambda: {"proposals_path": "data/proposals.json"},
+    )
+
+    runner = CliRunner()
+    result = runner.invoke(main, ["fetch"])
+
+    assert result.exit_code == 0
+    assert captured["headless"] is False
