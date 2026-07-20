@@ -301,12 +301,14 @@ def scrape_target_orders(
         )
         page = context.new_page()
 
+        captcha_detected = False
+
         def on_response(response: Any) -> None:
+            nonlocal captcha_detected
             url = response.url.lower()
             if "captcha" in url:
-                raise RuntimeError(
-                    f"Target blocked the scrape with a captcha challenge: {response.url}"
-                )
+                captcha_detected = True
+                return
             if "order" not in url:
                 return
             try:
@@ -321,7 +323,19 @@ def scrape_target_orders(
                 return
 
         page.on("response", on_response)
-        page.goto(ORDER_HISTORY_URL, wait_until="networkidle", timeout=60000)
+        page.goto(ORDER_HISTORY_URL, wait_until="domcontentloaded", timeout=60000)
+
+        if headless:
+            if captcha_detected:
+                raise RuntimeError(
+                    f"Target blocked the scrape with a captcha challenge: {ORDER_HISTORY_URL}"
+                )
+        else:
+            print("Solve the Target captcha in the browser if prompted, then press Enter here...")
+            input()
+            if captcha_detected:
+                print("Captcha detected; please continue solving it in the browser and then press Enter again...")
+                input()
 
         for _ in range(10):
             page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
