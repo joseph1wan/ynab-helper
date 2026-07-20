@@ -1,0 +1,7 @@
+ynab_token: ${YNAB_TOKEN}
+budget_id: last-used
+payee_pattern: TARGET
+target_auth_path: auth/target.json
+state_path: data/state.json
+proposals_path: data/proposals/latest.json
+initial_since: null

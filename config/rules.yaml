@@ -1,0 +1,6 @@
+rules:
+  - pattern: "diaper|wipes|formula|baby"
+    category: "Baby"
+  - pattern: "milk|cheerios|produce|bread|snack|grocery"
+    category: "Groceries"
+fallback_category: "Shopping"

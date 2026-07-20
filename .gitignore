@@ -1,0 +1,12 @@
+.env
+auth/
+data/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.aider*

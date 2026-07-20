@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YNAB Helper — Review</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; max-width: 960px; color: #1a1a1a; }
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.1rem; margin-top: 2rem; }
+    .meta { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
+    .card.applied { opacity: 0.6; background: #f9f9f9; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid #eee; }
+    .warn { color: #b45309; font-size: 0.85rem; }
+    .unmatched { color: #b91c1c; font-size: 0.85rem; }
+    button { padding: 0.4rem 0.8rem; border-radius: 6px; border: 1px solid #ccc; cursor: pointer; background: #fff; }
+    button.primary { background: #2563eb; color: #fff; border-color: #2563eb; }
+    button.danger { background: #dc2626; color: #fff; border-color: #dc2626; }
+    .actions { margin-top: 0.8rem; display: flex; gap: 0.5rem; }
+    .toolbar { margin-bottom: 1.5rem; display: flex; gap: 0.5rem; align-items: center; }
+  </style>
+</head>
+<body>
+  <h1>Target → YNAB Review</h1>
+  <div class="meta">
+    Fetched {{ data.fetched_at }} · Since {{ data.since_date }} ·
+    {{ data.proposals | length }} matched ·
+    {{ data.unmatched_orders | length }} unmatched orders ·
+    {{ data.unmatched_transactions | length }} unmatched txns
+  </div>
+
+  <div class="toolbar">
+    <form method="post" action="/undo">
+      <button type="submit" class="danger" {% if undo_count == 0 %}disabled{% endif %}>
+        Undo last ({{ undo_count }})
+      </button>
+    </form>
+  </div>
+
+  <h2>Matched proposals</h2>
+  {% for proposal in data.proposals %}
+  <div class="card {% if proposal.status == 'applied' %}applied{% endif %}">
+    <strong>Order {{ proposal.target_order.order_id }}</strong>
+    · {{ proposal.target_order.order_date }}
+    · Target {{ fmt(proposal.target_order.total) }}
+    ↔ YNAB {{ fmt(proposal.ynab_transaction.amount) }}
+    {% if proposal.status == 'applied' %}<em>(applied)</em>{% endif %}
+
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Category</th><th>Rule</th></tr>
+      </thead>
+      <tbody>
+        {% for line in proposal.categorized_lines %}
+        <tr>
+          <td>{{ line.name }}</td>
+          <td>{{ line.category_name }}</td>
+          <td>{{ line.matched_rule or '—' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <table>
+      <thead>
+        <tr><th>Split category</th><th>Amount</th><th>Items</th></tr>
+      </thead>
+      <tbody>
+        {% for split in proposal.splits %}
+        <tr>
+          <td>{{ split.category_name }}</td>
+          <td>{{ fmt(split.amount) }}</td>
+          <td>{{ split.line_items | join(', ') }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    {% if proposal.unmatched_items %}
+    <p class="unmatched">Unmatched items (use Cursor skill): {{ proposal.unmatched_items | map(attribute='name') | join(', ') }}</p>
+    {% endif %}
+
+    {% if proposal.rounding_delta | abs > 1000 %}
+    <p class="warn">Rounding delta: {{ fmt(proposal.rounding_delta) }}</p>
+    {% endif %}
+
+    {% if proposal.status != 'applied' %}
+    <div class="actions">
+      <form method="post" action="/approve/{{ loop.index0 }}">
+        <button type="submit" class="primary">Approve &amp; push to YNAB</button>
+      </form>
+    </div>
+    {% endif %}
+  </div>
+  {% else %}
+  <p>No matched proposals.</p>
+  {% endfor %}
+
+  {% if data.unmatched_orders %}
+  <h2>Unmatched Target orders</h2>
+  {% for order in data.unmatched_orders %}
+  <div class="card">
+    {{ order.order_date }} · {{ fmt(order.total) }} · {{ order.order_id }}
+    <ul>
+      {% for item in order.line_items %}
+      <li>{{ item.name }} ({{ fmt(item.line_total) }})</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+  {% endif %}
+
+  {% if data.unmatched_transactions %}
+  <h2>Unmatched YNAB transactions</h2>
+  {% for txn in data.unmatched_transactions %}
+  <div class="card">
+    {{ txn.date }} · {{ fmt(txn.amount) }} · {{ txn.payee_name }} · {{ txn.id }}
+  </div>
+  {% endfor %}
+  {% endif %}
+</body>
+</html>

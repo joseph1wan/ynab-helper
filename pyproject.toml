@@ -1,0 +1,30 @@
+[project]
+name = "ynab-helper"
+version = "0.1.0"
+description = "Match Target orders to YNAB transactions and propose split categorizations"
+requires-python = ">=3.11"
+dependencies = [
+    "click>=8.1",
+    "fastapi>=0.115",
+    "httpx>=0.28",
+    "jinja2>=3.1",
+    "playwright>=1.49",
+    "pyyaml>=6.0",
+    "uvicorn>=0.32",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+ynab-helper = "ynab_helper.cli:main"
+
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
