@@ -47,13 +47,38 @@ def _to_milliunits(value: float | int | str) -> int:
     return int(value * 1000)
 
 
+def _get_first_value(data: Any, aliases: tuple[str, ...]) -> Any:
+    if isinstance(data, dict):
+        for alias in aliases:
+            if alias in data and data[alias] not in (None, ""):
+                return data[alias]
+        for value in data.values():
+            found = _get_first_value(value, aliases)
+            if found not in (None, ""):
+                return found
+    elif isinstance(data, list):
+        for item in data:
+            found = _get_first_value(item, aliases)
+            if found not in (None, ""):
+                return found
+    return None
+
+
 def _extract_orders_from_payload(payload: Any) -> list[dict[str, Any]]:
     if isinstance(payload, list):
         return [item for item in payload if isinstance(item, dict)]
     if not isinstance(payload, dict):
         return []
 
-    for key in ("orders", "order_history", "items", "results", "data"):
+    for key in (
+        "orders",
+        "order_history",
+        "orderHistory",
+        "items",
+        "results",
+        "data",
+        "orderHistoryItems",
+    ):
         value = payload.get(key)
         if isinstance(value, list):
             return [item for item in value if isinstance(item, dict)]
@@ -69,26 +94,36 @@ def _parse_line_items(raw_items: list[Any]) -> list[LineItem]:
     for raw in raw_items:
         if not isinstance(raw, dict):
             continue
-        name = (
-            raw.get("item_name")
-            or raw.get("description")
-            or raw.get("title")
-            or raw.get("name")
-            or "Unknown item"
+        name = _get_first_value(
+            raw,
+            (
+                "item_name",
+                "itemName",
+                "description",
+                "product_name",
+                "productName",
+                "title",
+                "name",
+            ),
         )
-        quantity = int(raw.get("quantity") or raw.get("qty") or 1)
-        price = (
-            raw.get("line_total")
-            or raw.get("total_price")
-            or raw.get("price")
-            or raw.get("unit_price")
-            or 0
+        quantity = _get_first_value(raw, ("quantity", "qty", "itemQuantity"))
+        price = _get_first_value(
+            raw,
+            (
+                "line_total",
+                "lineTotal",
+                "total_price",
+                "totalPrice",
+                "price",
+                "unit_price",
+                "unitPrice",
+            ),
         )
         items.append(
             LineItem(
-                name=str(name),
-                quantity=quantity,
-                line_total=_to_milliunits(price),
+                name=str(name or "Unknown item"),
+                quantity=int(quantity or 1),
+                line_total=_to_milliunits(price or 0),
             )
         )
     return items
@@ -96,39 +131,54 @@ def _parse_line_items(raw_items: list[Any]) -> list[LineItem]:
 
 def parse_target_order(raw: dict[str, Any]) -> TargetOrder | None:
     order_id = str(
-        raw.get("order_id")
-        or raw.get("orderNumber")
-        or raw.get("id")
-        or raw.get("order_number")
+        _get_first_value(
+            raw,
+            ("order_id", "orderId", "orderNumber", "id", "order_number"),
+        )
         or ""
     )
     if not order_id:
         return None
 
-    date_raw = (
-        raw.get("order_date")
-        or raw.get("orderDate")
-        or raw.get("placed_date")
-        or raw.get("date")
-        or ""
+    date_raw = _get_first_value(
+        raw,
+        (
+            "order_date",
+            "orderDate",
+            "placed_date",
+            "placedDate",
+            "date",
+            "createdDate",
+        ),
     )
     if not date_raw:
         return None
 
-    line_items_raw = (
-        raw.get("line_items")
-        or raw.get("items")
-        or raw.get("order_lines")
-        or raw.get("products")
-        or []
+    line_items_raw = _get_first_value(
+        raw,
+        (
+            "line_items",
+            "lineItems",
+            "items",
+            "order_lines",
+            "orderLines",
+            "products",
+            "productItems",
+        ),
     )
     line_items = _parse_line_items(line_items_raw)
 
-    total_raw = (
-        raw.get("order_total")
-        or raw.get("total")
-        or raw.get("grand_total")
-        or raw.get("amount")
+    total_raw = _get_first_value(
+        raw,
+        (
+            "order_total",
+            "orderTotal",
+            "total",
+            "grand_total",
+            "grandTotal",
+            "amount",
+            "orderAmount",
+        ),
     )
     if total_raw is None and line_items:
         total_raw = sum(item.line_total for item in line_items)
@@ -140,12 +190,15 @@ def parse_target_order(raw: dict[str, Any]) -> TargetOrder | None:
         order_date=_parse_date(str(date_raw)),
         total=_to_milliunits(total_raw),
         line_items=line_items,
-        tax=_to_milliunits(raw.get("tax") or raw.get("tax_total") or 0),
+        tax=_to_milliunits(
+            _get_first_value(raw, ("tax", "tax_total", "taxTotal")) or 0
+        ),
         shipping=_to_milliunits(
-            raw.get("shipping") or raw.get("shipping_total") or 0
+            _get_first_value(raw, ("shipping", "shipping_total", "shippingTotal"))
+            or 0
         ),
         fees=_to_milliunits(
-            raw.get("fees") or raw.get("bag_fee") or raw.get("bagFee") or 0
+            _get_first_value(raw, ("fees", "bag_fee", "bagFee", "feeTotal")) or 0
         ),
     )
 
