@@ -274,7 +274,7 @@ def scrape_target_orders(
     auth_path: Path,
     since_date: date,
     output_dir: Path,
-    headless: bool = True,
+    headless: bool = False,
 ) -> list[TargetOrder]:
     if not auth_path.exists():
         raise FileNotFoundError(
@@ -303,6 +303,10 @@ def scrape_target_orders(
 
         def on_response(response: Any) -> None:
             url = response.url.lower()
+            if "captcha" in url:
+                raise RuntimeError(
+                    f"Target blocked the scrape with a captcha challenge: {response.url}"
+                )
             if "order" not in url:
                 return
             try:
