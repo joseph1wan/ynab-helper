@@ -91,21 +91,61 @@ def _extract_orders_from_payload(payload: Any) -> list[dict[str, Any]]:
 
 def _parse_line_items(raw_items: list[Any]) -> list[LineItem]:
     items: list[LineItem] = []
+    if not isinstance(raw_items, list):
+        return items
+
     for raw in raw_items:
         if not isinstance(raw, dict):
             continue
-        name = _get_first_value(
+
+        candidate_names = []
+        for key in (
+            "item_name",
+            "itemName",
+            "description",
+            "product_name",
+            "productName",
+            "title",
+            "name",
+            "displayName",
+            "display_name",
+        ):
+            if key in raw and raw[key] not in (None, ""):
+                candidate_names.append(raw[key])
+
+        nested_name = _get_first_value(
             raw,
-            (
-                "item_name",
-                "itemName",
-                "description",
-                "product_name",
-                "productName",
-                "title",
-                "name",
-            ),
+            ("item_name", "itemName", "product_name", "productName", "name"),
         )
+        if nested_name not in (None, ""):
+            candidate_names.append(nested_name)
+
+        name = None
+        for candidate in candidate_names:
+            if isinstance(candidate, str) and candidate.upper() not in {
+                "ORDER_PICKED_UP",
+                "DELIVERED",
+                "REFUND_ISSUED",
+                "UNKNOWN ITEM",
+            }:
+                name = candidate
+                break
+        if not name:
+            name = _get_first_value(
+                raw,
+                (
+                    "item_name",
+                    "itemName",
+                    "description",
+                    "product_name",
+                    "productName",
+                    "title",
+                    "name",
+                    "displayName",
+                    "display_name",
+                ),
+            )
+
         quantity = _get_first_value(raw, ("quantity", "qty", "itemQuantity"))
         price = _get_first_value(
             raw,
@@ -119,6 +159,16 @@ def _parse_line_items(raw_items: list[Any]) -> list[LineItem]:
                 "unitPrice",
             ),
         )
+        if not price:
+            amount_candidates = [
+                _get_first_value(raw, ("amount", "unitAmount", "itemAmount")),
+                _get_first_value(raw, ("value", "cost", "total")),
+            ]
+            for amount in amount_candidates:
+                if amount not in (None, ""):
+                    price = amount
+                    break
+
         items.append(
             LineItem(
                 name=str(name or "Unknown item"),
@@ -234,6 +284,8 @@ def scrape_target_orders(
 
     output_dir.mkdir(parents=True, exist_ok=True)
     captured: list[dict[str, Any]] = []
+    debug_dir = output_dir / "debug"
+    debug_dir.mkdir(parents=True, exist_ok=True)
     launch_kwargs = _build_browser_launch_kwargs(headless=headless)
     profile_root = Path(launch_kwargs["args"][0].split("=", 1)[1])
     browser_args = [
@@ -258,6 +310,9 @@ def scrape_target_orders(
                     return
                 body = response.json()
                 captured.append(body)
+                payload_path = debug_dir / f"response_{len(captured):03d}.json"
+                with payload_path.open("w") as f:
+                    json.dump(body, f, indent=2)
             except Exception:
                 return
 
