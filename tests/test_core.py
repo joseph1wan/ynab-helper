@@ -116,7 +116,11 @@ def test_fetch_defaults_to_visible_browser(monkeypatch: pytest.MonkeyPatch) -> N
     captured: dict[str, object] = {}
 
     def fake_run_fetch(
-        *, since_override: date | None = None, skip_scrape: bool = False, headless: bool = True
+        *,
+        since_override: date | None = None,
+        skip_scrape: bool = False,
+        headless: bool = True,
+        debug_pause: bool = False,
     ) -> SimpleNamespace:
         captured["headless"] = headless
         return SimpleNamespace(

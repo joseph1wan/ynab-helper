@@ -5,6 +5,7 @@ import re
 from datetime import date, datetime
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 from playwright.sync_api import Page, sync_playwright
 
@@ -25,6 +26,13 @@ def _build_browser_launch_kwargs(
             "--profile-directory=Default",
         ],
     }
+
+
+def _pause_for_debug(step_name: str, enabled: bool = False) -> None:
+    if not enabled:
+        return
+    print(f"[debug] {step_name} — press Enter to continue...")
+    input()
 
 
 def _parse_date(value: str) -> date:
@@ -298,6 +306,7 @@ def scrape_target_orders(
     since_date: date,
     output_dir: Path,
     headless: bool = False,
+    debug_pause: bool = False,
 ) -> list[TargetOrder]:
     if not auth_path.exists():
         raise FileNotFoundError(
@@ -332,11 +341,13 @@ def scrape_target_orders(
             if "captcha" in url:
                 captcha_detected = True
                 return
-            if "order" not in url:
-                return
+
             try:
-                if "json" not in (response.headers.get("content-type") or ""):
+                content_type = response.headers.get("content-type") or ""
+                is_json = "json" in content_type.lower()
+                if not is_json:
                     return
+
                 body = response.json()
                 captured.append(body)
                 payload_path = debug_dir / f"response_{len(captured):03d}.json"
@@ -348,15 +359,20 @@ def scrape_target_orders(
         page.on("response", on_response)
         page.goto(ORDER_HISTORY_URL, wait_until="domcontentloaded", timeout=60000)
 
+        _pause_for_debug("after opening Target order history", enabled=debug_pause)
+
         if not headless:
             print("Solve any Target captcha in the browser, then press Enter here...")
             input()
+        else:
+            _pause_for_debug("after solving captcha", enabled=debug_pause)
 
         if captcha_detected and headless:
             raise RuntimeError(
                 f"Target blocked the scrape with a captcha challenge: {ORDER_HISTORY_URL}"
             )
 
+        _pause_for_debug("before loading more orders", enabled=debug_pause)
         for _ in range(10):
             page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
             page.wait_for_timeout(1500)
@@ -372,6 +388,7 @@ def scrape_target_orders(
             else:
                 break
 
+        _pause_for_debug("before capturing invoice pages", enabled=debug_pause)
         # Capture invoice pages linked from the orders list so we have the
         # printable HTML available for offline parsing.
         try:
@@ -408,6 +425,8 @@ def scrape_target_orders(
         except Exception:
             pass
         context.close()
+
+    _pause_for_debug("after scraper finishes", enabled=debug_pause)
 
     orders = _collect_orders_from_responses(captured, since_date)
     for order in orders:

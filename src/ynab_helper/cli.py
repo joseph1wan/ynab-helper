@@ -55,13 +55,15 @@ def sync_categories() -> None:
 @click.option("--since", "since_str", default=None, help="Override start date YYYY-MM-DD")
 @click.option("--skip-scrape", is_flag=True, help="Use cached Target orders only")
 @click.option("--headed/--headless", default=True, help="Run browser with visible window")
-def fetch_cmd(since_str: str | None, skip_scrape: bool, headed: bool) -> None:
+@click.option("--debug-pause", is_flag=True, help="Pause after each scraper step until Enter is pressed")
+def fetch_cmd(since_str: str | None, skip_scrape: bool, headed: bool, debug_pause: bool) -> None:
     """Scrape Target, match YNAB txns, and write proposals."""
     since_override = date.fromisoformat(since_str) if since_str else None
     result = run_fetch(
         since_override=since_override,
         skip_scrape=skip_scrape,
         headless=not headed,
+        debug_pause=debug_pause,
     )
     click.echo(
         f"Fetched since {result.since_date}: "

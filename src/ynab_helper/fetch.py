@@ -102,6 +102,7 @@ def run_fetch(
     since_override: date | None = None,
     skip_scrape: bool = False,
     headless: bool = True,
+    debug_pause: bool = False,
 ) -> FetchResult:
     config = load_config()
     token = config.get("ynab_token", "")
@@ -127,7 +128,11 @@ def run_fetch(
             orders = load_cached_orders(orders_dir, since_date)
         else:
             orders = scrape_target_orders(
-                target_auth, since_date, orders_dir, headless=headless
+                target_auth,
+                since_date,
+                orders_dir,
+                headless=headless,
+                debug_pause=debug_pause,
             )
 
         transactions = client.get_uncategorized_target_transactions(

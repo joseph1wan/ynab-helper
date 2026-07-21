@@ -3,6 +3,7 @@ from __future__ import annotations
 from datetime import date
 from pathlib import Path
 
+import ynab_helper.target_scraper as target_scraper
 from ynab_helper.target_scraper import _build_browser_launch_kwargs, parse_target_order
 
 
@@ -39,3 +40,15 @@ def test_parse_target_order_supports_camel_case_keys() -> None:
     assert order.total == 12345
     assert [item.name for item in order.line_items] == ["Milk", "Bread"]
     assert order.line_items[0].line_total == 6150
+
+
+def test_pause_for_debug_only_when_enabled(monkeypatch: pytest.MonkeyPatch) -> None:
+    calls: list[str] = []
+
+    monkeypatch.setattr("builtins.input", lambda: calls.append("called") or "")
+
+    target_scraper._pause_for_debug("open Target", enabled=False)
+    assert calls == []
+
+    target_scraper._pause_for_debug("open Target", enabled=True)
+    assert calls == ["called"]
