@@ -42,6 +42,29 @@ def test_parse_target_order_supports_camel_case_keys() -> None:
     assert order.line_items[0].line_total == 6150
 
 
+def test_parse_invoice_html_line_items() -> None:
+    html = """
+    <div class="styles_infoRow__k6eLr">
+      <div>
+        <p>Item</p>
+        <b><p class="h-padding-v-tiny">94844694 - Baby 4pk Moon Short Sleeve Bodysuit - Cloud Island™ Gray 6-9</p></b>
+      </div>
+      <div class="styles_spaceBetweenDiv__bpE2M">
+        <div class="styles_innerDiv__ds__L" data-test="item-quantity"><div>Qty.</div><div><b>1</b></div></div>
+        <div class="styles_innerDiv__ds__L">Unit price<b>$12.00</b></div>
+        <div class="styles_innerDiv__ds__L">Amount<b>$12.00</b></div>
+      </div>
+    </div>
+    """
+
+    items = target_scraper._parse_invoice_html_line_items(html)
+
+    assert len(items) == 1
+    assert items[0].name == "Baby 4pk Moon Short Sleeve Bodysuit - Cloud Island™ Gray 6-9"
+    assert items[0].quantity == 1
+    assert items[0].line_total == 12000
+
+
 def test_pause_for_debug_only_when_enabled(monkeypatch: pytest.MonkeyPatch) -> None:
     calls: list[str] = []
 
