@@ -109,29 +109,46 @@ def _parse_line_items(raw_items: list[Any]) -> list[LineItem]:
             "name",
             "displayName",
             "display_name",
+            "productDisplayName",
+            "productDisplayName",
+            "itemDisplayName",
         ):
             if key in raw and raw[key] not in (None, ""):
                 candidate_names.append(raw[key])
 
         nested_name = _get_first_value(
             raw,
-            ("item_name", "itemName", "product_name", "productName", "name"),
+            (
+                "item_name",
+                "itemName",
+                "product_name",
+                "productName",
+                "productDisplayName",
+                "itemDisplayName",
+                "name",
+            ),
         )
         if nested_name not in (None, ""):
             candidate_names.append(nested_name)
 
         name = None
         for candidate in candidate_names:
-            if isinstance(candidate, str) and candidate.upper() not in {
-                "ORDER_PICKED_UP",
-                "DELIVERED",
-                "REFUND_ISSUED",
-                "UNKNOWN ITEM",
-            }:
+            if isinstance(candidate, str) and candidate.strip():
+                normalized = candidate.upper()
+                if normalized in {
+                    "ORDER_PICKED_UP",
+                    "DELIVERED",
+                    "REFUND_ISSUED",
+                    "UNKNOWN ITEM",
+                    "UNKNOWN",
+                }:
+                    continue
+                if any(word in normalized for word in ("ITEM", "PRODUCT", "SKU")):
+                    continue
                 name = candidate
                 break
         if not name:
-            name = _get_first_value(
+            fallback = _get_first_value(
                 raw,
                 (
                     "item_name",
@@ -143,8 +160,14 @@ def _parse_line_items(raw_items: list[Any]) -> list[LineItem]:
                     "name",
                     "displayName",
                     "display_name",
+                    "productDisplayName",
+                    "itemDisplayName",
                 ),
             )
+            if isinstance(fallback, str) and fallback.strip():
+                name = fallback
+            else:
+                name = "Unknown item"
 
         quantity = _get_first_value(raw, ("quantity", "qty", "itemQuantity"))
         price = _get_first_value(
@@ -349,6 +372,41 @@ def scrape_target_orders(
             else:
                 break
 
+        # Capture invoice pages linked from the orders list so we have the
+        # printable HTML available for offline parsing.
+        try:
+            anchors = page.locator('a[href*="/orders/"][href*="/invoices/"]')
+            count = anchors.count()
+            for idx in range(count):
+                try:
+                    href = anchors.nth(idx).get_attribute("href")
+                    if not href:
+                        continue
+                    parsed = urlparse(href)
+                    parts = parsed.path.split("/")
+                    order_id = parts[2] if len(parts) > 2 else f"order{idx+1}"
+                    invoice_id = parts[4] if len(parts) > 4 else f"{idx+1}"
+                    full = href if href.startswith("http") else f"https://www.target.com{href}"
+
+                    invoice_path = debug_dir / f"{order_id}_invoice_{invoice_id}.html"
+                    new_page = context.new_page()
+                    try:
+                        new_page.goto(full, wait_until="domcontentloaded", timeout=60000)
+                        html = new_page.content()
+                        with invoice_path.open("w") as f:
+                            f.write(html)
+                    except Exception:
+                        # ignore individual invoice failures but continue
+                        pass
+                    finally:
+                        try:
+                            new_page.close()
+                        except Exception:
+                            pass
+                except Exception:
+                    continue
+        except Exception:
+            pass
         context.close()
 
     orders = _collect_orders_from_responses(captured, since_date)
