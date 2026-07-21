@@ -65,6 +65,22 @@ def test_parse_invoice_html_line_items() -> None:
     assert items[0].line_total == 12000
 
 
+def test_parse_invoice_html_uses_each_rows_own_amount() -> None:
+    html = """
+    <div class="styles_infoRow__one"><p>Item</p><p>111 - Apples</p>
+      <div>Qty.</div><div><b>2</b></div><div>Amount<b>$3.50</b></div></div>
+    <div class="styles_infoRow__two"><p>Item</p><p>222 - Bread</p>
+      <div>Qty.</div><div><b>1</b></div><div>Amount<b>$4.25</b></div></div>
+    """
+
+    items = target_scraper._parse_invoice_html_line_items(html)
+
+    assert [(item.name, item.quantity, item.line_total) for item in items] == [
+        ("Apples", 2, 3500),
+        ("Bread", 1, 4250),
+    ]
+
+
 def test_pause_for_debug_only_when_enabled(monkeypatch: pytest.MonkeyPatch) -> None:
     calls: list[str] = []
 
@@ -75,3 +91,25 @@ def test_pause_for_debug_only_when_enabled(monkeypatch: pytest.MonkeyPatch) -> N
 
     target_scraper._pause_for_debug("open Target", enabled=True)
     assert calls == ["called"]
+
+
+def test_reached_cutoff_when_loaded_page_contains_an_older_order() -> None:
+    responses = [
+        {
+            "orders": [
+                {"orderId": "recent", "orderDate": "2026-07-20", "orderTotal": "1"},
+                {"orderId": "older", "orderDate": "2026-07-18", "orderTotal": "1"},
+            ]
+        }
+    ]
+
+    assert target_scraper._reached_cutoff(responses, date(2026, 7, 19))
+
+
+def test_reached_cutoff_ignores_non_order_responses_and_recent_orders() -> None:
+    responses = [
+        {"data": {"status": "ok"}},
+        {"orders": [{"orderId": "recent", "orderDate": "2026-07-20", "orderTotal": "1"}]},
+    ]
+
+    assert not target_scraper._reached_cutoff(responses, date(2026, 7, 19))

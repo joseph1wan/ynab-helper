@@ -118,15 +118,14 @@ def test_fetch_defaults_to_visible_browser(monkeypatch: pytest.MonkeyPatch) -> N
     def fake_run_fetch(
         *,
         since_override: date | None = None,
+        overwrite: bool = False,
         skip_scrape: bool = False,
         headless: bool = True,
         debug_pause: bool = False,
     ) -> SimpleNamespace:
         captured["headless"] = headless
         return SimpleNamespace(
-            proposals=[],
-            unmatched_orders=[],
-            unmatched_transactions=[],
+            orders=[],
             since_date=date(2026, 7, 20),
         )
 

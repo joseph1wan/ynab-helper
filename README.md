@@ -22,8 +22,11 @@ ynab-helper sync-categories
 # One-time: log in to Target (manual MFA in browser)
 ynab-helper target-login
 
-# Fetch orders, match, and write proposals
+# Fetch and save Target orders/invoices
 ynab-helper fetch
+
+# Match saved orders to YNAB and write proposals
+ynab-helper propose
 
 # Review and approve in browser
 ynab-helper review

@@ -9,7 +9,7 @@ from typing import Any
 from ynab_helper.categorizer import Categorizer
 from ynab_helper.config import load_config, resolve_path
 from ynab_helper.matcher import match_orders_to_transactions
-from ynab_helper.models import FetchResult, LineItem, MatchProposal, TargetOrder, YnabTransaction
+from ynab_helper.models import FetchResult, LineItem, MatchProposal, ScrapeResult, TargetOrder, YnabTransaction
 from ynab_helper.state import mark_fetch_success, resolve_since_date
 from ynab_helper.target_scraper import load_cached_orders, scrape_target_orders
 from ynab_helper.ynab_client import YnabClient
@@ -100,17 +100,17 @@ def load_proposals(path: Path) -> dict[str, Any]:
 
 def run_fetch(
     since_override: date | None = None,
+    overwrite: bool = False,
     skip_scrape: bool = False,
     headless: bool = True,
     debug_pause: bool = False,
-) -> FetchResult:
+) -> ScrapeResult:
     config = load_config()
     token = config.get("ynab_token", "")
     if not token:
         raise ValueError("YNAB_TOKEN not set. Add it to .env or config/config.yaml")
 
     state_path = resolve_path(config["state_path"])
-    proposals_path = resolve_path(config["proposals_path"])
     target_auth = resolve_path(config["target_auth_path"])
     orders_dir = resolve_path("data/target-orders")
     payee_pattern = config.get("payee_pattern", "TARGET")
@@ -122,6 +122,7 @@ def run_fetch(
             config.get("initial_since"),
             since_override,
             bootstrap_date,
+            overwrite=overwrite,
         )
 
         if skip_scrape:
@@ -135,15 +136,37 @@ def run_fetch(
                 debug_pause=debug_pause,
             )
 
+    result = ScrapeResult(
+        orders=orders,
+        since_date=since_date,
+        fetched_at=datetime.now(timezone.utc),
+    )
+    mark_fetch_success(state_path, since_date, is_first_run)
+    return result
+
+
+def run_propose(since_override: date | None = None) -> FetchResult:
+    """Match saved Target orders to YNAB and write review proposals."""
+    config = load_config()
+    token = config.get("ynab_token", "")
+    if not token:
+        raise ValueError("YNAB_TOKEN not set. Add it to .env or config/config.yaml")
+
+    orders_dir = resolve_path("data/target-orders")
+    all_orders = load_cached_orders(orders_dir, date.min)
+    if not all_orders:
+        raise ValueError("No saved Target orders found. Run fetch first.")
+    since_date = since_override or min(order.order_date for order in all_orders)
+    orders = [order for order in all_orders if order.order_date >= since_date]
+
+    with YnabClient(token, config.get("budget_id", "last-used")) as client:
         transactions = client.get_uncategorized_target_transactions(
-            payee_pattern, since_date=since_date
+            config.get("payee_pattern", "TARGET"), since_date=since_date
         )
 
-    categorizer = Categorizer()
     proposals, unmatched_orders, unmatched_transactions = match_orders_to_transactions(
-        orders, transactions, categorizer
+        orders, transactions, Categorizer()
     )
-
     result = FetchResult(
         proposals=proposals,
         unmatched_orders=unmatched_orders,
@@ -151,7 +174,5 @@ def run_fetch(
         since_date=since_date,
         fetched_at=datetime.now(timezone.utc),
     )
-
-    save_proposals(proposals_path, result)
-    mark_fetch_success(state_path, since_date, is_first_run)
+    save_proposals(resolve_path(config["proposals_path"]), result)
     return result

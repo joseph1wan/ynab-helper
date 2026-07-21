@@ -78,3 +78,10 @@ class FetchResult:
     unmatched_transactions: list[YnabTransaction]
     since_date: date
     fetched_at: datetime
+
+
+@dataclass
+class ScrapeResult:
+    orders: list[TargetOrder]
+    since_date: date
+    fetched_at: datetime

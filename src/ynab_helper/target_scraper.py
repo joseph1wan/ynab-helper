@@ -6,13 +6,16 @@ from datetime import date, datetime
 from html import unescape
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
 
 from playwright.sync_api import Page, sync_playwright
 
 from ynab_helper.models import LineItem, TargetOrder
 
 ORDER_HISTORY_URL = "https://www.target.com/orders"
+INVOICE_LINK_SELECTOR = 'a[href*="invoice" i], a[href*="receipt" i]'
+INVOICE_BUTTON_NAME = re.compile(
+    r"(?:view |download |print )?(?:invoice|receipt)", re.I
+)
 
 
 def _build_browser_launch_kwargs(
@@ -34,6 +37,36 @@ def _pause_for_debug(step_name: str, enabled: bool = False) -> None:
         return
     print(f"[debug] {step_name} — press Enter to continue...")
     input()
+
+
+def _is_auth_interstitial(page: Page) -> bool:
+    try:
+        if "/login" in page.url:
+            return True
+        body_text = page.locator("body").inner_text(timeout=1000).lower()
+        return any(
+            phrase in body_text
+            for phrase in (
+                "sign in to your account",
+                "verify you are human",
+                "security check",
+            )
+        )
+    except Exception:
+        return False
+
+
+def _wait_for_captcha_clearance(page: Page, detected: bool) -> None:
+    if not detected and not _is_auth_interstitial(page):
+        return
+
+    print("Target sign-in challenge detected. Sign in in Chrome, then press Enter to continue...")
+    input()
+    # Let Target complete the post-captcha/login navigation before the next
+    # capture or selector lookup.
+    page.wait_for_timeout(750)
+    if _is_auth_interstitial(page):
+        raise RuntimeError("Target sign-in page is still present after confirmation")
 
 
 def _parse_date(value: str) -> date:
@@ -104,63 +137,40 @@ def _parse_invoice_html_line_items(html: str) -> list[LineItem]:
         return items
 
     text = unescape(html)
-    plain_text = re.sub(r"<[^>]+>", " ", text)
-    plain_text = re.sub(r"\s+", " ", plain_text).strip()
-    matches = re.finditer(
-        r"<p[^>]*>(.*?)</p>",
+    row_matches = re.finditer(
+        r'<div[^>]*class="[^"]*styles_infoRow[^"]*"[^>]*>(.*?)(?=<div[^>]*class="[^"]*styles_infoRow|$)',
         text,
         flags=re.IGNORECASE | re.DOTALL,
     )
-    paragraphs = [m.group(1) for m in matches]
-    if not paragraphs:
-        return items
-
-    for paragraph in paragraphs:
-        cleaned = re.sub(r"<[^>]+>", " ", paragraph)
-        cleaned = re.sub(r"\s+", " ", cleaned).strip()
-        if not cleaned:
+    for row_match in row_matches:
+        row_html = row_match.group(1)
+        paragraphs = [
+            re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", match.group(1))).strip()
+            for match in re.finditer(r"<p[^>]*>(.*?)</p>", row_html, re.IGNORECASE | re.DOTALL)
+        ]
+        names = [
+            value
+            for value in paragraphs
+            if value and value.lower() not in {"item", "qty.", "unit price", "amount"}
+        ]
+        if not names:
             continue
-        if cleaned.lower().startswith(("item", "qty.", "unit price", "amount", "invoice total")):
-            continue
 
-        quantity_match = re.search(r"qty\.\s*(\d+)", cleaned, flags=re.IGNORECASE)
+        name = re.sub(r"^\d+\s*-\s*", "", names[0]).strip()
+        quantity_match = re.search(r"qty\.\s*</?[^>]*>?.{0,80}?\b(\d+)\b", row_html, re.IGNORECASE | re.DOTALL)
         quantity = int(quantity_match.group(1)) if quantity_match else 1
-        amount_match = re.search(r"(?i)\bamount\b.*?\$(\d+(?:\.\d{1,2})?)", plain_text)
+        amount_match = re.search(
+            r"amount.*?\$(\d+(?:\.\d{1,2})?)", row_html, re.IGNORECASE | re.DOTALL
+        )
         if not amount_match:
-            amount_match = re.search(r"\$(\d+(?:\.\d{1,2})?)", cleaned)
-        line_total = 0
-        if amount_match and "unit price" not in cleaned.lower() and not re.search(r"\bqty\.\b", cleaned, flags=re.IGNORECASE):
-            line_total = _to_milliunits(amount_match.group(1))
-        elif re.search(r"\bamount\b", cleaned, flags=re.IGNORECASE):
-            if amount_match:
-                line_total = _to_milliunits(amount_match.group(1))
-
-        if "-" in cleaned and not cleaned.lower().startswith("invoice"):
-            name = cleaned
-            if quantity_match:
-                name = re.sub(r"\s+qty\.\s*\d+", "", name, flags=re.IGNORECASE)
-            name = re.sub(r"\s+\$\d+(?:\.\d{1,2})?", "", name)
-            name = re.sub(r"^\d+\s*-\s*", "", name)
-            name = re.sub(r"\s+\d+(?:\.\d{1,2})?(?=$)", "", name)
-            name = re.sub(r"\s+\d+(?:\.\d{1,2})?\s*$", "", name)
-            name = re.sub(r"\bqty\.\b", "", name, flags=re.IGNORECASE)
-            name = name.strip(" -")
-            if name:
-                items.append(LineItem(name=name, quantity=quantity, line_total=line_total))
-                continue
-
-    if not items:
-        for paragraph in paragraphs:
-            cleaned = re.sub(r"<[^>]+>", " ", paragraph)
-            cleaned = re.sub(r"\s+", " ", cleaned).strip()
-            if not cleaned:
-                continue
-            if cleaned.lower().startswith(("item", "qty.", "unit price", "amount", "invoice total")):
-                continue
-            amount_match = re.search(r"\$(\d+(?:\.\d{1,2})?)", cleaned)
-            if amount_match:
-                items.append(LineItem(name=cleaned, quantity=1, line_total=_to_milliunits(amount_match.group(1))))
-                break
+            continue
+        items.append(
+            LineItem(
+                name=name,
+                quantity=quantity,
+                line_total=_to_milliunits(amount_match.group(1)),
+            )
+        )
 
     return items
 
@@ -352,44 +362,143 @@ def parse_target_order(raw: dict[str, Any]) -> TargetOrder | None:
     )
 
 
-def _capture_view_invoice_pages(
+def _capture_order_invoice_pages(
     page: Page,
     context: Any,
     debug_dir: Path,
     order_history_url: str,
+    eligible_order_ids: set[str],
+    debug_pause: bool = False,
+    ensure_captcha_clearance: Any | None = None,
 ) -> None:
-    anchors = page.locator('a[href*="/invoices/"]')
-    count = anchors.count()
-    for idx in range(count):
-        try:
-            anchor = anchors.nth(idx)
-            href = anchor.get_attribute("href") or ""
-            if not href:
-                continue
+    """Open each order detail page, then capture its invoice or receipt page."""
+    order_links = page.locator(
+        'a[data-test="order-details-link"] a[href^="/orders/"], '
+        'a[href^="/orders/"]:has-text("View purchase")'
+    )
+    order_hrefs = [
+        href
+        for idx in range(order_links.count())
+        if (href := order_links.nth(idx).get_attribute("href"))
+    ]
 
-            anchor.scroll_into_view_if_needed()
-            anchor.click(timeout=10000)
-            page.wait_for_timeout(2000)
+    eligible_hrefs = [
+        href
+        for href in dict.fromkeys(order_hrefs)
+        if href.rstrip("/").split("/")[-1] in eligible_order_ids
+    ]
+    print(f"Opening invoices for {len(eligible_hrefs)} orders in the date window")
+
+    for idx, order_href in enumerate(eligible_hrefs, start=1):
+        order_id = order_href.rstrip("/").split("/")[-1]
+        try:
+            if ensure_captcha_clearance:
+                ensure_captcha_clearance(page)
+            _pause_for_debug(
+                f"before opening order {idx} of {len(eligible_hrefs)} ({order_id})",
+                enabled=debug_pause,
+            )
+            order_link = page.locator(f'a[href="{order_href}"]').first
+            order_link.scroll_into_view_if_needed()
+            before_pages = list(context.pages)
+            order_link.click(timeout=10000)
 
             target_page = page
-            before_pages = list(context.pages)
             if len(context.pages) > len(before_pages):
                 target_page = [p for p in context.pages if p not in before_pages][-1]
             target_page.wait_for_load_state("domcontentloaded", timeout=10000)
+            if ensure_captcha_clearance:
+                ensure_captcha_clearance(target_page)
+            # Wait only for the control we need. Target leaves unrelated
+            # placeholder elements in the DOM after order data is available.
+            try:
+                target_page.locator(INVOICE_LINK_SELECTOR).first.wait_for(
+                    state="attached", timeout=3000
+                )
+            except Exception:
+                pass
 
-            parsed = urlparse(href)
-            path_parts = [part for part in parsed.path.split("/") if part]
-            order_id = path_parts[1] if len(path_parts) > 1 else f"order_{idx + 1}"
-            invoice_id = path_parts[-1] if path_parts else f"invoice_{idx + 1}"
-            invoice_path = debug_dir / f"invoice_{order_id}_{invoice_id}.html"
-            with invoice_path.open("w") as f:
+            detail_path = debug_dir / f"order_{order_id}.html"
+            with detail_path.open("w") as f:
                 f.write(target_page.content())
 
-            if target_page is not page:
-                target_page.close()
+            invoice_links = target_page.locator(INVOICE_LINK_SELECTOR)
+            invoice_buttons = target_page.get_by_role("button", name=INVOICE_BUTTON_NAME)
+            matching_controls = target_page.locator(
+                'a, button'
+            ).evaluate_all(
+                """elements => elements
+                    .map(element => ({
+                        tag: element.tagName.toLowerCase(),
+                        text: (element.innerText || element.getAttribute('aria-label') || '').trim(),
+                        href: element.getAttribute('href') || '',
+                    }))
+                    .filter(element => /invoice|receipt/i.test(`${element.text} ${element.href}`))"""
+            )
+            print(
+                f"Invoice search for {order_id}: selector {INVOICE_LINK_SELECTOR!r} "
+                f"matched {invoice_links.count()} link(s); button-name regex "
+                f"matched {invoice_buttons.count()} button(s); candidates={matching_controls}"
+            )
+            if invoice_links.count() > 0:
+                invoice_control = invoice_links.first
+            elif invoice_buttons.count() > 0:
+                invoice_control = invoice_buttons.first
             else:
+                print(
+                    f"No invoice or receipt control found for order {order_id}; "
+                    f"saved rendered detail HTML to {detail_path}"
+                )
+                _pause_for_debug(
+                    f"after invoice search for {order_id} (no control found)",
+                    enabled=debug_pause,
+                )
+                if target_page is not page:
+                    target_page.close()
+                else:
+                    page.goto(order_history_url, wait_until="domcontentloaded", timeout=60000)
+                continue
+
+            invoice_href = invoice_control.get_attribute("href") or ""
+            invoice_id = invoice_href.rstrip("/").split("/")[-1]
+            before_pages = list(context.pages)
+            invoice_control.click(timeout=10000)
+            page.wait_for_timeout(1500)
+            invoice_page = page
+            if len(context.pages) > len(before_pages):
+                invoice_page = [p for p in context.pages if p not in before_pages][-1]
+            invoice_page.wait_for_load_state("domcontentloaded", timeout=10000)
+            if ensure_captcha_clearance:
+                ensure_captcha_clearance(invoice_page)
+            if invoice_href and invoice_page.url.rstrip("/") != (
+                f"https://www.target.com{invoice_href}".rstrip("/")
+            ):
+                invoice_page.goto(
+                    f"https://www.target.com{invoice_href}",
+                    wait_until="domcontentloaded",
+                    timeout=60000,
+                )
+            invoice_page.wait_for_load_state("domcontentloaded", timeout=10000)
+
+            invoice_path = debug_dir / f"invoice_{order_id}_{invoice_id}.html"
+            with invoice_path.open("w") as f:
+                f.write(invoice_page.content())
+            print(f"Saved invoice page to {invoice_path}")
+            _pause_for_debug(
+                f"after invoice search/open for order {idx} of {len(eligible_hrefs)}",
+                enabled=debug_pause,
+            )
+
+            if invoice_page is not page:
+                invoice_page.close()
+            if target_page is not page and target_page is not invoice_page:
+                target_page.close()
+            if page.url != order_history_url:
                 page.goto(order_history_url, wait_until="domcontentloaded", timeout=60000)
         except Exception:
+            print(f"Could not capture invoice for order {order_id}")
+            if page.url != order_history_url:
+                page.goto(order_history_url, wait_until="domcontentloaded", timeout=60000)
             continue
 
 
@@ -430,6 +539,17 @@ def _collect_orders_from_responses(
     return sorted(orders, key=lambda o: o.order_date)
 
 
+def _reached_cutoff(responses: list[dict[str, Any]], since_date: date) -> bool:
+    """Whether a just-loaded order page reaches beyond the desired window."""
+    page_dates = [
+        order.order_date
+        for payload in responses
+        for raw in _extract_orders_from_payload(payload)
+        if (order := parse_target_order(raw)) is not None
+    ]
+    return bool(page_dates) and min(page_dates) < since_date
+
+
 def scrape_target_orders(
     auth_path: Path,
     since_date: date,
@@ -462,13 +582,9 @@ def scrape_target_orders(
         )
         page = context.new_page()
 
-        captcha_detected = False
-
         def on_response(response: Any) -> None:
-            nonlocal captcha_detected
             url = response.url.lower()
             if "captcha" in url:
-                captcha_detected = True
                 return
 
             try:
@@ -486,25 +602,40 @@ def scrape_target_orders(
                 return
 
         page.on("response", on_response)
+
+        def ensure_captcha_clearance(active_page: Page) -> None:
+            """Pause for every headed captcha, regardless of debug mode."""
+            captcha_present = _is_auth_interstitial(active_page)
+            if not captcha_present:
+                return
+            if headless:
+                raise RuntimeError(
+                    f"Target blocked the scrape with a captcha challenge: {active_page.url}"
+                )
+            _wait_for_captcha_clearance(active_page, captcha_present)
+
         page.goto(ORDER_HISTORY_URL, wait_until="domcontentloaded", timeout=60000)
 
         _pause_for_debug("after opening Target order history", enabled=debug_pause)
 
-        if not headless:
-            print("Solve any Target captcha in the browser, then press Enter here...")
-            input()
-        else:
-            _pause_for_debug("after solving captcha", enabled=debug_pause)
-
-        if captcha_detected and headless:
-            raise RuntimeError(
-                f"Target blocked the scrape with a captcha challenge: {ORDER_HISTORY_URL}"
-            )
+        ensure_captcha_clearance(page)
 
         _pause_for_debug("before loading more orders", enabled=debug_pause)
-        for _ in range(10):
+        for page_number in range(1, 11):
+            ensure_captcha_clearance(page)
+            if _reached_cutoff(captured, since_date):
+                break
+
+            _pause_for_debug(
+                f"before loading Target order-history page {page_number + 1}",
+                enabled=debug_pause,
+            )
+            captured_before_load = len(captured)
             page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
             page.wait_for_timeout(1500)
+            if _reached_cutoff(captured[captured_before_load:], since_date):
+                break
+
             load_more = page.locator(
                 'button:has-text("Load more"), button:has-text("Show more")'
             )
@@ -517,49 +648,32 @@ def scrape_target_orders(
             else:
                 break
 
+            if _reached_cutoff(captured[captured_before_load:], since_date):
+                break
+
         _pause_for_debug("before capturing invoice pages", enabled=debug_pause)
         try:
-            _capture_view_invoice_pages(page, context, debug_dir, ORDER_HISTORY_URL)
+            eligible_order_ids = {
+                order.order_id
+                for order in _collect_orders_from_responses(captured, since_date)
+            }
+            _capture_order_invoice_pages(
+                page,
+                context,
+                debug_dir,
+                ORDER_HISTORY_URL,
+                eligible_order_ids,
+                debug_pause=debug_pause,
+                ensure_captcha_clearance=ensure_captcha_clearance,
+            )
         except Exception:
             pass
 
-        # Capture invoice pages linked from the orders list as a fallback.
-        try:
-            anchors = page.locator('a[href*="/orders/"][href*="/invoices/"]')
-            count = anchors.count()
-            for idx in range(count):
-                try:
-                    href = anchors.nth(idx).get_attribute("href")
-                    if not href:
-                        continue
-                    parsed = urlparse(href)
-                    parts = parsed.path.split("/")
-                    order_id = parts[2] if len(parts) > 2 else f"order{idx+1}"
-                    invoice_id = parts[4] if len(parts) > 4 else f"{idx+1}"
-                    full = href if href.startswith("http") else f"https://www.target.com{href}"
-
-                    invoice_path = debug_dir / f"invoice_{order_id}_{invoice_id}.html"
-                    new_page = context.new_page()
-                    try:
-                        new_page.goto(full, wait_until="domcontentloaded", timeout=60000)
-                        html = new_page.content()
-                        with invoice_path.open("w") as f:
-                            f.write(html)
-                    except Exception:
-                        # ignore individual invoice failures but continue
-                        pass
-                    finally:
-                        try:
-                            new_page.close()
-                        except Exception:
-                            pass
-                except Exception:
-                    continue
-        except Exception:
-            pass
+        _pause_for_debug(
+            "after capturing invoice pages (Chrome will close after you continue)",
+            enabled=debug_pause,
+        )
         context.close()
-
-    _pause_for_debug("after scraper finishes", enabled=debug_pause)
 
     orders = _collect_orders_from_responses(captured, since_date, debug_dir=debug_dir)
     for order in orders:

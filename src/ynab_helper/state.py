@@ -24,25 +24,43 @@ def resolve_since_date(
     initial_since: str | None,
     cli_since: date | None,
     bootstrap_date: date | None,
+    overwrite: bool = False,
 ) -> tuple[date, bool]:
-    """Return (since_date, is_first_run)."""
-    if cli_since:
-        return cli_since, not state_path.exists()
+    """Return the effective scrape cutoff and whether this is the first run.
 
-    if initial_since:
-        return date.fromisoformat(initial_since), not state_path.exists()
-
+    Normal fetches never go farther back than a completed fetch.  A supplied
+    ``--since`` (or ``initial_since``) can narrow that window, but cannot make
+    it older.  ``--overwrite`` deliberately ignores the completed-fetch
+    cutoff so it can be used for a backfill.
+    """
     state = load_state(state_path)
-    if state and state.get("last_successful_run"):
-        last_run = datetime.fromisoformat(state["last_successful_run"])
-        return last_run.date(), False
+    is_first_run = not bool(state and state.get("last_successful_run"))
+
+    configured_since = cli_since
+    if configured_since is None and initial_since:
+        configured_since = date.fromisoformat(initial_since)
+    if configured_since is None and state and state.get("bootstrap_since"):
+        configured_since = date.fromisoformat(state["bootstrap_since"])
+
+    last_successful_run = None
+    if not overwrite and state and state.get("last_successful_run"):
+        last_successful_run = datetime.fromisoformat(
+            state["last_successful_run"]
+        ).date()
+
+    if configured_since and last_successful_run:
+        return max(configured_since, last_successful_run), False
+    if last_successful_run:
+        return last_successful_run, False
+    if configured_since:
+        return configured_since, is_first_run
 
     if bootstrap_date is None:
         raise ValueError(
             "No uncategorized TARGET transactions found in YNAB. "
             "Pass --since YYYY-MM-DD to set a scrape start date."
         )
-    return bootstrap_date, True
+    return bootstrap_date, is_first_run
 
 
 def mark_fetch_success(

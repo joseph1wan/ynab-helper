@@ -9,7 +9,7 @@ import click
 import uvicorn
 
 from ynab_helper.config import CONFIG_DIR, load_config, resolve_path
-from ynab_helper.fetch import run_fetch
+from ynab_helper.fetch import run_fetch, run_propose
 from ynab_helper.target_scraper import save_target_session
 from ynab_helper.undo import undo_last
 from ynab_helper.ynab_client import YnabClient
@@ -53,21 +53,43 @@ def sync_categories() -> None:
 
 @main.command("fetch")
 @click.option("--since", "since_str", default=None, help="Override start date YYYY-MM-DD")
+@click.option(
+    "--overwrite",
+    is_flag=True,
+    help="Ignore the last successful fetch and re-scrape from --since/bootstrap date",
+)
 @click.option("--skip-scrape", is_flag=True, help="Use cached Target orders only")
 @click.option("--headed/--headless", default=True, help="Run browser with visible window")
 @click.option("--debug-pause", is_flag=True, help="Pause after each scraper step until Enter is pressed")
-def fetch_cmd(since_str: str | None, skip_scrape: bool, headed: bool, debug_pause: bool) -> None:
-    """Scrape Target, match YNAB txns, and write proposals."""
+def fetch_cmd(
+    since_str: str | None,
+    overwrite: bool,
+    skip_scrape: bool,
+    headed: bool,
+    debug_pause: bool,
+) -> None:
+    """Scrape Target orders and save them locally."""
     since_override = date.fromisoformat(since_str) if since_str else None
     result = run_fetch(
         since_override=since_override,
+        overwrite=overwrite,
         skip_scrape=skip_scrape,
         headless=not headed,
         debug_pause=debug_pause,
     )
     click.echo(
         f"Fetched since {result.since_date}: "
-        f"{len(result.proposals)} matched, "
+        f"saved {len(result.orders)} Target orders"
+    )
+
+
+@main.command("propose")
+@click.option("--since", "since_str", default=None, help="Only propose orders on or after YYYY-MM-DD")
+def propose_cmd(since_str: str | None) -> None:
+    """Match saved Target orders to YNAB and write review proposals."""
+    result = run_propose(date.fromisoformat(since_str) if since_str else None)
+    click.echo(
+        f"Proposed since {result.since_date}: {len(result.proposals)} matched, "
         f"{len(result.unmatched_orders)} unmatched orders, "
         f"{len(result.unmatched_transactions)} unmatched txns"
     )
