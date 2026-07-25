@@ -1,6 +1,5 @@
 .env
 auth/
-data/
 __pycache__/
 *.py[cod]
 .venv/

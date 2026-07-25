@@ -83,7 +83,7 @@ class YnabClient:
                 continue
             if txn.subtransactions:
                 continue
-            if txn.category_id is not None:
+            if txn.approved:
                 continue
             results.append(txn)
         return results

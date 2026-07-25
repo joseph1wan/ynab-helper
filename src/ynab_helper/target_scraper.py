@@ -137,33 +137,56 @@ def _parse_invoice_html_line_items(html: str) -> list[LineItem]:
         return items
 
     text = unescape(html)
-    row_matches = re.finditer(
-        r'<div[^>]*class="[^"]*styles_infoRow[^"]*"[^>]*>(.*?)(?=<div[^>]*class="[^"]*styles_infoRow|$)',
+
+    # Each product is wrapped in a data-test="invoice-details-card" div.
+    # We scope all extraction to that card so discount/subtotal rows below the
+    # infoRow cannot bleed into a sibling card's Amount match.
+    card_matches = re.finditer(
+        r'data-test="invoice-details-card"[^>]*>(.*?)(?=data-test="invoice-details-card"|$)',
         text,
         flags=re.IGNORECASE | re.DOTALL,
     )
-    for row_match in row_matches:
-        row_html = row_match.group(1)
-        paragraphs = [
-            re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", match.group(1))).strip()
-            for match in re.finditer(r"<p[^>]*>(.*?)</p>", row_html, re.IGNORECASE | re.DOTALL)
-        ]
-        names = [
-            value
-            for value in paragraphs
-            if value and value.lower() not in {"item", "qty.", "unit price", "amount"}
-        ]
-        if not names:
+    for card_match in card_matches:
+        card_html = card_match.group(1)
+
+        # Product name is in the infoRow, inside <b><p>...</p></b>
+        name_match = re.search(
+            r'styles_infoRow[^>]*>.*?<b>\s*<p[^>]*>(.*?)</p>\s*</b>',
+            card_html,
+            re.IGNORECASE | re.DOTALL,
+        )
+        if not name_match:
+            continue
+        raw_name = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", name_match.group(1))).strip()
+        # Strip leading TCIN prefix like "94924105 - "
+        name = re.sub(r"^\d+\s*-\s*", "", raw_name).strip()
+        if not name:
             continue
 
-        name = re.sub(r"^\d+\s*-\s*", "", names[0]).strip()
-        quantity_match = re.search(r"qty\.\s*</?[^>]*>?.{0,80}?\b(\d+)\b", row_html, re.IGNORECASE | re.DOTALL)
-        quantity = int(quantity_match.group(1)) if quantity_match else 1
+        # Qty is inside data-test="item-quantity": <div>Qty.</div><div><b>N</b></div>
+        qty_match = re.search(
+            r'data-test="item-quantity"[^>]*>.*?<b>(\d+)</b>',
+            card_html,
+            re.IGNORECASE | re.DOTALL,
+        )
+        quantity = int(qty_match.group(1)) if qty_match else 1
+
+        # Amount (qty × unit price, pre-discount) is the last innerDiv in infoRow.
+        # Scope the search to just the infoRow so discount rows outside it are ignored.
+        inforow_match = re.search(
+            r'styles_infoRow[^>]*>(.*?)</div>\s*</div>\s*</div>',
+            card_html,
+            re.IGNORECASE | re.DOTALL,
+        )
+        inforow_html = inforow_match.group(1) if inforow_match else card_html
         amount_match = re.search(
-            r"amount.*?\$(\d+(?:\.\d{1,2})?)", row_html, re.IGNORECASE | re.DOTALL
+            r"Amount\s*<b>\$(\d+(?:\.\d{1,2})?)</b>",
+            inforow_html,
+            re.IGNORECASE | re.DOTALL,
         )
         if not amount_match:
             continue
+
         items.append(
             LineItem(
                 name=name,
@@ -173,6 +196,19 @@ def _parse_invoice_html_line_items(html: str) -> list[LineItem]:
         )
 
     return items
+
+
+def _parse_invoice_html_total(html: str) -> int | None:
+    """Extract the 'Invoice total' from a Target invoice page (milliunits)."""
+    text = unescape(html)
+    match = re.search(
+        r"Invoice\s+total\s*</?\w[^>]*>.*?<b>\$(\d+(?:\.\d{1,2})?)</b>",
+        text,
+        re.IGNORECASE | re.DOTALL,
+    )
+    if not match:
+        return None
+    return _to_milliunits(match.group(1))
 
 
 def _parse_line_items(raw_items: list[Any]) -> list[LineItem]:
@@ -422,35 +458,25 @@ def _capture_order_invoice_pages(
             with detail_path.open("w") as f:
                 f.write(target_page.content())
 
-            invoice_links = target_page.locator(INVOICE_LINK_SELECTOR)
-            invoice_buttons = target_page.get_by_role("button", name=INVOICE_BUTTON_NAME)
-            matching_controls = target_page.locator(
-                'a, button'
-            ).evaluate_all(
-                """elements => elements
-                    .map(element => ({
-                        tag: element.tagName.toLowerCase(),
-                        text: (element.innerText || element.getAttribute('aria-label') || '').trim(),
-                        href: element.getAttribute('href') || '',
-                    }))
-                    .filter(element => /invoice|receipt/i.test(`${element.text} ${element.href}`))"""
+            # Collect ALL invoice hrefs from the order detail page.
+            # Navigate to each directly rather than clicking, so multi-invoice
+            # orders don't lose the page context after the first navigation.
+            invoice_hrefs: list[str] = list(
+                dict.fromkeys(
+                    href
+                    for i in range(target_page.locator('a[href*="/invoices/"]').count())
+                    if (href := target_page.locator('a[href*="/invoices/"]').nth(i).get_attribute("href"))
+                )
             )
-            print(
-                f"Invoice search for {order_id}: selector {INVOICE_LINK_SELECTOR!r} "
-                f"matched {invoice_links.count()} link(s); button-name regex "
-                f"matched {invoice_buttons.count()} button(s); candidates={matching_controls}"
-            )
-            if invoice_links.count() > 0:
-                invoice_control = invoice_links.first
-            elif invoice_buttons.count() > 0:
-                invoice_control = invoice_buttons.first
-            else:
+            print(f"Found {len(invoice_hrefs)} invoice(s) for order {order_id}: {invoice_hrefs}")
+
+            if not invoice_hrefs:
                 print(
-                    f"No invoice or receipt control found for order {order_id}; "
+                    f"No invoice links found for order {order_id}; "
                     f"saved rendered detail HTML to {detail_path}"
                 )
                 _pause_for_debug(
-                    f"after invoice search for {order_id} (no control found)",
+                    f"after invoice search for {order_id} (no links found)",
                     enabled=debug_pause,
                 )
                 if target_page is not page:
@@ -459,39 +485,38 @@ def _capture_order_invoice_pages(
                     page.goto(order_history_url, wait_until="domcontentloaded", timeout=60000)
                 continue
 
-            invoice_href = invoice_control.get_attribute("href") or ""
-            invoice_id = invoice_href.rstrip("/").split("/")[-1]
-            before_pages = list(context.pages)
-            invoice_control.click(timeout=10000)
-            page.wait_for_timeout(1500)
-            invoice_page = page
-            if len(context.pages) > len(before_pages):
-                invoice_page = [p for p in context.pages if p not in before_pages][-1]
-            invoice_page.wait_for_load_state("domcontentloaded", timeout=10000)
-            if ensure_captcha_clearance:
-                ensure_captcha_clearance(invoice_page)
-            if invoice_href and invoice_page.url.rstrip("/") != (
-                f"https://www.target.com{invoice_href}".rstrip("/")
-            ):
-                invoice_page.goto(
-                    f"https://www.target.com{invoice_href}",
-                    wait_until="domcontentloaded",
-                    timeout=60000,
-                )
-            invoice_page.wait_for_load_state("domcontentloaded", timeout=10000)
+            for invoice_href in invoice_hrefs:
+                invoice_id = invoice_href.rstrip("/").split("/")[-1]
+                invoice_path = debug_dir / f"invoice_{order_id}_{invoice_id}.html"
+                if invoice_path.exists():
+                    print(f"Skipping already-captured invoice {invoice_id}")
+                    continue
+                try:
+                    invoice_page = context.new_page()
+                    invoice_page.goto(
+                        f"https://www.target.com{invoice_href}",
+                        wait_until="domcontentloaded",
+                        timeout=60000,
+                    )
+                    invoice_page.wait_for_load_state("domcontentloaded", timeout=10000)
+                    if ensure_captcha_clearance:
+                        ensure_captcha_clearance(invoice_page)
+                    with invoice_path.open("w") as f:
+                        f.write(invoice_page.content())
+                    print(f"Saved invoice page to {invoice_path}")
+                    invoice_page.close()
+                except Exception as exc:
+                    print(f"Could not capture invoice {invoice_id} for order {order_id}: {exc}")
+                    try:
+                        invoice_page.close()
+                    except Exception:
+                        pass
 
-            invoice_path = debug_dir / f"invoice_{order_id}_{invoice_id}.html"
-            with invoice_path.open("w") as f:
-                f.write(invoice_page.content())
-            print(f"Saved invoice page to {invoice_path}")
             _pause_for_debug(
-                f"after invoice search/open for order {idx} of {len(eligible_hrefs)}",
+                f"after capturing invoices for order {idx} of {len(eligible_hrefs)}",
                 enabled=debug_pause,
             )
-
-            if invoice_page is not page:
-                invoice_page.close()
-            if target_page is not page and target_page is not invoice_page:
+            if target_page is not page:
                 target_page.close()
             if page.url != order_history_url:
                 page.goto(order_history_url, wait_until="domcontentloaded", timeout=60000)
@@ -502,40 +527,54 @@ def _capture_order_invoice_pages(
             continue
 
 
-def _parse_invoices_for_order(order: TargetOrder, debug_dir: Path) -> TargetOrder:
+def _parse_invoices_for_order(order: TargetOrder, debug_dir: Path) -> list[TargetOrder]:
+    """Return one TargetOrder per invoice HTML found for this order.
+
+    Each invoice maps to its own YNAB charge (separate bank posting).
+    Falls back to the original order if no invoice files exist.
+    """
     invoice_files = sorted(debug_dir.glob(f"invoice_{order.order_id}_*.html"))
     if not invoice_files:
-        return order
+        return [order]
 
-    parsed_items: list[LineItem] = []
+    results: list[TargetOrder] = []
     for invoice_path in invoice_files:
+        # invoice_{order_id}_{invoice_id}.html → invoice_id is the last segment
+        invoice_id = invoice_path.stem.split("_", 2)[-1]
         html = invoice_path.read_text(encoding="utf-8", errors="ignore")
-        parsed_items.extend(_parse_invoice_html_line_items(html))
+        items = _parse_invoice_html_line_items(html)
+        if not items:
+            continue
+        total = _parse_invoice_html_total(html) or sum(li.line_total for li in items)
+        results.append(
+            TargetOrder(
+                order_id=f"{order.order_id}_{invoice_id}",
+                order_date=order.order_date,
+                total=total,
+                line_items=items,
+            )
+        )
 
-    if parsed_items:
-        order.line_items = parsed_items
-        if order.total <= 0 and parsed_items:
-            order.total = sum(item.line_total for item in parsed_items)
-
-    return order
+    return results if results else [order]
 
 
 def _collect_orders_from_responses(
     responses: list[dict[str, Any]], since_date: date, debug_dir: Path | None = None
 ) -> list[TargetOrder]:
-    seen: set[str] = set()
+    seen_order_ids: set[str] = set()
     orders: list[TargetOrder] = []
     for payload in responses:
         for raw in _extract_orders_from_payload(payload):
             order = parse_target_order(raw)
-            if not order or order.order_id in seen:
+            if not order or order.order_id in seen_order_ids:
                 continue
             if order.order_date < since_date:
                 continue
+            seen_order_ids.add(order.order_id)
             if debug_dir is not None:
-                order = _parse_invoices_for_order(order, debug_dir)
-            seen.add(order.order_id)
-            orders.append(order)
+                orders.extend(_parse_invoices_for_order(order, debug_dir))
+            else:
+                orders.append(order)
     return sorted(orders, key=lambda o: o.order_date)
 
 
@@ -677,6 +716,8 @@ def scrape_target_orders(
 
     orders = _collect_orders_from_responses(captured, since_date, debug_dir=debug_dir)
     for order in orders:
+        # order.order_id is "{order_id}_{invoice_id}" for invoice-based orders,
+        # or just "{order_id}" for orders with no invoice HTML captured yet.
         out_path = output_dir / f"{order.order_id}.json"
         with out_path.open("w") as f:
             json.dump(
@@ -702,6 +743,32 @@ def scrape_target_orders(
     return orders
 
 
+def _order_from_json(raw: dict[str, Any]) -> TargetOrder | None:
+    """Load a TargetOrder from our own saved JSON format.
+
+    Values are already in milliunits — do not pass through _to_milliunits.
+    """
+    try:
+        return TargetOrder(
+            order_id=raw["order_id"],
+            order_date=_parse_date(raw["order_date"]),
+            total=int(raw["total"]),
+            tax=int(raw.get("tax", 0)),
+            shipping=int(raw.get("shipping", 0)),
+            fees=int(raw.get("fees", 0)),
+            line_items=[
+                LineItem(
+                    name=li["name"],
+                    quantity=int(li.get("quantity", 1)),
+                    line_total=int(li["line_total"]),
+                )
+                for li in raw.get("line_items", [])
+            ],
+        )
+    except (KeyError, ValueError):
+        return None
+
+
 def load_cached_orders(output_dir: Path, since_date: date) -> list[TargetOrder]:
     if not output_dir.exists():
         return []
@@ -709,9 +776,10 @@ def load_cached_orders(output_dir: Path, since_date: date) -> list[TargetOrder]:
     for path in output_dir.glob("*.json"):
         with path.open() as f:
             raw = json.load(f)
-        order = parse_target_order(raw)
-        if order and order.order_date >= since_date:
-            orders.append(order)
+        order = _order_from_json(raw)
+        if order is None or order.order_date < since_date:
+            continue
+        orders.append(order)
     return sorted(orders, key=lambda o: o.order_date)
 
 
