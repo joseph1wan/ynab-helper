@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 
 from ynab_helper.config import load_config, resolve_path
@@ -44,17 +44,17 @@ def index(request: Request) -> HTMLResponse:
 
 
 @app.post("/approve/{index}")
-def approve(index: int) -> dict[str, str]:
+def approve(index: int) -> RedirectResponse:
     try:
         apply_proposal(index)
     except (IndexError, ValueError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
-    return {"status": "ok"}
+    return RedirectResponse(url="/", status_code=303)
 
 
 @app.post("/undo")
-def undo() -> dict[str, object]:
+def undo() -> RedirectResponse:
     restored = undo_last(1)
     if not restored:
         raise HTTPException(status_code=404, detail="Nothing to undo")
-    return {"status": "ok", "restored": restored}
+    return RedirectResponse(url="/", status_code=303)

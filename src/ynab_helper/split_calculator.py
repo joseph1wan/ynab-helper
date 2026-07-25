@@ -33,10 +33,14 @@ def compute_splits(
     for line in categorized_lines:
         category_lines[line.category_name].append(line)
 
+    use_count_weight = order.subtotal == 0
     raw_amounts: dict[str, int] = {}
     for category_name, lines in category_lines.items():
-        cat_subtotal = sum(cl.line_item.line_total for cl in lines)
-        share = cat_subtotal / subtotal
+        if use_count_weight:
+            share = len(lines) / num_lines
+        else:
+            cat_subtotal = sum(cl.line_item.line_total for cl in lines)
+            share = cat_subtotal / subtotal
         base = int(abs_total * share)
         fee_share = fee_per_line * len(lines)
         raw_amounts[category_name] = base + fee_share

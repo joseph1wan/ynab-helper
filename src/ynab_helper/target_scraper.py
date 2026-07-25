@@ -270,6 +270,20 @@ def _parse_line_items(raw_items: list[Any]) -> list[LineItem]:
                 name = candidate
                 break
         if not name:
+            # For store pickup orders, Target API nests the real product info
+            # under raw["item"] while raw["grouping"]["name"] = "ORDER_PICKED_UP".
+            # Check raw["item"] explicitly before the general recursive search,
+            # otherwise _get_first_value recurses into grouping first and returns
+            # ORDER_PICKED_UP (dict insertion order puts grouping before item).
+            item_sub = raw.get("item") if isinstance(raw, dict) else None
+            if isinstance(item_sub, dict):
+                for key in ("description", "item_name", "itemName", "product_name", "title", "name"):
+                    val = item_sub.get(key)
+                    if isinstance(val, str) and val.strip():
+                        name = val.strip()
+                        break
+
+        if not name:
             fallback = _get_first_value(
                 raw,
                 (
@@ -398,133 +412,117 @@ def parse_target_order(raw: dict[str, Any]) -> TargetOrder | None:
     )
 
 
-def _capture_order_invoice_pages(
-    page: Page,
-    context: Any,
-    debug_dir: Path,
-    order_history_url: str,
-    eligible_order_ids: set[str],
-    debug_pause: bool = False,
-    ensure_captcha_clearance: Any | None = None,
-) -> None:
-    """Open each order detail page, then capture its invoice or receipt page."""
-    order_links = page.locator(
-        'a[data-test="order-details-link"] a[href^="/orders/"], '
-        'a[href^="/orders/"]:has-text("View purchase")'
+def _make_error_logger(debug_dir: Path) -> Any:
+    import traceback
+    from datetime import datetime as _dt
+
+    error_log = debug_dir / "fetch_errors.log"
+
+    def _log_error(order_id: str, invoice_id: str | None, exc: Exception) -> None:
+        ts = _dt.now().isoformat(timespec="seconds")
+        subject = f"order {order_id}" + (f" invoice {invoice_id}" if invoice_id else "")
+        msg = f"[{ts}] FAILED {subject}: {type(exc).__name__}: {exc}\n"
+        msg += "".join(traceback.format_exception(type(exc), exc, exc.__traceback__))
+        with error_log.open("a") as fh:
+            fh.write(msg + "\n")
+        print(f"Could not capture {subject}: {exc}")
+
+    return _log_error
+
+
+def _needs_invoice_capture(order_id: str, debug_dir: Path) -> bool:
+    """True if we should open this order's detail page to capture invoices."""
+    detail_path = debug_dir / f"order_{order_id}.html"
+    if not detail_path.exists():
+        return True
+    # Parse the saved detail page for invoice links we already know about.
+    html = detail_path.read_text(encoding="utf-8", errors="ignore")
+    invoice_ids = list(dict.fromkeys(re.findall(
+        r'/orders/[^/]+/invoices/(\d+)', html
+    )))
+    if not invoice_ids:
+        # Detail already visited and confirmed no invoices (pickup / pending order).
+        return False
+    return any(
+        not (debug_dir / f"invoice_{order_id}_{inv_id}.html").exists()
+        for inv_id in invoice_ids
     )
-    order_hrefs = [
-        href
-        for idx in range(order_links.count())
-        if (href := order_links.nth(idx).get_attribute("href"))
-    ]
 
-    eligible_hrefs = [
-        href
-        for href in dict.fromkeys(order_hrefs)
-        if href.rstrip("/").split("/")[-1] in eligible_order_ids
-    ]
-    print(f"Opening invoices for {len(eligible_hrefs)} orders in the date window")
 
-    for idx, order_href in enumerate(eligible_hrefs, start=1):
-        order_id = order_href.rstrip("/").split("/")[-1]
+def _capture_invoices_for_order(
+    context: Any,
+    order_id: str,
+    order_href: str,
+    debug_dir: Path,
+    log_error: Any,
+    ensure_captcha_clearance: Any | None = None,
+    debug_pause: bool = False,
+) -> None:
+    """Open the order detail in a new tab, then capture each invoice in its own tab.
+
+    Never navigates the main order-history page, so the pagination state is preserved.
+    """
+    detail_page = context.new_page()
+    try:
+        detail_page.goto(
+            f"https://www.target.com{order_href}",
+            wait_until="domcontentloaded",
+            timeout=60000,
+        )
+        detail_page.wait_for_load_state("domcontentloaded", timeout=10000)
+        if ensure_captcha_clearance:
+            ensure_captcha_clearance(detail_page)
         try:
-            if ensure_captcha_clearance:
-                ensure_captcha_clearance(page)
-            _pause_for_debug(
-                f"before opening order {idx} of {len(eligible_hrefs)} ({order_id})",
-                enabled=debug_pause,
+            detail_page.locator(INVOICE_LINK_SELECTOR).first.wait_for(
+                state="attached", timeout=3000
             )
-            order_link = page.locator(f'a[href="{order_href}"]').first
-            order_link.scroll_into_view_if_needed()
-            before_pages = list(context.pages)
-            order_link.click(timeout=10000)
-
-            target_page = page
-            if len(context.pages) > len(before_pages):
-                target_page = [p for p in context.pages if p not in before_pages][-1]
-            target_page.wait_for_load_state("domcontentloaded", timeout=10000)
-            if ensure_captcha_clearance:
-                ensure_captcha_clearance(target_page)
-            # Wait only for the control we need. Target leaves unrelated
-            # placeholder elements in the DOM after order data is available.
-            try:
-                target_page.locator(INVOICE_LINK_SELECTOR).first.wait_for(
-                    state="attached", timeout=3000
-                )
-            except Exception:
-                pass
-
-            detail_path = debug_dir / f"order_{order_id}.html"
-            with detail_path.open("w") as f:
-                f.write(target_page.content())
-
-            # Collect ALL invoice hrefs from the order detail page.
-            # Navigate to each directly rather than clicking, so multi-invoice
-            # orders don't lose the page context after the first navigation.
-            invoice_hrefs: list[str] = list(
-                dict.fromkeys(
-                    href
-                    for i in range(target_page.locator('a[href*="/invoices/"]').count())
-                    if (href := target_page.locator('a[href*="/invoices/"]').nth(i).get_attribute("href"))
-                )
-            )
-            print(f"Found {len(invoice_hrefs)} invoice(s) for order {order_id}: {invoice_hrefs}")
-
-            if not invoice_hrefs:
-                print(
-                    f"No invoice links found for order {order_id}; "
-                    f"saved rendered detail HTML to {detail_path}"
-                )
-                _pause_for_debug(
-                    f"after invoice search for {order_id} (no links found)",
-                    enabled=debug_pause,
-                )
-                if target_page is not page:
-                    target_page.close()
-                else:
-                    page.goto(order_history_url, wait_until="domcontentloaded", timeout=60000)
-                continue
-
-            for invoice_href in invoice_hrefs:
-                invoice_id = invoice_href.rstrip("/").split("/")[-1]
-                invoice_path = debug_dir / f"invoice_{order_id}_{invoice_id}.html"
-                if invoice_path.exists():
-                    print(f"Skipping already-captured invoice {invoice_id}")
-                    continue
-                try:
-                    invoice_page = context.new_page()
-                    invoice_page.goto(
-                        f"https://www.target.com{invoice_href}",
-                        wait_until="domcontentloaded",
-                        timeout=60000,
-                    )
-                    invoice_page.wait_for_load_state("domcontentloaded", timeout=10000)
-                    if ensure_captcha_clearance:
-                        ensure_captcha_clearance(invoice_page)
-                    with invoice_path.open("w") as f:
-                        f.write(invoice_page.content())
-                    print(f"Saved invoice page to {invoice_path}")
-                    invoice_page.close()
-                except Exception as exc:
-                    print(f"Could not capture invoice {invoice_id} for order {order_id}: {exc}")
-                    try:
-                        invoice_page.close()
-                    except Exception:
-                        pass
-
-            _pause_for_debug(
-                f"after capturing invoices for order {idx} of {len(eligible_hrefs)}",
-                enabled=debug_pause,
-            )
-            if target_page is not page:
-                target_page.close()
-            if page.url != order_history_url:
-                page.goto(order_history_url, wait_until="domcontentloaded", timeout=60000)
         except Exception:
-            print(f"Could not capture invoice for order {order_id}")
-            if page.url != order_history_url:
-                page.goto(order_history_url, wait_until="domcontentloaded", timeout=60000)
-            continue
+            pass
+
+        detail_path = debug_dir / f"order_{order_id}.html"
+        detail_path.write_text(detail_page.content(), encoding="utf-8")
+
+        invoice_hrefs: list[str] = list(
+            dict.fromkeys(
+                href
+                for i in range(detail_page.locator('a[href*="/invoices/"]').count())
+                if (href := detail_page.locator('a[href*="/invoices/"]').nth(i).get_attribute("href"))
+            )
+        )
+        print(f"  {order_id}: {len(invoice_hrefs)} invoice link(s) found")
+
+        if not invoice_hrefs:
+            print(f"  {order_id}: no invoice links — detail saved to {detail_path.name}")
+            return
+
+        for invoice_href in invoice_hrefs:
+            invoice_id = invoice_href.rstrip("/").split("/")[-1]
+            invoice_path = debug_dir / f"invoice_{order_id}_{invoice_id}.html"
+            if invoice_path.exists():
+                print(f"  {order_id}/{invoice_id}: already captured, skipping")
+                continue
+            invoice_page = context.new_page()
+            try:
+                invoice_page.goto(
+                    f"https://www.target.com{invoice_href}",
+                    wait_until="domcontentloaded",
+                    timeout=60000,
+                )
+                invoice_page.wait_for_load_state("domcontentloaded", timeout=10000)
+                if ensure_captcha_clearance:
+                    ensure_captcha_clearance(invoice_page)
+                invoice_path.write_text(invoice_page.content(), encoding="utf-8")
+                print(f"  {order_id}/{invoice_id}: saved to {invoice_path.name}")
+            except Exception as exc:
+                log_error(order_id, invoice_id, exc)
+            finally:
+                invoice_page.close()
+
+        _pause_for_debug(f"after invoices for {order_id}", enabled=debug_pause)
+    except Exception as exc:
+        log_error(order_id, None, exc)
+    finally:
+        detail_page.close()
 
 
 def _parse_invoices_for_order(order: TargetOrder, debug_dir: Path) -> list[TargetOrder]:
@@ -653,31 +651,65 @@ def scrape_target_orders(
                 )
             _wait_for_captcha_clearance(active_page, captcha_present)
 
+        log_error = _make_error_logger(debug_dir)
+
         page.goto(ORDER_HISTORY_URL, wait_until="domcontentloaded", timeout=60000)
-
         _pause_for_debug("after opening Target order history", enabled=debug_pause)
-
         ensure_captcha_clearance(page)
 
-        _pause_for_debug("before loading more orders", enabled=debug_pause)
-        for page_number in range(1, 11):
+        ORDER_LINK_SELECTOR = (
+            'a[data-test="order-details-link"] a[href^="/orders/"], '
+            'a[href^="/orders/"]:has-text("View purchase")'
+        )
+        seen_order_ids: set[str] = set()
+
+        for batch_number in range(1, 11):
             ensure_captcha_clearance(page)
+
+            # Collect all order hrefs visible on the page right now.
+            order_links = page.locator(ORDER_LINK_SELECTOR)
+            batch_hrefs = list(dict.fromkeys(
+                href
+                for idx in range(order_links.count())
+                if (href := order_links.nth(idx).get_attribute("href"))
+            ))
+            new_hrefs = [
+                h for h in batch_hrefs
+                if h.rstrip("/").split("/")[-1] not in seen_order_ids
+            ]
+            print(f"Batch {batch_number}: {len(new_hrefs)} new order(s) to process")
+
+            for order_href in new_hrefs:
+                order_id = order_href.rstrip("/").split("/")[-1]
+                seen_order_ids.add(order_id)
+                ensure_captcha_clearance(page)
+
+                if not _needs_invoice_capture(order_id, debug_dir):
+                    print(f"  {order_id}: all invoices already captured, skipping")
+                    continue
+
+                _capture_invoices_for_order(
+                    context,
+                    order_id,
+                    order_href,
+                    debug_dir,
+                    log_error,
+                    ensure_captcha_clearance=ensure_captcha_clearance,
+                    debug_pause=debug_pause,
+                )
+
             if _reached_cutoff(captured, since_date):
+                print(f"Reached date cutoff ({since_date}) after batch {batch_number}")
                 break
 
-            _pause_for_debug(
-                f"before loading Target order-history page {page_number + 1}",
-                enabled=debug_pause,
-            )
-            captured_before_load = len(captured)
+            _pause_for_debug(f"before loading batch {batch_number + 1}", enabled=debug_pause)
+            captured_before = len(captured)
             page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
             page.wait_for_timeout(1500)
-            if _reached_cutoff(captured[captured_before_load:], since_date):
+            if _reached_cutoff(captured[captured_before:], since_date):
                 break
 
-            load_more = page.locator(
-                'button:has-text("Load more"), button:has-text("Show more")'
-            )
+            load_more = page.locator('button:has-text("Load more"), button:has-text("Show more")')
             if load_more.count() > 0:
                 try:
                     load_more.first.click(timeout=2000)
@@ -687,31 +719,10 @@ def scrape_target_orders(
             else:
                 break
 
-            if _reached_cutoff(captured[captured_before_load:], since_date):
+            if _reached_cutoff(captured[captured_before:], since_date):
                 break
 
-        _pause_for_debug("before capturing invoice pages", enabled=debug_pause)
-        try:
-            eligible_order_ids = {
-                order.order_id
-                for order in _collect_orders_from_responses(captured, since_date)
-            }
-            _capture_order_invoice_pages(
-                page,
-                context,
-                debug_dir,
-                ORDER_HISTORY_URL,
-                eligible_order_ids,
-                debug_pause=debug_pause,
-                ensure_captcha_clearance=ensure_captcha_clearance,
-            )
-        except Exception:
-            pass
-
-        _pause_for_debug(
-            "after capturing invoice pages (Chrome will close after you continue)",
-            enabled=debug_pause,
-        )
+        _pause_for_debug("all batches done (Chrome will close after you continue)", enabled=debug_pause)
         context.close()
 
     orders = _collect_orders_from_responses(captured, since_date, debug_dir=debug_dir)
