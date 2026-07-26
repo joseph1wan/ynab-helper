@@ -1,0 +1,22 @@
+{
+  "id": "000061980",
+  "title": "What's the return policy?",
+  "topics": null,
+  "contents": [
+    {
+      "platform": "GENERAL",
+      "content": "<p>Target reserves the right to deny returns, refunds, and exchanges, including but not limited to cases of fraud, suspected fraud, or abuse.</p>\n<p>\u00a0</p>\n<p><b>Target&#39;s Return Policy</b><br>Most unopened items sold by Target in new condition and returned within 90 days will receive a refund or exchange. The return window for items sold on Target.com begins once you receive your items. This occurs when the order is delivered to you, delivered by a Shipt shopper, or picked up in store. Some items sold by Target have a modified return policy noted on the receipt, packing slip, Target policy board (refund exceptions), Target.com or in the item description. Items that are opened or damaged or do not have a receipt may be denied a refund or exchange.\u00a0<br><br><a href=\"https://www.target.com/help/article/000061982\" target=\"_blank\">Visit here for information on return exceptions.</a><br><br><b>Target Plus\u2122 Partner\u2019s Return Policy</b><br>Most unopened items sold by Target Plus in new condition and returned within 30 days will receive a refund. The return window for items sold on Target.com begins once you receive your items. This occurs when the order is delivered to you, delivered by a Shipt shopper, or picked up in store. All items sold by Partners must be returned to Target either in store or by mail. Some items sold by a Target Plus Partner have a modified return policy on Target.com. Items that are opened or damaged may be denied a refund. In-store returns without an eligible receipt will be denied. Some items may have a shorter return window. Refer to the <strong>Shipping &amp; Returns</strong> section of the individual item\u2019s description or the <a href=\"https://www.target.com/help/article/000061982\" target=\"_blank\">Return Exceptions</a> section.<br><br><a href=\"https://www.target.com/help/article/000062920\" target=\"_blank\">Visit here to learn how to start your return.</a></p>",
+      "field_name": "KA_Guest_Agent_Team_Member__c"
+    }
+  ],
+  "created_date": "2014-08-26T17:30:26.000Z",
+  "last_modified_date": "2026-04-06T16:32:13.000Z",
+  "record_type": "Q_A",
+  "data_categories": [
+    "Returns"
+  ],
+  "sort_order": 5.0,
+  "visible_in_pkb": true,
+  "visible_in_csp": false,
+  "display_chat_option": true
+}

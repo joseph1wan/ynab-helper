@@ -7,9 +7,10 @@ from pathlib import Path
 from typing import Any
 
 from ynab_helper.categorizer import Categorizer
-from ynab_helper.config import load_config, resolve_path
+from ynab_helper.config import load_categories, load_config, load_rules, resolve_path
 from ynab_helper.matcher import match_orders_to_transactions
-from ynab_helper.models import FetchResult, LineItem, MatchProposal, ScrapeResult, TargetOrder, YnabTransaction
+from ynab_helper.models import CategorizedLine, FetchResult, LineItem, MatchProposal, ScrapeResult, TargetOrder, YnabTransaction
+from ynab_helper.split_calculator import compute_splits
 from ynab_helper.state import mark_fetch_success, resolve_since_date
 from ynab_helper.target_scraper import load_cached_orders, scrape_target_orders
 from ynab_helper.ynab_client import YnabClient
@@ -55,6 +56,7 @@ def _serialize_proposal(proposal: MatchProposal) -> dict[str, Any]:
                 "category_name": cl.category_name,
                 "category_id": cl.category_id,
                 "matched_rule": cl.matched_rule,
+                "note": None,
             }
             for cl in proposal.categorized_lines
         ],
@@ -96,6 +98,145 @@ def save_proposals(path: Path, result: FetchResult) -> None:
 def load_proposals(path: Path) -> dict[str, Any]:
     with path.open() as f:
         return json.load(f)
+
+
+def _order_from_dict(order: dict[str, Any]) -> TargetOrder:
+    return TargetOrder(
+        order_id=order["order_id"],
+        order_date=date.fromisoformat(order["order_date"]),
+        total=order["total"],
+        tax=order.get("tax", 0),
+        shipping=order.get("shipping", 0),
+        fees=order.get("fees", 0),
+        line_items=[
+            LineItem(name=li["name"], quantity=li["quantity"], line_total=li["line_total"])
+            for li in order["line_items"]
+        ],
+    )
+
+
+def _categorized_lines_from_dicts(lines: list[dict[str, Any]]) -> list[CategorizedLine]:
+    return [
+        CategorizedLine(
+            line_item=LineItem(
+                name=line["name"], quantity=line["quantity"], line_total=line["line_total"]
+            ),
+            category_name=line["category_name"],
+            category_id=line["category_id"],
+            matched_rule=line["matched_rule"],
+        )
+        for line in lines
+    ]
+
+
+def _load_proposal_for_edit(
+    data: dict[str, Any], proposal_index: int, line_index: int
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    proposals = data.get("proposals", [])
+    if proposal_index < 0 or proposal_index >= len(proposals):
+        raise IndexError("Proposal index out of range")
+
+    proposal = proposals[proposal_index]
+    if proposal.get("status") == "applied":
+        raise ValueError("Proposal already applied")
+
+    lines = proposal["categorized_lines"]
+    if line_index < 0 or line_index >= len(lines):
+        raise IndexError("Line index out of range")
+
+    return proposal, lines[line_index]
+
+
+def _recompute_splits(proposal: dict[str, Any], lines: list[dict[str, Any]]) -> None:
+    order = _order_from_dict(proposal["target_order"])
+    categorized_lines = _categorized_lines_from_dicts(lines)
+    splits, rounding_delta = compute_splits(
+        order, categorized_lines, proposal["ynab_transaction"]["amount"]
+    )
+    proposal["splits"] = [
+        {
+            "category_name": s.category_name,
+            "category_id": s.category_id,
+            "amount": s.amount,
+            "line_items": s.line_items,
+        }
+        for s in splits
+    ]
+    proposal["rounding_delta"] = rounding_delta
+
+
+def recategorize_line(
+    proposals_path: Path, proposal_index: int, line_index: int, category_name: str
+) -> dict[str, Any]:
+    """Override the category for a single line item and recompute the splits.
+
+    Returns the updated proposal dict.
+    """
+    data = load_proposals(proposals_path)
+    proposal, line = _load_proposal_for_edit(data, proposal_index, line_index)
+
+    allowed_categories = load_rules().get("allowed_categories", [])
+    if category_name not in allowed_categories:
+        raise ValueError(f"Category not in allowed_categories: {category_name}")
+    categories = load_categories()
+    category_id = categories.get(category_name)
+    if not category_id:
+        raise ValueError(f"Unknown category: {category_name}")
+
+    line["category_name"] = category_name
+    line["category_id"] = category_id
+    line["matched_rule"] = "manual override"
+
+    unmatched_names = {item["name"] for item in proposal.get("unmatched_items", [])}
+    if line["name"] in unmatched_names:
+        proposal["unmatched_items"] = [
+            item for item in proposal["unmatched_items"] if item["name"] != line["name"]
+        ]
+
+    lines = proposal["categorized_lines"]
+    _recompute_splits(proposal, lines)
+
+    with proposals_path.open("w") as f:
+        json.dump(data, f, indent=2)
+
+    return proposal
+
+
+def set_line_note(
+    proposals_path: Path, proposal_index: int, line_index: int, note: str
+) -> dict[str, Any]:
+    """Attach a free-text note to a line item, explaining a manual override.
+
+    Notes never reach YNAB; they exist only to inform later rule review.
+    Returns the updated proposal dict.
+    """
+    data = load_proposals(proposals_path)
+    proposal, line = _load_proposal_for_edit(data, proposal_index, line_index)
+
+    line["note"] = note or None
+
+    with proposals_path.open("w") as f:
+        json.dump(data, f, indent=2)
+
+    return proposal
+
+
+def clear_applied(proposals_path: Path) -> int:
+    """Drop applied proposals from the review file. Returns count removed.
+
+    Leaves data/target-orders/*.json, data/state.json, and data/undo/*.json
+    untouched so audit-rules keeps its full item corpus and pushes stay undoable.
+    """
+    data = load_proposals(proposals_path)
+    proposals = data.get("proposals", [])
+    remaining = [p for p in proposals if p.get("status") != "applied"]
+    removed = len(proposals) - len(remaining)
+    data["proposals"] = remaining
+
+    with proposals_path.open("w") as f:
+        json.dump(data, f, indent=2)
+
+    return removed
 
 
 def run_fetch(

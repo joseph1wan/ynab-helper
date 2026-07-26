@@ -1,0 +1,2627 @@
+{
+  "channel_id": "91",
+  "cart_id": "07ab3a81-80c9-11f1-8c13-efd4c994ed1b",
+  "test_cart": false,
+  "reference_id": "912003603480854",
+  "guest_id": "3273279084",
+  "cart_state": "PENDING",
+  "cart_type": "REGULAR",
+  "tracking_email": "vang92@gmail.com",
+  "guest_type": "REMEMBERED",
+  "guest_location": {
+    "zip_code": "60118",
+    "state": "IL",
+    "country": "US",
+    "latitude": "42.098019",
+    "longitude": "-88.292663"
+  },
+  "guest_profile": {
+    "phone": "5592595220",
+    "email": "vang92@gmail.com",
+    "create_date": "2015-07-21",
+    "first_name": "Mang",
+    "first_name_unicode": "Mang",
+    "last_name": "Wan",
+    "last_name_unicode": "Wan",
+    "loyalty_id": "tly.2a7fcb1f200e41e78505abe5fdd42c19",
+    "preferred_store_id": "1801",
+    "memberships": [
+      {
+        "name": "SHIPT",
+        "id": "475361de-7cda-4bdd-9ecd-11f1a45c1596",
+        "type": "SUBSCRIPTION",
+        "status": "ACTIVE",
+        "selected": false
+      },
+      {
+        "name": "TARGET_CIRCLE",
+        "id": "tly.2a7fcb1f200e41e78505abe5fdd42c19",
+        "status": "ACTIVE",
+        "selected": true
+      },
+      {
+        "name": "PAID_MEMBERSHIP",
+        "id": "7a5ee01d-ce2c-45c3-8855-0356c18ff6b9",
+        "status": "ACTIVE",
+        "selected": false,
+        "is_active": true,
+        "duration": "ANNUAL"
+      }
+    ],
+    "profile_membership_status": {
+      "base_membership": true,
+      "card_membership": true,
+      "paid_membership": true
+    }
+  },
+  "shopping_context": "DIGITAL",
+  "shopping_location_id": "1801",
+  "shipt_membership_id": "475361de-7cda-4bdd-9ecd-11f1a45c1596",
+  "pay_per_order_charges": {
+    "ONE_DAY": 7.99,
+    "SCHEDULED_DELIVERY": 9.99
+  },
+  "summary": {
+    "total_discounts": 2.33,
+    "total_gift_wrap_amount": 0.0,
+    "total_product_amount": 46.43,
+    "total_shipping_discount": 0.0,
+    "total_shipping_amount": 0.0,
+    "total_shipping_tax": 0.0,
+    "total_tax": 3.07,
+    "total_surcharge_fee": 0.0,
+    "total_handling_fee": 0.0,
+    "total_handling_discount": 0.0,
+    "total_handling_fee_tax": 0.0,
+    "grand_total": 47.17,
+    "balance_due": 0.0,
+    "items_quantity": 15,
+    "discounts": [
+      {
+        "promotion_id": "140841154",
+        "short_description": "5% off",
+        "promotion_group": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+        "discount_amount": 2.33,
+        "cart_level": true,
+        "offer_text": "Target Circle Card 5%",
+        "discount_type": "PRICE",
+        "applied_promo_text": "Target Circle Card 5%",
+        "circle_offer": false,
+        "mass_offer": true,
+        "fire_fly_offer_type": "mass"
+      }
+    ],
+    "total_authorization_amount": 47.17,
+    "total_bag_fee": 0.0,
+    "red_card_banner": {
+      "order_total": "46.43",
+      "discounted_order_total": "44.11"
+    },
+    "eligible_snap_total": 15.27,
+    "eligible_snap_balance": 15.27,
+    "snap_total": 16.06,
+    "taxes": {
+      "total": 3.07,
+      "sales": 3.07,
+      "shipping": 0.0,
+      "handling_fee": 0.0,
+      "service_fee": 0.0,
+      "gift_wrap": 0.0
+    },
+    "delivery_charges": {
+      "total": 0.0,
+      "categories": [
+        {
+          "name": "shipping",
+          "total": 0.0,
+          "subtotal": 0.0,
+          "discount": 0.0,
+          "charges": [
+            {
+              "charge_type": "paid_membership_shipping",
+              "guest_display_name": "Free Shipping with Target Circle 360TM",
+              "amount": 0.0
+            }
+          ]
+        },
+        {
+          "name": "pickup",
+          "total": 0.0,
+          "subtotal": 0.0,
+          "discount": 0.0,
+          "charges": [
+            {
+              "charge_type": "pickup_in_store",
+              "guest_display_name": "Order Pickup",
+              "amount": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    "max_eligible_amount_for_non_primary_tender": 46.17,
+    "qualified_medical_expense_total": 0.0
+  },
+  "cart_items": [
+    {
+      "cart_id": "07ab3a81-80c9-11f1-8c13-efd4c994ed1b",
+      "total_cart_item_quantity": 15,
+      "cart_item_id": "6da6dda1-8531-11f1-9f20-75cef0831598",
+      "cart_item_type": "REGULARITEM",
+      "return_policy": [
+        {
+          "type": "default",
+          "day_count": 120,
+          "user_type": "best_guest"
+        },
+        {
+          "type": "default",
+          "day_count": 90,
+          "user_type": "regular_guest"
+        }
+      ],
+      "tcin": "17088980",
+      "dpci": "081-22-0729",
+      "quantity": 4,
+      "unit_price": 0.5,
+      "list_price": 1.69,
+      "current_price": 0.5,
+      "msrp": 1.89,
+      "eyebrow": "S",
+      "limited_quantity": false,
+      "available_quantity_in_inventory": 99,
+      "handling": {
+        "buy_unit_of_measure": "Each"
+      },
+      "fulfillment": {
+        "type": "SHIP",
+        "location_data": {},
+        "ship_method": "STANDARD",
+        "price": {
+          "shipping_price": 0.0,
+          "handling_price": 0.0,
+          "service_fee": 0.0
+        },
+        "estimated_arrival_start_date": "2026-07-26",
+        "estimated_arrival_end_date": "2026-07-26",
+        "ship_method_service_level_description": "2-day shipping",
+        "available_ship_methods": [
+          {
+            "type": "SHIP",
+            "ship_method": "STANDARD",
+            "estimated_arrival_start_date": "2026-07-26",
+            "estimated_arrival_end_date": "2026-07-26",
+            "preferred": true,
+            "base": true,
+            "selected": true,
+            "seasonal": false,
+            "ship_method_short_description": "Standard",
+            "ship_method_long_description": "Ground",
+            "ship_method_service_level_description": "2-day shipping",
+            "order_cutoff": "2026-07-25T23:00+0000",
+            "ship_date": "2026-07-25",
+            "location_id": "1323-1",
+            "two_day_shipping_eligible": true,
+            "line_consolidated": true,
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "CURBSIDE",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "STORE_PICKUP",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "SHIP",
+            "ship_method": "SCHEDULED_DELIVERY",
+            "selected": false,
+            "ship_method_short_description": "Scheduled Delivery",
+            "minimum_order_quantity": 4.0
+          }
+        ]
+      },
+      "item_attributes": {
+        "description": "Elmer&#39;s 2pk Washable School Glue Sticks - Disappearing Purple",
+        "image_path": "https://target.scene7.com/is/image/Target//GUEST_263f5b4f-5bf2-48b7-8ee3-8561e8574c23",
+        "max_purchase_quantity": 99,
+        "product_subtype_name": "OFFICE SUPPLIES",
+        "product_type_name": "STATIONERY & OFFICE SUPPLIES"
+      },
+      "item_summary": {
+        "shipping_discount": 0.0,
+        "shipping_charge": 0.0,
+        "total_discount": 0.12,
+        "partial_discount": 0.12,
+        "total_product": 2.0,
+        "tax_amount": 0.17,
+        "price": 0.5,
+        "shipping_tax": 0.0,
+        "handling_fee": 0.0,
+        "surcharge_fee": 0.0,
+        "handling_fee_tax": 0.0,
+        "handling_fee_discount": 0.0,
+        "gift_wrap_fee": 0.0,
+        "gift_wrap_tax": 0.0,
+        "delivery_charge": 0.0,
+        "taxes": {
+          "total": 0.17,
+          "sales": 0.17,
+          "shipping": 0.0,
+          "handling_fee": 0.0,
+          "service_fee": 0.0,
+          "gift_wrap": 0.0
+        },
+        "total_list_price": 6.76,
+        "personalized_price": 1.88,
+        "personalized_price_has_discounts": true
+      },
+      "discounts": [
+        {
+          "promotion_id": "140841154",
+          "promotion_name": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "legal_description": "Target Circle Card 5% off merchandise subtotal. Merchandise subtotal does not include GiftCards, eGiftCards, Shipt Memberships, Mobile GiftCards, tax or shipping charges. Discount will be applied at Checkout. May not be applied to previous orders.",
+          "promotion_status": "APPLIED",
+          "cart_level": true,
+          "subscription_promo_flag": false,
+          "reward_type": "PercentageOff",
+          "reward_value": 5.0,
+          "applied_promo_text": "Target Circle Card 5%",
+          "promotion_group": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "applied": true,
+          "discount_amount": 0.12,
+          "discount_type": "PRICE",
+          "offer_text": "Target Circle Card 5%",
+          "short_description": "5% off",
+          "long_description": "Target Circle Card 5%",
+          "circle_offer": false,
+          "auto_applied": false,
+          "mass_offer": true,
+          "fire_fly_offer_type": "mass"
+        }
+      ],
+      "subscription": {},
+      "inventory_info": {
+        "availability_status": "IN_STOCK",
+        "location_type": "STORE",
+        "demand_type": "NETWORK",
+        "online_available_to_promise_quantity": 1,
+        "stores_available_to_promise_quantity": 1,
+        "is_out_of_stock_in_all_store_locations": false
+      },
+      "item_indicators": {
+        "is_store_pickup_eligible": true,
+        "is_ship_to_store_eligible": false,
+        "is_gift_wrap_eligible": false,
+        "is_gift_message_eligible": true,
+        "is_gift_options_eligible": true,
+        "is_third_party_giftcard": false,
+        "is_shipping_in_original_container": false,
+        "is_loyalty_purchase_eligible": false,
+        "is_add_on": true,
+        "is_free_gift": false,
+        "is_subscription": false,
+        "is_subscription_eligible": false,
+        "is_coming_soon": false,
+        "is_bulky": false,
+        "is_marketplace": false,
+        "is_pre_order": false,
+        "is_retail_ticketed": false,
+        "is_pickup_window_item": false,
+        "is_affirm_eligible": false,
+        "is_variable_price_item": false,
+        "is_snap_eligible": false,
+        "is_digital_gift_message_eligible": true,
+        "is_one_day_ppo_eligible": false,
+        "is_qualified_medical_expense_eligible": false
+      },
+      "created_at": "2026-07-21T18:24:36.474Z",
+      "updated_at": "2026-07-25T16:56:03.936Z",
+      "add_on_threshold": 35,
+      "item_add_channel": "10",
+      "government_programs": {
+        "vppa": false
+      }
+    },
+    {
+      "cart_id": "07ab3a81-80c9-11f1-8c13-efd4c994ed1b",
+      "total_cart_item_quantity": 15,
+      "cart_item_id": "a45c9a60-8531-11f1-a6f6-0f6ae4833bb9",
+      "cart_item_type": "REGULARITEM",
+      "return_policy": [
+        {
+          "type": "default",
+          "day_count": 120,
+          "user_type": "best_guest"
+        },
+        {
+          "type": "default",
+          "day_count": 90,
+          "user_type": "regular_guest"
+        }
+      ],
+      "tcin": "14151836",
+      "dpci": "081-04-0600",
+      "quantity": 1,
+      "unit_price": 2.39,
+      "list_price": 2.39,
+      "current_price": 2.39,
+      "msrp": 0.0,
+      "eyebrow": "R",
+      "limited_quantity": false,
+      "available_quantity_in_inventory": 99,
+      "handling": {
+        "buy_unit_of_measure": "Each"
+      },
+      "fulfillment": {
+        "type": "SHIP",
+        "location_data": {},
+        "ship_method": "STANDARD",
+        "price": {
+          "shipping_price": 0.0,
+          "handling_price": 0.0,
+          "service_fee": 0.0
+        },
+        "estimated_arrival_start_date": "2026-07-26",
+        "estimated_arrival_end_date": "2026-07-26",
+        "ship_method_service_level_description": "2-day shipping",
+        "available_ship_methods": [
+          {
+            "type": "SHIP",
+            "ship_method": "STANDARD",
+            "estimated_arrival_start_date": "2026-07-26",
+            "estimated_arrival_end_date": "2026-07-26",
+            "preferred": true,
+            "base": true,
+            "selected": true,
+            "seasonal": false,
+            "ship_method_short_description": "Standard",
+            "ship_method_long_description": "Ground",
+            "ship_method_service_level_description": "2-day shipping",
+            "order_cutoff": "2026-07-25T23:00+0000",
+            "ship_date": "2026-07-25",
+            "location_id": "1323-1",
+            "two_day_shipping_eligible": true,
+            "line_consolidated": true,
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "CURBSIDE",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "STORE_PICKUP",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "SHIP",
+            "ship_method": "SCHEDULED_DELIVERY",
+            "selected": false,
+            "ship_method_short_description": "Scheduled Delivery",
+            "minimum_order_quantity": 1.0
+          }
+        ]
+      },
+      "item_attributes": {
+        "description": "Crayola 8ct Kids Watercolor Paints with Brush, Washable Tempera, School Supplies for Kids, Art Classroom Essentials, Gift, Ages 3+",
+        "image_path": "https://target.scene7.com/is/image/Target//GUEST_25e13172-53de-4e1d-9f43-4d528deadaf6",
+        "max_purchase_quantity": 99,
+        "product_subtype_name": "ARTS, CRAFTS AND SEWING",
+        "product_type_name": "STATIONERY & OFFICE SUPPLIES"
+      },
+      "item_summary": {
+        "shipping_discount": 0.0,
+        "shipping_charge": 0.0,
+        "total_discount": 0.12,
+        "partial_discount": 0.12,
+        "total_product": 2.39,
+        "tax_amount": 0.22,
+        "price": 2.39,
+        "shipping_tax": 0.0,
+        "handling_fee": 0.0,
+        "surcharge_fee": 0.0,
+        "handling_fee_tax": 0.0,
+        "handling_fee_discount": 0.0,
+        "gift_wrap_fee": 0.0,
+        "gift_wrap_tax": 0.0,
+        "delivery_charge": 0.0,
+        "taxes": {
+          "total": 0.22,
+          "sales": 0.22,
+          "shipping": 0.0,
+          "handling_fee": 0.0,
+          "service_fee": 0.0,
+          "gift_wrap": 0.0
+        },
+        "total_list_price": 2.39,
+        "personalized_price": 2.27,
+        "personalized_price_has_discounts": true
+      },
+      "discounts": [
+        {
+          "promotion_id": "140841154",
+          "promotion_name": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "legal_description": "Target Circle Card 5% off merchandise subtotal. Merchandise subtotal does not include GiftCards, eGiftCards, Shipt Memberships, Mobile GiftCards, tax or shipping charges. Discount will be applied at Checkout. May not be applied to previous orders.",
+          "promotion_status": "APPLIED",
+          "cart_level": true,
+          "subscription_promo_flag": false,
+          "reward_type": "PercentageOff",
+          "reward_value": 5.0,
+          "applied_promo_text": "Target Circle Card 5%",
+          "promotion_group": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "applied": true,
+          "discount_amount": 0.12,
+          "discount_type": "PRICE",
+          "offer_text": "Target Circle Card 5%",
+          "short_description": "5% off",
+          "long_description": "Target Circle Card 5%",
+          "circle_offer": false,
+          "auto_applied": false,
+          "mass_offer": true,
+          "fire_fly_offer_type": "mass"
+        }
+      ],
+      "subscription": {},
+      "inventory_info": {
+        "availability_status": "IN_STOCK",
+        "location_type": "STORE",
+        "demand_type": "NETWORK",
+        "online_available_to_promise_quantity": 1,
+        "stores_available_to_promise_quantity": 1,
+        "is_out_of_stock_in_all_store_locations": false
+      },
+      "item_indicators": {
+        "is_store_pickup_eligible": true,
+        "is_ship_to_store_eligible": false,
+        "is_gift_wrap_eligible": false,
+        "is_gift_message_eligible": true,
+        "is_gift_options_eligible": true,
+        "is_third_party_giftcard": false,
+        "is_shipping_in_original_container": false,
+        "is_loyalty_purchase_eligible": false,
+        "is_add_on": true,
+        "is_free_gift": false,
+        "is_subscription": false,
+        "is_subscription_eligible": false,
+        "is_coming_soon": false,
+        "is_bulky": false,
+        "is_marketplace": false,
+        "is_pre_order": false,
+        "is_retail_ticketed": false,
+        "is_pickup_window_item": false,
+        "is_affirm_eligible": false,
+        "is_variable_price_item": false,
+        "is_snap_eligible": false,
+        "is_digital_gift_message_eligible": true,
+        "is_one_day_ppo_eligible": false,
+        "is_qualified_medical_expense_eligible": false
+      },
+      "created_at": "2026-07-21T18:26:08.262Z",
+      "updated_at": "2026-07-25T16:56:03.936Z",
+      "add_on_threshold": 35,
+      "item_add_channel": "10",
+      "government_programs": {
+        "vppa": false
+      }
+    },
+    {
+      "cart_id": "07ab3a81-80c9-11f1-8c13-efd4c994ed1b",
+      "total_cart_item_quantity": 15,
+      "cart_item_id": "ae71c7a1-8531-11f1-b169-2f034b592bb5",
+      "cart_item_type": "REGULARITEM",
+      "return_policy": [
+        {
+          "type": "default",
+          "day_count": 120,
+          "user_type": "best_guest"
+        },
+        {
+          "type": "default",
+          "day_count": 90,
+          "user_type": "regular_guest"
+        }
+      ],
+      "tcin": "14151826",
+      "dpci": "081-04-0342",
+      "quantity": 1,
+      "unit_price": 0.5,
+      "list_price": 1.49,
+      "current_price": 0.5,
+      "msrp": 0.0,
+      "eyebrow": "S",
+      "limited_quantity": false,
+      "available_quantity_in_inventory": 99,
+      "handling": {
+        "buy_unit_of_measure": "Each"
+      },
+      "fulfillment": {
+        "type": "SHIP",
+        "location_data": {},
+        "ship_method": "STANDARD",
+        "price": {
+          "shipping_price": 0.0,
+          "handling_price": 0.0,
+          "service_fee": 0.0
+        },
+        "estimated_arrival_start_date": "2026-07-26",
+        "estimated_arrival_end_date": "2026-07-26",
+        "ship_method_service_level_description": "2-day shipping",
+        "available_ship_methods": [
+          {
+            "type": "SHIP",
+            "ship_method": "STANDARD",
+            "estimated_arrival_start_date": "2026-07-26",
+            "estimated_arrival_end_date": "2026-07-26",
+            "preferred": true,
+            "base": true,
+            "selected": true,
+            "seasonal": false,
+            "ship_method_short_description": "Standard",
+            "ship_method_long_description": "Ground",
+            "ship_method_service_level_description": "2-day shipping",
+            "order_cutoff": "2026-07-25T23:00+0000",
+            "ship_date": "2026-07-25",
+            "location_id": "1323-1",
+            "two_day_shipping_eligible": true,
+            "line_consolidated": true,
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "CURBSIDE",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "STORE_PICKUP",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "SHIP",
+            "ship_method": "SCHEDULED_DELIVERY",
+            "selected": false,
+            "ship_method_short_description": "Scheduled Delivery",
+            "minimum_order_quantity": 1.0
+          }
+        ]
+      },
+      "item_attributes": {
+        "description": "Crayola 24ct Crayons, Elementary School Supplies for Kids, Art Classroom Must Haves for Teachers, Coloring Gift Ages 3+",
+        "image_path": "https://target.scene7.com/is/image/Target//GUEST_a73311c0-155f-4be8-b3a1-b86454c74c59",
+        "max_purchase_quantity": 99,
+        "product_subtype_name": "ARTS, CRAFTS AND SEWING",
+        "product_type_name": "STATIONERY & OFFICE SUPPLIES"
+      },
+      "item_summary": {
+        "shipping_discount": 0.0,
+        "shipping_charge": 0.0,
+        "total_discount": 0.03,
+        "partial_discount": 0.03,
+        "total_product": 0.5,
+        "tax_amount": 0.04,
+        "price": 0.5,
+        "shipping_tax": 0.0,
+        "handling_fee": 0.0,
+        "surcharge_fee": 0.0,
+        "handling_fee_tax": 0.0,
+        "handling_fee_discount": 0.0,
+        "gift_wrap_fee": 0.0,
+        "gift_wrap_tax": 0.0,
+        "delivery_charge": 0.0,
+        "taxes": {
+          "total": 0.04,
+          "sales": 0.04,
+          "shipping": 0.0,
+          "handling_fee": 0.0,
+          "service_fee": 0.0,
+          "gift_wrap": 0.0
+        },
+        "total_list_price": 1.49,
+        "personalized_price": 0.47,
+        "personalized_price_has_discounts": true
+      },
+      "discounts": [
+        {
+          "promotion_id": "140841154",
+          "promotion_name": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "legal_description": "Target Circle Card 5% off merchandise subtotal. Merchandise subtotal does not include GiftCards, eGiftCards, Shipt Memberships, Mobile GiftCards, tax or shipping charges. Discount will be applied at Checkout. May not be applied to previous orders.",
+          "promotion_status": "APPLIED",
+          "cart_level": true,
+          "subscription_promo_flag": false,
+          "reward_type": "PercentageOff",
+          "reward_value": 5.0,
+          "applied_promo_text": "Target Circle Card 5%",
+          "promotion_group": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "applied": true,
+          "discount_amount": 0.03,
+          "discount_type": "PRICE",
+          "offer_text": "Target Circle Card 5%",
+          "short_description": "5% off",
+          "long_description": "Target Circle Card 5%",
+          "circle_offer": false,
+          "auto_applied": false,
+          "mass_offer": true,
+          "fire_fly_offer_type": "mass"
+        }
+      ],
+      "subscription": {},
+      "inventory_info": {
+        "availability_status": "IN_STOCK",
+        "location_type": "STORE",
+        "demand_type": "NETWORK",
+        "online_available_to_promise_quantity": 1,
+        "stores_available_to_promise_quantity": 1,
+        "is_out_of_stock_in_all_store_locations": false
+      },
+      "item_indicators": {
+        "is_store_pickup_eligible": true,
+        "is_ship_to_store_eligible": false,
+        "is_gift_wrap_eligible": false,
+        "is_gift_message_eligible": true,
+        "is_gift_options_eligible": true,
+        "is_third_party_giftcard": false,
+        "is_shipping_in_original_container": false,
+        "is_loyalty_purchase_eligible": false,
+        "is_add_on": true,
+        "is_free_gift": false,
+        "is_subscription": false,
+        "is_subscription_eligible": false,
+        "is_coming_soon": false,
+        "is_bulky": false,
+        "is_marketplace": false,
+        "is_pre_order": false,
+        "is_retail_ticketed": false,
+        "is_pickup_window_item": false,
+        "is_affirm_eligible": false,
+        "is_variable_price_item": false,
+        "is_snap_eligible": false,
+        "is_digital_gift_message_eligible": true,
+        "is_one_day_ppo_eligible": false,
+        "is_qualified_medical_expense_eligible": false
+      },
+      "created_at": "2026-07-21T18:26:25.178Z",
+      "updated_at": "2026-07-25T16:56:03.936Z",
+      "add_on_threshold": 35,
+      "item_add_channel": "10",
+      "government_programs": {
+        "vppa": false
+      }
+    },
+    {
+      "cart_id": "07ab3a81-80c9-11f1-8c13-efd4c994ed1b",
+      "total_cart_item_quantity": 15,
+      "cart_item_id": "c897cf80-8531-11f1-bb74-cdd1ff56a652",
+      "cart_item_type": "REGULARITEM",
+      "return_policy": [
+        {
+          "type": "default",
+          "day_count": 120,
+          "user_type": "best_guest"
+        },
+        {
+          "type": "default",
+          "day_count": 90,
+          "user_type": "regular_guest"
+        }
+      ],
+      "tcin": "14152241",
+      "dpci": "081-04-0334",
+      "quantity": 1,
+      "unit_price": 0.99,
+      "list_price": 2.59,
+      "current_price": 0.99,
+      "msrp": 0.0,
+      "eyebrow": "S",
+      "limited_quantity": false,
+      "available_quantity_in_inventory": 99,
+      "handling": {
+        "buy_unit_of_measure": "Each"
+      },
+      "fulfillment": {
+        "type": "SHIP",
+        "location_data": {},
+        "ship_method": "STANDARD",
+        "price": {
+          "shipping_price": 0.0,
+          "handling_price": 0.0,
+          "service_fee": 0.0
+        },
+        "estimated_arrival_start_date": "2026-07-26",
+        "estimated_arrival_end_date": "2026-07-26",
+        "ship_method_service_level_description": "2-day shipping",
+        "available_ship_methods": [
+          {
+            "type": "SHIP",
+            "ship_method": "STANDARD",
+            "estimated_arrival_start_date": "2026-07-26",
+            "estimated_arrival_end_date": "2026-07-26",
+            "preferred": true,
+            "base": true,
+            "selected": true,
+            "seasonal": false,
+            "ship_method_short_description": "Standard",
+            "ship_method_long_description": "Ground",
+            "ship_method_service_level_description": "2-day shipping",
+            "order_cutoff": "2026-07-25T23:00+0000",
+            "ship_date": "2026-07-25",
+            "location_id": "1323-1",
+            "two_day_shipping_eligible": true,
+            "line_consolidated": true,
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "CURBSIDE",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "STORE_PICKUP",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "SHIP",
+            "ship_method": "SCHEDULED_DELIVERY",
+            "selected": false,
+            "ship_method_short_description": "Scheduled Delivery",
+            "minimum_order_quantity": 1.0
+          }
+        ]
+      },
+      "item_attributes": {
+        "description": "Crayola 10ct Broad Line Markers, Elementary School Supplies for Kids, Art Classroom Must Haves, Drawing &#38; Coloring Gift, Ages 3+",
+        "image_path": "https://target.scene7.com/is/image/Target//GUEST_481efebc-2e90-4799-a78a-8789f05b05a8",
+        "max_purchase_quantity": 99,
+        "product_subtype_name": "ARTS, CRAFTS AND SEWING",
+        "product_type_name": "STATIONERY & OFFICE SUPPLIES"
+      },
+      "item_summary": {
+        "shipping_discount": 0.0,
+        "shipping_charge": 0.0,
+        "total_discount": 0.05,
+        "partial_discount": 0.05,
+        "total_product": 0.99,
+        "tax_amount": 0.1,
+        "price": 0.99,
+        "shipping_tax": 0.0,
+        "handling_fee": 0.0,
+        "surcharge_fee": 0.0,
+        "handling_fee_tax": 0.0,
+        "handling_fee_discount": 0.0,
+        "gift_wrap_fee": 0.0,
+        "gift_wrap_tax": 0.0,
+        "delivery_charge": 0.0,
+        "taxes": {
+          "total": 0.1,
+          "sales": 0.1,
+          "shipping": 0.0,
+          "handling_fee": 0.0,
+          "service_fee": 0.0,
+          "gift_wrap": 0.0
+        },
+        "total_list_price": 2.59,
+        "personalized_price": 0.94,
+        "personalized_price_has_discounts": true
+      },
+      "discounts": [
+        {
+          "promotion_id": "140841154",
+          "promotion_name": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "legal_description": "Target Circle Card 5% off merchandise subtotal. Merchandise subtotal does not include GiftCards, eGiftCards, Shipt Memberships, Mobile GiftCards, tax or shipping charges. Discount will be applied at Checkout. May not be applied to previous orders.",
+          "promotion_status": "APPLIED",
+          "cart_level": true,
+          "subscription_promo_flag": false,
+          "reward_type": "PercentageOff",
+          "reward_value": 5.0,
+          "applied_promo_text": "Target Circle Card 5%",
+          "promotion_group": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "applied": true,
+          "discount_amount": 0.05,
+          "discount_type": "PRICE",
+          "offer_text": "Target Circle Card 5%",
+          "short_description": "5% off",
+          "long_description": "Target Circle Card 5%",
+          "circle_offer": false,
+          "auto_applied": false,
+          "mass_offer": true,
+          "fire_fly_offer_type": "mass"
+        }
+      ],
+      "subscription": {},
+      "inventory_info": {
+        "availability_status": "IN_STOCK",
+        "location_type": "STORE",
+        "demand_type": "NETWORK",
+        "online_available_to_promise_quantity": 1,
+        "stores_available_to_promise_quantity": 1,
+        "is_out_of_stock_in_all_store_locations": false
+      },
+      "item_indicators": {
+        "is_store_pickup_eligible": true,
+        "is_ship_to_store_eligible": false,
+        "is_gift_wrap_eligible": false,
+        "is_gift_message_eligible": true,
+        "is_gift_options_eligible": true,
+        "is_third_party_giftcard": false,
+        "is_shipping_in_original_container": false,
+        "is_loyalty_purchase_eligible": false,
+        "is_add_on": true,
+        "is_free_gift": false,
+        "is_subscription": false,
+        "is_subscription_eligible": false,
+        "is_coming_soon": false,
+        "is_bulky": false,
+        "is_marketplace": false,
+        "is_pre_order": false,
+        "is_retail_ticketed": false,
+        "is_pickup_window_item": false,
+        "is_affirm_eligible": false,
+        "is_variable_price_item": false,
+        "is_snap_eligible": false,
+        "is_digital_gift_message_eligible": true,
+        "is_one_day_ppo_eligible": false,
+        "is_qualified_medical_expense_eligible": false
+      },
+      "created_at": "2026-07-21T18:27:09.048Z",
+      "updated_at": "2026-07-25T16:56:03.936Z",
+      "add_on_threshold": 35,
+      "item_add_channel": "10",
+      "government_programs": {
+        "vppa": false
+      }
+    },
+    {
+      "cart_id": "07ab3a81-80c9-11f1-8c13-efd4c994ed1b",
+      "total_cart_item_quantity": 15,
+      "cart_item_id": "d4fc6b01-8531-11f1-bff2-9d44dcf8bc5f",
+      "cart_item_type": "REGULARITEM",
+      "return_policy": [
+        {
+          "type": "default",
+          "day_count": 120,
+          "user_type": "best_guest"
+        },
+        {
+          "type": "default",
+          "day_count": 90,
+          "user_type": "regular_guest"
+        }
+      ],
+      "tcin": "10804811",
+      "dpci": "081-02-1024",
+      "quantity": 1,
+      "unit_price": 4.49,
+      "list_price": 5.29,
+      "current_price": 4.49,
+      "msrp": 5.49,
+      "eyebrow": "S",
+      "limited_quantity": false,
+      "available_quantity_in_inventory": 99,
+      "handling": {
+        "buy_unit_of_measure": "Each"
+      },
+      "fulfillment": {
+        "type": "SHIP",
+        "location_data": {},
+        "ship_method": "STANDARD",
+        "price": {
+          "shipping_price": 0.0,
+          "handling_price": 0.0,
+          "service_fee": 0.0
+        },
+        "estimated_arrival_start_date": "2026-07-26",
+        "estimated_arrival_end_date": "2026-07-26",
+        "ship_method_service_level_description": "2-day shipping",
+        "available_ship_methods": [
+          {
+            "type": "SHIP",
+            "ship_method": "STANDARD",
+            "estimated_arrival_start_date": "2026-07-26",
+            "estimated_arrival_end_date": "2026-07-26",
+            "preferred": true,
+            "base": true,
+            "selected": true,
+            "seasonal": false,
+            "ship_method_short_description": "Standard",
+            "ship_method_long_description": "Ground",
+            "ship_method_service_level_description": "2-day shipping",
+            "order_cutoff": "2026-07-25T23:00+0000",
+            "ship_date": "2026-07-25",
+            "location_id": "1323-1",
+            "two_day_shipping_eligible": true,
+            "line_consolidated": true,
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "CURBSIDE",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "STORE_PICKUP",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "SHIP",
+            "ship_method": "SCHEDULED_DELIVERY",
+            "selected": false,
+            "ship_method_short_description": "Scheduled Delivery",
+            "minimum_order_quantity": 1.0
+          }
+        ]
+      },
+      "item_attributes": {
+        "description": "Expo 4pk Dry Erase Markers Chisel Tip Multicolored: Low-Odor Whiteboard Markers, Bold &#38; Fine Point, Erasable, Ages 3+",
+        "image_path": "https://target.scene7.com/is/image/Target//GUEST_b38deeea-8f20-4274-afb0-2e730b487237",
+        "max_purchase_quantity": 99,
+        "product_subtype_name": "ARTS, CRAFTS AND SEWING",
+        "product_type_name": "STATIONERY & OFFICE SUPPLIES"
+      },
+      "item_summary": {
+        "shipping_discount": 0.0,
+        "shipping_charge": 0.0,
+        "total_discount": 0.22,
+        "partial_discount": 0.22,
+        "total_product": 4.49,
+        "tax_amount": 0.41,
+        "price": 4.49,
+        "shipping_tax": 0.0,
+        "handling_fee": 0.0,
+        "surcharge_fee": 0.0,
+        "handling_fee_tax": 0.0,
+        "handling_fee_discount": 0.0,
+        "gift_wrap_fee": 0.0,
+        "gift_wrap_tax": 0.0,
+        "delivery_charge": 0.0,
+        "taxes": {
+          "total": 0.41,
+          "sales": 0.41,
+          "shipping": 0.0,
+          "handling_fee": 0.0,
+          "service_fee": 0.0,
+          "gift_wrap": 0.0
+        },
+        "total_list_price": 5.29,
+        "personalized_price": 4.27,
+        "personalized_price_has_discounts": true
+      },
+      "discounts": [
+        {
+          "promotion_id": "140841154",
+          "promotion_name": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "legal_description": "Target Circle Card 5% off merchandise subtotal. Merchandise subtotal does not include GiftCards, eGiftCards, Shipt Memberships, Mobile GiftCards, tax or shipping charges. Discount will be applied at Checkout. May not be applied to previous orders.",
+          "promotion_status": "APPLIED",
+          "cart_level": true,
+          "subscription_promo_flag": false,
+          "reward_type": "PercentageOff",
+          "reward_value": 5.0,
+          "applied_promo_text": "Target Circle Card 5%",
+          "promotion_group": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "applied": true,
+          "discount_amount": 0.22,
+          "discount_type": "PRICE",
+          "offer_text": "Target Circle Card 5%",
+          "short_description": "5% off",
+          "long_description": "Target Circle Card 5%",
+          "circle_offer": false,
+          "auto_applied": false,
+          "mass_offer": true,
+          "fire_fly_offer_type": "mass"
+        }
+      ],
+      "subscription": {},
+      "inventory_info": {
+        "availability_status": "IN_STOCK",
+        "location_type": "STORE",
+        "demand_type": "NETWORK",
+        "online_available_to_promise_quantity": 1,
+        "stores_available_to_promise_quantity": 1,
+        "is_out_of_stock_in_all_store_locations": false
+      },
+      "item_indicators": {
+        "is_store_pickup_eligible": true,
+        "is_ship_to_store_eligible": false,
+        "is_gift_wrap_eligible": false,
+        "is_gift_message_eligible": true,
+        "is_gift_options_eligible": true,
+        "is_third_party_giftcard": false,
+        "is_shipping_in_original_container": false,
+        "is_loyalty_purchase_eligible": false,
+        "is_add_on": true,
+        "is_free_gift": false,
+        "is_subscription": false,
+        "is_subscription_eligible": false,
+        "is_coming_soon": false,
+        "is_bulky": false,
+        "is_marketplace": false,
+        "is_pre_order": false,
+        "is_retail_ticketed": false,
+        "is_pickup_window_item": false,
+        "is_affirm_eligible": false,
+        "is_variable_price_item": false,
+        "is_snap_eligible": false,
+        "is_digital_gift_message_eligible": true,
+        "is_one_day_ppo_eligible": false,
+        "is_qualified_medical_expense_eligible": false
+      },
+      "created_at": "2026-07-21T18:27:29.840Z",
+      "updated_at": "2026-07-25T16:56:03.936Z",
+      "add_on_threshold": 35,
+      "item_add_channel": "10",
+      "government_programs": {
+        "vppa": false
+      }
+    },
+    {
+      "cart_id": "07ab3a81-80c9-11f1-8c13-efd4c994ed1b",
+      "total_cart_item_quantity": 15,
+      "cart_item_id": "10120a00-8533-11f1-b9c1-893f0866b0b9",
+      "cart_item_type": "REGULARITEM",
+      "return_policy": [
+        {
+          "type": "default",
+          "day_count": 365,
+          "user_type": "regular_guest"
+        },
+        {
+          "type": "default",
+          "day_count": 365,
+          "user_type": "best_guest"
+        }
+      ],
+      "tcin": "94884031",
+      "dpci": "069-05-1859",
+      "quantity": 1,
+      "unit_price": 3.0,
+      "list_price": 3.0,
+      "current_price": 3.0,
+      "msrp": 0.0,
+      "eyebrow": "R",
+      "limited_quantity": false,
+      "available_quantity_in_inventory": 10,
+      "handling": {
+        "buy_unit_of_measure": "Each"
+      },
+      "fulfillment": {
+        "type": "SHIP",
+        "location_data": {},
+        "ship_method": "STANDARD",
+        "price": {
+          "shipping_price": 0.0,
+          "handling_price": 0.0,
+          "service_fee": 0.0
+        },
+        "estimated_arrival_start_date": "2026-07-26",
+        "estimated_arrival_end_date": "2026-07-26",
+        "ship_method_service_level_description": "2-day shipping",
+        "available_ship_methods": [
+          {
+            "type": "SHIP",
+            "ship_method": "STANDARD",
+            "estimated_arrival_start_date": "2026-07-26",
+            "estimated_arrival_end_date": "2026-07-26",
+            "preferred": true,
+            "base": true,
+            "selected": true,
+            "seasonal": false,
+            "ship_method_short_description": "Standard",
+            "ship_method_long_description": "Ground",
+            "ship_method_service_level_description": "2-day shipping",
+            "order_cutoff": "2026-07-25T23:00+0000",
+            "ship_date": "2026-07-25",
+            "location_id": "1323-1",
+            "two_day_shipping_eligible": true,
+            "line_consolidated": true,
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "CURBSIDE",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "STORE_PICKUP",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "SHIP",
+            "ship_method": "SCHEDULED_DELIVERY",
+            "selected": false,
+            "ship_method_short_description": "Scheduled Delivery",
+            "minimum_order_quantity": 1.0
+          }
+        ]
+      },
+      "item_attributes": {
+        "description": "Snack Bento Lunch Box - Cat &#38; Jack&#8482; Ditsy Floral",
+        "image_path": "https://target.scene7.com/is/image/Target//GUEST_e5d06cb7-d05b-4929-8a88-ce6b0fa80d89",
+        "max_purchase_quantity": 10,
+        "product_subtype_name": "DINING & SERVEWARE",
+        "product_type_name": "HOME"
+      },
+      "item_summary": {
+        "shipping_discount": 0.0,
+        "shipping_charge": 0.0,
+        "total_discount": 0.15,
+        "partial_discount": 0.15,
+        "total_product": 3.0,
+        "tax_amount": 0.28,
+        "price": 3.0,
+        "shipping_tax": 0.0,
+        "handling_fee": 0.0,
+        "surcharge_fee": 0.0,
+        "handling_fee_tax": 0.0,
+        "handling_fee_discount": 0.0,
+        "gift_wrap_fee": 0.0,
+        "gift_wrap_tax": 0.0,
+        "delivery_charge": 0.0,
+        "taxes": {
+          "total": 0.28,
+          "sales": 0.28,
+          "shipping": 0.0,
+          "handling_fee": 0.0,
+          "service_fee": 0.0,
+          "gift_wrap": 0.0
+        },
+        "total_list_price": 3.0,
+        "personalized_price": 2.85,
+        "personalized_price_has_discounts": true
+      },
+      "discounts": [
+        {
+          "promotion_id": "140841154",
+          "promotion_name": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "legal_description": "Target Circle Card 5% off merchandise subtotal. Merchandise subtotal does not include GiftCards, eGiftCards, Shipt Memberships, Mobile GiftCards, tax or shipping charges. Discount will be applied at Checkout. May not be applied to previous orders.",
+          "promotion_status": "APPLIED",
+          "cart_level": true,
+          "subscription_promo_flag": false,
+          "reward_type": "PercentageOff",
+          "reward_value": 5.0,
+          "applied_promo_text": "Target Circle Card 5%",
+          "promotion_group": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "applied": true,
+          "discount_amount": 0.15,
+          "discount_type": "PRICE",
+          "offer_text": "Target Circle Card 5%",
+          "short_description": "5% off",
+          "long_description": "Target Circle Card 5%",
+          "circle_offer": false,
+          "auto_applied": false,
+          "mass_offer": true,
+          "fire_fly_offer_type": "mass"
+        }
+      ],
+      "subscription": {},
+      "inventory_info": {
+        "availability_status": "IN_STOCK",
+        "location_type": "STORE",
+        "demand_type": "NETWORK",
+        "online_available_to_promise_quantity": 1,
+        "stores_available_to_promise_quantity": 1,
+        "is_out_of_stock_in_all_store_locations": false
+      },
+      "item_indicators": {
+        "is_store_pickup_eligible": true,
+        "is_ship_to_store_eligible": false,
+        "is_gift_wrap_eligible": false,
+        "is_gift_message_eligible": true,
+        "is_gift_options_eligible": true,
+        "is_third_party_giftcard": false,
+        "is_shipping_in_original_container": false,
+        "is_loyalty_purchase_eligible": false,
+        "is_add_on": true,
+        "is_free_gift": false,
+        "is_subscription": false,
+        "is_subscription_eligible": false,
+        "is_coming_soon": false,
+        "is_bulky": false,
+        "is_marketplace": false,
+        "is_pre_order": false,
+        "is_retail_ticketed": false,
+        "is_pickup_window_item": false,
+        "is_affirm_eligible": false,
+        "is_variable_price_item": false,
+        "is_snap_eligible": false,
+        "is_digital_gift_message_eligible": true,
+        "is_one_day_ppo_eligible": false,
+        "is_qualified_medical_expense_eligible": false
+      },
+      "created_at": "2026-07-21T18:36:18.464Z",
+      "updated_at": "2026-07-25T16:56:03.936Z",
+      "add_on_threshold": 35,
+      "item_add_channel": "10",
+      "government_programs": {
+        "vppa": false
+      }
+    },
+    {
+      "cart_id": "07ab3a81-80c9-11f1-8c13-efd4c994ed1b",
+      "total_cart_item_quantity": 15,
+      "cart_item_id": "c5f25fc2-8536-11f1-ac44-09f0b1cea8d9",
+      "cart_item_type": "REGULARITEM",
+      "return_policy": [
+        {
+          "type": "default",
+          "day_count": 365,
+          "user_type": "best_guest"
+        },
+        {
+          "type": "default",
+          "day_count": 365,
+          "user_type": "regular_guest"
+        }
+      ],
+      "tcin": "92406949",
+      "dpci": "081-22-0292",
+      "quantity": 1,
+      "unit_price": 5.0,
+      "list_price": 5.0,
+      "current_price": 5.0,
+      "msrp": 5.0,
+      "eyebrow": "R",
+      "limited_quantity": false,
+      "available_quantity_in_inventory": 20,
+      "handling": {
+        "buy_unit_of_measure": "Each"
+      },
+      "fulfillment": {
+        "type": "SHIP",
+        "location_data": {},
+        "ship_method": "STANDARD",
+        "price": {
+          "shipping_price": 0.0,
+          "handling_price": 0.0,
+          "service_fee": 0.0
+        },
+        "estimated_arrival_start_date": "2026-07-26",
+        "estimated_arrival_end_date": "2026-07-26",
+        "ship_method_service_level_description": "2-day shipping",
+        "available_ship_methods": [
+          {
+            "type": "SHIP",
+            "ship_method": "STANDARD",
+            "estimated_arrival_start_date": "2026-07-26",
+            "estimated_arrival_end_date": "2026-07-26",
+            "preferred": true,
+            "base": true,
+            "selected": true,
+            "seasonal": false,
+            "ship_method_short_description": "Standard",
+            "ship_method_long_description": "Ground",
+            "ship_method_service_level_description": "2-day shipping",
+            "order_cutoff": "2026-07-25T23:00+0000",
+            "ship_date": "2026-07-25",
+            "location_id": "1323-1",
+            "two_day_shipping_eligible": true,
+            "line_consolidated": true,
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "CURBSIDE",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "STORE_PICKUP",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "SHIP",
+            "ship_method": "SCHEDULED_DELIVERY",
+            "selected": false,
+            "ship_method_short_description": "Scheduled Delivery",
+            "minimum_order_quantity": 1.0
+          }
+        ]
+      },
+      "item_attributes": {
+        "description": "251ct Puffy Stickers 5 themes - Mondo Llama&#8482;",
+        "image_path": "https://target.scene7.com/is/image/Target//GUEST_3508ef65-b9c8-4d60-8083-8736fe70d65f",
+        "max_purchase_quantity": 20,
+        "product_subtype_name": "ARTS, CRAFTS AND SEWING",
+        "product_type_name": "STATIONERY & OFFICE SUPPLIES"
+      },
+      "item_summary": {
+        "shipping_discount": 0.0,
+        "shipping_charge": 0.0,
+        "total_discount": 0.25,
+        "partial_discount": 0.25,
+        "total_product": 5.0,
+        "tax_amount": 0.46,
+        "price": 5.0,
+        "shipping_tax": 0.0,
+        "handling_fee": 0.0,
+        "surcharge_fee": 0.0,
+        "handling_fee_tax": 0.0,
+        "handling_fee_discount": 0.0,
+        "gift_wrap_fee": 0.0,
+        "gift_wrap_tax": 0.0,
+        "delivery_charge": 0.0,
+        "taxes": {
+          "total": 0.46,
+          "sales": 0.46,
+          "shipping": 0.0,
+          "handling_fee": 0.0,
+          "service_fee": 0.0,
+          "gift_wrap": 0.0
+        },
+        "total_list_price": 5.0,
+        "personalized_price": 4.75,
+        "personalized_price_has_discounts": true
+      },
+      "discounts": [
+        {
+          "promotion_id": "140841154",
+          "promotion_name": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "legal_description": "Target Circle Card 5% off merchandise subtotal. Merchandise subtotal does not include GiftCards, eGiftCards, Shipt Memberships, Mobile GiftCards, tax or shipping charges. Discount will be applied at Checkout. May not be applied to previous orders.",
+          "promotion_status": "APPLIED",
+          "cart_level": true,
+          "subscription_promo_flag": false,
+          "reward_type": "PercentageOff",
+          "reward_value": 5.0,
+          "applied_promo_text": "Target Circle Card 5%",
+          "promotion_group": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "applied": true,
+          "discount_amount": 0.25,
+          "discount_type": "PRICE",
+          "offer_text": "Target Circle Card 5%",
+          "short_description": "5% off",
+          "long_description": "Target Circle Card 5%",
+          "circle_offer": false,
+          "auto_applied": false,
+          "mass_offer": true,
+          "fire_fly_offer_type": "mass"
+        }
+      ],
+      "subscription": {},
+      "inventory_info": {
+        "availability_status": "IN_STOCK",
+        "location_type": "STORE",
+        "demand_type": "NETWORK",
+        "online_available_to_promise_quantity": 1,
+        "stores_available_to_promise_quantity": 1,
+        "is_out_of_stock_in_all_store_locations": false
+      },
+      "item_indicators": {
+        "is_store_pickup_eligible": true,
+        "is_ship_to_store_eligible": false,
+        "is_gift_wrap_eligible": false,
+        "is_gift_message_eligible": true,
+        "is_gift_options_eligible": true,
+        "is_third_party_giftcard": false,
+        "is_shipping_in_original_container": false,
+        "is_loyalty_purchase_eligible": false,
+        "is_add_on": true,
+        "is_free_gift": false,
+        "is_subscription": false,
+        "is_subscription_eligible": false,
+        "is_coming_soon": false,
+        "is_bulky": false,
+        "is_marketplace": false,
+        "is_pre_order": false,
+        "is_retail_ticketed": false,
+        "is_pickup_window_item": false,
+        "is_affirm_eligible": false,
+        "is_variable_price_item": false,
+        "is_snap_eligible": false,
+        "is_digital_gift_message_eligible": true,
+        "is_one_day_ppo_eligible": false,
+        "is_qualified_medical_expense_eligible": false
+      },
+      "created_at": "2026-07-21T19:02:52.092Z",
+      "updated_at": "2026-07-25T16:56:03.936Z",
+      "add_on_threshold": 35,
+      "item_add_channel": "10",
+      "government_programs": {
+        "vppa": false
+      }
+    },
+    {
+      "cart_id": "07ab3a81-80c9-11f1-8c13-efd4c994ed1b",
+      "total_cart_item_quantity": 15,
+      "cart_item_id": "ee52ece0-853c-11f1-9106-47c01fb79d11",
+      "cart_item_type": "REGULARITEM",
+      "return_policy": [
+        {
+          "type": "default",
+          "day_count": 365,
+          "user_type": "regular_guest"
+        },
+        {
+          "type": "default",
+          "day_count": 365,
+          "user_type": "best_guest"
+        }
+      ],
+      "tcin": "94887618",
+      "dpci": "069-05-3215",
+      "quantity": 1,
+      "unit_price": 12.0,
+      "list_price": 12.0,
+      "current_price": 12.0,
+      "msrp": 0.0,
+      "eyebrow": "R",
+      "limited_quantity": false,
+      "available_quantity_in_inventory": 10,
+      "handling": {
+        "buy_unit_of_measure": "Each"
+      },
+      "fulfillment": {
+        "type": "SHIP",
+        "location_data": {},
+        "ship_method": "STANDARD",
+        "price": {
+          "shipping_price": 0.0,
+          "handling_price": 0.0,
+          "service_fee": 0.0
+        },
+        "estimated_arrival_start_date": "2026-07-26",
+        "estimated_arrival_end_date": "2026-07-26",
+        "ship_method_service_level_description": "2-day shipping",
+        "available_ship_methods": [
+          {
+            "type": "SHIP",
+            "ship_method": "STANDARD",
+            "estimated_arrival_start_date": "2026-07-26",
+            "estimated_arrival_end_date": "2026-07-26",
+            "preferred": true,
+            "base": true,
+            "selected": true,
+            "seasonal": false,
+            "ship_method_short_description": "Standard",
+            "ship_method_long_description": "Ground",
+            "ship_method_service_level_description": "2-day shipping",
+            "order_cutoff": "2026-07-25T23:00+0000",
+            "ship_date": "2026-07-25",
+            "location_id": "1323-1",
+            "two_day_shipping_eligible": true,
+            "line_consolidated": true,
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "CURBSIDE",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "STORE_PICKUP",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "SHIP",
+            "ship_method": "SCHEDULED_DELIVERY",
+            "selected": false,
+            "ship_method_short_description": "Scheduled Delivery",
+            "minimum_order_quantity": 1.0
+          }
+        ]
+      },
+      "item_attributes": {
+        "description": "Premium Bento Lunch Box - Cat &#38; Jack&#8482; Ditsy Floral",
+        "image_path": "https://target.scene7.com/is/image/Target//GUEST_f85231d0-68c7-4f68-957f-c01aed209a1e",
+        "max_purchase_quantity": 10,
+        "product_subtype_name": "DINING & SERVEWARE",
+        "product_type_name": "HOME"
+      },
+      "item_summary": {
+        "shipping_discount": 0.0,
+        "shipping_charge": 0.0,
+        "total_discount": 0.6,
+        "partial_discount": 0.6,
+        "total_product": 12.0,
+        "tax_amount": 1.12,
+        "price": 12.0,
+        "shipping_tax": 0.0,
+        "handling_fee": 0.0,
+        "surcharge_fee": 0.0,
+        "handling_fee_tax": 0.0,
+        "handling_fee_discount": 0.0,
+        "gift_wrap_fee": 0.0,
+        "gift_wrap_tax": 0.0,
+        "delivery_charge": 0.0,
+        "taxes": {
+          "total": 1.12,
+          "sales": 1.12,
+          "shipping": 0.0,
+          "handling_fee": 0.0,
+          "service_fee": 0.0,
+          "gift_wrap": 0.0
+        },
+        "total_list_price": 12.0,
+        "personalized_price": 11.4,
+        "personalized_price_has_discounts": true
+      },
+      "discounts": [
+        {
+          "promotion_id": "140841154",
+          "promotion_name": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "legal_description": "Target Circle Card 5% off merchandise subtotal. Merchandise subtotal does not include GiftCards, eGiftCards, Shipt Memberships, Mobile GiftCards, tax or shipping charges. Discount will be applied at Checkout. May not be applied to previous orders.",
+          "promotion_status": "APPLIED",
+          "cart_level": true,
+          "subscription_promo_flag": false,
+          "reward_type": "PercentageOff",
+          "reward_value": 5.0,
+          "applied_promo_text": "Target Circle Card 5%",
+          "promotion_group": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "applied": true,
+          "discount_amount": 0.6,
+          "discount_type": "PRICE",
+          "offer_text": "Target Circle Card 5%",
+          "short_description": "5% off",
+          "long_description": "Target Circle Card 5%",
+          "circle_offer": false,
+          "auto_applied": false,
+          "mass_offer": true,
+          "fire_fly_offer_type": "mass"
+        }
+      ],
+      "subscription": {},
+      "inventory_info": {
+        "availability_status": "IN_STOCK",
+        "location_type": "STORE",
+        "demand_type": "NETWORK",
+        "online_available_to_promise_quantity": 1,
+        "stores_available_to_promise_quantity": 1,
+        "is_out_of_stock_in_all_store_locations": false
+      },
+      "item_indicators": {
+        "is_store_pickup_eligible": true,
+        "is_ship_to_store_eligible": false,
+        "is_gift_wrap_eligible": false,
+        "is_gift_message_eligible": true,
+        "is_gift_options_eligible": true,
+        "is_third_party_giftcard": false,
+        "is_shipping_in_original_container": false,
+        "is_loyalty_purchase_eligible": false,
+        "is_add_on": false,
+        "is_free_gift": false,
+        "is_subscription": false,
+        "is_subscription_eligible": false,
+        "is_coming_soon": false,
+        "is_bulky": false,
+        "is_marketplace": false,
+        "is_pre_order": false,
+        "is_retail_ticketed": false,
+        "is_pickup_window_item": false,
+        "is_affirm_eligible": false,
+        "is_variable_price_item": false,
+        "is_snap_eligible": false,
+        "is_digital_gift_message_eligible": true,
+        "is_one_day_ppo_eligible": false,
+        "is_qualified_medical_expense_eligible": false
+      },
+      "created_at": "2026-07-21T19:46:56.814Z",
+      "updated_at": "2026-07-25T16:56:03.936Z",
+      "add_on_threshold": 35,
+      "item_add_channel": "10",
+      "government_programs": {
+        "vppa": false
+      }
+    },
+    {
+      "cart_id": "07ab3a81-80c9-11f1-8c13-efd4c994ed1b",
+      "total_cart_item_quantity": 15,
+      "cart_item_id": "d2b33310-8649-11f1-93d2-9d13f59a0392",
+      "cart_item_type": "REGULARITEM",
+      "return_policy": [
+        {
+          "id": 17,
+          "type": "permanent",
+          "day_count": 365,
+          "user_type": "regular_guest",
+          "permanent_policy_id": 17,
+          "start_date": "2021-04-19",
+          "end_date": "2099-12-30",
+          "end_time": "23:59:59"
+        },
+        {
+          "id": 17,
+          "type": "permanent",
+          "day_count": 365,
+          "user_type": "best_guest",
+          "permanent_policy_id": 17,
+          "start_date": "2021-04-19",
+          "end_date": "2099-12-30",
+          "end_time": "23:59:59"
+        }
+      ],
+      "tcin": "77588958",
+      "dpci": "261-02-1312",
+      "quantity": 1,
+      "unit_price": 2.69,
+      "list_price": 2.69,
+      "current_price": 2.69,
+      "msrp": 0.0,
+      "eyebrow": "R",
+      "limited_quantity": false,
+      "available_quantity_in_inventory": 10,
+      "handling": {
+        "buy_unit_of_measure": "Each"
+      },
+      "fulfillment": {
+        "type": "SHIP",
+        "location_data": {},
+        "ship_method": "STANDARD",
+        "price": {
+          "shipping_price": 0.0,
+          "handling_price": 0.0,
+          "service_fee": 0.0
+        },
+        "estimated_arrival_start_date": "2026-07-26",
+        "estimated_arrival_end_date": "2026-07-26",
+        "ship_method_service_level_description": "2-day shipping",
+        "available_ship_methods": [
+          {
+            "type": "SHIP",
+            "ship_method": "STANDARD",
+            "estimated_arrival_start_date": "2026-07-26",
+            "estimated_arrival_end_date": "2026-07-26",
+            "preferred": true,
+            "base": true,
+            "selected": true,
+            "seasonal": false,
+            "ship_method_short_description": "Standard",
+            "ship_method_long_description": "Ground",
+            "ship_method_service_level_description": "2-day shipping",
+            "order_cutoff": "2026-07-25T23:00+0000",
+            "ship_date": "2026-07-25",
+            "location_id": "1323-1",
+            "two_day_shipping_eligible": true,
+            "line_consolidated": true,
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "CURBSIDE",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "STORE_PICKUP",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "SHIP",
+            "ship_method": "SCHEDULED_DELIVERY",
+            "selected": false,
+            "ship_method_short_description": "Scheduled Delivery",
+            "minimum_order_quantity": 1.0
+          }
+        ]
+      },
+      "item_attributes": {
+        "description": "Whole Black Peppercorn - 2.37oz - Good &#38; Gather&#8482;",
+        "image_path": "https://target.scene7.com/is/image/Target//GUEST_4cf5700b-f86e-44bc-b8a9-a46e2a61671a",
+        "max_purchase_quantity": 10,
+        "product_subtype_name": "BAKING AND COOKING COMPONENTS",
+        "product_type_name": "GROCERY"
+      },
+      "item_summary": {
+        "shipping_discount": 0.0,
+        "shipping_charge": 0.0,
+        "total_discount": 0.13,
+        "partial_discount": 0.13,
+        "total_product": 2.69,
+        "tax_amount": 0.05,
+        "price": 2.69,
+        "shipping_tax": 0.0,
+        "handling_fee": 0.0,
+        "surcharge_fee": 0.0,
+        "handling_fee_tax": 0.0,
+        "handling_fee_discount": 0.0,
+        "gift_wrap_fee": 0.0,
+        "gift_wrap_tax": 0.0,
+        "delivery_charge": 0.0,
+        "taxes": {
+          "total": 0.05,
+          "sales": 0.05,
+          "shipping": 0.0,
+          "handling_fee": 0.0,
+          "service_fee": 0.0,
+          "gift_wrap": 0.0
+        },
+        "total_list_price": 2.69,
+        "personalized_price": 2.56,
+        "personalized_price_has_discounts": true
+      },
+      "discounts": [
+        {
+          "promotion_id": "140841154",
+          "promotion_name": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "legal_description": "Target Circle Card 5% off merchandise subtotal. Merchandise subtotal does not include GiftCards, eGiftCards, Shipt Memberships, Mobile GiftCards, tax or shipping charges. Discount will be applied at Checkout. May not be applied to previous orders.",
+          "promotion_status": "APPLIED",
+          "cart_level": true,
+          "subscription_promo_flag": false,
+          "reward_type": "PercentageOff",
+          "reward_value": 5.0,
+          "applied_promo_text": "Target Circle Card 5%",
+          "promotion_group": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "applied": true,
+          "discount_amount": 0.13,
+          "discount_type": "PRICE",
+          "offer_text": "Target Circle Card 5%",
+          "short_description": "5% off",
+          "long_description": "Target Circle Card 5%",
+          "circle_offer": false,
+          "auto_applied": false,
+          "mass_offer": true,
+          "fire_fly_offer_type": "mass"
+        }
+      ],
+      "subscription": {},
+      "inventory_info": {
+        "availability_status": "IN_STOCK",
+        "location_type": "STORE",
+        "demand_type": "NETWORK",
+        "online_available_to_promise_quantity": 1,
+        "stores_available_to_promise_quantity": 1,
+        "is_out_of_stock_in_all_store_locations": false
+      },
+      "item_indicators": {
+        "is_store_pickup_eligible": true,
+        "is_ship_to_store_eligible": false,
+        "is_gift_wrap_eligible": false,
+        "is_gift_message_eligible": true,
+        "is_gift_options_eligible": true,
+        "is_third_party_giftcard": false,
+        "is_shipping_in_original_container": false,
+        "is_loyalty_purchase_eligible": false,
+        "is_add_on": true,
+        "is_free_gift": false,
+        "is_subscription": false,
+        "is_subscription_eligible": false,
+        "is_coming_soon": false,
+        "is_bulky": false,
+        "is_marketplace": false,
+        "is_pre_order": false,
+        "is_retail_ticketed": false,
+        "is_pickup_window_item": false,
+        "is_affirm_eligible": false,
+        "is_variable_price_item": false,
+        "is_snap_eligible": true,
+        "is_digital_gift_message_eligible": true,
+        "is_one_day_ppo_eligible": false,
+        "is_qualified_medical_expense_eligible": false
+      },
+      "created_at": "2026-07-23T03:51:45.089Z",
+      "updated_at": "2026-07-25T16:56:03.936Z",
+      "add_on_threshold": 35,
+      "item_add_channel": "10",
+      "government_programs": {
+        "vppa": false
+      }
+    },
+    {
+      "cart_id": "07ab3a81-80c9-11f1-8c13-efd4c994ed1b",
+      "total_cart_item_quantity": 15,
+      "cart_item_id": "d7785c41-8649-11f1-b78d-0bee0ed21aa0",
+      "cart_item_type": "REGULARITEM",
+      "return_policy": [
+        {
+          "id": 17,
+          "type": "permanent",
+          "day_count": 90,
+          "user_type": "regular_guest",
+          "permanent_policy_id": 17,
+          "start_date": "2021-04-19",
+          "end_date": "2099-12-30",
+          "end_time": "23:59:59"
+        },
+        {
+          "id": 17,
+          "type": "permanent",
+          "day_count": 120,
+          "user_type": "best_guest",
+          "permanent_policy_id": 17,
+          "start_date": "2021-04-19",
+          "end_date": "2099-12-30",
+          "end_time": "23:59:59"
+        }
+      ],
+      "tcin": "13479028",
+      "dpci": "261-02-0445",
+      "quantity": 1,
+      "unit_price": 4.79,
+      "list_price": 4.79,
+      "current_price": 4.79,
+      "msrp": 0.0,
+      "eyebrow": "R",
+      "limited_quantity": false,
+      "available_quantity_in_inventory": 10,
+      "handling": {
+        "buy_unit_of_measure": "Each"
+      },
+      "fulfillment": {
+        "type": "SHIP",
+        "location_data": {},
+        "ship_method": "STANDARD",
+        "price": {
+          "shipping_price": 0.0,
+          "handling_price": 0.0,
+          "service_fee": 0.0
+        },
+        "estimated_arrival_start_date": "2026-07-26",
+        "estimated_arrival_end_date": "2026-07-26",
+        "ship_method_service_level_description": "2-day shipping",
+        "available_ship_methods": [
+          {
+            "type": "SHIP",
+            "ship_method": "STANDARD",
+            "estimated_arrival_start_date": "2026-07-26",
+            "estimated_arrival_end_date": "2026-07-26",
+            "preferred": false,
+            "base": true,
+            "selected": true,
+            "seasonal": false,
+            "ship_method_short_description": "Standard",
+            "ship_method_long_description": "Ground",
+            "ship_method_service_level_description": "2-day shipping",
+            "order_cutoff": "2026-07-25T23:00+0000",
+            "ship_date": "2026-07-25",
+            "location_id": "1323-1",
+            "two_day_shipping_eligible": true,
+            "line_consolidated": false,
+            "minimum_order_quantity": 1.0
+          }
+        ]
+      },
+      "item_attributes": {
+        "description": "McCormick Pure Ground Black Pepper - 3oz",
+        "image_path": "https://target.scene7.com/is/image/Target//GUEST_613e88f3-eabd-4b13-a45e-44806862e075",
+        "max_purchase_quantity": 10,
+        "product_subtype_name": "BAKING AND COOKING COMPONENTS",
+        "product_type_name": "GROCERY"
+      },
+      "item_summary": {
+        "shipping_discount": 0.0,
+        "shipping_charge": 0.0,
+        "total_discount": 0.24,
+        "partial_discount": 0.24,
+        "total_product": 4.79,
+        "tax_amount": 0.08,
+        "price": 4.79,
+        "shipping_tax": 0.0,
+        "handling_fee": 0.0,
+        "surcharge_fee": 0.0,
+        "handling_fee_tax": 0.0,
+        "handling_fee_discount": 0.0,
+        "gift_wrap_fee": 0.0,
+        "gift_wrap_tax": 0.0,
+        "delivery_charge": 0.0,
+        "taxes": {
+          "total": 0.08,
+          "sales": 0.08,
+          "shipping": 0.0,
+          "handling_fee": 0.0,
+          "service_fee": 0.0,
+          "gift_wrap": 0.0
+        },
+        "total_list_price": 4.79,
+        "personalized_price": 4.55,
+        "personalized_price_has_discounts": true
+      },
+      "discounts": [
+        {
+          "promotion_id": "140841154",
+          "promotion_name": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "legal_description": "Target Circle Card 5% off merchandise subtotal. Merchandise subtotal does not include GiftCards, eGiftCards, Shipt Memberships, Mobile GiftCards, tax or shipping charges. Discount will be applied at Checkout. May not be applied to previous orders.",
+          "promotion_status": "APPLIED",
+          "cart_level": true,
+          "subscription_promo_flag": false,
+          "reward_type": "PercentageOff",
+          "reward_value": 5.0,
+          "applied_promo_text": "Target Circle Card 5%",
+          "promotion_group": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "applied": true,
+          "discount_amount": 0.24,
+          "discount_type": "PRICE",
+          "offer_text": "Target Circle Card 5%",
+          "short_description": "5% off",
+          "long_description": "Target Circle Card 5%",
+          "circle_offer": false,
+          "auto_applied": false,
+          "mass_offer": true,
+          "fire_fly_offer_type": "mass"
+        }
+      ],
+      "subscription": {},
+      "inventory_info": {
+        "availability_status": "IN_STOCK",
+        "location_type": "STORE",
+        "demand_type": "NETWORK",
+        "online_available_to_promise_quantity": 1,
+        "stores_available_to_promise_quantity": 1,
+        "is_out_of_stock_in_all_store_locations": false
+      },
+      "item_indicators": {
+        "is_store_pickup_eligible": false,
+        "is_ship_to_store_eligible": false,
+        "is_gift_wrap_eligible": false,
+        "is_gift_message_eligible": true,
+        "is_gift_options_eligible": true,
+        "is_third_party_giftcard": false,
+        "is_shipping_in_original_container": false,
+        "is_loyalty_purchase_eligible": false,
+        "is_add_on": true,
+        "is_free_gift": false,
+        "is_subscription": false,
+        "is_subscription_eligible": false,
+        "is_coming_soon": false,
+        "is_bulky": false,
+        "is_marketplace": false,
+        "is_pre_order": false,
+        "is_retail_ticketed": false,
+        "is_pickup_window_item": false,
+        "is_affirm_eligible": false,
+        "is_variable_price_item": false,
+        "is_snap_eligible": true,
+        "is_digital_gift_message_eligible": true,
+        "is_one_day_ppo_eligible": false,
+        "is_qualified_medical_expense_eligible": false
+      },
+      "created_at": "2026-07-23T03:51:53.092Z",
+      "updated_at": "2026-07-25T16:56:03.936Z",
+      "add_on_threshold": 35,
+      "item_add_channel": "10",
+      "government_programs": {
+        "vppa": false
+      }
+    },
+    {
+      "cart_id": "07ab3a81-80c9-11f1-8c13-efd4c994ed1b",
+      "total_cart_item_quantity": 15,
+      "cart_item_id": "f46454c1-86b3-11f1-8768-9573adbbc396",
+      "cart_item_type": "REGULARITEM",
+      "return_policy": [
+        {
+          "id": 17,
+          "type": "permanent",
+          "day_count": 365,
+          "user_type": "regular_guest",
+          "permanent_policy_id": 17,
+          "start_date": "2021-04-19",
+          "end_date": "2099-12-30",
+          "end_time": "23:59:59"
+        },
+        {
+          "id": 17,
+          "type": "permanent",
+          "day_count": 365,
+          "user_type": "best_guest",
+          "permanent_policy_id": 17,
+          "start_date": "2021-04-19",
+          "end_date": "2099-12-30",
+          "end_time": "23:59:59"
+        }
+      ],
+      "tcin": "77616550",
+      "dpci": "261-02-0475",
+      "quantity": 1,
+      "unit_price": 5.29,
+      "list_price": 5.29,
+      "current_price": 5.29,
+      "msrp": 0.0,
+      "eyebrow": "R",
+      "limited_quantity": false,
+      "available_quantity_in_inventory": 10,
+      "handling": {
+        "buy_unit_of_measure": "Each"
+      },
+      "fulfillment": {
+        "type": "SHIP",
+        "location_data": {},
+        "ship_method": "STANDARD",
+        "price": {
+          "shipping_price": 0.0,
+          "handling_price": 0.0,
+          "service_fee": 0.0
+        },
+        "estimated_arrival_start_date": "2026-07-26",
+        "estimated_arrival_end_date": "2026-07-26",
+        "ship_method_service_level_description": "2-day shipping",
+        "available_ship_methods": [
+          {
+            "type": "SHIP",
+            "ship_method": "STANDARD",
+            "estimated_arrival_start_date": "2026-07-26",
+            "estimated_arrival_end_date": "2026-07-26",
+            "preferred": true,
+            "base": true,
+            "selected": true,
+            "seasonal": false,
+            "ship_method_short_description": "Standard",
+            "ship_method_long_description": "Ground",
+            "ship_method_service_level_description": "2-day shipping",
+            "order_cutoff": "2026-07-25T23:00+0000",
+            "ship_date": "2026-07-25",
+            "location_id": "1323-1",
+            "two_day_shipping_eligible": true,
+            "line_consolidated": true,
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "CURBSIDE",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "STORE_PICKUP",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "SHIP",
+            "ship_method": "SCHEDULED_DELIVERY",
+            "selected": false,
+            "ship_method_short_description": "Scheduled Delivery",
+            "minimum_order_quantity": 1.0
+          }
+        ]
+      },
+      "item_attributes": {
+        "description": "Organic Garam Masala - 1.9oz - Good &#38; Gather&#8482;",
+        "image_path": "https://target.scene7.com/is/image/Target//GUEST_b5e33769-6e61-472c-bfeb-3ae86cc2427b",
+        "max_purchase_quantity": 10,
+        "product_subtype_name": "BAKING AND COOKING COMPONENTS",
+        "product_type_name": "GROCERY"
+      },
+      "item_summary": {
+        "shipping_discount": 0.0,
+        "shipping_charge": 0.0,
+        "total_discount": 0.26,
+        "partial_discount": 0.26,
+        "total_product": 5.29,
+        "tax_amount": 0.09,
+        "price": 5.29,
+        "shipping_tax": 0.0,
+        "handling_fee": 0.0,
+        "surcharge_fee": 0.0,
+        "handling_fee_tax": 0.0,
+        "handling_fee_discount": 0.0,
+        "gift_wrap_fee": 0.0,
+        "gift_wrap_tax": 0.0,
+        "delivery_charge": 0.0,
+        "taxes": {
+          "total": 0.09,
+          "sales": 0.09,
+          "shipping": 0.0,
+          "handling_fee": 0.0,
+          "service_fee": 0.0,
+          "gift_wrap": 0.0
+        },
+        "total_list_price": 5.29,
+        "personalized_price": 5.03,
+        "personalized_price_has_discounts": true
+      },
+      "discounts": [
+        {
+          "promotion_id": "140841154",
+          "promotion_name": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "legal_description": "Target Circle Card 5% off merchandise subtotal. Merchandise subtotal does not include GiftCards, eGiftCards, Shipt Memberships, Mobile GiftCards, tax or shipping charges. Discount will be applied at Checkout. May not be applied to previous orders.",
+          "promotion_status": "APPLIED",
+          "cart_level": true,
+          "subscription_promo_flag": false,
+          "reward_type": "PercentageOff",
+          "reward_value": 5.0,
+          "applied_promo_text": "Target Circle Card 5%",
+          "promotion_group": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "applied": true,
+          "discount_amount": 0.26,
+          "discount_type": "PRICE",
+          "offer_text": "Target Circle Card 5%",
+          "short_description": "5% off",
+          "long_description": "Target Circle Card 5%",
+          "circle_offer": false,
+          "auto_applied": false,
+          "mass_offer": true,
+          "fire_fly_offer_type": "mass"
+        }
+      ],
+      "subscription": {},
+      "inventory_info": {
+        "availability_status": "IN_STOCK",
+        "location_type": "STORE",
+        "demand_type": "NETWORK",
+        "online_available_to_promise_quantity": 1,
+        "stores_available_to_promise_quantity": 1,
+        "is_out_of_stock_in_all_store_locations": false
+      },
+      "item_indicators": {
+        "is_store_pickup_eligible": true,
+        "is_ship_to_store_eligible": false,
+        "is_gift_wrap_eligible": false,
+        "is_gift_message_eligible": true,
+        "is_gift_options_eligible": true,
+        "is_third_party_giftcard": false,
+        "is_shipping_in_original_container": false,
+        "is_loyalty_purchase_eligible": false,
+        "is_add_on": true,
+        "is_free_gift": false,
+        "is_subscription": false,
+        "is_subscription_eligible": false,
+        "is_coming_soon": false,
+        "is_bulky": false,
+        "is_marketplace": false,
+        "is_pre_order": false,
+        "is_retail_ticketed": false,
+        "is_pickup_window_item": false,
+        "is_affirm_eligible": false,
+        "is_variable_price_item": false,
+        "is_snap_eligible": true,
+        "is_digital_gift_message_eligible": true,
+        "is_one_day_ppo_eligible": false,
+        "is_qualified_medical_expense_eligible": false
+      },
+      "created_at": "2026-07-23T16:31:28.268Z",
+      "updated_at": "2026-07-25T16:56:03.936Z",
+      "add_on_threshold": 35,
+      "item_add_channel": "91",
+      "government_programs": {
+        "vppa": false
+      }
+    },
+    {
+      "cart_id": "07ab3a81-80c9-11f1-8c13-efd4c994ed1b",
+      "total_cart_item_quantity": 15,
+      "cart_item_id": "facc9da0-8716-11f1-b86e-9b6f8399e5ae",
+      "cart_item_type": "FRESHGROCERY",
+      "return_policy": [
+        {
+          "id": 17,
+          "type": "permanent",
+          "day_count": 365,
+          "user_type": "regular_guest",
+          "permanent_policy_id": 17,
+          "start_date": "2021-04-19",
+          "end_date": "2099-12-30",
+          "end_time": "23:59:59"
+        },
+        {
+          "id": 17,
+          "type": "permanent",
+          "day_count": 365,
+          "user_type": "best_guest",
+          "permanent_policy_id": 17,
+          "start_date": "2021-04-19",
+          "end_date": "2099-12-30",
+          "end_time": "23:59:59"
+        }
+      ],
+      "tcin": "77788700",
+      "dpci": "211-17-0088",
+      "quantity": 1,
+      "unit_price": 3.29,
+      "list_price": 3.29,
+      "current_price": 3.29,
+      "msrp": 0.0,
+      "eyebrow": "R",
+      "limited_quantity": false,
+      "available_quantity_in_inventory": 10,
+      "handling": {
+        "buy_unit_of_measure": "Each"
+      },
+      "fulfillment": {
+        "type": "PICKUP",
+        "location_id": "1801",
+        "location_data": {},
+        "ship_method": "STORE_PICKUP",
+        "price": {
+          "shipping_price": 0.0,
+          "handling_price": 0.0,
+          "service_fee": 0.0
+        },
+        "estimated_arrival_start_date": "2026-07-25",
+        "estimated_arrival_end_date": "2026-07-25",
+        "guest_pick_sla": 120,
+        "available_ship_methods": [
+          {
+            "type": "PICKUP",
+            "ship_method": "CURBSIDE",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": false,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "PICKUP",
+            "ship_method": "STORE_PICKUP",
+            "estimated_arrival_start_date": "2026-07-25",
+            "estimated_arrival_end_date": "2026-07-25",
+            "selected": true,
+            "order_cutoff": "2026-07-26T01:00+0000",
+            "ship_date": "2026-07-25",
+            "order_cancellation_days": 3,
+            "guest_pick_sla": 120,
+            "location_name": "Algonquin",
+            "location_id": "1801",
+            "minimum_order_quantity": 1.0
+          },
+          {
+            "type": "SHIP",
+            "ship_method": "SCHEDULED_DELIVERY",
+            "selected": false,
+            "ship_method_short_description": "Scheduled Delivery",
+            "minimum_order_quantity": 1.0
+          }
+        ]
+      },
+      "item_attributes": {
+        "description": "Fresh Yellow Onions - 3lb Bag - Good &#38; Gather&#8482;",
+        "image_path": "https://target.scene7.com/is/image/Target//GUEST_70131a9d-a3a4-41b8-b348-2c928548b288",
+        "max_purchase_quantity": 10,
+        "product_subtype_name": "VEGETABLES AND FRUITS",
+        "product_type_name": "GROCERY"
+      },
+      "item_summary": {
+        "shipping_discount": 0.0,
+        "shipping_charge": 0.0,
+        "total_discount": 0.16,
+        "partial_discount": 0.16,
+        "total_product": 3.29,
+        "tax_amount": 0.05,
+        "price": 3.29,
+        "shipping_tax": 0.0,
+        "handling_fee": 0.0,
+        "surcharge_fee": 0.0,
+        "handling_fee_tax": 0.0,
+        "handling_fee_discount": 0.0,
+        "gift_wrap_fee": 0.0,
+        "gift_wrap_tax": 0.0,
+        "delivery_charge": 0.0,
+        "taxes": {
+          "total": 0.05,
+          "sales": 0.05,
+          "shipping": 0.0,
+          "handling_fee": 0.0,
+          "service_fee": 0.0,
+          "gift_wrap": 0.0
+        },
+        "total_list_price": 3.29,
+        "personalized_price": 3.13,
+        "personalized_price_has_discounts": true
+      },
+      "discounts": [
+        {
+          "promotion_id": "140841154",
+          "promotion_name": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "legal_description": "Target Circle Card 5% off merchandise subtotal. Merchandise subtotal does not include GiftCards, eGiftCards, Shipt Memberships, Mobile GiftCards, tax or shipping charges. Discount will be applied at Checkout. May not be applied to previous orders.",
+          "promotion_status": "APPLIED",
+          "cart_level": true,
+          "subscription_promo_flag": false,
+          "reward_type": "PercentageOff",
+          "reward_value": 5.0,
+          "applied_promo_text": "Target Circle Card 5%",
+          "promotion_group": "RR00_REDCard 5% (all locs except Indiana - includes liquor)",
+          "applied": true,
+          "discount_amount": 0.16,
+          "discount_type": "PRICE",
+          "offer_text": "Target Circle Card 5%",
+          "short_description": "5% off",
+          "long_description": "Target Circle Card 5%",
+          "circle_offer": false,
+          "auto_applied": false,
+          "mass_offer": true,
+          "fire_fly_offer_type": "mass"
+        }
+      ],
+      "subscription": {},
+      "inventory_info": {
+        "availability_status": "IN_STOCK",
+        "location_type": "STORE",
+        "demand_type": "LOCATION",
+        "online_available_to_promise_quantity": 1,
+        "stores_available_to_promise_quantity": 1,
+        "is_out_of_stock_in_all_store_locations": false
+      },
+      "item_indicators": {
+        "is_store_pickup_eligible": true,
+        "is_ship_to_store_eligible": false,
+        "is_gift_wrap_eligible": false,
+        "is_gift_message_eligible": false,
+        "is_gift_options_eligible": false,
+        "is_third_party_giftcard": false,
+        "is_shipping_in_original_container": false,
+        "is_loyalty_purchase_eligible": false,
+        "is_add_on": false,
+        "is_free_gift": false,
+        "is_subscription": false,
+        "is_subscription_eligible": false,
+        "is_coming_soon": false,
+        "is_bulky": false,
+        "is_marketplace": false,
+        "is_pre_order": false,
+        "is_retail_ticketed": false,
+        "is_pickup_window_item": false,
+        "is_affirm_eligible": false,
+        "is_variable_price_item": false,
+        "is_snap_eligible": true,
+        "is_digital_gift_message_eligible": false,
+        "is_one_day_ppo_eligible": false,
+        "is_qualified_medical_expense_eligible": false
+      },
+      "created_at": "2026-07-24T04:20:19.194Z",
+      "updated_at": "2026-07-25T16:56:03.936Z",
+      "add_on_threshold": 35,
+      "item_add_channel": "91",
+      "government_programs": {
+        "vppa": false
+      }
+    }
+  ],
+  "promotion_codes": [
+    {
+      "promotion_code_id": "f6eb8280-850b-11f1-a4df-6190d2310cd2",
+      "promotion_type": "CARTWHEEL",
+      "promotion_code": "3273279084",
+      "promotion_status": "EVALUATED"
+    }
+  ],
+  "indicators": {
+    "has_digital_delivery_item": false,
+    "has_gift_option_applied": false,
+    "has_registry_item": false,
+    "has_scheduled_delivery_item": false,
+    "has_ship_to_store_item": false,
+    "has_store_pickup_item": true,
+    "has_subscription_item": false,
+    "has_shipping_required_item": true,
+    "has_payment_applied": false,
+    "has_payment_satisfied": true,
+    "has_only_giftcard_items": false,
+    "has_address_associated_all": false,
+    "has_only_giftcard_tender": false,
+    "has_paypal_tender_enabled": true,
+    "has_applepay_tender_enabled": true,
+    "has_giftcard_tender_enabled": true,
+    "has_thirdparty_tender_enabled": true,
+    "has_target_tender_enabled": true,
+    "has_target_debit_card_tender_enabled": true,
+    "has_store_front_item": false,
+    "is_credit_card_compare_required": false,
+    "would_credit_card_compare_be_required": false,
+    "has_estimated_delivery_date_modified": false,
+    "has_circle_applied": false,
+    "has_pickup_window_item": false,
+    "has_curbside_item": false,
+    "has_adult_beverage_item": false,
+    "has_adult_beverage_pickup": false,
+    "has_adult_beverage_shipt": false,
+    "is_additional_card_required": false,
+    "is_address_required_for_digital_tax": false,
+    "allows_alcohol": false,
+    "has_variable_price_item": false,
+    "is_no_rush_available": false,
+    "is_one_day_ppo_available": false,
+    "is_all_pickup_available": false,
+    "is_all_driveup_available": false,
+    "is_all_sdd_available": false,
+    "allow_substitution": false,
+    "max_cards_allowed_for_split_payment": 2,
+    "is_cart_eligible_for_split_payment": true,
+    "minimum_amount_required_for_non_primary_tender": 1,
+    "is_cart_view_eligible_for_consolidation": false,
+    "is_checkout_view_eligible_for_consolidation": true,
+    "contains_gift": false,
+    "is_cashapp_eligible": true
+  },
+  "scheduled_delivery_windows": {},
+  "created_at": "2026-07-16T03:47:13.064Z",
+  "updated_at": "2026-07-25T16:56:03.936Z",
+  "is_early_delivery_allowed": false,
+  "is_door_delivery_required": true,
+  "add_on_threshold": 35,
+  "cart_preferences": {
+    "use_no_rush": false,
+    "opt_all_pickup": false,
+    "opt_all_driveup": false,
+    "opt_all_sdd": false,
+    "use_one_day": false
+  },
+  "bags_info": [
+    {
+      "location_id": "1801",
+      "bag_legislation_metadata": {
+        "collect_bag_fee": false,
+        "available_bag_options": [
+          "TARGET_PROVIDED_BAGS",
+          "GUEST_OWNED_BAGS"
+        ]
+      }
+    }
+  ]
+}

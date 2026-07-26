@@ -1,0 +1,37 @@
+{
+  "data": {
+    "recommended_categories": {
+      "doctype": "backfill_category_2_service",
+      "placement_id": "hp_topcategory_globalheader_web",
+      "strategy_description": "Your top categories",
+      "strategy_id": "hp_topcategory_globalheader_web",
+      "strategy_name": "backfill_category_2_service;strategies:category_affinity_r3,category_affinity_recommendation_visitor_id",
+      "categories": [
+        {
+          "image_url": "https://target.scene7.com/is/image/Target/GUEST_9930b034-392c-4839-a212-8e5071e8520f",
+          "name": "Grocery",
+          "node_id": "5xt1a",
+          "url": "https://www.target.com/c/grocery/-/N-5xt1a"
+        },
+        {
+          "image_url": "https://target.scene7.com/is/image/Target/home138095-180815_1534366815826-210803-1628013298723",
+          "name": "Home & Decor",
+          "node_id": "5xtvd",
+          "url": "https://www.target.com/c/home/-/N-5xtvd"
+        },
+        {
+          "image_url": "https://target.scene7.com/is/image/Target/Baby219475-200305_1583423490259-210803-1628012550597",
+          "name": "Baby",
+          "node_id": "5xtly",
+          "url": "https://www.target.com/c/baby/-/N-5xtly"
+        },
+        {
+          "image_url": "https://target.scene7.com/is/image/Target/GUEST_112bc773-50c6-4f0b-8aab-cbef96e55c0a",
+          "name": "Beauty",
+          "node_id": "55r1x",
+          "url": "https://www.target.com/c/beauty/-/N-55r1x"
+        }
+      ]
+    }
+  }
+}

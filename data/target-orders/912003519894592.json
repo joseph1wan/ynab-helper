@@ -1,0 +1,45 @@
+{
+  "order_id": "912003519894592",
+  "order_date": "2026-06-12",
+  "total": 111300,
+  "tax": 0,
+  "shipping": 0,
+  "fees": 0,
+  "line_items": [
+    {
+      "name": "Conair Totally Smooth Detangle Ball-tipped Bristle Cushion Hair Brush - Mini",
+      "quantity": 1,
+      "line_total": 0
+    },
+    {
+      "name": "Naturium Retinaldehyde Cream Serum 0.05% - 1.7 fl oz: Anti-Aging, Face Serum, Normal Skin, Unscented",
+      "quantity": 1,
+      "line_total": 0
+    },
+    {
+      "name": "Women&#39;s Patriotic Cows Low Cut Socks - Chambray 4-10",
+      "quantity": 1,
+      "line_total": 0
+    },
+    {
+      "name": "Clabber Girl Gluten Free Double Acting Baking Powder - 8.1oz",
+      "quantity": 1,
+      "line_total": 0
+    },
+    {
+      "name": "Clorox Fresh Scent and Crisp Lemon Limited Edition Back to School Variety Pack Disinfecting Cleaning Wipes - 225ct/3pk",
+      "quantity": 1,
+      "line_total": 0
+    },
+    {
+      "name": "Urban Decay 24/7 Glide-On Waterproof Eyeliner Pencil - Demolition - 0.04oz - Ulta Beauty",
+      "quantity": 1,
+      "line_total": 0
+    },
+    {
+      "name": "Urban Decay Naked Mini Eyeshadow Palette - Half Baked - 0.17oz - Ulta Beauty: Matte and Shimmer Finish, Eye Area Application, Pressed Powder",
+      "quantity": 1,
+      "line_total": 0
+    }
+  ]
+}

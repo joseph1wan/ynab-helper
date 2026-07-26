@@ -1,0 +1,4120 @@
+{
+  "metadata": {
+    "total_time": 103,
+    "guest_type": "P"
+  },
+  "guest_id": "3273279084",
+  "total_orders": 257,
+  "total_pages": 26,
+  "orders": [
+    {
+      "tenant_key": "Target.com",
+      "placed_date": "2026-03-07T04:28:09-06:00",
+      "order_type": "Sales",
+      "source": "OMS",
+      "summary": {
+        "grand_total": "117.63"
+      },
+      "address": [
+        {
+          "address_id": "56f1c48f-1a10-11f1-a2df-0a103d9b503a",
+          "first_name": "Roseville T1",
+          "state": "MN",
+          "zip_code": "55113"
+        }
+      ],
+      "order_lines": [
+        {
+          "order_line_key": "202603070428105680033182302527",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "52157984",
+            "description": "Aunt Nellie&#39;s Sliced Pickled Beets  - 16oz",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_2b6a6532-09c7-4c7b-8f73-3c64c9c106b3",
+              "alternate_images": [
+                "GUEST_87d0d088-6950-4910-ac82-68b63c1330c2",
+                "GUEST_f89e858a-ef82-498a-bdac-f28bdafa20e1",
+                "GUEST_fa32647b-ef19-4822-ad85-d9ac1562f242",
+                "GUEST_b57e288d-78de-44b5-8e87-bc243aa8bb85"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "56f1c48f-1a10-11f1-a2df-0a103d9b503a",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-03-07T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-07T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-07T11:47:22-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-07T06:42:23-10:00",
+              "estimated_end_date": "2026-03-08T00:00:00-10:00",
+              "fulfilled_date": "2026-03-07T11:47:22-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "74315de1-1a0f-11f1-b2ef-bd7dd2c49b10",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202603070428105670033182302524",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "91814554",
+            "description": "Frida Mom Cold and Heat Breast Warmers - 2ct: Breast Relief Pads, 7.25-Inch Diameter",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_bcecaceb-e90c-49fa-8cc7-7b5eb25bcd2e",
+              "alternate_images": [
+                "GUEST_2c87c005-227b-4068-90e4-f7f73c008501",
+                "GUEST_acaa9195-84da-4856-ae7b-172c61ef8845",
+                "GUEST_38fc3e9b-531b-434e-9eb2-5b748f13d173",
+                "GUEST_8d9fbd81-ce51-4428-8acf-56e0e1348131",
+                "GUEST_eb31612e-e7d3-41c5-9003-2b5db7e0df01"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "56f1c48f-1a10-11f1-a2df-0a103d9b503a",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-03-07T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-07T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-07T11:47:22-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-07T06:42:23-10:00",
+              "estimated_end_date": "2026-03-08T00:00:00-10:00",
+              "fulfilled_date": "2026-03-07T11:47:22-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "277e6d50-1a0d-11f1-9c31-f787db5b93f2",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202603070428105670033182302523",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "14901126",
+            "description": "Similac Advance Infant Formula with Iron Powder - 30.8oz: Brain Development, Immune System Support, Gluten-Free",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_10e944d3-3338-469e-940d-5e5458fb7458",
+              "alternate_images": [
+                "GUEST_d91c61e7-ab66-4d57-b490-a2b9850f20d2",
+                "GUEST_c7f05c7e-9ff7-4542-9dbe-f5f1a9fb7fc7",
+                "GUEST_e76c77a0-14ef-43b2-bf87-d00016940af9",
+                "GUEST_8ad7e6bf-cc8e-47f4-ae1b-8d1d4d3d9e42",
+                "GUEST_8a96869e-8527-4060-8606-f9a445ee732e",
+                "GUEST_e6d83c9d-6200-4689-9c54-98f9e6c73c9c",
+                "GUEST_b6693993-24a6-49b6-8471-0fcfa114ebef",
+                "GUEST_aa6b6ddc-fc87-4c0f-8ffa-520d3b6eb211"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "56f1c48f-1a10-11f1-a2df-0a103d9b503a",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-03-07T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-07T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-07T11:47:22-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-07T06:42:23-10:00",
+              "estimated_end_date": "2026-03-08T00:00:00-10:00",
+              "fulfilled_date": "2026-03-07T11:47:22-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "aa0ba101-1a0a-11f1-a10c-bb5b48c7104f",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202603070428105680033182302526",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "77788700",
+            "description": "Fresh Yellow Onions - 3lb Bag - Good &#38; Gather&#8482;",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_70131a9d-a3a4-41b8-b348-2c928548b288",
+              "alternate_images": [
+                "GUEST_2f39379e-da27-49f3-b13a-bb5864d214ca",
+                "GUEST_bc8e1c94-ac85-4eef-92b1-5428ccae29f5",
+                "GUEST_19cb8933-7635-433a-9486-0db10a2a3cfc",
+                "GUEST_d03315c1-a062-43c1-8712-dd14e361c455"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "56f1c48f-1a10-11f1-a2df-0a103d9b503a",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-03-07T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-07T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-07T11:47:22-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-07T06:42:23-10:00",
+              "estimated_end_date": "2026-03-08T00:00:00-10:00",
+              "fulfilled_date": "2026-03-07T11:47:22-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "4bfcdb10-1a0f-11f1-b992-83a6bc84f42f",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false,
+          "line_type": "GROCERY"
+        },
+        {
+          "order_line_key": "202603070428105670033182302522",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "87990505",
+            "description": "Disposable Diapers - Newborn Size - 162ct - up&#38;up&#8482;",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_29ff5a67-0178-448c-addf-5fd24f4fcc93",
+              "alternate_images": [
+                "GUEST_1450dbe1-6be4-4f66-99f7-db2ec93ec20d",
+                "GUEST_8c82cd66-dc00-4d98-b11f-f028f83a24ab",
+                "GUEST_4d6db31d-4b1b-4e9a-9cf2-244c0d869ccc",
+                "GUEST_bff5311c-a818-4c25-a255-32763fc592da",
+                "GUEST_bf6dd4d6-ef4c-40ea-9b96-2e6df546714d",
+                "GUEST_a43fd842-9dae-4dc6-ab6f-043b67e8939e",
+                "GUEST_7ead3b9e-0ef1-4cc2-a7dd-e864a1e30a36",
+                "GUEST_d779f63c-c42d-4b4d-a689-10243ea55353",
+                "GUEST_afb9c45b-187d-4ea1-ae18-83a6f56505ef"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "56f1c48f-1a10-11f1-a2df-0a103d9b503a",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-03-07T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-07T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-07T11:47:22-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-07T06:42:23-10:00",
+              "estimated_end_date": "2026-03-08T00:00:00-10:00",
+              "fulfilled_date": "2026-03-07T11:47:22-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "dd3c9940-1a09-11f1-b49c-3fe8c17f9edc",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202603070428105680033182302525",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "TLMD9407A0017223",
+            "name": "DELIVERED"
+          },
+          "item": {
+            "tcin": "80233572",
+            "description": "Frida Mom 2-in-1 Lactation Massager: Electric, Silicone, Body Massagers, 3 Pieces",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_d91fbcca-e007-4a27-9363-185417531de5",
+              "alternate_images": [
+                "GUEST_5d06359b-3007-48bf-9a46-49da2b1bf813",
+                "GUEST_e1ebf68d-e297-4ed2-8652-b818059947cd",
+                "GUEST_1286f64a-66e5-4edb-9057-2e6da041cbaf",
+                "GUEST_c686d52a-e418-41e2-a8d4-af959445a0ed",
+                "GUEST_e9fae730-885b-4775-ac9b-a64bba5c1b73",
+                "GUEST_dc1c6292-f317-49a4-975c-7cdcfc2569d6",
+                "GUEST_d61ac771-7a59-49ed-88cc-72c55628a1ef",
+                "GUEST_3cdaaefc-04f5-4185-aa9a-09618eb43682",
+                "GUEST_4b5b886c-fd33-4018-8c34-cd35b13db5a6"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "fulfillment_type": "ShipToHome",
+            "fulfillment_method": "Standard",
+            "guest_promised_delivery_start_date": "2026-03-08T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-08T00:00:00-10:00",
+            "status": {
+              "code": "3700.7777",
+              "key": "STAT_DELIVERED",
+              "date": "2026-03-08T11:35:25-05:00",
+              "quantity": 1,
+              "tracking_number": "TLMD9407A0017223",
+              "estimated_start_date": "2026-03-08T00:00:00-10:00",
+              "estimated_end_date": "2026-03-08T00:00:00-10:00",
+              "fulfilled_date": "2026-03-08T11:35:25-05:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "6e70b321-1a0e-11f1-8ff0-fdb3d3c39e32",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202603070428105670033182302521",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "90448092",
+            "description": "Kenmore 6 Can Mini Refrigerator: Countertop Tiny Fridge for Skincare &#38; Makeup, 40&#176;F Cooling, Black, 0.14 cu ft Capacity",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_153e3147-00f9-431a-b018-8c6477b6285c",
+              "alternate_images": [
+                "GUEST_4d3db35b-2107-43ae-b29f-fc57831117e0",
+                "GUEST_feba2524-c83a-4db1-9a68-ddf0fa493e15",
+                "GUEST_7703514f-278a-4737-aa22-4d8c81914c56",
+                "GUEST_38f97e54-6e65-45ab-a955-5166149d1f94",
+                "GUEST_7abf14e8-08ff-4d6b-b3e2-c3f79ebd300c",
+                "GUEST_c8c2f56d-e223-4869-8b2a-a2fca20dce0b",
+                "GUEST_763fb66b-40f3-4c7d-acc6-b5312622bd83",
+                "GUEST_4f12a1fc-c9f4-4102-947b-a3df585bc7e0"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "56f1c48f-1a10-11f1-a2df-0a103d9b503a",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-03-07T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-07T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-07T11:47:22-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-07T06:42:23-10:00",
+              "estimated_end_date": "2026-03-08T00:00:00-10:00",
+              "fulfilled_date": "2026-03-07T11:47:22-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "4eab6801-1a09-11f1-b58b-33390efa6a27",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        }
+      ],
+      "order_number": "912003318230252",
+      "is_softdecline_order": false,
+      "order_purchase_type": "ONLINE",
+      "is_more_lines": false,
+      "is_return_override": false,
+      "is_refund_restriction_hold": false,
+      "is_third_party_purchase": false,
+      "is_payment_hard_declined": false,
+      "has_adult_beverage_items": false,
+      "is_market_place": false,
+      "pending_returns": false,
+      "virtual_bundle_count": 0
+    },
+    {
+      "tenant_key": "Target.com",
+      "placed_date": "2026-03-06T12:18:02-06:00",
+      "order_type": "Sales",
+      "source": "OMS",
+      "summary": {
+        "grand_total": "18.98"
+      },
+      "address": [
+        {
+          "address_id": "d07bd926-1988-11f1-8ade-0a103d5e83ae",
+          "first_name": "St Paul Midway",
+          "state": "MN",
+          "zip_code": "55104"
+        }
+      ],
+      "order_lines": [
+        {
+          "order_line_key": "202603061218029220033162600121",
+          "original_quantity": 2,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_2229_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "84795813",
+            "description": "Similac 360 Total Care Non-GMO Ready to Feed Infant Formula Bottles - 2 fl oz Each/12ct: Kosher, Halal, Gluten-Free",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_d5382fdf-5bf7-4074-ab0e-f74ebabea04c",
+              "alternate_images": [
+                "GUEST_28bff531-3baa-420b-8ca4-98d7c8731e52",
+                "GUEST_f8603045-94e1-41ec-9486-66478d717259",
+                "GUEST_f49fca68-4074-42ef-b936-aecf1013e77d",
+                "GUEST_6d6c6de6-5bdc-4e25-8b3b-db673507dc69",
+                "GUEST_cc05f263-00f7-4f12-b908-72a1a5af6f84",
+                "GUEST_ddb30243-f757-4c03-a8a3-36bdacd8f71a",
+                "GUEST_39e055d4-f2b1-4a74-8d63-1fc9bf1d6dd8",
+                "GUEST_f500c220-ce3e-4a94-85e3-ceafaebf757a",
+                "GUEST_2da286bb-56dc-47aa-ab7f-6486e8ad819a",
+                "GUEST_1173bb73-b114-4025-aa1f-90af58404cb8",
+                "GUEST_1af4a325-1915-4001-9aec-15de9cf6ea51",
+                "GUEST_919cc1da-a3be-42eb-a4fb-ead740fc17ea",
+                "GUEST_b03673d4-e72b-4299-8dcf-8a0cdaaaad5e"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "d07bd926-1988-11f1-8ade-0a103d5e83ae",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-03-06T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-06T00:00:00-10:00",
+            "node_id": "2229",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-06T14:49:13-06:00",
+              "quantity": 2,
+              "estimated_start_date": "2026-03-06T13:20:16-10:00",
+              "estimated_end_date": "2026-03-09T00:00:00-10:00",
+              "fulfilled_date": "2026-03-06T14:49:13-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "b2117051-1988-11f1-a4c4-fd50dd0f2beb",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        }
+      ],
+      "order_number": "912003316260012",
+      "is_softdecline_order": false,
+      "order_purchase_type": "ONLINE",
+      "is_more_lines": false,
+      "is_return_override": false,
+      "is_refund_restriction_hold": false,
+      "is_third_party_purchase": false,
+      "is_payment_hard_declined": false,
+      "has_adult_beverage_items": false,
+      "is_market_place": false,
+      "pending_returns": false,
+      "virtual_bundle_count": 0
+    },
+    {
+      "tenant_key": "Target.com",
+      "placed_date": "2026-03-05T11:56:28-06:00",
+      "order_type": "Sales",
+      "source": "OMS",
+      "summary": {
+        "grand_total": "27.70"
+      },
+      "address": [
+        {
+          "address_id": "a2b9ce00-18bc-11f1-a2df-0a103d9b503a",
+          "first_name": "Roseville T1",
+          "state": "MN",
+          "zip_code": "55113"
+        }
+      ],
+      "order_lines": [
+        {
+          "order_line_key": "202603051156288200033159684104",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "84006925",
+            "description": "Fresh Cara Cara Oranges - 3lb Bag - Brand May Vary",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_47354575-3ab8-436b-9a86-1c964353ece1",
+              "alternate_images": [
+                "GUEST_f02a7c14-efd0-42c1-a595-8709bebaa10e",
+                "GUEST_5581ad96-c1b4-468d-b523-19a0e8e37901",
+                "GUEST_5a43b420-9923-4bcd-ba21-764f6bb68caa"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "a2b9ce00-18bc-11f1-a2df-0a103d9b503a",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-05T13:22:22-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "3e610521-18bc-11f1-94ec-3b560aad8b39",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false,
+          "line_type": "GROCERY"
+        },
+        {
+          "order_line_key": "202603051156288200033159684105",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "12946080",
+            "description": "Grey Poupon Dijon Mustard Squeeze Bottle - 10oz",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_6e360f49-a4ed-406f-bff2-bb9e1cdaccb5",
+              "alternate_images": [
+                "GUEST_b9a81cc2-7d29-410a-ad61-e8bf4264d03e",
+                "GUEST_cbbc9159-82d9-49a4-ac72-caea3a354106",
+                "GUEST_b429dac2-3716-42a8-bd06-cab51469ecd0",
+                "GUEST_4a9e2c00-e9a6-4101-afe6-4345bb9f0734",
+                "GUEST_38c93a78-87aa-4359-b0b9-06d176dd4b1f",
+                "GUEST_e12a7f7d-901c-45db-8569-099eca7d8893",
+                "GUEST_b0860511-78b1-4be0-9fcf-818b8b859b21",
+                "GUEST_3f16cf95-43d2-4e67-b12e-45d63af29f25",
+                "GUEST_4d49f925-f47c-4745-9168-0e2c2fd67311",
+                "GUEST_e936dc0f-e172-47e8-800b-4a68f8919814"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "a2b9ce00-18bc-11f1-a2df-0a103d9b503a",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-05T13:22:22-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "5cb1f201-18bc-11f1-ac64-6b8c4e69fae9",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202603051156288200033159684106",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "53349494",
+            "description": "organicgirl Fresh Baby Spring Mix - 16oz",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_a3b91995-a81e-4b58-92f4-a50cbbf5d2ab",
+              "alternate_images": [
+                "GUEST_5084f1da-45e5-4cd2-a225-9fcaf3b7af99",
+                "GUEST_6bbc09ca-4647-44ea-9e8f-fe5237920ecd"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "a2b9ce00-18bc-11f1-a2df-0a103d9b503a",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-05T13:22:22-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "6db1e790-18bc-11f1-a1ff-7998af10fbcd",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false,
+          "line_type": "GROCERY"
+        },
+        {
+          "order_line_key": "202603051156288200033159684107",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "14917313",
+            "description": "Fresh Red Onion - each",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_6e9b6bee-9320-4ddd-ae86-38d6c636ec63",
+              "alternate_images": [
+                "GUEST_18ecd63f-c01b-4b12-afe3-9f6718fbc724",
+                "GUEST_37331310-c174-4f3a-a0fd-dce961bb282f",
+                "GUEST_53ff7619-b1bc-4db5-b1e4-3a38d7cec436",
+                "GUEST_19cb8933-7635-433a-9486-0db10a2a3cfc"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "a2b9ce00-18bc-11f1-a2df-0a103d9b503a",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-05T13:22:22-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "7c14eb21-18bc-11f1-95d0-2f21e92d0abe",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false,
+          "line_type": "GROCERY"
+        },
+        {
+          "order_line_key": "202603051156288190033159684102",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "94372662",
+            "description": "The Humble Goat Honey Goat Cheese Log - 4oz",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_32e18473-4896-470b-96f3-6085850dfed6",
+              "alternate_images": [
+                "GUEST_a636a6c5-b73b-4f82-ba48-96f49b5d9fd8",
+                "GUEST_cf86ef43-4248-4196-8b7e-13a4e4773818",
+                "GUEST_b8449b75-8cb4-4343-a915-298a96c42c24"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "a2b9ce00-18bc-11f1-a2df-0a103d9b503a",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-05T13:22:22-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "38dd2731-18b9-11f1-b8f0-67c48962c53b",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false,
+          "line_type": "GROCERY"
+        },
+        {
+          "order_line_key": "202603051156288190033159684101",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "84109329",
+            "description": "Glazed Pecans - 9oz - Good &#38; Gather&#8482;",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_a24d59a4-a8b0-4106-9333-a15c4e105a47",
+              "alternate_images": [
+                "GUEST_77a5c59b-d5c1-4892-889d-66e9c3ee03b4",
+                "GUEST_96da87af-c0a2-4e1a-9cc1-8b5c7d08f4ff",
+                "GUEST_7b09d696-e136-4404-bab9-63fdd2e72f36",
+                "GUEST_d03315c1-a062-43c1-8712-dd14e361c455"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "a2b9ce00-18bc-11f1-a2df-0a103d9b503a",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-05T13:22:22-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "29d72ce0-18b9-11f1-95af-ebfbeb2a92f8",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202603051156288190033159684103",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "52157984",
+            "description": "Aunt Nellie&#39;s Sliced Pickled Beets  - 16oz",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_2b6a6532-09c7-4c7b-8f73-3c64c9c106b3",
+              "alternate_images": [
+                "GUEST_87d0d088-6950-4910-ac82-68b63c1330c2",
+                "GUEST_f89e858a-ef82-498a-bdac-f28bdafa20e1",
+                "GUEST_fa32647b-ef19-4822-ad85-d9ac1562f242",
+                "GUEST_b57e288d-78de-44b5-8e87-bc243aa8bb85"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "a2b9ce00-18bc-11f1-a2df-0a103d9b503a",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-05T13:22:22-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "c4654c40-18bb-11f1-a6d2-77b66f5ddb22",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        }
+      ],
+      "order_number": "912003315968410",
+      "is_softdecline_order": false,
+      "order_purchase_type": "ONLINE",
+      "is_more_lines": false,
+      "is_return_override": false,
+      "is_refund_restriction_hold": false,
+      "is_third_party_purchase": false,
+      "is_payment_hard_declined": false,
+      "has_adult_beverage_items": false,
+      "is_market_place": false,
+      "pending_returns": false,
+      "virtual_bundle_count": 0
+    },
+    {
+      "tenant_key": "Target.com",
+      "placed_date": "2026-03-05T09:45:14-06:00",
+      "order_type": "Sales",
+      "source": "OMS",
+      "summary": {
+        "grand_total": "107.84"
+      },
+      "address": [
+        {
+          "address_id": "4d7f480b-18aa-11f1-8c65-0a103de0e480",
+          "first_name": "Roseville T1",
+          "state": "MN",
+          "zip_code": "55113"
+        }
+      ],
+      "order_lines": [
+        {
+          "order_line_key": "202603050945148890033050647752",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_CURBSIDE_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "94828973",
+            "description": "Toddler Girls&#39; Ribbed Bike Shorts - Cat &#38; Jack&#8482; Light Olive 4T",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_8008afba-66d6-43c8-aca8-3dc525d44897",
+              "alternate_images": [
+                "GUEST_2e38d04d-651d-4931-bb5c-ba211290d476",
+                "GUEST_d1ae5bb4-f73b-4bb1-aef1-c08bbec6f512"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "4d7f480b-18aa-11f1-8c65-0a103de0e480",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Curbside",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-05T10:46:31-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "bd1cc571-15fb-11f1-92ca-c5d5ba64742d",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202603050945148900033050647757",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_CURBSIDE_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "12925351",
+            "description": "Vitamin D Whole Milk - 0.5gal - Good &#38; Gather&#8482;",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_9b4faa58-d442-4f85-927c-060d4c23552a",
+              "alternate_images": [
+                "GUEST_e27318d7-3f6f-41b4-8fe6-87f2ecd61d6c",
+                "GUEST_0a6f1422-21a1-4c07-a56c-a3d0cdeb1490",
+                "GUEST_738a6847-bd36-4b52-8aaa-66186fb7ac04",
+                "GUEST_d03315c1-a062-43c1-8712-dd14e361c455"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "4d7f480b-18aa-11f1-8c65-0a103de0e480",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Curbside",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-05T10:46:31-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "09f72871-18a1-11f1-9bf1-09d3e0c7d637",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false,
+          "line_type": "GROCERY"
+        },
+        {
+          "order_line_key": "202603050945148890033050647753",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_CURBSIDE_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "14066252",
+            "description": "Room Essentials&#8482; Standard Queen Soft Zippered Machine Washable Pillow Protector- 2 Pack- White: 100% Polyester, OEKO-TEX Certified",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_057dc7cc-3860-4ff2-93eb-9ab238076720",
+              "alternate_images": [
+                "GUEST_58295828-d766-4bed-8215-dd8ec164b2b5",
+                "GUEST_4a2707c3-cc2c-417e-8f75-062ec43e0a56",
+                "GUEST_d88e28c9-fe15-491d-ad9a-7fa6ca9b73f1"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "4d7f480b-18aa-11f1-8c65-0a103de0e480",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Curbside",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-05T10:46:31-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "edd04521-15fb-11f1-8a54-2d1055085d73",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202603050945148900033050647756",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_CURBSIDE_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "84795813",
+            "description": "Similac 360 Total Care Non-GMO Ready to Feed Infant Formula Bottles - 2 fl oz Each/12ct: Kosher, Halal, Gluten-Free",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_d5382fdf-5bf7-4074-ab0e-f74ebabea04c",
+              "alternate_images": [
+                "GUEST_28bff531-3baa-420b-8ca4-98d7c8731e52",
+                "GUEST_f8603045-94e1-41ec-9486-66478d717259",
+                "GUEST_f49fca68-4074-42ef-b936-aecf1013e77d",
+                "GUEST_6d6c6de6-5bdc-4e25-8b3b-db673507dc69",
+                "GUEST_cc05f263-00f7-4f12-b908-72a1a5af6f84",
+                "GUEST_ddb30243-f757-4c03-a8a3-36bdacd8f71a",
+                "GUEST_39e055d4-f2b1-4a74-8d63-1fc9bf1d6dd8",
+                "GUEST_f500c220-ce3e-4a94-85e3-ceafaebf757a",
+                "GUEST_2da286bb-56dc-47aa-ab7f-6486e8ad819a",
+                "GUEST_1173bb73-b114-4025-aa1f-90af58404cb8",
+                "GUEST_1af4a325-1915-4001-9aec-15de9cf6ea51",
+                "GUEST_919cc1da-a3be-42eb-a4fb-ead740fc17ea",
+                "GUEST_b03673d4-e72b-4299-8dcf-8a0cdaaaad5e"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "4d7f480b-18aa-11f1-8c65-0a103de0e480",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Curbside",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-05T10:46:31-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "17741091-1887-11f1-afc2-f5e47dc1de9d",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202603050945148900330506477510",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "TLMD0643A0020559",
+            "name": "DELIVERED"
+          },
+          "item": {
+            "tcin": "52119448",
+            "description": "Don&#39;t Break The Ice Game",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_1dc43f3a-7054-42cf-8380-9f90df11413c",
+              "alternate_images": [
+                "GUEST_ce5b3a0c-0a0c-4af1-954a-5097c37492f6",
+                "GUEST_682258e6-b1d3-46a6-936f-7d89caffb6f9",
+                "GUEST_ed58831e-cb70-4d24-a500-d6e635acfed6",
+                "GUEST_4657bfe9-ee48-4cf4-8103-0bb796895e81",
+                "GUEST_1013f089-54d9-4340-9c64-b70467b2bf91",
+                "GUEST_d33fdb83-b110-4c63-8345-5d20a18aae8a",
+                "GUEST_454e9e8f-2c8c-4663-b0cf-6cd79eb319fd",
+                "GUEST_f276353e-f336-455d-90e4-1efb68c0aed3",
+                "GUEST_f9982536-e0a6-4507-ab27-f7ca28acab3f",
+                "GUEST_afe558b4-2a50-4a4f-aec8-b4deb62bfccb",
+                "GUEST_fbeda41c-f4a8-4e3a-aa21-f7ac742f2899",
+                "GUEST_c6d18a34-734c-45f4-a292-804cf8dff419",
+                "GUEST_93f30304-6264-4ad1-aeaa-64e5b5febe22"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "fulfillment_type": "ShipToHome",
+            "fulfillment_method": "Standard",
+            "guest_promised_delivery_start_date": "2026-03-06T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-06T00:00:00-10:00",
+            "status": {
+              "code": "3700.7777",
+              "key": "STAT_DELIVERED",
+              "date": "2026-03-06T14:00:17-06:00",
+              "quantity": 1,
+              "tracking_number": "TLMD0643A0020559",
+              "estimated_start_date": "2026-03-06T00:00:00-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-06T14:00:17-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "549d8351-18a7-11f1-ad10-8baf08632b8f",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202603050945148900033050647759",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_CURBSIDE_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "81875234",
+            "description": "General Mills Honey Nut Cheerios Breakfast Cereal - 18.8oz",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_dd2202da-022b-4aca-b5cf-4049098ef8f0",
+              "alternate_images": [
+                "GUEST_fb064362-7565-410e-a626-18d7c2976720",
+                "GUEST_259b6a31-bf97-49f6-aa69-e0c1f229bfd6",
+                "GUEST_7757dbbb-6c0e-4c1f-add5-47e7930485b0",
+                "GUEST_bdd44b16-22a0-4995-9c6d-ccc052648df5",
+                "GUEST_6bcdf503-55cc-4c52-bb64-075cd4eb7744",
+                "GUEST_e66d2f0d-7b39-4206-b48f-e1d5180226fb",
+                "GUEST_7cb646fd-85df-4087-98ab-6c7a8c3fa2a5",
+                "GUEST_eaa773ea-27d7-4440-b1c6-758eacaa99c2"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "4d7f480b-18aa-11f1-8c65-0a103de0e480",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Curbside",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-05T10:46:31-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "30470560-18a4-11f1-9bf1-5fe75f209a2a",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202603050945148900330506477511",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_CURBSIDE_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "81880175",
+            "description": "Nature&#39;s Path Pumpkin Seed + Flax Granola &#8211; 24.7oz",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_e805dbf3-9ed1-4578-b5f0-2523d5ca6ce4",
+              "alternate_images": [
+                "GUEST_7cdea524-f6cb-4167-bf72-d8c31d7fe869",
+                "GUEST_7fa9c47a-ffdf-427e-a507-6107748aaef4",
+                "GUEST_298accbc-93ed-4ea8-b74c-ef6c3b9e9c40",
+                "GUEST_3fb399cb-4c0f-4b9b-8778-73a36e102712",
+                "GUEST_7f6df629-6c3f-48a0-90ea-206a314fd88a"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "4d7f480b-18aa-11f1-8c65-0a103de0e480",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Curbside",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-05T10:46:31-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "47f0c5d1-18a8-11f1-b2ef-a515732b09fc",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202603050945148890033050647751",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "TLMD0643A0020559",
+            "name": "DELIVERED"
+          },
+          "item": {
+            "tcin": "94831907",
+            "description": "Toddler Girls&#39; Flower Pointelle Peplum T-Shirt - Cat &#38; Jack&#8482; Light Olive 4T",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_b4238694-8e7c-4ba3-b44e-ee468356c914",
+              "alternate_images": [
+                "GUEST_8df73567-7b2b-40ff-ae8c-109ecf774ead",
+                "GUEST_7ecc518b-c88a-4b7f-8389-fdf5ad461350",
+                "GUEST_2fe01938-fbd3-43c8-b367-83885c38562e"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "fulfillment_type": "ShipToHome",
+            "fulfillment_method": "Standard",
+            "guest_promised_delivery_start_date": "2026-03-06T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-06T00:00:00-10:00",
+            "status": {
+              "code": "3700.7777",
+              "key": "STAT_DELIVERED",
+              "date": "2026-03-06T14:00:17-06:00",
+              "quantity": 1,
+              "tracking_number": "TLMD0643A0020559",
+              "estimated_start_date": "2026-03-06T00:00:00-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-06T14:00:17-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "a2a8ebb1-15fb-11f1-a48a-f9684f9da100",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202603050945148900033050647758",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "TLMD0643A0020559",
+            "name": "DELIVERED"
+          },
+          "item": {
+            "tcin": "87990511",
+            "description": "Disposable Diapers - Newborn Size - 34ct - up&#38;up&#8482;",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_ea8c563c-c366-4624-9dfa-ef17f313010f",
+              "alternate_images": [
+                "GUEST_1450dbe1-6be4-4f66-99f7-db2ec93ec20d",
+                "GUEST_8c82cd66-dc00-4d98-b11f-f028f83a24ab",
+                "GUEST_09c8e4b6-319b-4496-816f-663a6a23d9ad",
+                "GUEST_ece7e697-3c44-4822-b399-9aa963b33bc3",
+                "GUEST_bf6dd4d6-ef4c-40ea-9b96-2e6df546714d",
+                "GUEST_e0290c76-bcf9-400d-b091-714ebd33ca36",
+                "GUEST_38374d8e-e5df-49ed-92c1-51ff732348cf",
+                "GUEST_d779f63c-c42d-4b4d-a689-10243ea55353",
+                "GUEST_afb9c45b-187d-4ea1-ae18-83a6f56505ef"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "fulfillment_type": "ShipToHome",
+            "fulfillment_method": "Standard",
+            "guest_promised_delivery_start_date": "2026-03-06T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-06T00:00:00-10:00",
+            "status": {
+              "code": "3700.7777",
+              "key": "STAT_DELIVERED",
+              "date": "2026-03-06T14:00:17-06:00",
+              "quantity": 1,
+              "tracking_number": "TLMD0643A0020559",
+              "estimated_start_date": "2026-03-06T00:00:00-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-06T14:00:17-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "36d4c0f1-18a1-11f1-ac64-6b8c4e69fae9",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202603050945148910330506477516",
+          "original_quantity": 4,
+          "grouping": {
+            "key": "STOREPICKUP_CURBSIDE_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "47095644",
+            "description": "Avocado - each",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_c427dad1-6e34-475f-a914-e7d19d36ec4a",
+              "alternate_images": [
+                "GUEST_6d9d5f9f-7206-49c4-a381-6ba5a0c08504",
+                "GUEST_e3699da9-bae1-4ce6-8466-952771c7e5ea",
+                "GUEST_9de1ad41-c53a-4814-bb95-9a4f8003ca99",
+                "GUEST_0ffbc6cf-2f8d-4804-b809-279fc4b74be5",
+                "GUEST_8958b79a-b301-4205-ae5e-7f975b289f01",
+                "GUEST_9824f5c7-1225-4525-896f-65775a994cfa",
+                "GUEST_4a0e1d3e-8c77-443b-a1fa-d6cd13dce3fb",
+                "GUEST_b6c7cfb4-5321-4814-8c11-81ed4227c705"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "4d7f480b-18aa-11f1-8c65-0a103de0e480",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Curbside",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 4,
+              "estimated_start_date": "2026-03-05T10:46:31-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "d5a78021-18a9-11f1-84b1-3132917bf36c",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false,
+          "line_type": "GROCERY"
+        },
+        {
+          "order_line_key": "202603050945148910330506477514",
+          "original_quantity": 2,
+          "grouping": {
+            "key": "STOREPICKUP_CURBSIDE_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "15013629",
+            "description": "Fresh Lemon - each",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_83fc2746-ffd9-4567-9bbf-7cb763b29e7f",
+              "alternate_images": [
+                "GUEST_752ba0b5-b726-47e0-a0c5-fc646e4ec020",
+                "GUEST_3378ac0e-98c9-4b4e-b3a7-6f6a16aa69e2",
+                "GUEST_19cb8933-7635-433a-9486-0db10a2a3cfc"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "4d7f480b-18aa-11f1-8c65-0a103de0e480",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Curbside",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 2,
+              "estimated_start_date": "2026-03-05T10:46:31-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "7b4f4bd1-18a9-11f1-ad0f-8ff8183c02dc",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false,
+          "line_type": "GROCERY"
+        },
+        {
+          "order_line_key": "202603051129259860033050647751",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "TLMD2456A00193D6",
+            "name": "DELIVERED"
+          },
+          "item": {
+            "tcin": "87239699",
+            "description": "Standard/Queen Medium Performance Bed Pillow - Threshold&#8482;",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_3e44583c-80a2-47a2-b294-06d534e7dfef",
+              "alternate_images": [
+                "GUEST_27a306d6-71f9-4a47-8d53-db4f75423e37",
+                "GUEST_848e784a-226b-4dbb-ab7f-3912ed286cde",
+                "GUEST_5af932fe-9024-47c3-8ae1-7b1774c07a5f"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "fulfillment_type": "ShipToHome",
+            "fulfillment_method": "Standard",
+            "guest_promised_delivery_start_date": "2026-03-06T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-06T00:00:00-10:00",
+            "status": {
+              "code": "3700.7777",
+              "key": "STAT_DELIVERED",
+              "date": "2026-03-06T14:00:18-06:00",
+              "quantity": 1,
+              "tracking_number": "TLMD2456A00193D6",
+              "estimated_start_date": "2026-03-06T00:00:00-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-06T14:00:18-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "daff75a1-18b8-11f1-a0e5-c1cffa723eff",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202603050945148910330506477515",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_CURBSIDE_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "14871917",
+            "description": "Jumbo Tail On Peeled &#38; Deveined Raw Shrimp - Frozen - 26-30ct per lb/16oz - Good &#38; Gather&#8482;",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_d9240a45-3de0-45a7-8c39-e43c52c03b53",
+              "alternate_images": [
+                "GUEST_0fe6a435-d805-400f-8658-7e9c81bc2990",
+                "GUEST_50da9f97-1cd4-4f88-852e-027bc5c05ecc",
+                "GUEST_0707c99f-7ac6-4e6c-968f-980035a4f3ef",
+                "GUEST_0d3dd1f5-f0a5-4ecb-a72c-1376db52c3da",
+                "GUEST_d03315c1-a062-43c1-8712-dd14e361c455"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "4d7f480b-18aa-11f1-8c65-0a103de0e480",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Curbside",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-05T10:46:31-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "90e74010-18a9-11f1-96b9-f96051206259",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false,
+          "line_type": "GROCERY"
+        },
+        {
+          "order_line_key": "202603050945148910330506477512",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_CURBSIDE_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "12935552",
+            "description": "Snack Pack Chocolate Pudding - 13oz/4ct",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_07eb0c89-ea31-4bf8-8937-5239d4c3790c",
+              "alternate_images": [
+                "GUEST_e8797f8b-bbf2-49fe-a6d4-878ef8915993",
+                "GUEST_2c5cd384-4d91-4310-aca4-17b8184127b5",
+                "GUEST_69d0a80f-0993-40f9-a130-e4cc83c63e5b",
+                "GUEST_ca7dafa2-66dd-485e-9931-eabd9619567b",
+                "GUEST_bd9be38e-c66d-4e2e-979d-cdb47e494d23"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "4d7f480b-18aa-11f1-8c65-0a103de0e480",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Curbside",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-05T10:46:31-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "75e091a0-18a8-11f1-9155-fd69715d1acb",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202603050945148910330506477513",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_CURBSIDE_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "54489613",
+            "description": "Rao&#39;s Homemade Linguine Pasta -&#160; 16oz",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_d283c377-7c47-44cd-b0dc-e4c51c55e4a6",
+              "alternate_images": [
+                "GUEST_5487eeb0-0863-4cd2-a334-2583314f03ec",
+                "GUEST_d64ca5e1-782f-4276-af94-108d0a2ebfc4",
+                "GUEST_12a13031-7fc2-4223-ba4d-172c773fb481",
+                "GUEST_c3ff18e6-7c50-4933-8684-f99b760c8380"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "4d7f480b-18aa-11f1-8c65-0a103de0e480",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Curbside",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-05T10:46:31-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "767477c1-18a9-11f1-9442-a393f9303661",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202603050945148900033050647755",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_CURBSIDE_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "17303138",
+            "description": "Dr. Brown&#39;s 4oz Anti-Colic Options+ Narrow Baby Bottle with Level 1 Slow Flow Nipple &#38; HappyPaci Pacifier - 0m+",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_3814d886-3927-4d0c-a0c0-adc081ec3971",
+              "alternate_images": [
+                "GUEST_e670dc05-356c-4a60-a181-baa977e48797",
+                "GUEST_e2727afa-d712-4249-bd85-86ba4de02e49",
+                "GUEST_d51d9f48-abfb-463e-8096-36dfe9857616",
+                "GUEST_b945ff54-9a6c-402e-8c4d-ff2ec95cba33",
+                "GUEST_574c7097-1d5b-42bf-81e6-08e9a5adc3e9",
+                "GUEST_404a35c0-502a-497c-8f5f-b3545d7021ad",
+                "GUEST_6d28d312-d8ab-4902-a625-b718dbfcaafc",
+                "GUEST_50d5d64a-296f-489a-95eb-f93183b7a4f9",
+                "GUEST_3e0c6900-53f4-4e39-b4ba-b683fddcac0d",
+                "GUEST_7719ba3f-ca42-4719-a222-bdecc81d073d",
+                "GUEST_dc3767f0-8a45-45ce-b273-39b257b1b15c",
+                "GUEST_07dda324-198d-4066-bd28-f27c6f6f2e6a",
+                "GUEST_cae3beb9-ca7f-4012-a774-8c7c91eec973",
+                "GUEST_eabdb652-4a44-4841-acb7-3170da37ad96",
+                "GUEST_596ee201-3b97-4c3e-837e-f5dbef322ee5",
+                "GUEST_3c6e0fce-d6ad-4d5c-8bd8-3d31e632086c",
+                "GUEST_3b0bc036-dab3-4eeb-9c37-82f39205e116",
+                "GUEST_133e2ed3-d0be-4360-b6ee-f2cac888a84e",
+                "GUEST_e4f169ba-6edc-417c-b7f9-e2ae85c1d567",
+                "GUEST_a30da37a-b166-4a36-8057-37666d3a6b6e",
+                "GUEST_3dd293e3-6072-4227-956c-e735543f7f46",
+                "GUEST_1c6d0ac4-c46d-4a1a-a291-c374118ce123",
+                "GUEST_cf7312ea-5b01-4618-ba0e-2a15387534f5",
+                "GUEST_a7d9c987-e7b8-4867-a211-85cc421b045e",
+                "GUEST_99a24de1-3a48-46fd-b591-5d6221be6203",
+                "GUEST_2ac37ecb-b6b2-42fd-9c05-811a3cf52684",
+                "GUEST_8f27c828-efde-4a0c-b5cc-5c1a478c640e"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "4d7f480b-18aa-11f1-8c65-0a103de0e480",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Curbside",
+            "guest_promised_delivery_start_date": "2026-03-05T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-05T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-03-05T15:34:36-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-03-05T10:46:31-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T15:34:36-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "ecb3a3d0-1867-11f1-8b74-45dc29c79f99",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        }
+      ],
+      "order_number": "912003305064775",
+      "is_softdecline_order": false,
+      "order_purchase_type": "ONLINE",
+      "is_more_lines": false,
+      "is_return_override": false,
+      "is_refund_restriction_hold": false,
+      "is_third_party_purchase": false,
+      "is_payment_hard_declined": false,
+      "has_adult_beverage_items": false,
+      "is_market_place": false,
+      "pending_returns": false,
+      "virtual_bundle_count": 0
+    },
+    {
+      "tenant_key": "Target.com",
+      "placed_date": "2026-02-28T10:29:24-06:00",
+      "order_type": "Sales",
+      "source": "OMS",
+      "summary": {
+        "grand_total": "32.29"
+      },
+      "address": [],
+      "order_lines": [
+        {
+          "order_line_key": "202602281029248590032965367431",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "9235990401711804883220",
+            "name": "DELIVERED"
+          },
+          "item": {
+            "tcin": "1008601044",
+            "description": "Cupshe Women's Cozy Striped Loungewear Set-M-Gray",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_1340d53a-4b59-49a7-92db-de0a951598b4",
+              "alternate_images": [
+                "GUEST_cf47ea58-a1b8-4033-99a4-9d1aafc4eb2e",
+                "GUEST_70eb66bb-b25a-42e4-a577-8b665ca14b01",
+                "GUEST_a6d12d92-5a4b-4813-93e7-e3e8647894c3"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": true,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "fulfillment_type": "ShipToHome",
+            "fulfillment_method": "Standard",
+            "guest_promised_delivery_start_date": "2026-03-06T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-03-06T00:00:00-10:00",
+            "status": {
+              "code": "3700.7777",
+              "key": "STAT_DELIVERED",
+              "date": "2026-03-05T14:30:04-06:00",
+              "quantity": 1,
+              "tracking_number": "9235990401711804883220",
+              "estimated_start_date": "2026-03-06T00:00:00-10:00",
+              "estimated_end_date": "2026-03-06T00:00:00-10:00",
+              "fulfilled_date": "2026-03-05T14:30:04-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "56a79471-1423-11f1-84c7-050fe0bfce45",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        }
+      ],
+      "order_number": "912003296536743",
+      "is_softdecline_order": false,
+      "order_purchase_type": "ONLINE",
+      "is_more_lines": false,
+      "is_return_override": false,
+      "is_refund_restriction_hold": false,
+      "is_third_party_purchase": false,
+      "is_payment_hard_declined": false,
+      "has_adult_beverage_items": false,
+      "is_market_place": true,
+      "pending_returns": false,
+      "virtual_bundle_count": 0
+    },
+    {
+      "tenant_key": "Target.com",
+      "placed_date": "2026-02-23T16:54:20-06:00",
+      "order_type": "Sales",
+      "source": "OMS",
+      "summary": {
+        "grand_total": "35.57"
+      },
+      "address": [
+        {
+          "address_id": "970e557a-110a-11f1-9519-0a10402d212d",
+          "first_name": "North St Paul",
+          "state": "MN",
+          "zip_code": "55109"
+        }
+      ],
+      "order_lines": [
+        {
+          "order_line_key": "202602231654206840032839377024",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_1185_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "14713533",
+            "description": "Grade A Large Eggs - 18ct - Good &#38; Gather&#8482; (Packaging May Vary)",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_8bc25861-da8d-49ed-97a2-567375198ac6",
+              "alternate_images": [
+                "GUEST_5000a177-abed-4952-853c-520da0e19780",
+                "GUEST_31ed8ad4-9080-420a-931d-503b5f550cd2",
+                "GUEST_7b8f12dd-1295-4b39-a909-8fb5b26aa5c0",
+                "GUEST_36921d58-9c60-44fe-81db-f1969bbdbb89",
+                "GUEST_d03315c1-a062-43c1-8712-dd14e361c455"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "970e557a-110a-11f1-9519-0a10402d212d",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-02-23T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-02-23T00:00:00-10:00",
+            "node_id": "1185",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-02-23T20:01:37-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-02-23T18:13:36-10:00",
+              "estimated_end_date": "2026-02-24T00:00:00-10:00",
+              "fulfilled_date": "2026-02-23T20:01:37-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "a3e218b0-10fd-11f1-9039-67e13bff9373",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false,
+          "line_type": "GROCERY"
+        },
+        {
+          "order_line_key": "202602231654206840032839377023",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_1185_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "13376577",
+            "description": "Sara Lee Whole Grain Soft White Bread - 20oz",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_a613236f-49cb-4c85-88f5-138491695f82",
+              "alternate_images": [
+                "GUEST_f0629470-ff26-4f95-b8fa-7af8d977522a",
+                "GUEST_3c08261d-51fb-4476-90cc-38e124c20ee4",
+                "GUEST_4d3fac0d-7ab1-44ab-8074-1b2a17ca60ff",
+                "GUEST_5f15db7c-6682-4fef-bb59-cad5d4ddcb5a",
+                "GUEST_9a6ed799-4f48-41cc-8062-61ed607c9cb3",
+                "GUEST_bb9a5a85-08cb-4533-880f-4002fa113fe9",
+                "GUEST_c3ea3c9e-4b7c-4dd7-82ad-4b3ee9fa29aa",
+                "GUEST_1dd01d25-e89b-4639-8638-a4d41dd136b3",
+                "GUEST_13aa5943-283c-44ff-89bd-db49ed5d6364",
+                "GUEST_8ed096da-8873-404a-8497-666586b45a71"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "970e557a-110a-11f1-9519-0a10402d212d",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-02-23T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-02-23T00:00:00-10:00",
+            "node_id": "1185",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-02-23T20:01:37-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-02-23T18:13:36-10:00",
+              "estimated_end_date": "2026-02-24T00:00:00-10:00",
+              "fulfilled_date": "2026-02-23T20:01:37-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "2c9c5810-10fd-11f1-acb7-d56e027a0de4",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202602231654206840032839377025",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_1185_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "54498852",
+            "description": "Lactose Free Vitamin D Milk - 0.5gal - Good & Gather&#8482;",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_7c2bd13b-7ffb-442e-ab9d-f1e22e5f30d0",
+              "alternate_images": [
+                "GUEST_fb0b1872-a6dd-431b-98b8-e66c764e2f59",
+                "GUEST_d00d36d0-5637-4dfc-967e-da082f7e07d5",
+                "GUEST_fcc166de-42f2-4cb9-8bd8-d53bda3156f0",
+                "GUEST_d03315c1-a062-43c1-8712-dd14e361c455"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "970e557a-110a-11f1-9519-0a10402d212d",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-02-23T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-02-23T00:00:00-10:00",
+            "node_id": "1185",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-02-23T20:01:37-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-02-23T18:13:36-10:00",
+              "estimated_end_date": "2026-02-24T00:00:00-10:00",
+              "fulfilled_date": "2026-02-23T20:01:37-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "c7d659c1-10fd-11f1-af91-57450f8f1dff",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false,
+          "line_type": "GROCERY"
+        },
+        {
+          "order_line_key": "202602231654206850032839377026",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_1185_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "52292756",
+            "description": "Refresh Optive Mega-3 Lubricant Eye Drops Preservative-Free Artificial Tears - 0.01 fl oz (0.4mL) - 30 Single-Use Containers",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_d31aae0d-5a2d-4536-9a81-29a6b695e717",
+              "alternate_images": [
+                "GUEST_c5020dd3-1646-438e-a578-4503474443f8",
+                "GUEST_63994f7f-5807-4723-83b2-121cbc9af89d",
+                "GUEST_cecec6e2-c6c8-4eea-933e-87477db02ce7",
+                "GUEST_04fe9df7-edc1-4dda-b664-566aec7b58a2",
+                "GUEST_8d4a5044-d0b1-4732-8920-f32faeb76de8",
+                "GUEST_fceec882-b127-4bb6-8dc7-3c88fdc75663",
+                "GUEST_78d7f896-a9d2-4e44-b9a5-2f0b6c534c11",
+                "GUEST_6d1fae98-a543-488d-959f-e990b9587624",
+                "GUEST_ac2ac13c-9897-484b-aa9b-00e8975f7cff",
+                "GUEST_9f0756ae-7afb-4a7f-bf2e-9afe6b2fa9e8",
+                "GUEST_7d843682-69eb-485f-a779-4eb3c3fa3c53"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "970e557a-110a-11f1-9519-0a10402d212d",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-02-23T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-02-23T00:00:00-10:00",
+            "node_id": "1185",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-02-23T20:01:37-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-02-23T18:13:36-10:00",
+              "estimated_end_date": "2026-02-24T00:00:00-10:00",
+              "fulfilled_date": "2026-02-23T20:01:37-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "a13775a1-10fe-11f1-9577-d99531bd33ac",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202602231654206840032839377022",
+          "original_quantity": 5,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_1185_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "47095644",
+            "description": "Avocado - each",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_c427dad1-6e34-475f-a914-e7d19d36ec4a",
+              "alternate_images": [
+                "GUEST_6d9d5f9f-7206-49c4-a381-6ba5a0c08504",
+                "GUEST_e3699da9-bae1-4ce6-8466-952771c7e5ea",
+                "GUEST_9de1ad41-c53a-4814-bb95-9a4f8003ca99",
+                "GUEST_0ffbc6cf-2f8d-4804-b809-279fc4b74be5",
+                "GUEST_8958b79a-b301-4205-ae5e-7f975b289f01",
+                "GUEST_9824f5c7-1225-4525-896f-65775a994cfa",
+                "GUEST_4a0e1d3e-8c77-443b-a1fa-d6cd13dce3fb",
+                "GUEST_b6c7cfb4-5321-4814-8c11-81ed4227c705"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "970e557a-110a-11f1-9519-0a10402d212d",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-02-23T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-02-23T00:00:00-10:00",
+            "node_id": "1185",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-02-23T20:01:37-06:00",
+              "quantity": 5,
+              "estimated_start_date": "2026-02-23T18:13:36-10:00",
+              "estimated_end_date": "2026-02-24T00:00:00-10:00",
+              "fulfilled_date": "2026-02-23T20:01:37-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "f00a5cd0-10fc-11f1-8458-73cc6342739b",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false,
+          "line_type": "GROCERY"
+        },
+        {
+          "order_line_key": "202602231654206840032839377021",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_1185_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "89550661",
+            "description": "Dove Hydration Boost Serum Body Wash Drenches Dry Skin with 6% Hydrating Serum with Hyaluronic Acid - 18.5 fl oz",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_d0b8779f-666b-4f36-b012-0ef39fc2c1aa",
+              "alternate_images": [
+                "GUEST_7168432d-b120-4b3f-90e3-e5cd3242ca61",
+                "GUEST_a3bf3520-4920-4642-b261-381521ac1c65",
+                "GUEST_590225c8-0d73-4b86-9289-4e31a1ddbb53",
+                "GUEST_63e1127e-32a5-4b80-8e83-595dff087a00",
+                "GUEST_d45ea143-2c9a-4f80-9e09-2faa19fa662c",
+                "GUEST_583cde1c-c820-448c-9875-bbb5d987114a",
+                "GUEST_2c974b55-3120-488e-b42f-a3958d6523d1",
+                "GUEST_f0935d67-410e-490d-a43b-40e7fc4cb8c3"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "970e557a-110a-11f1-9519-0a10402d212d",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-02-23T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-02-23T00:00:00-10:00",
+            "node_id": "1185",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-02-23T20:01:37-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-02-23T18:13:36-10:00",
+              "estimated_end_date": "2026-02-24T00:00:00-10:00",
+              "fulfilled_date": "2026-02-23T20:01:37-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "b402d0e0-1044-11f1-976d-fb9b661befa3",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        }
+      ],
+      "order_number": "912003283937702",
+      "is_softdecline_order": false,
+      "order_purchase_type": "ONLINE",
+      "is_more_lines": false,
+      "is_return_override": false,
+      "is_refund_restriction_hold": false,
+      "is_third_party_purchase": false,
+      "is_payment_hard_declined": false,
+      "has_adult_beverage_items": false,
+      "is_market_place": false,
+      "pending_returns": false,
+      "virtual_bundle_count": 0
+    },
+    {
+      "tenant_key": "Target.com",
+      "placed_date": "2026-02-17T23:35:07-06:00",
+      "order_type": "Sales",
+      "source": "OMS",
+      "summary": {
+        "grand_total": "28.16"
+      },
+      "address": [],
+      "order_lines": [
+        {
+          "order_line_key": "202602172335077930032839377011",
+          "original_quantity": 2,
+          "grouping": {
+            "key": "9400150206172002875160",
+            "name": "DELIVERED"
+          },
+          "item": {
+            "tcin": "91368633",
+            "description": "Jockey Women's Smooth & Sleek Microfiber Demi Coverage Underwire T-Shirt Bra 36A Black Night",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_94a5a29a-cad8-4f7d-b0f1-4c2c534aaed3",
+              "alternate_images": [
+                "GUEST_77df8e25-3e21-4941-b77e-13cd58a6c757",
+                "GUEST_7f701cc5-02a3-4c56-9cf7-d83b52484bb8",
+                "GUEST_c73e6e8c-5c5c-4e5a-be84-99c9a80fe6b3",
+                "GUEST_aff55d09-64f9-485f-9eeb-248ae8d0bbc9",
+                "GUEST_a724d996-8ef0-43c7-973e-223a559ce05d",
+                "GUEST_6e7e60e7-698b-4a91-9333-ea913c8edddb"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": true,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "fulfillment_type": "ShipToHome",
+            "fulfillment_method": "Standard",
+            "guest_promised_delivery_start_date": "2026-02-21T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-02-21T00:00:00-10:00",
+            "status": {
+              "code": "3700.7777",
+              "key": "STAT_DELIVERED",
+              "date": "2026-02-21T14:30:12-06:00",
+              "quantity": 2,
+              "tracking_number": "9400150206172002875160",
+              "estimated_start_date": "2026-02-21T00:00:00-10:00",
+              "estimated_end_date": "2026-02-21T00:00:00-10:00",
+              "fulfilled_date": "2026-02-21T14:30:12-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "7eab3061-0c19-11f1-b025-b1edaa4cb939",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        }
+      ],
+      "order_number": "102003283937701",
+      "is_softdecline_order": false,
+      "order_purchase_type": "ONLINE",
+      "is_more_lines": false,
+      "is_return_override": false,
+      "is_refund_restriction_hold": false,
+      "is_third_party_purchase": false,
+      "is_payment_hard_declined": false,
+      "has_adult_beverage_items": false,
+      "is_market_place": true,
+      "pending_returns": false,
+      "virtual_bundle_count": 0
+    },
+    {
+      "tenant_key": "Target.com",
+      "placed_date": "2026-02-17T23:35:07-06:00",
+      "order_type": "Sales",
+      "source": "OMS",
+      "summary": {
+        "grand_total": "54.54"
+      },
+      "address": [],
+      "order_lines": [
+        {
+          "order_line_key": "202602172335080610032839377003",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "9200190982859114622806",
+            "name": "DELIVERED"
+          },
+          "item": {
+            "tcin": "89714678",
+            "description": "14k Gold Plated Freshwater Pearl on Snake Chain Necklace - A New Day&#8482; Gold: Lobster Claw Clasp, 16-19&#34; Length",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_2f56e082-ff29-435e-a85d-59d7e4414b87",
+              "alternate_images": [
+                "GUEST_52afb5c6-a278-4385-840c-54559ed983c6",
+                "GUEST_4259414f-78cd-4158-935e-839f56783f9b",
+                "GUEST_aa6ad8bd-5bad-4244-a093-f8b838805380"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "fulfillment_type": "ShipToHome",
+            "fulfillment_method": "Standard",
+            "guest_promised_delivery_start_date": "2026-02-24T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-02-24T00:00:00-10:00",
+            "status": {
+              "code": "3700.7777",
+              "key": "STAT_DELIVERED",
+              "date": "2026-02-23T15:15:09-06:00",
+              "quantity": 1,
+              "tracking_number": "9200190982859114622806",
+              "estimated_start_date": "2026-02-24T00:00:00-10:00",
+              "estimated_end_date": "2026-02-24T00:00:00-10:00",
+              "fulfilled_date": "2026-02-23T15:15:09-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "bf4758b0-0c5a-11f1-b107-e9323502521f",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202602172335080610032839377002",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "TLMD64361357593",
+            "name": "DELIVERED"
+          },
+          "item": {
+            "tcin": "93275486",
+            "description": "Vitafusion Multivitamin Chewables - 120ct: Berry Flavor, Gummy Form, 10.58 Net Weight",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_3b288914-00cc-4498-9534-a16e5b70cd17",
+              "alternate_images": [
+                "GUEST_37a90fde-0815-430f-83e0-048ed503945a",
+                "GUEST_4d66a3e8-98fa-40fc-9e69-003c598597a3",
+                "GUEST_83ab9300-b043-4017-bc06-abb398fcf976",
+                "GUEST_ea477261-6137-403c-a587-f4d84dc7a3af",
+                "GUEST_d4824612-e799-4dbd-9de5-4e0743aea2c3",
+                "GUEST_fd2d87fc-a6b9-4720-89d2-a4c94563237f",
+                "GUEST_63ad9904-b497-482f-b429-3e2a454137dc",
+                "GUEST_f6fa61ae-b35d-4bec-8976-a597ad6e16ca",
+                "GUEST_0f34c190-14a0-4741-98a5-672aac15ffb4",
+                "GUEST_9f78cf31-3665-4c36-a796-ef476540d934"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "fulfillment_type": "ShipToHome",
+            "fulfillment_method": "Standard",
+            "guest_promised_delivery_start_date": "2026-02-19T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-02-19T00:00:00-10:00",
+            "status": {
+              "code": "3700.7777",
+              "key": "STAT_DELIVERED",
+              "date": "2026-02-19T11:36:38-06:00",
+              "quantity": 1,
+              "tracking_number": "TLMD64361357593",
+              "estimated_start_date": "2026-02-19T00:00:00-10:00",
+              "estimated_end_date": "2026-02-19T00:00:00-10:00",
+              "fulfilled_date": "2026-02-19T11:36:38-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "28cab470-0c0c-11f1-a2ce-09c53cfd1c7c",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202602172335080610032839377001",
+          "original_quantity": 2,
+          "grouping": {
+            "key": "TLMD64361357593",
+            "name": "DELIVERED"
+          },
+          "item": {
+            "tcin": "53987572",
+            "description": "Pair of Thieves Men's Ankle Socks 3pk - Black 8-12",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_9053075a-a0e9-4a2e-988f-e8779271a84e",
+              "alternate_images": [
+                "GUEST_4f968190-ec90-418f-af59-95cc5b7188fa"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "fulfillment_type": "ShipToHome",
+            "fulfillment_method": "Standard",
+            "guest_promised_delivery_start_date": "2026-02-19T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-02-19T00:00:00-10:00",
+            "status": {
+              "code": "3700.7777",
+              "key": "STAT_DELIVERED",
+              "date": "2026-02-19T11:36:38-06:00",
+              "quantity": 2,
+              "tracking_number": "TLMD64361357593",
+              "estimated_start_date": "2026-02-19T00:00:00-10:00",
+              "estimated_end_date": "2026-02-19T00:00:00-10:00",
+              "fulfilled_date": "2026-02-19T11:36:38-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "359d9370-0b4e-11f1-8dcc-ab147dbc355d",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202602172335080610032839377004",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "TLMD64361357593",
+            "name": "DELIVERED"
+          },
+          "item": {
+            "tcin": "91467327",
+            "description": "Stellar Button Earrings - A New Day&#8482; Gold: Nickel-Free Metal, Post Closure, 0.6&#34; Studs",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_134c6453-1028-4021-8835-73eb8bff0962",
+              "alternate_images": [
+                "GUEST_1357dc86-02a7-443e-af11-8cc3dfdca328"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "fulfillment_type": "ShipToHome",
+            "fulfillment_method": "Standard",
+            "guest_promised_delivery_start_date": "2026-02-19T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-02-19T00:00:00-10:00",
+            "status": {
+              "code": "3700.7777",
+              "key": "STAT_DELIVERED",
+              "date": "2026-02-19T11:36:38-06:00",
+              "quantity": 1,
+              "tracking_number": "TLMD64361357593",
+              "estimated_start_date": "2026-02-19T00:00:00-10:00",
+              "estimated_end_date": "2026-02-19T00:00:00-10:00",
+              "fulfilled_date": "2026-02-19T11:36:38-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "5f330950-0c60-11f1-8fa7-09c0d5b5e176",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        }
+      ],
+      "order_number": "102003283937700",
+      "is_softdecline_order": false,
+      "order_purchase_type": "ONLINE",
+      "is_more_lines": false,
+      "is_return_override": false,
+      "is_refund_restriction_hold": false,
+      "is_third_party_purchase": false,
+      "is_payment_hard_declined": false,
+      "has_adult_beverage_items": false,
+      "is_market_place": false,
+      "pending_returns": false,
+      "virtual_bundle_count": 0
+    },
+    {
+      "tenant_key": "Target.com",
+      "placed_date": "2026-02-15T23:49:04-06:00",
+      "order_type": "Sales",
+      "source": "OMS",
+      "summary": {
+        "grand_total": "301.10"
+      },
+      "address": [],
+      "order_lines": [
+        {
+          "order_line_key": "202602152349048100032800326921",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "1Z7F0F280329622929",
+            "name": "DELIVERED"
+          },
+          "item": {
+            "tcin": "85450270",
+            "description": "All Season 700 Fill Power Luxury White Duck Down Duvet Comforter Insert - Full/Queen | BOKSER HOME",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_507ca8ac-23d2-4aff-bbbb-a6f5e3b213d0",
+              "alternate_images": [
+                "GUEST_a90c44d0-7515-4ab5-9686-85b41aab96ac",
+                "GUEST_660a9d68-0cdd-4ffb-85b5-1084987304c2",
+                "GUEST_5f5dd259-0f67-447c-93fa-73620507d222",
+                "GUEST_d55b6773-f615-4f1a-a7ec-d4ccf19426fb",
+                "GUEST_96de5377-2e3f-48ab-9c2a-090e88c49ba4",
+                "GUEST_0a034ef6-915d-46c7-ba14-443ed7b8f2c0",
+                "GUEST_240e0b34-efc3-44f5-9771-212e015ca7d5",
+                "GUEST_7822da47-14f4-4db8-baea-7b55e6e603f9",
+                "GUEST_3143ffe5-09ab-45aa-bbfb-cab66e61b103",
+                "GUEST_1f5119f9-c036-4378-88cc-f0b372542e9c",
+                "GUEST_3ecdb54d-ae6d-4f70-a73a-c1c17326bbc1"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": true,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "fulfillment_type": "ShipToHome",
+            "fulfillment_method": "Standard",
+            "guest_promised_delivery_start_date": "2026-02-18T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-02-18T00:00:00-10:00",
+            "status": {
+              "code": "3700.7777",
+              "key": "STAT_DELIVERED",
+              "date": "2026-02-18T17:11:12-06:00",
+              "quantity": 1,
+              "tracking_number": "1Z7F0F280329622929",
+              "estimated_start_date": "2026-02-18T00:00:00-10:00",
+              "estimated_end_date": "2026-02-18T00:00:00-10:00",
+              "fulfilled_date": "2026-02-18T17:11:12-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "87a3d2c0-0aa8-11f1-ac77-a5cbe2ed2ca3",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        }
+      ],
+      "order_number": "912003280032692",
+      "is_softdecline_order": false,
+      "order_purchase_type": "ONLINE",
+      "is_more_lines": false,
+      "is_return_override": false,
+      "is_refund_restriction_hold": false,
+      "is_third_party_purchase": false,
+      "is_payment_hard_declined": false,
+      "has_adult_beverage_items": false,
+      "is_market_place": true,
+      "pending_returns": false,
+      "virtual_bundle_count": 0
+    },
+    {
+      "tenant_key": "Target.com",
+      "placed_date": "2026-02-15T23:49:04-06:00",
+      "order_type": "Sales",
+      "source": "OMS",
+      "summary": {
+        "grand_total": "17.03"
+      },
+      "address": [
+        {
+          "address_id": "33e635fd-0afb-11f1-9f6a-0a1068bc94e4",
+          "first_name": "Roseville T1",
+          "state": "MN",
+          "zip_code": "55113"
+        }
+      ],
+      "order_lines": [
+        {
+          "order_line_key": "202602152349048990032800326913",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "14704212",
+            "description": "Glade PlugIns Air Freshener Scented Oil Diffuser - 1 Warmer",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_d7fc6f93-1ebf-4ad9-83b1-3e9bde714cde",
+              "alternate_images": [
+                "GUEST_5ea8b37b-5079-4559-b3a7-6c1a10b62aff",
+                "GUEST_39618990-6897-4555-8fd7-61a67a896a93",
+                "GUEST_ee662619-966c-4979-942a-0d7eda81eba7",
+                "GUEST_fbc8f71b-48e6-4728-b279-4c532d0cddb8",
+                "GUEST_35af9900-9194-4b0e-908b-57de15944206",
+                "GUEST_8267e639-0ef0-4bb5-b0f9-6a7e94ba304f",
+                "GUEST_67b58498-9eb3-4fff-bdb7-7128331b405c",
+                "GUEST_94936cc2-a75c-46e2-ac84-be5f47a8ef02",
+                "GUEST_f5b39a33-5e5e-4027-b374-794c0257212d",
+                "GUEST_b19a4395-345c-42e3-854c-1aa42306435c",
+                "GUEST_cc474f69-0827-401a-84c5-278670e7cf41",
+                "GUEST_aff365bf-dc57-4dfb-8a58-a0daba43bd56",
+                "GUEST_aab66a8a-5a57-4a45-af06-b04a396fd59b",
+                "GUEST_7428a939-5300-4f5a-a9bd-d83ce3a01fac",
+                "GUEST_d5caafae-1901-4c85-8bd2-e4ebcd695458"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "33e635fd-0afb-11f1-9f6a-0a1068bc94e4",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-02-16T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-02-16T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-02-16T15:28:31-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-02-16T06:17:03-10:00",
+              "estimated_end_date": "2026-02-19T00:00:00-10:00",
+              "fulfilled_date": "2026-02-16T15:28:31-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "ca98c8b0-0aa8-11f1-ad29-db72ab82848d",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202602152349048990032800326912",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "94844468",
+            "description": "Glade PlugIns Spring Scented Oils Air Freshener Refills - Juicy Peach &#38; Elderflower - 2ct/1.34oz: Spring, Paraben-Free, Electric",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_a2118ba9-afc5-4b24-8c0a-92a3c729b620",
+              "alternate_images": [
+                "GUEST_9cf34758-343c-489b-ba1a-e83356b8a446",
+                "GUEST_c87a4694-51ba-4182-bba0-72600c60bcf7",
+                "GUEST_e9bf40cd-d2fe-4a04-a1f5-182286672562",
+                "GUEST_c6ebaba7-497d-4c72-b1b1-6d9f73f1b1a4",
+                "GUEST_9eb38602-f5c8-46ad-b168-98042c7e1226",
+                "GUEST_89a1baf5-85bc-4fc9-bea9-1a92f34b129a",
+                "GUEST_4b31320c-4fbf-414a-a250-d2b5d6bb868d",
+                "GUEST_bf28f8c6-7737-4607-9c24-53be06b6d715",
+                "GUEST_96ed2446-8091-409f-af7c-5e657d1a69f5"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "33e635fd-0afb-11f1-9f6a-0a1068bc94e4",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-02-16T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-02-16T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-02-16T15:28:31-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-02-16T06:17:03-10:00",
+              "estimated_end_date": "2026-02-19T00:00:00-10:00",
+              "fulfilled_date": "2026-02-16T15:28:31-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "531bcb71-0aa8-11f1-94bf-d1e1d9ea43b2",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202602152349048990032800326914",
+          "original_quantity": 1,
+          "grouping": {
+            "key": "STOREPICKUP_STOREPICKUP_2101_STAT_ORDER_PICKED_UP",
+            "name": "ORDER_PICKED_UP"
+          },
+          "item": {
+            "tcin": "79362495",
+            "description": "Evaporated Milk - 12 fl oz - Good &#38; Gather&#8482;",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_9efddf15-cd97-441b-9966-84fc46409571",
+              "alternate_images": [
+                "GUEST_7087b968-e6fe-4dc6-971c-9c96dbc1cad6",
+                "GUEST_9124625b-2493-4c36-9c2b-80bc3a05b21b",
+                "GUEST_079e9f7e-49fb-4d93-b06b-5a82f481bbe4",
+                "GUEST_d03315c1-a062-43c1-8712-dd14e361c455"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "33e635fd-0afb-11f1-9f6a-0a1068bc94e4",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-02-16T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-02-16T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.003",
+              "key": "STAT_ORDER_PICKED_UP",
+              "date": "2026-02-16T15:28:31-06:00",
+              "quantity": 1,
+              "estimated_start_date": "2026-02-16T06:17:03-10:00",
+              "estimated_end_date": "2026-02-19T00:00:00-10:00",
+              "fulfilled_date": "2026-02-16T15:28:31-06:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "1562b8e1-0af6-11f1-a165-330c5b6c4bb1",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        },
+        {
+          "order_line_key": "202602152349048980032800326911",
+          "original_quantity": 2,
+          "grouping": {
+            "key": "REFUND_ISSUED",
+            "name": "REFUND_ISSUED"
+          },
+          "item": {
+            "tcin": "88503201",
+            "description": "Fluted Ceramic Trinket Dish Vintage Cream - Hearth &#38; Hand&#8482; with Magnolia",
+            "images": {
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_a48b0124-f0c0-47de-a58f-c0288dc08a5a",
+              "alternate_images": [
+                "GUEST_8951334c-edae-4e87-9e51-321d2a52e4a6",
+                "GUEST_e5064eb1-81f8-4a8b-836f-48522e558ce0",
+                "GUEST_34ca2592-3434-427d-8c39-2a868f04b569"
+              ]
+            },
+            "max_purchase_limit": 0,
+            "minimum_age": 0,
+            "environmentally_sensitive": false,
+            "item_serialized": false,
+            "is_scheduled_delivery": false,
+            "is_market_place": false,
+            "is_max_price": false,
+            "is_sale_price": false,
+            "is_price_overridden": false
+          },
+          "fulfillment_spec": {
+            "address_id": "33e635fd-0afb-11f1-9f6a-0a1068bc94e4",
+            "fulfillment_type": "StorePickup",
+            "fulfillment_method": "Store Pickup",
+            "guest_promised_delivery_start_date": "2026-02-16T00:00:00-10:00",
+            "guest_promised_delivery_end_date": "2026-02-16T00:00:00-10:00",
+            "node_id": "2101",
+            "status": {
+              "code": "3700.05",
+              "key": "STAT_REFUND_ISSUED",
+              "date": "2026-06-16T14:28:26-05:00",
+              "quantity": 2,
+              "estimated_start_date": "2026-02-16T06:17:03-10:00",
+              "estimated_end_date": "2026-02-19T00:00:00-10:00",
+              "operations": {
+                "is_cancellable": false,
+                "is_delayed": false,
+                "cancellation_requested": false,
+                "is_requestable_for_cancel": false,
+                "is_repromise_eligible": false,
+                "is_repromise_shipping_eligible": false,
+                "is_pickup_extend_eligible": false,
+                "is_returnable": false,
+                "is_nominee_change_eligible": false,
+                "is_address_change_eligible": false,
+                "is_replaceable": false,
+                "is_returnable_in_store": false,
+                "is_returnable_by_mail": false,
+                "is_returnable_by_drive_up": false,
+                "is_offer_concession": false,
+                "is_return_override_eligible": false,
+                "is_returnable_your_way": false,
+                "is_pickup_window_item": false,
+                "is_item_mod_eligible": false,
+                "nudge_to_extend_pickup": false
+              }
+            },
+            "pre_order": false
+          },
+          "qualified_medical_expense": false,
+          "order_line_id": "38493ea1-0aa2-11f1-8edc-2f02191f4c76",
+          "is_free_gift": false,
+          "is_multiple_packages": false,
+          "is_substituted_parent_line": false,
+          "is_substituted_child_line": false
+        }
+      ],
+      "order_number": "912003280032691",
+      "is_softdecline_order": false,
+      "order_purchase_type": "ONLINE",
+      "is_more_lines": false,
+      "is_return_override": false,
+      "is_refund_restriction_hold": false,
+      "is_third_party_purchase": false,
+      "is_payment_hard_declined": false,
+      "has_adult_beverage_items": false,
+      "is_market_place": false,
+      "pending_returns": false,
+      "virtual_bundle_count": 0
+    }
+  ],
+  "request": {
+    "page_number": 9,
+    "page_size": 10,
+    "shipt_status": true,
+    "order_purchase_type": "ONLINE",
+    "pending_order": true
+  }
+}

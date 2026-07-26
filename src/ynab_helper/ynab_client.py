@@ -106,6 +106,17 @@ class YnabClient:
             {"subtransactions": subtransactions},
         )
 
+    def patch_transactions_bulk(
+        self, transactions: list[dict[str, Any]]
+    ) -> dict[str, Any]:
+        """Bulk update transactions. Each entry must include 'id'."""
+        response = self._client.patch(
+            f"/budgets/{self.budget_id}/transactions",
+            json={"transactions": transactions},
+        )
+        response.raise_for_status()
+        return response.json()["data"]
+
     def restore_transaction(
         self,
         transaction_id: str,

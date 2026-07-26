@@ -9,6 +9,7 @@ dependencies = [
     "httpx>=0.28",
     "jinja2>=3.1",
     "playwright>=1.49",
+    "python-multipart>=0.0.32",
     "pyyaml>=6.0",
     "uvicorn>=0.32",
 ]

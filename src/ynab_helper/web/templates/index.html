@@ -22,6 +22,8 @@
       --danger-bg: #dc2626;
       --danger-border: #dc2626;
       --btn-fg: #e6e6e6;
+      --input-bg: #14161a;
+      --ok: #34d399;
     }
     @media (prefers-color-scheme: light) {
       :root {
@@ -41,6 +43,8 @@
         --danger-bg: #dc2626;
         --danger-border: #dc2626;
         --btn-fg: #1a1a1a;
+        --input-bg: #fff;
+        --ok: #15803d;
       }
     }
     body { font-family: system-ui, sans-serif; margin: 2rem; max-width: 960px; color: var(--fg); background: var(--bg); }
@@ -48,16 +52,30 @@
     h2 { font-size: 1.1rem; margin-top: 2rem; }
     .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
     .card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; background: var(--card-bg); }
-    .card.applied { opacity: 0.6; background: var(--card-applied-bg); }
+    .card.applied { opacity: 0.7; background: var(--card-applied-bg); }
     table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-    th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--row-border); }
+    th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--row-border); vertical-align: middle; }
     .warn { color: var(--warn); font-size: 0.85rem; }
     .unmatched { color: var(--unmatched); font-size: 0.85rem; }
+    .saved-flash { color: var(--ok); font-size: 0.8rem; margin-left: 0.4rem; opacity: 0; transition: opacity 0.15s; }
+    .saved-flash.show { opacity: 1; }
+    select, input[type=text] {
+      background: var(--input-bg); color: var(--fg); border: 1px solid var(--btn-border);
+      border-radius: 4px; padding: 0.25rem 0.4rem; font-size: 0.85rem;
+    }
+    input.note-input { width: 100%; min-width: 10rem; }
     button { padding: 0.4rem 0.8rem; border-radius: 6px; border: 1px solid var(--btn-border); cursor: pointer; background: var(--btn-bg); color: var(--btn-fg); }
     button.primary { background: var(--primary-bg); color: #fff; border-color: var(--primary-border); }
     button.danger { background: var(--danger-bg); color: #fff; border-color: var(--danger-border); }
+    button.small { padding: 0.2rem 0.5rem; font-size: 0.8rem; }
     .actions { margin-top: 0.8rem; display: flex; gap: 0.5rem; }
     .toolbar { margin-bottom: 1.5rem; display: flex; gap: 0.5rem; align-items: center; }
+    details.applied-section { margin-top: 2rem; }
+    details.applied-section summary { cursor: pointer; font-size: 1.1rem; margin: 0.5rem 0; display: flex; justify-content: space-between; align-items: center; }
+    .rule-form { display: none; margin-top: 0.3rem; gap: 0.3rem; }
+    .rule-form.show { display: flex; flex-wrap: wrap; }
+    .rule-form input[type=text] { flex: 1; min-width: 8rem; }
+    .rule-result { font-size: 0.8rem; margin-top: 0.2rem; }
   </style>
 </head>
 <body>
@@ -70,6 +88,11 @@
   </div>
 
   <div class="toolbar">
+    <form method="post" action="/approve-all" onsubmit="return confirm('Push {{ pending_count }} pending proposal(s) to YNAB?')">
+      <button type="submit" class="primary" {% if pending_count == 0 %}disabled{% endif %}>
+        Approve all &amp; push ({{ pending_count }})
+      </button>
+    </form>
     <form method="post" action="/undo">
       <button type="submit" class="danger" {% if undo_count == 0 %}disabled{% endif %}>
         Undo last ({{ undo_count }})
@@ -77,25 +100,59 @@
     </form>
   </div>
 
-  <h2>Matched proposals</h2>
-  {% for proposal in data.proposals %}
-  <div class="card {% if proposal.status == 'applied' %}applied{% endif %}">
+  {% macro render_proposal(pi, proposal, editable) %}
+  <div class="card {% if not editable %}applied{% endif %}" id="proposal-{{ pi }}">
     <strong>Order {{ proposal.target_order.order_id }}</strong>
     · {{ proposal.target_order.order_date }}
     · Target {{ fmt(proposal.target_order.total) }}
     ↔ YNAB {{ fmt(proposal.ynab_transaction.amount) }}
-    {% if proposal.status == 'applied' %}<em>(applied)</em>{% endif %}
+    {% if not editable %}<em>(applied)</em>{% endif %}
 
     <table>
       <thead>
-        <tr><th>Item</th><th>Category</th><th>Rule</th></tr>
+        <tr><th>Item</th><th>Category</th><th>Note</th><th>Rule</th>{% if editable %}<th></th>{% endif %}</tr>
       </thead>
       <tbody>
         {% for line in proposal.categorized_lines %}
-        <tr>
-          <td>{{ line.name }}</td>
-          <td>{{ line.category_name }}</td>
-          <td>{{ line.matched_rule or '—' }}</td>
+        {% set li = loop.index0 %}
+        <tr id="line-{{ pi }}-{{ li }}">
+          <td class="item-name">{{ line.name }}</td>
+          <td>
+            {% if editable %}
+            <select class="cat-select" data-pi="{{ pi }}" data-li="{{ li }}">
+              {% for cat in categories %}
+              <option value="{{ cat }}" {% if cat == line.category_name %}selected{% endif %}>{{ cat }}</option>
+              {% endfor %}
+            </select>
+            {% else %}
+            <span class="cat-value">{{ line.category_name }}</span>
+            {% endif %}
+          </td>
+          <td>
+            {% if editable %}
+            <input type="text" class="note-input" data-pi="{{ pi }}" data-li="{{ li }}"
+                   value="{{ line.note or '' }}" placeholder="why?">
+            <span class="saved-flash">saved</span>
+            {% else %}
+            <span class="note-value">{{ line.note or '—' }}</span>
+            {% endif %}
+          </td>
+          <td class="rule-value">{{ line.matched_rule or '—' }}</td>
+          {% if editable %}
+          <td>
+            <button type="button" class="small make-rule-btn" data-pi="{{ pi }}" data-li="{{ li }}">Make rule</button>
+            <div class="rule-form" data-pi="{{ pi }}" data-li="{{ li }}">
+              <input type="text" class="rule-pattern" placeholder="regex pattern">
+              <select class="rule-category">
+                {% for cat in categories %}
+                <option value="{{ cat }}" {% if cat == line.category_name %}selected{% endif %}>{{ cat }}</option>
+                {% endfor %}
+              </select>
+              <button type="button" class="small primary rule-submit">Add rule</button>
+              <div class="rule-result"></div>
+            </div>
+          </td>
+          {% endif %}
         </tr>
         {% endfor %}
       </tbody>
@@ -105,7 +162,7 @@
       <thead>
         <tr><th>Split category</th><th>Amount</th><th>Items</th></tr>
       </thead>
-      <tbody>
+      <tbody class="splits-body" id="splits-{{ pi }}">
         {% for split in proposal.splits %}
         <tr>
           <td>{{ split.category_name }}</td>
@@ -116,25 +173,45 @@
       </tbody>
     </table>
 
-    {% if proposal.unmatched_items %}
-    <p class="unmatched">Unmatched items (use Cursor skill): {{ proposal.unmatched_items | map(attribute='name') | join(', ') }}</p>
-    {% endif %}
+    <p class="unmatched" id="unmatched-{{ pi }}" {% if not proposal.unmatched_items %}style="display:none"{% endif %}>
+      Unmatched items (run the categorize-unmatched skill or `ynab-helper audit-rules`):
+      <span class="unmatched-names">{{ proposal.unmatched_items | map(attribute='name') | join(', ') }}</span>
+    </p>
 
-    {% if proposal.rounding_delta | abs > 1000 %}
-    <p class="warn">Rounding delta: {{ fmt(proposal.rounding_delta) }}</p>
-    {% endif %}
+    <p class="warn" id="rounding-{{ pi }}" {% if proposal.rounding_delta | abs <= 1000 %}style="display:none"{% endif %}>
+      Rounding delta: <span class="rounding-value">{{ fmt(proposal.rounding_delta) }}</span>
+    </p>
 
-    {% if proposal.status != 'applied' %}
+    {% if editable %}
     <div class="actions">
-      <form method="post" action="/approve/{{ loop.index0 }}">
+      <form method="post" action="/approve/{{ pi }}">
         <button type="submit" class="primary">Approve &amp; push to YNAB</button>
       </form>
     </div>
     {% endif %}
   </div>
+  {% endmacro %}
+
+  <h2>Matched proposals</h2>
+  {% for pi, proposal in pending %}
+    {{ render_proposal(pi, proposal, true) }}
   {% else %}
-  <p>No matched proposals.</p>
+  <p>No pending proposals.</p>
   {% endfor %}
+
+  {% if applied %}
+  <details class="applied-section">
+    <summary>
+      Applied ({{ applied | length }})
+      <form method="post" action="/clear-applied" onsubmit="return confirm('Remove all {{ applied | length }} applied proposal(s) from this review? YNAB transactions are unaffected.')">
+        <button type="submit" class="danger small">Clear applied</button>
+      </form>
+    </summary>
+    {% for pi, proposal in applied %}
+      {{ render_proposal(pi, proposal, false) }}
+    {% endfor %}
+  </details>
+  {% endif %}
 
   {% if data.unmatched_orders %}
   <h2>Unmatched Target orders</h2>
@@ -158,5 +235,127 @@
   </div>
   {% endfor %}
   {% endif %}
+
+  <script>
+    function fmtMilliunits(m) {
+      const sign = m < 0 ? '-' : '';
+      return sign + '$' + (Math.abs(m) / 1000).toFixed(2);
+    }
+
+    function patchProposal(pi, data) {
+      const splitsBody = document.getElementById('splits-' + pi);
+      splitsBody.innerHTML = '';
+      for (const split of data.splits) {
+        const tr = document.createElement('tr');
+        const items = split.line_items.join(', ');
+        tr.innerHTML = '<td></td><td></td><td></td>';
+        tr.children[0].textContent = split.category_name;
+        tr.children[1].textContent = fmtMilliunits(split.amount);
+        tr.children[2].textContent = items;
+        splitsBody.appendChild(tr);
+      }
+
+      const unmatchedP = document.getElementById('unmatched-' + pi);
+      if (data.unmatched_items && data.unmatched_items.length) {
+        unmatchedP.querySelector('.unmatched-names').textContent = data.unmatched_items.join(', ');
+        unmatchedP.style.display = '';
+      } else {
+        unmatchedP.style.display = 'none';
+      }
+
+      const roundingP = document.getElementById('rounding-' + pi);
+      if (Math.abs(data.rounding_delta) > 1000) {
+        roundingP.querySelector('.rounding-value').textContent = fmtMilliunits(data.rounding_delta);
+        roundingP.style.display = '';
+      } else {
+        roundingP.style.display = 'none';
+      }
+    }
+
+    async function postForm(url, fields) {
+      const body = new URLSearchParams(fields);
+      const res = await fetch(url, { method: 'POST', body });
+      if (!res.ok) {
+        const detail = await res.text();
+        throw new Error(detail);
+      }
+      return res.json();
+    }
+
+    document.querySelectorAll('.cat-select').forEach(select => {
+      select.addEventListener('change', async () => {
+        const pi = select.dataset.pi, li = select.dataset.li;
+        try {
+          const data = await postForm(`/recategorize/${pi}/${li}`, { category_name: select.value });
+          const row = document.getElementById(`line-${pi}-${li}`);
+          row.querySelector('.rule-value').textContent = data.matched_rule || '—';
+          patchProposal(pi, data);
+        } catch (e) {
+          alert('Failed to update category: ' + e.message);
+        }
+      });
+    });
+
+    document.querySelectorAll('.note-input').forEach(input => {
+      let timer = null;
+      const save = async () => {
+        const pi = input.dataset.pi, li = input.dataset.li;
+        try {
+          const data = await postForm(`/note/${pi}/${li}`, { note: input.value });
+          const flash = input.parentElement.querySelector('.saved-flash');
+          flash.classList.add('show');
+          setTimeout(() => flash.classList.remove('show'), 1200);
+        } catch (e) {
+          alert('Failed to save note: ' + e.message);
+        }
+      };
+      input.addEventListener('blur', save);
+      input.addEventListener('input', () => {
+        clearTimeout(timer);
+        timer = setTimeout(save, 800);
+      });
+    });
+
+    document.querySelectorAll('.make-rule-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const pi = btn.dataset.pi, li = btn.dataset.li;
+        const row = document.getElementById(`line-${pi}-${li}`);
+        const form = row.querySelector('.rule-form');
+        if (!form.classList.contains('show')) {
+          const name = row.querySelector('.item-name').textContent.trim();
+          const patternInput = form.querySelector('.rule-pattern');
+          if (!patternInput.value) {
+            const escaped = name.split(/\s+/).slice(0, 2).join('\\s+');
+            patternInput.value = '\\b' + escaped + '\\b';
+          }
+        }
+        form.classList.toggle('show');
+      });
+    });
+
+    document.querySelectorAll('.rule-submit').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const form = btn.closest('.rule-form');
+        const pi = form.dataset.pi, li = form.dataset.li;
+        const pattern = form.querySelector('.rule-pattern').value;
+        const category = form.querySelector('.rule-category').value;
+        const noteInput = document.querySelector(`.note-input[data-pi="${pi}"][data-li="${li}"]`);
+        const note = noteInput ? noteInput.value : '';
+        const result = form.querySelector('.rule-result');
+        try {
+          const data = await postForm('/rules', { pattern, category_name: category, note });
+          let msg = 'Rule added — re-run `propose` to apply it.';
+          if (data.collisions && data.collisions.length) {
+            msg += ' Collides with: ' + data.collisions.join(', ');
+          }
+          result.textContent = msg;
+          result.style.color = 'var(--ok)';
+        } catch (e) {
+          result.textContent = 'Failed: ' + e.message;
+          result.style.color = 'var(--unmatched)';
+        }
+      });
+    });
+  </script>
 </body>
 </html>

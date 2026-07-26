@@ -1,0 +1,22 @@
+{
+  "id": "000071062",
+  "title": "I received part of my order. Where are my other items?",
+  "topics": null,
+  "contents": [
+    {
+      "platform": "GENERAL",
+      "content": "<p>Orders containing multiple items, may arrive in one or more shipments with multiple tracking numbers. Items may be shipping from multiple warehouses, vendors, or stores. This may result in different delivery timing.<br><br>If order details indicate all items/shipments in the order have been delivered, it\u2019s possible part of the order was left out in error. For the fastest resolution, select <b>fix an issue</b> in <b>order details</b> and follow the prompts, or <a href=\"https://www.target.com/help/article/000063033\" target=\"_blank\">visit here to report an item missing from your order</a>.\u00a0</p>",
+      "field_name": "KA_Guest_Agent_Team_Member__c"
+    }
+  ],
+  "created_date": "2019-09-19T15:11:48.000Z",
+  "last_modified_date": "2025-07-09T20:12:38.000Z",
+  "record_type": "Q_A",
+  "data_categories": [
+    "Ship_to_Home"
+  ],
+  "sort_order": 30.0,
+  "visible_in_pkb": true,
+  "visible_in_csp": false,
+  "display_chat_option": true
+}

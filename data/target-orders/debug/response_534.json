@@ -1,0 +1,169 @@
+{
+  "profile_id": "3273279084",
+  "snapshot_timestamp": "2026-07-20T03:48:59.200073337",
+  "total_savings": "1822.19",
+  "summary": [
+    {
+      "id": 1001,
+      "sort_id": 1,
+      "name": "average_savings",
+      "title": "Average savings per order",
+      "display_value": "$10.01",
+      "description": "Average savings per order"
+    },
+    {
+      "id": 1004,
+      "sort_id": 2,
+      "name": "hours_saved_with_delivery",
+      "title": "Hours saved with delivery",
+      "display_value": "2",
+      "description": "Hours saved with delivery"
+    },
+    {
+      "id": 1002,
+      "sort_id": 3,
+      "name": "community_votes_cast",
+      "title": "Community votes cast",
+      "display_value": "0",
+      "description": "Community votes cast"
+    },
+    {
+      "id": 1003,
+      "sort_id": 4,
+      "name": "partner_perks_redeemed",
+      "title": "Partner perks redeemed",
+      "display_value": "0",
+      "description": "Partner perks redeemed"
+    }
+  ],
+  "membership_savings": [
+    {
+      "id": 1006,
+      "name": "sdd_from_target",
+      "title": "Same-day delivery from Target",
+      "description": "5 same-day orders placed",
+      "total": "49.95",
+      "pillars": [
+        {
+          "id": 2001,
+          "pillar": "PAID",
+          "amount": "49.95"
+        }
+      ]
+    },
+    {
+      "id": 1007,
+      "name": "sdd_from_other_stores",
+      "title": "Same-day delivery from other stores",
+      "description": "Place a same-day delivery order",
+      "total": "0.00",
+      "pillars": [
+        {
+          "id": 2001,
+          "pillar": "PAID",
+          "amount": "0.00"
+        }
+      ]
+    },
+    {
+      "id": 1010,
+      "name": "five_percent_off",
+      "title": "5%\u00b9 off every day",
+      "description": "With your Target Circle Card",
+      "total": "523.64",
+      "pillars": [
+        {
+          "id": 2003,
+          "pillar": "CARD",
+          "amount": "523.64"
+        }
+      ]
+    },
+    {
+      "id": 1008,
+      "name": "monthly_freebies",
+      "title": "Monthly freebies",
+      "description": "11 gifts & exclusive discounts",
+      "total": "58.87",
+      "pillars": [
+        {
+          "id": 2001,
+          "pillar": "PAID",
+          "amount": "58.87"
+        }
+      ]
+    },
+    {
+      "id": 1009,
+      "name": "free_fast_shipping",
+      "title": "Free, fast shipping",
+      "description": "Get an order shipped to you",
+      "total": "0.00",
+      "pillars": [
+        {
+          "id": 2003,
+          "pillar": "CARD",
+          "amount": "0.00"
+        }
+      ]
+    },
+    {
+      "id": 1011,
+      "name": "sales_coupons_deals",
+      "title": "Sales, coupons & deals",
+      "description": "45 redeemed",
+      "total": "293.04",
+      "pillars": [
+        {
+          "id": 2002,
+          "pillar": "BASE",
+          "amount": "293.04"
+        }
+      ]
+    },
+    {
+      "id": 1012,
+      "name": "target_circle_rewards",
+      "title": "Target Circle\u2122 Rewards",
+      "description": "With bonuses and special offers",
+      "total": "135.00",
+      "pillars": [
+        {
+          "id": 2002,
+          "pillar": "BASE",
+          "amount": "135.00"
+        }
+      ]
+    }
+  ],
+  "non_membership_savings": [
+    {
+      "id": 1013,
+      "name": "promotions",
+      "title": "Promotions",
+      "description": "Sales and special deals",
+      "amount": "761.69"
+    },
+    {
+      "id": 1014,
+      "name": "reusable_bag_discount",
+      "title": "Reusable bag discount",
+      "description": "5\u00a2 per bag",
+      "amount": "0.00"
+    },
+    {
+      "id": 1015,
+      "name": "team_member_discount",
+      "title": "Team member discount",
+      "description": "10% off",
+      "amount": "0.00"
+    },
+    {
+      "id": 1016,
+      "name": "wellness_discount",
+      "title": "Wellness discount",
+      "description": "20% off fruits, veggies and more",
+      "amount": "0.00"
+    }
+  ]
+}

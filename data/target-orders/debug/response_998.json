@@ -1,0 +1,31 @@
+{
+  "data": {
+    "product": {
+      "__typename": "Product",
+      "original_tcin": "53349477",
+      "tcin": "53349477",
+      "item": {
+        "relationship_type_code": "SA",
+        "enrichment": {
+          "image_info": {
+            "primary_image": {
+              "url": "https://target.scene7.com/is/image/Target/GUEST_718d93d1-7ab1-4b6b-93c0-9762c4f688f3"
+            }
+          }
+        },
+        "product_description": {
+          "title": "organicgirl FreshBaby Arugula - 5oz"
+        }
+      },
+      "price": {
+        "current_retail": 3.99,
+        "display_was_now": false,
+        "formatted_current_price": "$3.99",
+        "formatted_current_price_type": "reg",
+        "formatted_unit_price": "$0.80",
+        "formatted_unit_price_suffix": "/ounce",
+        "reg_retail": 3.99
+      }
+    }
+  }
+}

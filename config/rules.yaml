@@ -1,14 +1,55 @@
+# Patterns are case-insensitive, UNANCHORED past their leading \b, and
+# first-match-wins (the first rule whose pattern matches an item name wins,
+# regardless of what else matches later in the list).
+#
+# Use SINGLE quotes for every pattern. In double-quoted YAML strings, \b is
+# parsed as a backspace escape character (\x08), which silently produces a
+# regex that compiles fine but never matches anything.
+#
+# Verify changes with: uv run ynab-helper audit-rules
 rules:
-  - pattern: "diaper|wipes|formula|similac|infant|enfamil"
-    category: "Nathanael"
-  - pattern: "milk|cream|blueberr|raspberr|ham|nutella|grocery|produce|bread|snack"
-    category: "Groceries"
-  - pattern: "pillow|sheet|blanket|bedding|towel|bath"
-    category: "Home Supplies"
-  - pattern: "shampoo|soap|lotion|deodorant|hair"
-    category: "Personal Care"
-  - pattern: "chair|table|lamp|shelf|organizer|storage"
-    category: "Home Decor"
-  - pattern: "bug|insect|repellent|spray|pest"
-    category: "Home Supplies"
-fallback_category: "Home Supplies"
+  - pattern: '\bdiapers?\b|\bbaby\s+wipes?\b|\bsimilac\b|\benfamil\b|\binfants?\b|\b(?:baby|toddler)\s+formula\b'
+    category: 'Nathanael'
+  - pattern: '\bmilks?\b|\bcreams?\b|\bcreamy\b|\bcreamers?\b|\bblueberr|\braspberr|\bham\b|\bhamburgers?\b|\bbreaded\b|\bbuttermilk\b|\bbiscuits?\b|\bsyrups?\b|\bnutella\b|\bgrocer|\bproduce\b|\bbread\b|\bsnacks?\b'
+    category: 'Groceries'
+  - pattern: '\bpillow|\bsheets?\b|\bblankets?\b|\bbedding\b|\btowels?\b|\bbath'
+    category: 'Home Supplies'
+  - pattern: '\bshampoos?\b|\bsoaps?\b|\blotions?\b|\bdeodorants?\b|\bhair'
+    category: 'Personal Care'
+  - pattern: '\bchairs?\b|\btables?\b|\blamps?\b|\bshel(?:f|ves)\b|\borganizers?\b|\bstorage\b'
+    category: 'Home Decor'
+  - pattern: '\bbugs?\b|\binsect|\brepellents?\b|\bsprays?\b|\bpests?\b'
+    category: 'Home Supplies'
+  - pattern: '\bToddler\s+Girl'
+    category: 'Chloe'
+    note: 'girl clothes'
+fallback_category: 'Home Supplies'
+
+# Categories that make sense as Target line-item split targets. NOT the full
+# YNAB category list — config/categories.json is a raw dump that also
+# includes credit-card payment categories, bills/transfers, and
+# "Inflow: Ready to Assign" / "Uncategorized", none of which a Target
+# purchase should ever be split into.
+#
+# Every rule category and fallback_category above must appear here.
+# Enforced by `uv run ynab-helper audit-rules`.
+allowed_categories:
+  - 'Activities'
+  - 'Beauty'
+  - 'Big Home Purchases'
+  - 'Chloe'
+  - 'Clothes/Shoes'
+  - 'Eating Out'
+  - 'Gifts'
+  - 'Groceries'
+  - 'Health'
+  - 'Home Decor'
+  - 'Home Supplies'
+  - 'Joseph'
+  - 'Maintenance'
+  - 'Mang'
+  - 'Nathanael'
+  - 'One Offs'
+  - 'Personal Care'
+  - 'Tools'
+  - 'Treating Others'

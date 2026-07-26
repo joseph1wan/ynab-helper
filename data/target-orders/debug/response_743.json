@@ -1,0 +1,1610 @@
+{
+  "data": {
+    "store": {
+      "store_id": "1801",
+      "location_name": "Algonquin",
+      "status": "Open",
+      "is_test_location": false,
+      "geofence": {
+        "latitude": 42.1621,
+        "longitude": -88.3388,
+        "radius": 180
+      },
+      "mailing_address": {
+        "address_line1": "750 S Randall Rd",
+        "city": "Algonquin",
+        "country": "United States of America",
+        "country_code": "US",
+        "county": "McHenry",
+        "state": "Illinois",
+        "postal_code": "60102-5915",
+        "region": "IL"
+      },
+      "main_voice_phone_number": "847-458-5340",
+      "capabilities": [
+        {
+          "capability_code": "Drive Up",
+          "capability_name": "Drive Up",
+          "effective_date": "2018-06-04"
+        },
+        {
+          "capability_code": "Opt",
+          "capability_name": "Target Optical",
+          "effective_date": "2003-07-23"
+        },
+        {
+          "capability_code": "Rosie Assoulin",
+          "capability_name": "Rosie Assoulin x Target",
+          "effective_date": "2026-07-21",
+          "expiration_date": "2026-08-23"
+        },
+        {
+          "capability_code": "WIC",
+          "capability_name": "Accepts WIC",
+          "effective_date": "2013-05-01"
+        },
+        {
+          "capability_code": "Apple",
+          "capability_name": "Apple Experience",
+          "effective_date": "2023-06-21"
+        },
+        {
+          "capability_code": "Shipt Delivery",
+          "capability_name": "Shipt Delivery",
+          "effective_date": "2018-06-07"
+        },
+        {
+          "capability_code": "Baby Concierge",
+          "capability_name": "Baby Concierge",
+          "effective_date": "2026-04-12"
+        },
+        {
+          "capability_code": "Mobile",
+          "capability_name": "AT&T Cell Phone Activations",
+          "effective_date": "2010-10-27"
+        },
+        {
+          "capability_code": "Disney",
+          "capability_name": "Disney store at Target",
+          "effective_date": "2023-04-20"
+        },
+        {
+          "capability_code": "Future Col",
+          "capability_name": "Future Collective",
+          "effective_date": "2024-06-06"
+        },
+        {
+          "capability_code": "ParkeXTarget",
+          "capability_name": "Parke x Target",
+          "effective_date": "2026-04-21"
+        },
+        {
+          "capability_code": "Wine Beer Spir",
+          "capability_name": "Wine, Beer & Spirits Available",
+          "effective_date": "2017-03-23"
+        },
+        {
+          "capability_code": "Snack Bar Pizza",
+          "capability_name": "Snack Bar - Pizza",
+          "effective_date": "2023-10-04"
+        },
+        {
+          "capability_code": "CVS pharmacy",
+          "capability_name": "CVS pharmacy",
+          "effective_date": "2016-03-17"
+        },
+        {
+          "capability_code": "Bakery",
+          "capability_name": "Bakery",
+          "effective_date": "2018-02-22"
+        },
+        {
+          "capability_code": "Baby Boutique",
+          "capability_name": "Baby Boutique",
+          "effective_date": "2026-04-12"
+        },
+        {
+          "capability_code": "Expand Grocery",
+          "capability_name": "Expanded Grocery",
+          "effective_date": "2018-05-28"
+        },
+        {
+          "capability_code": "Ulta",
+          "capability_name": "Ulta Beauty at Target",
+          "effective_date": "2022-10-02"
+        },
+        {
+          "capability_code": "Starbucks",
+          "capability_name": "Starbucks Cafe",
+          "effective_date": "2003-07-23"
+        },
+        {
+          "capability_code": "Converse",
+          "capability_name": "Converse",
+          "effective_date": "2025-07-20"
+        },
+        {
+          "capability_code": "Store Pickup",
+          "capability_name": "Store Pickup",
+          "effective_date": "2019-02-28"
+        },
+        {
+          "capability_code": "Champion",
+          "capability_name": "Champion",
+          "effective_date": "2026-01-19"
+        },
+        {
+          "capability_code": "Hollister",
+          "capability_name": "The Hollister Collection at Target",
+          "effective_date": "2026-06-18"
+        },
+        {
+          "capability_code": "Deli",
+          "capability_name": "Deli",
+          "effective_date": "2018-02-22"
+        },
+        {
+          "capability_code": "LoveShackFancy",
+          "capability_name": "Love Shack Fancy X Target",
+          "effective_date": "2026-06-24",
+          "expiration_date": "2026-08-21"
+        }
+      ],
+      "drive_up": {
+        "latitude": 42.162478,
+        "longitude": -88.338483,
+        "radius": 65
+      },
+      "contact_information": [
+        {
+          "building_area": "Capability",
+          "capability": "Mobile",
+          "telephone_type": "VOICE",
+          "is_international_phone_number": false,
+          "telephone_number": "847-458-5340"
+        },
+        {
+          "building_area": "Capability",
+          "capability": "Opt",
+          "telephone_type": "VOICE",
+          "is_international_phone_number": false,
+          "telephone_number": "847-458-5343"
+        },
+        {
+          "building_area": "Capability",
+          "capability": "CVS pharmacy",
+          "telephone_type": "VOICE",
+          "is_international_phone_number": false,
+          "telephone_number": "847-458-5341"
+        },
+        {
+          "building_area": "Capability",
+          "capability": "CVS pharmacy",
+          "telephone_type": "FAX",
+          "is_international_phone_number": false,
+          "telephone_number": "847-915-3396"
+        },
+        {
+          "building_area": "MAIN",
+          "telephone_type": "VOICE",
+          "is_international_phone_number": false,
+          "telephone_number": "847-458-5340"
+        },
+        {
+          "building_area": "MAIN",
+          "telephone_type": "FAX",
+          "is_international_phone_number": false,
+          "telephone_number": "847-915-3395"
+        }
+      ],
+      "physical_specifications": {
+        "total_building_area": 174617,
+        "merchandise_level": 1,
+        "format": "SuperTarget"
+      },
+      "geographic_specifications": {
+        "latitude": 42.1621,
+        "longitude": -88.3388,
+        "time_zone_code": "CST",
+        "time_zone_description": "Central Std Time",
+        "time_zone_utc_offset_name": "UTC-06",
+        "time_zone_offset_hours": "06:00:00",
+        "is_daylight_savings_time_recognized": true,
+        "iso_time_zone_code": "America/Chicago"
+      },
+      "miscellaneous": {
+        "google_cid": "https://maps.google.com/maps?cid=12682234516536862872"
+      },
+      "rolling_operating_hours": {
+        "main_hours": {
+          "days": [
+            {
+              "sequence_number": "1",
+              "date": "2026-07-25",
+              "day_name": "Saturday",
+              "is_open": true,
+              "hours": [
+                {
+                  "begin_date": "2026-07-25",
+                  "begin_time": "07:00:00",
+                  "end_date": "2026-07-25",
+                  "end_time": "22:00:00"
+                }
+              ]
+            },
+            {
+              "sequence_number": "2",
+              "date": "2026-07-26",
+              "day_name": "Sunday",
+              "is_open": true,
+              "hours": [
+                {
+                  "begin_date": "2026-07-26",
+                  "begin_time": "07:00:00",
+                  "end_date": "2026-07-26",
+                  "end_time": "22:00:00"
+                }
+              ]
+            },
+            {
+              "sequence_number": "3",
+              "date": "2026-07-27",
+              "day_name": "Monday",
+              "is_open": true,
+              "hours": [
+                {
+                  "begin_date": "2026-07-27",
+                  "begin_time": "07:00:00",
+                  "end_date": "2026-07-27",
+                  "end_time": "22:00:00"
+                }
+              ]
+            },
+            {
+              "sequence_number": "4",
+              "date": "2026-07-28",
+              "day_name": "Tuesday",
+              "is_open": true,
+              "hours": [
+                {
+                  "begin_date": "2026-07-28",
+                  "begin_time": "07:00:00",
+                  "end_date": "2026-07-28",
+                  "end_time": "22:00:00"
+                }
+              ]
+            },
+            {
+              "sequence_number": "5",
+              "date": "2026-07-29",
+              "day_name": "Wednesday",
+              "is_open": true,
+              "hours": [
+                {
+                  "begin_date": "2026-07-29",
+                  "begin_time": "07:00:00",
+                  "end_date": "2026-07-29",
+                  "end_time": "22:00:00"
+                }
+              ]
+            },
+            {
+              "sequence_number": "6",
+              "date": "2026-07-30",
+              "day_name": "Thursday",
+              "is_open": true,
+              "hours": [
+                {
+                  "begin_date": "2026-07-30",
+                  "begin_time": "07:00:00",
+                  "end_date": "2026-07-30",
+                  "end_time": "22:00:00"
+                }
+              ]
+            },
+            {
+              "sequence_number": "7",
+              "date": "2026-07-31",
+              "day_name": "Friday",
+              "is_open": true,
+              "hours": [
+                {
+                  "begin_date": "2026-07-31",
+                  "begin_time": "07:00:00",
+                  "end_date": "2026-07-31",
+                  "end_time": "22:00:00"
+                }
+              ]
+            },
+            {
+              "sequence_number": "8",
+              "date": "2026-08-01",
+              "day_name": "Saturday",
+              "is_open": true,
+              "hours": [
+                {
+                  "begin_date": "2026-08-01",
+                  "begin_time": "07:00:00",
+                  "end_date": "2026-08-01",
+                  "end_time": "22:00:00"
+                }
+              ]
+            },
+            {
+              "sequence_number": "9",
+              "date": "2026-08-02",
+              "day_name": "Sunday",
+              "is_open": true,
+              "hours": [
+                {
+                  "begin_date": "2026-08-02",
+                  "begin_time": "07:00:00",
+                  "end_date": "2026-08-02",
+                  "end_time": "22:00:00"
+                }
+              ]
+            },
+            {
+              "sequence_number": "10",
+              "date": "2026-08-03",
+              "day_name": "Monday",
+              "is_open": true,
+              "hours": [
+                {
+                  "begin_date": "2026-08-03",
+                  "begin_time": "07:00:00",
+                  "end_date": "2026-08-03",
+                  "end_time": "22:00:00"
+                }
+              ]
+            },
+            {
+              "sequence_number": "11",
+              "date": "2026-08-04",
+              "day_name": "Tuesday",
+              "is_open": true,
+              "hours": [
+                {
+                  "begin_date": "2026-08-04",
+                  "begin_time": "07:00:00",
+                  "end_date": "2026-08-04",
+                  "end_time": "22:00:00"
+                }
+              ]
+            },
+            {
+              "sequence_number": "12",
+              "date": "2026-08-05",
+              "day_name": "Wednesday",
+              "is_open": true,
+              "hours": [
+                {
+                  "begin_date": "2026-08-05",
+                  "begin_time": "07:00:00",
+                  "end_date": "2026-08-05",
+                  "end_time": "22:00:00"
+                }
+              ]
+            },
+            {
+              "sequence_number": "13",
+              "date": "2026-08-06",
+              "day_name": "Thursday",
+              "is_open": true,
+              "hours": [
+                {
+                  "begin_date": "2026-08-06",
+                  "begin_time": "07:00:00",
+                  "end_date": "2026-08-06",
+                  "end_time": "22:00:00"
+                }
+              ]
+            },
+            {
+              "sequence_number": "14",
+              "date": "2026-08-07",
+              "day_name": "Friday",
+              "is_open": true,
+              "hours": [
+                {
+                  "begin_date": "2026-08-07",
+                  "begin_time": "07:00:00",
+                  "end_date": "2026-08-07",
+                  "end_time": "22:00:00"
+                }
+              ]
+            }
+          ]
+        },
+        "capability_hours": [
+          {
+            "capability_code": "Mobile",
+            "days": [
+              {
+                "sequence_number": "1",
+                "date": "2026-07-25",
+                "day_name": "Saturday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-25",
+                    "begin_time": "11:00:00",
+                    "end_date": "2026-07-25",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "2",
+                "date": "2026-07-26",
+                "day_name": "Sunday",
+                "is_open": false
+              },
+              {
+                "sequence_number": "3",
+                "date": "2026-07-27",
+                "day_name": "Monday",
+                "is_open": false
+              },
+              {
+                "sequence_number": "4",
+                "date": "2026-07-28",
+                "day_name": "Tuesday",
+                "is_open": false
+              },
+              {
+                "sequence_number": "5",
+                "date": "2026-07-29",
+                "day_name": "Wednesday",
+                "is_open": false
+              },
+              {
+                "sequence_number": "6",
+                "date": "2026-07-30",
+                "day_name": "Thursday",
+                "is_open": false
+              },
+              {
+                "sequence_number": "7",
+                "date": "2026-07-31",
+                "day_name": "Friday",
+                "is_open": false
+              },
+              {
+                "sequence_number": "8",
+                "date": "2026-08-01",
+                "day_name": "Saturday",
+                "is_open": false
+              },
+              {
+                "sequence_number": "9",
+                "date": "2026-08-02",
+                "day_name": "Sunday",
+                "is_open": false
+              },
+              {
+                "sequence_number": "10",
+                "date": "2026-08-03",
+                "day_name": "Monday",
+                "is_open": false
+              },
+              {
+                "sequence_number": "11",
+                "date": "2026-08-04",
+                "day_name": "Tuesday",
+                "is_open": false
+              },
+              {
+                "sequence_number": "12",
+                "date": "2026-08-05",
+                "day_name": "Wednesday",
+                "is_open": false
+              },
+              {
+                "sequence_number": "13",
+                "date": "2026-08-06",
+                "day_name": "Thursday",
+                "is_open": false
+              },
+              {
+                "sequence_number": "14",
+                "date": "2026-08-07",
+                "day_name": "Friday",
+                "is_open": false
+              }
+            ]
+          },
+          {
+            "capability_code": "Opt",
+            "days": [
+              {
+                "sequence_number": "1",
+                "date": "2026-07-25",
+                "day_name": "Saturday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-25",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-07-25",
+                    "end_time": "18:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "2",
+                "date": "2026-07-26",
+                "day_name": "Sunday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-26",
+                    "begin_time": "12:00:00",
+                    "end_date": "2026-07-26",
+                    "end_time": "16:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "3",
+                "date": "2026-07-27",
+                "day_name": "Monday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-27",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-07-27",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "4",
+                "date": "2026-07-28",
+                "day_name": "Tuesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-28",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-07-28",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "5",
+                "date": "2026-07-29",
+                "day_name": "Wednesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-29",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-07-29",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "6",
+                "date": "2026-07-30",
+                "day_name": "Thursday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-30",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-07-30",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "7",
+                "date": "2026-07-31",
+                "day_name": "Friday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-31",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-07-31",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "8",
+                "date": "2026-08-01",
+                "day_name": "Saturday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-01",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-08-01",
+                    "end_time": "18:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "9",
+                "date": "2026-08-02",
+                "day_name": "Sunday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-02",
+                    "begin_time": "12:00:00",
+                    "end_date": "2026-08-02",
+                    "end_time": "16:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "10",
+                "date": "2026-08-03",
+                "day_name": "Monday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-03",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-08-03",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "11",
+                "date": "2026-08-04",
+                "day_name": "Tuesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-04",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-08-04",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "12",
+                "date": "2026-08-05",
+                "day_name": "Wednesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-05",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-08-05",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "13",
+                "date": "2026-08-06",
+                "day_name": "Thursday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-06",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-08-06",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "14",
+                "date": "2026-08-07",
+                "day_name": "Friday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-07",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-08-07",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "capability_code": "Starbucks",
+            "days": [
+              {
+                "sequence_number": "1",
+                "date": "2026-07-25",
+                "day_name": "Saturday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-25",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-07-25",
+                    "end_time": "20:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "2",
+                "date": "2026-07-26",
+                "day_name": "Sunday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-26",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-07-26",
+                    "end_time": "20:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "3",
+                "date": "2026-07-27",
+                "day_name": "Monday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-27",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-07-27",
+                    "end_time": "20:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "4",
+                "date": "2026-07-28",
+                "day_name": "Tuesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-28",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-07-28",
+                    "end_time": "20:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "5",
+                "date": "2026-07-29",
+                "day_name": "Wednesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-29",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-07-29",
+                    "end_time": "20:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "6",
+                "date": "2026-07-30",
+                "day_name": "Thursday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-30",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-07-30",
+                    "end_time": "20:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "7",
+                "date": "2026-07-31",
+                "day_name": "Friday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-31",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-07-31",
+                    "end_time": "20:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "8",
+                "date": "2026-08-01",
+                "day_name": "Saturday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-01",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-08-01",
+                    "end_time": "20:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "9",
+                "date": "2026-08-02",
+                "day_name": "Sunday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-02",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-08-02",
+                    "end_time": "20:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "10",
+                "date": "2026-08-03",
+                "day_name": "Monday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-03",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-08-03",
+                    "end_time": "20:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "11",
+                "date": "2026-08-04",
+                "day_name": "Tuesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-04",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-08-04",
+                    "end_time": "20:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "12",
+                "date": "2026-08-05",
+                "day_name": "Wednesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-05",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-08-05",
+                    "end_time": "20:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "13",
+                "date": "2026-08-06",
+                "day_name": "Thursday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-06",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-08-06",
+                    "end_time": "20:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "14",
+                "date": "2026-08-07",
+                "day_name": "Friday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-07",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-08-07",
+                    "end_time": "20:00:00"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "capability_code": "CVS pharmacy",
+            "days": [
+              {
+                "sequence_number": "1",
+                "date": "2026-07-25",
+                "day_name": "Saturday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-25",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-07-25",
+                    "end_time": "13:30:00"
+                  },
+                  {
+                    "begin_date": "2026-07-25",
+                    "begin_time": "14:00:00",
+                    "end_date": "2026-07-25",
+                    "end_time": "17:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "2",
+                "date": "2026-07-26",
+                "day_name": "Sunday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-26",
+                    "begin_time": "11:00:00",
+                    "end_date": "2026-07-26",
+                    "end_time": "13:30:00"
+                  },
+                  {
+                    "begin_date": "2026-07-26",
+                    "begin_time": "14:00:00",
+                    "end_date": "2026-07-26",
+                    "end_time": "17:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "3",
+                "date": "2026-07-27",
+                "day_name": "Monday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-27",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-07-27",
+                    "end_time": "13:30:00"
+                  },
+                  {
+                    "begin_date": "2026-07-27",
+                    "begin_time": "14:00:00",
+                    "end_date": "2026-07-27",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "4",
+                "date": "2026-07-28",
+                "day_name": "Tuesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-28",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-07-28",
+                    "end_time": "13:30:00"
+                  },
+                  {
+                    "begin_date": "2026-07-28",
+                    "begin_time": "14:00:00",
+                    "end_date": "2026-07-28",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "5",
+                "date": "2026-07-29",
+                "day_name": "Wednesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-29",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-07-29",
+                    "end_time": "13:30:00"
+                  },
+                  {
+                    "begin_date": "2026-07-29",
+                    "begin_time": "14:00:00",
+                    "end_date": "2026-07-29",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "6",
+                "date": "2026-07-30",
+                "day_name": "Thursday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-30",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-07-30",
+                    "end_time": "13:30:00"
+                  },
+                  {
+                    "begin_date": "2026-07-30",
+                    "begin_time": "14:00:00",
+                    "end_date": "2026-07-30",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "7",
+                "date": "2026-07-31",
+                "day_name": "Friday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-31",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-07-31",
+                    "end_time": "13:30:00"
+                  },
+                  {
+                    "begin_date": "2026-07-31",
+                    "begin_time": "14:00:00",
+                    "end_date": "2026-07-31",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "8",
+                "date": "2026-08-01",
+                "day_name": "Saturday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-01",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-08-01",
+                    "end_time": "13:30:00"
+                  },
+                  {
+                    "begin_date": "2026-08-01",
+                    "begin_time": "14:00:00",
+                    "end_date": "2026-08-01",
+                    "end_time": "17:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "9",
+                "date": "2026-08-02",
+                "day_name": "Sunday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-02",
+                    "begin_time": "11:00:00",
+                    "end_date": "2026-08-02",
+                    "end_time": "13:30:00"
+                  },
+                  {
+                    "begin_date": "2026-08-02",
+                    "begin_time": "14:00:00",
+                    "end_date": "2026-08-02",
+                    "end_time": "17:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "10",
+                "date": "2026-08-03",
+                "day_name": "Monday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-03",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-08-03",
+                    "end_time": "13:30:00"
+                  },
+                  {
+                    "begin_date": "2026-08-03",
+                    "begin_time": "14:00:00",
+                    "end_date": "2026-08-03",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "11",
+                "date": "2026-08-04",
+                "day_name": "Tuesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-04",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-08-04",
+                    "end_time": "13:30:00"
+                  },
+                  {
+                    "begin_date": "2026-08-04",
+                    "begin_time": "14:00:00",
+                    "end_date": "2026-08-04",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "12",
+                "date": "2026-08-05",
+                "day_name": "Wednesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-05",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-08-05",
+                    "end_time": "13:30:00"
+                  },
+                  {
+                    "begin_date": "2026-08-05",
+                    "begin_time": "14:00:00",
+                    "end_date": "2026-08-05",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "13",
+                "date": "2026-08-06",
+                "day_name": "Thursday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-06",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-08-06",
+                    "end_time": "13:30:00"
+                  },
+                  {
+                    "begin_date": "2026-08-06",
+                    "begin_time": "14:00:00",
+                    "end_date": "2026-08-06",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "14",
+                "date": "2026-08-07",
+                "day_name": "Friday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-07",
+                    "begin_time": "09:00:00",
+                    "end_date": "2026-08-07",
+                    "end_time": "13:30:00"
+                  },
+                  {
+                    "begin_date": "2026-08-07",
+                    "begin_time": "14:00:00",
+                    "end_date": "2026-08-07",
+                    "end_time": "19:00:00"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "capability_code": "Wine Beer Spir",
+            "days": [
+              {
+                "sequence_number": "1",
+                "date": "2026-07-25",
+                "day_name": "Saturday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-25",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-07-25",
+                    "end_time": "22:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "2",
+                "date": "2026-07-26",
+                "day_name": "Sunday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-26",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-07-26",
+                    "end_time": "22:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "3",
+                "date": "2026-07-27",
+                "day_name": "Monday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-27",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-07-27",
+                    "end_time": "22:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "4",
+                "date": "2026-07-28",
+                "day_name": "Tuesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-28",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-07-28",
+                    "end_time": "22:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "5",
+                "date": "2026-07-29",
+                "day_name": "Wednesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-29",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-07-29",
+                    "end_time": "22:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "6",
+                "date": "2026-07-30",
+                "day_name": "Thursday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-30",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-07-30",
+                    "end_time": "22:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "7",
+                "date": "2026-07-31",
+                "day_name": "Friday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-31",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-07-31",
+                    "end_time": "22:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "8",
+                "date": "2026-08-01",
+                "day_name": "Saturday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-01",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-08-01",
+                    "end_time": "22:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "9",
+                "date": "2026-08-02",
+                "day_name": "Sunday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-02",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-08-02",
+                    "end_time": "22:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "10",
+                "date": "2026-08-03",
+                "day_name": "Monday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-03",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-08-03",
+                    "end_time": "22:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "11",
+                "date": "2026-08-04",
+                "day_name": "Tuesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-04",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-08-04",
+                    "end_time": "22:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "12",
+                "date": "2026-08-05",
+                "day_name": "Wednesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-05",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-08-05",
+                    "end_time": "22:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "13",
+                "date": "2026-08-06",
+                "day_name": "Thursday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-06",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-08-06",
+                    "end_time": "22:00:00"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "14",
+                "date": "2026-08-07",
+                "day_name": "Friday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-07",
+                    "begin_time": "07:00:00",
+                    "end_date": "2026-08-07",
+                    "end_time": "22:00:00"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "capability_code": "Adult Bev PU",
+            "days": [
+              {
+                "sequence_number": "1",
+                "date": "2026-07-25",
+                "day_name": "Saturday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-25",
+                    "begin_time": "06:59:00",
+                    "end_date": "2026-07-25",
+                    "end_time": "23:59:59"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "2",
+                "date": "2026-07-26",
+                "day_name": "Sunday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-26",
+                    "begin_time": "06:59:00",
+                    "end_date": "2026-07-26",
+                    "end_time": "23:59:59"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "3",
+                "date": "2026-07-27",
+                "day_name": "Monday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-27",
+                    "begin_time": "06:59:00",
+                    "end_date": "2026-07-27",
+                    "end_time": "23:59:59"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "4",
+                "date": "2026-07-28",
+                "day_name": "Tuesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-28",
+                    "begin_time": "06:59:00",
+                    "end_date": "2026-07-28",
+                    "end_time": "23:59:59"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "5",
+                "date": "2026-07-29",
+                "day_name": "Wednesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-29",
+                    "begin_time": "06:59:00",
+                    "end_date": "2026-07-29",
+                    "end_time": "23:59:59"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "6",
+                "date": "2026-07-30",
+                "day_name": "Thursday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-30",
+                    "begin_time": "06:59:00",
+                    "end_date": "2026-07-30",
+                    "end_time": "23:59:59"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "7",
+                "date": "2026-07-31",
+                "day_name": "Friday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-07-31",
+                    "begin_time": "06:59:00",
+                    "end_date": "2026-07-31",
+                    "end_time": "23:59:59"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "8",
+                "date": "2026-08-01",
+                "day_name": "Saturday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-01",
+                    "begin_time": "06:59:00",
+                    "end_date": "2026-08-01",
+                    "end_time": "23:59:59"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "9",
+                "date": "2026-08-02",
+                "day_name": "Sunday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-02",
+                    "begin_time": "06:59:00",
+                    "end_date": "2026-08-02",
+                    "end_time": "23:59:59"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "10",
+                "date": "2026-08-03",
+                "day_name": "Monday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-03",
+                    "begin_time": "06:59:00",
+                    "end_date": "2026-08-03",
+                    "end_time": "23:59:59"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "11",
+                "date": "2026-08-04",
+                "day_name": "Tuesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-04",
+                    "begin_time": "06:59:00",
+                    "end_date": "2026-08-04",
+                    "end_time": "23:59:59"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "12",
+                "date": "2026-08-05",
+                "day_name": "Wednesday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-05",
+                    "begin_time": "06:59:00",
+                    "end_date": "2026-08-05",
+                    "end_time": "23:59:59"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "13",
+                "date": "2026-08-06",
+                "day_name": "Thursday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-06",
+                    "begin_time": "06:59:00",
+                    "end_date": "2026-08-06",
+                    "end_time": "23:59:59"
+                  }
+                ]
+              },
+              {
+                "sequence_number": "14",
+                "date": "2026-08-07",
+                "day_name": "Friday",
+                "is_open": true,
+                "hours": [
+                  {
+                    "begin_date": "2026-08-07",
+                    "begin_time": "06:59:00",
+                    "end_date": "2026-08-07",
+                    "end_time": "23:59:59"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

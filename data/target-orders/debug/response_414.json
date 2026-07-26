@@ -1,0 +1,31 @@
+{
+  "data": {
+    "product": {
+      "__typename": "Product",
+      "original_tcin": "86001577",
+      "tcin": "86001577",
+      "item": {
+        "relationship_type_code": "SA",
+        "enrichment": {
+          "image_info": {
+            "primary_image": {
+              "url": "https://target.scene7.com/is/image/Target/GUEST_ae153a8c-d7e0-4b06-903a-b1fe5f8801b2"
+            }
+          }
+        },
+        "product_description": {
+          "title": "bubly bellini bliss Sparkling Water - 8pk/12 fl oz Cans"
+        }
+      },
+      "price": {
+        "current_retail": 4.39,
+        "display_was_now": false,
+        "formatted_current_price": "$4.39",
+        "formatted_current_price_type": "reg",
+        "formatted_unit_price": "$0.05",
+        "formatted_unit_price_suffix": "/fluid ounce",
+        "reg_retail": 4.39
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "order_id": "102003591597027_61913991294613110",
+  "order_date": "2026-07-10",
+  "total": 103320,
+  "tax": 0,
+  "shipping": 0,
+  "fees": 0,
+  "line_items": [
+    {
+      "name": "Similac 360 Total Care Gentle Comfort Powder Infant Formula - 29.8oz",
+      "quantity": 2,
+      "line_total": 79980
+    },
+    {
+      "name": "Uncured Black Forest Ham Ultra-Thin Deli Slices - 9oz - Good & Gather\u2122",
+      "quantity": 1,
+      "line_total": 3590
+    },
+    {
+      "name": "Room Essentials\u2122 Standard Queen Soft Zippered Machine Washable Pillow Protector- 2 Pack- White: 100% Polyester, OEKO-TEX Certified",
+      "quantity": 1,
+      "line_total": 5000
+    },
+    {
+      "name": "Heavy Whipping Cream - 16 fl oz (1pt) - Good & Gather\u2122",
+      "quantity": 1,
+      "line_total": 2990
+    },
+    {
+      "name": "Nutella Hazelnut Spread w/ Cocoa - 7.7oz",
+      "quantity": 2,
+      "line_total": 7180
+    },
+    {
+      "name": "Fresh Blueberries \u2013 1pt",
+      "quantity": 1,
+      "line_total": 3490
+    },
+    {
+      "name": "Fresh Raspberries - 6oz",
+      "quantity": 2,
+      "line_total": 5980
+    }
+  ]
+}

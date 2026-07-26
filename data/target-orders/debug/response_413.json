@@ -1,0 +1,87 @@
+{
+  "data": {
+    "product": {
+      "__typename": "Product",
+      "original_tcin": "93269937",
+      "tcin": "95106638",
+      "item": {
+        "relationship_type_code": "VAP",
+        "enrichment": {
+          "image_info": {
+            "primary_image": {
+              "url": "https://target.scene7.com/is/image/Target/GUEST_7fd3cda3-12f6-40b0-9ecf-1e8bf2cbd3e9"
+            }
+          }
+        },
+        "product_description": {
+          "title": "Bounce Dryer Sheets Free & Gentle Unscented"
+        }
+      },
+      "price": {
+        "display_was_now_select_items": true,
+        "formatted_current_price": "$9.99 - $12.99",
+        "formatted_current_price_type": "reg"
+      },
+      "children": [
+        {
+          "__typename": "Product",
+          "original_tcin": "14953053",
+          "tcin": "14953053",
+          "item": {
+            "relationship_type_code": "VC",
+            "enrichment": {
+              "image_info": {
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_7fd3cda3-12f6-40b0-9ecf-1e8bf2cbd3e9"
+                }
+              }
+            },
+            "product_description": {
+              "title": "Bounce Fabric Softener Sheets - Free &#38; Gentle - 240ct: Box, Dermatologist Tested, Sensitive Formula, Bleach-Free"
+            }
+          },
+          "price": {
+            "current_retail": 9.99,
+            "display_was_now": false,
+            "formatted_current_price": "$9.99",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$0.04",
+            "formatted_unit_price_suffix": "/count",
+            "reg_retail": 9.99
+          }
+        },
+        {
+          "__typename": "Product",
+          "original_tcin": "93269937",
+          "tcin": "93269937",
+          "item": {
+            "relationship_type_code": "VC",
+            "enrichment": {
+              "image_info": {
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_39ec90ac-afd0-42fc-ab7d-d463b5d4d796"
+                }
+              }
+            },
+            "product_description": {
+              "title": "Bounce Laundry Detergent Sheets - 330ct: Unscented, Fabric Softener, Dermatologist Tested, Bleach-Free"
+            }
+          },
+          "price": {
+            "current_retail": 12.99,
+            "display_was_now": true,
+            "formatted_comparison_price": "$13.69",
+            "formatted_comparison_price_type": "reg",
+            "formatted_current_price": "$12.99",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$0.04",
+            "formatted_unit_price_suffix": "/count",
+            "reg_retail": 12.99,
+            "save_dollar": 0.7,
+            "save_percent": 5.0
+          }
+        }
+      ]
+    }
+  }
+}

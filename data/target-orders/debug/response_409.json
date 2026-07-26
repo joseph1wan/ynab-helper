@@ -1,0 +1,55 @@
+{
+  "tracking_details_list": [
+    {
+      "events": [
+        {
+          "notes": "Delivered",
+          "status": "DELIVERED",
+          "timestamp": "2026-07-10T13:13:21Z",
+          "picture_url": "https://img.shipt.com/eb4ee8e1-ddc4-4421-8e56-9ae403df8deb",
+          "redirect_url": false
+        },
+        {
+          "notes": "Process",
+          "status": "ORDER_CHECKOUT",
+          "timestamp": "2026-07-10T12:38:59Z"
+        },
+        {
+          "notes": "Shop",
+          "status": "ORDER_BEING_SHOPPED",
+          "timestamp": "2026-07-10T12:19:37Z"
+        },
+        {
+          "notes": "Claim",
+          "status": "ORDER_CLAIMED",
+          "timestamp": "2026-07-10T11:08:16Z"
+        },
+        {
+          "notes": "Open",
+          "status": "ORDER_OPEN",
+          "timestamp": "2026-07-10T04:07:06Z"
+        }
+      ],
+      "package_info": {
+        "scac": "SHIPT",
+        "carrier": "shipt",
+        "tracking_url": "https://delivery.shipt.com/track/pvH0B6IY0M_lQECOr9BHoOD3tAMAalmqamnm",
+        "support_url": "https://delivery.shipt.com/track/pvH0B6IY0M_lQECOr9BHoOD3tAMAalmqamnm?support=true",
+        "delivered_date": "2026-07-10T13:13:21Z",
+        "tracking_number": "912003590858544",
+        "order_information": [
+          {
+            "order_date": "2026-07-10T04:07:03Z",
+            "order_number": "912003590858544",
+            "shipment_number": "2026071007390052068988",
+            "ship_advice_number": "2026071007390052068988"
+          }
+        ],
+        "current_package_state": "DELIVERED",
+        "promised_delivery_date": "2026-07-10T00:00:00Z",
+        "display_arriving_by_time": false,
+        "client_display_delivery_date": "2026-07-10T13:13:21Z"
+      }
+    }
+  ]
+}

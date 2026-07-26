@@ -1,0 +1,292 @@
+{
+  "name": "DSD Reporting Satisfaction Survey",
+  "id": 15806,
+  "pages": [
+    {
+      "pageName": "Page 1",
+      "view": {
+        "backgroundColor": "",
+        "backgroundRepeat": false,
+        "customCssClass": ""
+      },
+      "components": [
+        {
+          "id": 372082,
+          "unique_name": "reporting_osat5",
+          "type": "grading",
+          "data": {
+            "label": "How would you rate the updated reporting dashboards?",
+            "alternatives": [
+              {
+                "id": "1",
+                "label": "Extremely dissatisfied"
+              },
+              {
+                "id": "2",
+                "label": ""
+              },
+              {
+                "id": "3",
+                "label": ""
+              },
+              {
+                "id": "4",
+                "label": ""
+              },
+              {
+                "id": "5",
+                "label": "Extremely satisfied"
+              }
+            ],
+            "autocompleteAttribute": {
+              "label": null,
+              "value": null
+            }
+          },
+          "validation": {
+            "required": true,
+            "regex": "/.*/"
+          },
+          "view": {
+            "selectionStyle": "accumulate",
+            "showLabels": true,
+            "format": "stars"
+          },
+          "descriptiveErrorMessage": ""
+        },
+        {
+          "id": 372083,
+          "unique_name": "reporting_comment",
+          "type": "textArea",
+          "data": {
+            "label": "Please share your feedback about myGuest reporting (or new dashboards) here.",
+            "autocompleteAttribute": {
+              "label": null,
+              "value": null
+            }
+          },
+          "validation": {
+            "required": false,
+            "regex": "/.*/"
+          },
+          "view": {
+            "numberOfLines": 3
+          },
+          "descriptiveErrorMessage": ""
+        },
+        {
+          "id": 372793,
+          "unique_name": "reporting_name",
+          "type": "textInput",
+          "data": {
+            "label": "Please enter your name:",
+            "autocompleteAttribute": {
+              "label": null,
+              "value": null
+            }
+          },
+          "validation": {
+            "required": true,
+            "regex": "/.*/"
+          },
+          "view": {
+            "maxLength": 50
+          },
+          "descriptiveErrorMessage": ""
+        },
+        {
+          "id": 2604,
+          "unique_name": "Roledropdown",
+          "type": "select",
+          "data": {
+            "label": "Please select the reporting role for which you are providing feedback (this can be found above your username in the top right corner of your screen).",
+            "placeHolder": "Please Select Option",
+            "alternatives": [
+              {
+                "id": "14",
+                "label": "District Senior Director"
+              },
+              {
+                "id": "15",
+                "label": "Executive"
+              },
+              {
+                "id": "16",
+                "label": "Executive Team Leader"
+              },
+              {
+                "id": "17",
+                "label": "Store Director"
+              },
+              {
+                "id": "18",
+                "label": "Store Team Lead-CLF"
+              },
+              {
+                "id": "19",
+                "label": "Team Leader"
+              }
+            ],
+            "autocompleteAttribute": {
+              "label": null,
+              "value": null
+            }
+          },
+          "validation": {
+            "required": false,
+            "regex": "/.*/"
+          },
+          "view": {},
+          "descriptiveErrorMessage": ""
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "formBasicSettings": {
+      "widthPX": 450,
+      "heightPX": 450,
+      "nextButtonLabel": "Next",
+      "nextButtoncolor": "#4050C6",
+      "backButtonLabel": "Back",
+      "backButtoncolor": "#4050C6",
+      "closeButtonLabel": "Close",
+      "closeButtoncolor": "#F7F7F8",
+      "submitButtonLabel": "Submit",
+      "submitButtoncolor": "#4050c6",
+      "isFixedSize": false,
+      "nextButtonTextColor": null,
+      "backButtonTextColor": null,
+      "closeButtonTextColor": "#121826",
+      "submitButtonTextColor": "#ffffff",
+      "htmlLanguage": null,
+      "isShowCloseButton": false,
+      "isShowBackButton": false,
+      "isFullWidthEmbedded": true,
+      "isAutoAdvanceEnabled": null,
+      "isHideNextButton": null,
+      "isAutoSubmitEnabled": null,
+      "isHideSubmitButton": null,
+      "autoAdvanceAnnouncement": "",
+      "autoSubmitAnnouncement": "",
+      "autoAdvanceAndSubmitAnnouncement": "",
+      "partialViewRatioMobile": 1.0,
+      "partialViewRatioTablet": 1.0,
+      "navigationButtons": "Submit",
+      "transitionType": null,
+      "closeModalButton": "Close Survey",
+      "formAnnouncement": "Feedback Survey",
+      "titleElement": ""
+    },
+    "formDesignSettingsContract": {
+      "logoURL": null,
+      "backgroundImgUrl": {
+        "name": "",
+        "uuid": "",
+        "url": "",
+        "resourceId": null
+      },
+      "doReapet": false,
+      "customCssFile": "https://assets.kampyle.com/clients/nebula/target/target_v2_embedded.css",
+      "secondaryCustomCssFile": null,
+      "customCssFileResource": null,
+      "secondaryCustomCssFileResource": null,
+      "theme": null,
+      "backgroundColor": "",
+      "textColor": "#40404a",
+      "doCover": false
+    },
+    "formThankYouPageSettings": {
+      "includeThankYouPage": true,
+      "logoURL": {
+        "name": "",
+        "uuid": "",
+        "url": "",
+        "resourceId": null
+      },
+      "headline": "&ltp&gt&ltspan style=\"font-size:20px\"&gtThank You For Providing Feedback&lt/span&gt&lt/p&gt\n",
+      "collectUserDetails": false,
+      "ContactDetailsText": "",
+      "nameTitle": "",
+      "emailTitle": "",
+      "phoneTitle": "",
+      "backgroundColor": "",
+      "buttonColor": "#4050C6",
+      "textColor": "#FFFFFF",
+      "closeButtonLabel": "Close",
+      "isShowCloseButton": false,
+      "closeModalButton": "Close Survey",
+      "logoLabel": "",
+      "thankYouPageAnnouncement": "Survey completion message",
+      "isHideImageMobile": null,
+      "isHideImageTablet": null,
+      "contactDetailsText": ""
+    },
+    "formAdvanceSettings": {
+      "requiredErrorMsg": "Error: This Field is Required.",
+      "emailValidationErrorMsg": "A valid email address is required. For example: 'name@example.com'",
+      "htmlLanguage": "en",
+      "isCustomParamEnabled": false,
+      "isRtl": false
+    },
+    "formScreenCaptureSettings": {
+      "enabled": true,
+      "screenCaptureAsComponentEnabled": true,
+      "buttonImage": {
+        "name": "",
+        "uuid": "",
+        "url": "",
+        "resourceId": null
+      },
+      "buttonTooltip": "Attach a Screen Capture to your feedback",
+      "submitScreenCaptureLabel": "Capture Image",
+      "submitScreenCaptureTooltip": "Take snapshot",
+      "cancelScreenCaptureLabel": "Cancel",
+      "titleInstructionsScreenCapture": "Screen Capture",
+      "bodyInstructionsScreenCapture": "Click \"Capture Image\" button or drag the cursor to highlight a specific area",
+      "cancelScreenCaptureTooltip": "Back to Feedback",
+      "instructionsScreenCapture": "&ltp style=\"text-align:center;&gt &ltspan style=\"font-size:16px; font-family: 'Open Sans';\"&gt &ltstrong&gtScreen Capture&lt/strong&gt &lt/span&gt &lt/p&gt &ltp style=\"text-align:center; font-size:12px; font-family: 'Open Sans';\"&gt Click Capture Image button or drag the cursor to highlight a specific area. &lt/p&gt",
+      "wcagDisabledScreenCaptureTooltip": "Feedback Screen Capture Button Disabled",
+      "wcagScreenCaptureTooltip": "Feedback Screen Capture Button"
+    },
+    "formLocalizationSettings": {
+      "defaultLanguage": "en",
+      "useCustomParam": false,
+      "customParam": null
+    },
+    "formMobileSettingsContract": {
+      "title": "",
+      "formViewType": "full",
+      "titleTextColor": "",
+      "titleBackgroundColor": "",
+      "uiRevamp": null,
+      "newAndroidButton": null,
+      "wcagSupport": null,
+      "showPoweredBy": null,
+      "selectedFormHeaderTheme": null,
+      "actualViewType": "full"
+    },
+    "screenReaderTextContract": {
+      "mediaCapturePlay": "Play",
+      "mediaCapturePause": "Pause",
+      "mediaCaptureDeleteMedia": "Delete media",
+      "mediaCaptureStart": "Start",
+      "mediaCaptureStop": "Stop",
+      "poweredBy": "Powered by",
+      "poweredByNewTab": "(opens in a new tab)",
+      "linkNewTab": "",
+      "requiredIndicator": "Required",
+      "charCounterUponTyping": "Characters out of",
+      "charCounterUponFocus1": "You can enter up to",
+      "charCounterUponFocus2": "characters",
+      "progressBar": "",
+      "validationsSummary": ""
+    }
+  },
+  "propertyType": "website",
+  "surveyMessages": {
+    "mediaCaptureVideoLimitMsg": "Max video length limit %d seconds",
+    "mediaCaptureOopsMsg": "Oops...\nWe can\u2019t collect your feedback at the moment.\nRefresh and try again",
+    "mediaCaptureVideoTooLongMsg": "Oh no\u2026 Your video is too long. Please record again up to %d sec"
+  }
+}

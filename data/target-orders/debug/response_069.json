@@ -1,0 +1,113 @@
+{
+  "tracking_details_list": [
+    {
+      "events": [
+        {
+          "notes": "Package delivered by local post office",
+          "status": "DELIVERED",
+          "location": {
+            "state": "IL",
+            "country": "US",
+            "residential_indicator": "N"
+          },
+          "timestamp": "2026-07-06T16:53:00Z"
+        },
+        {
+          "notes": "Received by the local post office",
+          "status": "DESTINATION",
+          "location": {
+            "city": "Palatine",
+            "state": "IL",
+            "country": "US",
+            "residential_indicator": "N"
+          },
+          "timestamp": "2026-07-06T11:55:00Z"
+        },
+        {
+          "notes": "Package moving to local post office",
+          "status": "INFORMATION",
+          "location": {
+            "city": "Palatine",
+            "state": "IL",
+            "country": "US",
+            "residential_indicator": "N"
+          },
+          "timestamp": "2026-07-03T05:44:00Z"
+        },
+        {
+          "notes": "Package moving to local post office",
+          "status": "INFORMATION",
+          "location": {
+            "city": "Palatine",
+            "state": "IL",
+            "country": "US"
+          },
+          "timestamp": "2026-06-27T18:36:00Z"
+        },
+        {
+          "notes": "Package moving to local post office",
+          "status": "INFORMATION",
+          "location": {
+            "city": "Palatine",
+            "state": "IL",
+            "country": "US"
+          },
+          "timestamp": "2026-06-25T22:11:00Z"
+        },
+        {
+          "notes": "Your UPS Ground saver\u00ae package was transferred to the wrong post office. it is being corrected.",
+          "status": "INFORMATION",
+          "location": {
+            "city": "Greenwood",
+            "state": "SC",
+            "country": "US"
+          },
+          "timestamp": "2026-06-23T19:05:00Z"
+        },
+        {
+          "notes": "Origin scan",
+          "status": "ORIGIN",
+          "location": {
+            "city": "Spartanburg",
+            "state": "SC",
+            "country": "US"
+          },
+          "timestamp": "2026-06-22T20:55:35Z"
+        },
+        {
+          "notes": "Shipper created a label, UPS has not received the package yet.",
+          "status": "MANIFEST",
+          "location": {
+            "country": "US"
+          },
+          "timestamp": "2026-06-20T20:29:56Z"
+        }
+      ],
+      "package_info": {
+        "scac": "UPSN",
+        "carrier": "ups",
+        "dimensions": {
+          "weight_uom": "LBS"
+        },
+        "shipped_date": "2026-06-22T20:55:35Z",
+        "tracking_url": "http://wwwapps.ups.com/WebTracking/processInputRequest?sort_by=status&tracknums_displayed=1&TypeOfInquiryNumber=T&loc=en_us&track.x=0&track.y=0&InquiryNumber1=1ZW626X8YW41739650",
+        "delivered_date": "2026-07-06T16:53:00Z",
+        "tracking_number": "1ZW626X8YW41739650",
+        "order_information": [
+          {
+            "order_date": "2026-06-19T19:26:12Z",
+            "order_number": "912003541042434",
+            "shipment_number": "201134935931576570",
+            "ship_advice_number": "8793650349"
+          }
+        ],
+        "current_package_state": "DELIVERED",
+        "promised_delivery_date": "2026-06-25T00:00:00Z",
+        "display_arriving_by_time": false,
+        "client_display_delivery_date": "2026-07-06T16:53:00Z",
+        "carrier_estimated_delivery_date": "2026-07-06T00:00:00Z",
+        "original_estimated_delivery_date": "2026-06-25T05:00:00Z"
+      }
+    }
+  ]
+}

@@ -88,6 +88,66 @@ def apply_proposal(proposal_index: int) -> dict[str, Any]:
     return result
 
 
+def apply_all_pending() -> list[str]:
+    config = load_config()
+    token = config.get("ynab_token", "")
+    proposals_path = resolve_path(config["proposals_path"])
+    state_path = resolve_path(config["state_path"])
+    data = load_proposals(proposals_path)
+
+    pending_indices = [
+        i
+        for i, proposal in enumerate(data.get("proposals", []))
+        if proposal.get("status") != "applied"
+    ]
+    if not pending_indices:
+        return []
+
+    bulk_payload = []
+    originals: dict[str, dict[str, Any]] = {}
+    for i in pending_indices:
+        proposal = data["proposals"][i]
+        txn = proposal["ynab_transaction"]
+        originals[txn["id"]] = {
+            "amount": txn["amount"],
+            "payee_name": txn.get("payee_name"),
+            "memo": txn.get("memo"),
+            "category_id": txn.get("category_id"),
+        }
+        bulk_payload.append(
+            {
+                "id": txn["id"],
+                "subtransactions": [
+                    {
+                        "amount": split["amount"],
+                        "category_id": split["category_id"],
+                        "memo": ", ".join(split.get("line_items", []))[:200],
+                    }
+                    for split in proposal["splits"]
+                ],
+            }
+        )
+
+    with YnabClient(token, config.get("budget_id", "last-used")) as client:
+        client.patch_transactions_bulk(bulk_payload)
+
+    applied_at = datetime.now(timezone.utc).isoformat()
+    applied_txn_ids: list[str] = []
+    for i in pending_indices:
+        proposal = data["proposals"][i]
+        txn_id = proposal["ynab_transaction"]["id"]
+        save_undo_snapshot(txn_id, originals[txn_id])
+        proposal["status"] = "applied"
+        proposal["applied_at"] = applied_at
+        mark_applied(state_path, proposal["target_order"]["order_id"], txn_id)
+        applied_txn_ids.append(txn_id)
+
+    with proposals_path.open("w") as f:
+        json.dump(data, f, indent=2)
+
+    return applied_txn_ids
+
+
 def undo_last(count: int = 1) -> list[str]:
     config = load_config()
     token = config.get("ynab_token", "")

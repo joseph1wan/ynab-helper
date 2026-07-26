@@ -1,0 +1,35 @@
+{
+  "order_id": "912003546820408",
+  "order_date": "2026-06-21",
+  "total": 163470,
+  "tax": 0,
+  "shipping": 0,
+  "fees": 0,
+  "line_items": [
+    {
+      "name": "3 Tier Wide Wire Shelving Black - Brightroom&#8482;: Adjustable Wire Rack, 36.63&#34; Height, 350 lb Capacity, 3 Shelves",
+      "quantity": 2,
+      "line_total": 0
+    },
+    {
+      "name": "5 Tier Wire Shelving Black - Brightroom&#8482;: Steel Utility Storage, Adjustable Feet &#38; Shelves, 72.63&#34; Height, 350 lb Capacity, 5 Shelves",
+      "quantity": 1,
+      "line_total": 0
+    },
+    {
+      "name": "Scrubbing Bubbles Citrus Bathroom Cleaner &#38; Disinfectant Aerosol Spray - 20oz: Shower, Countertops, Bath Tub, Sink",
+      "quantity": 2,
+      "line_total": 0
+    },
+    {
+      "name": "Cosco 1 Step All Steel Step Stool: Black, Folding Step Stool for Adults, Single Step, 225 lb Capacity, No Assembly Required",
+      "quantity": 1,
+      "line_total": 0
+    },
+    {
+      "name": "Windex Original Blue Window and Glass Cleaner Spray - 26 fl oz",
+      "quantity": 1,
+      "line_total": 0
+    }
+  ]
+}

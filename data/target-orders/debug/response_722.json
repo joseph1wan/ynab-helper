@@ -1,0 +1,1006 @@
+{
+  "order_number": "102003566492810",
+  "order_key": "202606301228112672003566492810",
+  "external_order_number": "102003566492810",
+  "order_date": "2026-06-30T17:28:10.000Z",
+  "order_type": "Sales",
+  "order_sub_type": "Regular",
+  "order_placed_source": "GOM",
+  "entry_type": "10",
+  "purchased_as_guest": false,
+  "fraud_status": "SUCCESS",
+  "tenant_key": "Target.com",
+  "softdecline_order": false,
+  "hard_decline_order": false,
+  "rescheduled_order": false,
+  "refund_restriction_hold": false,
+  "order_modification_attributes": {
+    "address_modification_eligible": false,
+    "address_modification_requested": false,
+    "payment_modification_eligible": false,
+    "payment_modification_requested": false
+  },
+  "guest_profile": {
+    "guest_id": "3273279084",
+    "first_name": "Mang",
+    "last_name": "Wan",
+    "email_id": "vang92@gmail.com"
+  },
+  "alternate_pickup_guest": {},
+  "payments": [
+    {
+      "billing_address_id": "113c8605-74a9-11f1-8410-0a103cb2ec6e",
+      "card_id": "0c7b4dc3-2e61-42ad-bc66-0f57e74c1c82",
+      "amount": 60.98,
+      "card_number": "9223",
+      "gift_card_number": "044500040769223",
+      "payment_type": "TARGETGIFTCARD",
+      "payment_subtype": "NONE",
+      "guest_display_payment_type": "Target GiftCard",
+      "primary_tender": false
+    },
+    {
+      "billing_address_id": "113c8605-74a9-11f1-8410-0a103cb2ec6e",
+      "card_id": "7d8f03da-ccfc-48c5-924f-cf42ccfd955c",
+      "amount": 61.84,
+      "card_number": "3896",
+      "gift_card_number": "044500039033896",
+      "payment_type": "TARGETGIFTCARD",
+      "payment_subtype": "NONE",
+      "guest_display_payment_type": "Target GiftCard",
+      "primary_tender": false
+    }
+  ],
+  "addresses": [
+    {
+      "address_id": "113cad1a-74a9-11f1-8410-0a103cb2ec6e",
+      "first_name": "Algonquin",
+      "address_line1": "750 S Randall Rd",
+      "city": "Algonquin",
+      "state": "IL",
+      "zip_code": "60102-5915",
+      "country": "US",
+      "guest_email_id": "vang92@gmail.com",
+      "types": [
+        "STORE"
+      ],
+      "masked": false
+    },
+    {
+      "address_id": "f2dd42a7-74b7-11f1-8410-0a103cb2ec6e",
+      "first_name": "Mang",
+      "last_name": "Wan",
+      "address_line1": "1000 Seasons Blvd Apt 1011",
+      "city": "West Dundee",
+      "state": "IL",
+      "zip_code": "60118-4550",
+      "country": "US",
+      "mobile_number": "(559) 259-5220",
+      "phone_number": "(559) 259-5220",
+      "types": [
+        "SHIPPING"
+      ],
+      "masked": false,
+      "profile_address_id": "dd560d00-4da9-11ee-ad1d-c5774ca7800d"
+    },
+    {
+      "address_id": "113c8605-74a9-11f1-8410-0a103cb2ec6e",
+      "types": [
+        "BILLING"
+      ],
+      "masked": false
+    }
+  ],
+  "summary": {
+    "total_items": 10,
+    "grand_total": 122.82,
+    "total_adjustments": 2.17,
+    "total_giftwrap_charges": 0.0,
+    "total_product_price": 116.31,
+    "total_shipping_adjustments": 0.0,
+    "total_shipping_charges": 0.0,
+    "total_taxes": 8.68,
+    "total_regional_fees": 0.0,
+    "shipping_to_state": [],
+    "adjustments": [
+      {
+        "promo_id": "985449056",
+        "promo_description": "Buy 3 for $11 LaCroix & bubly sparkling water ",
+        "promo_value": 2.17,
+        "short_description": "3for$11",
+        "charge_admin_name": "OTH0_PO: 3/$11MM - Lacroix/Bubly 8pk - "
+      }
+    ],
+    "regional_fees": [],
+    "fulfillment_charges": [
+      {
+        "type": "STORE_PICKUP",
+        "name": "Pickup",
+        "value": 0.0
+      },
+      {
+        "type": "SHIPPING",
+        "name": "Shipping",
+        "value": 0.0,
+        "split_charges": [
+          {
+            "name": "Order Pickup",
+            "charge_identifier": "pickup_in_store",
+            "value": 0.0
+          }
+        ]
+      }
+    ],
+    "taxes": [
+      {
+        "type": "Price",
+        "name": "SALES TAX",
+        "value": 8.68
+      }
+    ],
+    "handling_fee": 0.0
+  },
+  "packages": [
+    {
+      "grouping_metadata": {
+        "fulfillment_type": "StorePickup",
+        "status": "STAT_ORDER_PICKED_UP",
+        "estimated_delivery_date": "2026-06-30T05:00:00.000Z",
+        "node_id": "1801",
+        "address_id": "113cad1a-74a9-11f1-8410-0a103cb2ec6e",
+        "status_date": "2026-06-30T20:51:40.000Z",
+        "fulfillment_method": "Store Pickup",
+        "status_code": "3700.003",
+        "cancellation": {}
+      },
+      "unique_key": "1549308112965f90fa3d091e1c29d13eb585a45c607d486fa052bf67569329a0",
+      "shipment": {
+        "shipment_number": "6011256735636",
+        "release_id": "98598804244511",
+        "vcd_number": "752-218-031",
+        "receipt_id": "6181-3991-1367-0665-1",
+        "gift_receipt_id": "5-6181-3991-1367-0665-1",
+        "self_receipt_id": "2-6181-3991-1367-0665-1",
+        "display_tracking": false,
+        "consolidated_order": false,
+        "has_shipment_edits": false,
+        "level_of_service": {}
+      },
+      "package_indicators": {
+        "contain_registry_item": false,
+        "contain_free_gift": false,
+        "contain_xaa_citizens_one_item": false,
+        "contain_mobile_carrier_type_item": false,
+        "contain_adult_beverage_items": false,
+        "repromise_requested": false,
+        "validate_returns": true
+      },
+      "eligibility": {
+        "cancellable": false,
+        "requestable_for_cancellation": false,
+        "item_modification": false,
+        "return_cancellable": false,
+        "repromise": false,
+        "repromise_shipping": false,
+        "pickup_extend_modification": false,
+        "nudge_to_extend_pickup": false,
+        "nominee_modification": false,
+        "approve_delay": false
+      },
+      "fulfillment": {
+        "address_id": "113cad1a-74a9-11f1-8410-0a103cb2ec6e",
+        "fulfillment_type": "StorePickup",
+        "fulfillment_method": "Store Pickup",
+        "node_id": "1801",
+        "status": {
+          "code": "3700.003",
+          "key": "STAT_ORDER_PICKED_UP",
+          "date": "2026-06-30T20:51:40.000Z"
+        },
+        "fulfillment_dates": {
+          "guest_promised_delivery_start_date": "2026-06-30T10:00:00.000Z",
+          "guest_promised_delivery_end_date": "2026-06-30T10:00:00.000Z",
+          "original_guest_promised_delivery_start_date": "2026-06-30T05:00:00.000Z",
+          "original_guest_promised_delivery_end_date": "2026-06-30T10:00:00.000Z",
+          "estimated_start_date": "2026-06-30T23:39:48.000Z",
+          "estimated_end_date": "2026-07-06T10:00:00.000Z",
+          "fulfilled_date": "2026-06-30T20:51:40.000Z"
+        },
+        "delivery_preference": {
+          "early_delivery_allowed": false,
+          "door_delivery_required": false
+        },
+        "pre_order": false
+      },
+      "order_lines": [
+        {
+          "order_line_id": "e8125160-74a0-11f1-a9dd-f9c4183c7368",
+          "order_line_key": "202606301228112690035664928107",
+          "original_quantity": 1.0,
+          "quantity": 1.0,
+          "line_number": 7,
+          "unique_key": "202606301228112690035664928107_STAT_ORDER_PICKED_UP_1",
+          "line_indicators": {
+            "free_gift": false,
+            "gift_wrap": false,
+            "cancellation_requested": false,
+            "qualified_medical_expense": false,
+            "virtual_bundle_component": false
+          },
+          "relationships": [
+            {}
+          ],
+          "item": {
+            "tcin": "13219203",
+            "dpci": "271-10-0118",
+            "upc": "049000042849",
+            "description": "Coca-Cola Zero Sugar Soda - 24pk/12 fl oz Cans",
+            "original_unit_price": 15.99,
+            "unit_price": 15.99,
+            "list_price": 15.99,
+            "max_price": false,
+            "buy_unit_of_measure": "Each",
+            "images": {
+              "alternate_images": [
+                "GUEST_9ec86d35-d0f9-498b-9b55-f53a4ab3e239",
+                "GUEST_79997128-aebf-4dfd-9e81-cdc687b3a55e",
+                "GUEST_e5e8d5c2-818a-41ca-9ed1-884de8025900",
+                "GUEST_b159b1ee-e5fc-4998-864e-8158195b9e17",
+                "GUEST_8d905460-3dac-485b-8671-12a3f3f45788",
+                "GUEST_cee2f722-c38f-4253-b53d-e3a6a39d0fe1",
+                "GUEST_827bb79b-b2b0-4c35-b942-07d8c68ce16e",
+                "GUEST_5c219321-6934-4cd8-9d49-fabffbbabe96",
+                "GUEST_0fd13006-1bd1-43b4-8680-55bbbb82fa94",
+                "GUEST_514dd349-5492-41e5-8d97-877578725b0b"
+              ],
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_7871f851-087e-4fd2-8e88-d3d39fa907a7"
+            },
+            "max_purchase_limit": 10,
+            "bundle_parent": false,
+            "fragile": false,
+            "ship_in_original_container": false,
+            "seller_details": {
+              "id": "3648087",
+              "name": "COCACOLA GREAT PLAINS"
+            },
+            "item_return_eligibility": {
+              "return_method": "Mail In or Store",
+              "ltl_item": false
+            },
+            "product_classification": {
+              "product_type_name": "GROCERY",
+              "product_subtype_name": "BEVERAGE"
+            },
+            "availability": {
+              "in_stock": false
+            }
+          },
+          "cancellation": {},
+          "quantity_keys": [
+            "1"
+          ]
+        },
+        {
+          "order_line_id": "bdcf72e0-749e-11f1-ac3c-ddfcbf1cf0e8",
+          "order_line_key": "202606301228112680035664928102",
+          "original_quantity": 1.0,
+          "quantity": 1.0,
+          "line_number": 2,
+          "unique_key": "202606301228112680035664928102_STAT_ORDER_PICKED_UP_1",
+          "line_indicators": {
+            "free_gift": false,
+            "gift_wrap": false,
+            "cancellation_requested": false,
+            "qualified_medical_expense": false,
+            "virtual_bundle_component": false
+          },
+          "relationships": [
+            {}
+          ],
+          "item": {
+            "tcin": "13954318",
+            "dpci": "007-07-0045",
+            "upc": "036000318906",
+            "description": "Huggies Care Sensitive Unscented Baby Wipes - 168ct - 3pk: Cotton, Hypoallergenic, Alcohol-Free",
+            "original_unit_price": 6.79,
+            "unit_price": 6.79,
+            "list_price": 6.79,
+            "max_price": false,
+            "buy_unit_of_measure": "Each",
+            "images": {
+              "alternate_images": [
+                "GUEST_24215eb9-dcc3-4497-97d3-905c413df536",
+                "GUEST_85b11aef-2902-4007-b49d-8b64c2e72020",
+                "GUEST_c676b016-4176-4aa6-b846-8b5daa16bb9e",
+                "GUEST_2667574e-65ae-4ca4-b72b-9475a81c499a",
+                "GUEST_18a831f5-1ac1-4738-83aa-892e2636dd78",
+                "GUEST_4311789b-cc08-440d-a028-956f3d80f1ae",
+                "GUEST_ddce081d-d8f1-45bd-8672-1223a2ccc41e",
+                "GUEST_def6078e-e234-46bd-b62b-a9cf7da36ae9",
+                "GUEST_aae11f3f-f9c8-48f2-8a05-09fbcf218c08",
+                "GUEST_7bb1d981-0f42-4c30-81e5-794009234429",
+                "GUEST_6201b203-f9ed-45d8-aeb0-2b5597e86d27",
+                "GUEST_08585d3c-eb1f-4848-b8c4-21776c477f89",
+                "GUEST_625ed395-55c6-44ab-b074-e41414f5c48a",
+                "GUEST_22a0acf4-ce7c-45bf-92cd-40544d571bfa",
+                "GUEST_2a43e0b8-130e-44f5-8412-ba7c462cb029",
+                "GUEST_c84e9015-ce17-48ed-8959-e80cde3b99e1",
+                "GUEST_c51b4bc9-9db8-493e-a0c2-b276dfb2ceb8",
+                "GUEST_eedc4db0-b866-4421-877d-b0156b93c4de"
+              ],
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_84276a79-ad6d-4752-9e2c-826ba4bbb6b7"
+            },
+            "max_purchase_limit": 6,
+            "bundle_parent": false,
+            "fragile": false,
+            "ship_in_original_container": false,
+            "seller_details": {
+              "id": "2919050",
+              "name": "KIMBERLY-CLARK CORP"
+            },
+            "item_return_eligibility": {
+              "return_method": "Mail In or Store",
+              "ltl_item": false
+            },
+            "variation_themes": [
+              {
+                "name": "Count",
+                "value": "168ct"
+              }
+            ],
+            "product_classification": {
+              "product_type_name": "HEALTH AND BEAUTY",
+              "product_subtype_name": "personal hygiene products"
+            },
+            "availability": {
+              "in_stock": false
+            }
+          },
+          "cancellation": {},
+          "quantity_keys": [
+            "1"
+          ]
+        },
+        {
+          "order_line_id": "ed5f75a0-74a8-11f1-9dbb-a7a397d2868c",
+          "order_line_key": "202606301228112690356649281010",
+          "original_quantity": 1.0,
+          "quantity": 1.0,
+          "line_number": 10,
+          "unique_key": "202606301228112690356649281010_STAT_ORDER_PICKED_UP_1",
+          "line_indicators": {
+            "free_gift": false,
+            "gift_wrap": false,
+            "cancellation_requested": false,
+            "qualified_medical_expense": false,
+            "virtual_bundle_component": false
+          },
+          "relationships": [
+            {}
+          ],
+          "item": {
+            "tcin": "16747749",
+            "dpci": "204-00-1391",
+            "upc": "673419233606",
+            "description": "LEGO Classic Large Creative Brick Box Build Your Own Creative Toys, Kids Building Kit 10698",
+            "original_unit_price": 33.49,
+            "unit_price": 33.49,
+            "list_price": 33.49,
+            "max_price": false,
+            "buy_unit_of_measure": "Each",
+            "images": {
+              "alternate_images": [
+                "GUEST_788b0942-6ee3-4ab2-843a-fd2d1db882b2",
+                "GUEST_c0b3d659-ccb8-4832-8537-599f6f189b86",
+                "GUEST_753cf4bb-915d-48ea-a117-5b9cbcd1a4f9",
+                "GUEST_af119e63-6449-42d6-b757-d8f98c184cd2",
+                "GUEST_36453557-2c3e-41af-81e3-4e96dd90d89d",
+                "GUEST_219daebe-071c-4b47-a33f-a257fefa59cd",
+                "GUEST_77caa575-9f55-4af1-a277-1dc13f6eebe6",
+                "GUEST_7860deaf-aafe-49b4-9e2c-bef7d12caaa7",
+                "GUEST_b072d522-3738-4eeb-b6d9-b13df5740fbf",
+                "GUEST_23c3ec3f-ea82-4e92-bfed-508c983b33a2"
+              ],
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_03142b3f-caff-44c0-8e67-1df491c05585"
+            },
+            "max_purchase_limit": 3,
+            "bundle_parent": false,
+            "fragile": false,
+            "ship_in_original_container": false,
+            "seller_details": {
+              "id": "3075375",
+              "name": "LEGO SYSTEMS INC"
+            },
+            "item_return_eligibility": {
+              "return_method": "Mail In or Store",
+              "ltl_item": false
+            },
+            "product_classification": {
+              "product_type_name": "TOYS",
+              "product_subtype_name": "INDOOR TOYS"
+            },
+            "availability": {
+              "in_stock": false
+            }
+          },
+          "cancellation": {},
+          "quantity_keys": [
+            "1"
+          ]
+        },
+        {
+          "order_line_id": "c97a17c1-749f-11f1-a825-edfa66cde80f",
+          "order_line_key": "202606301228112680035664928105",
+          "original_quantity": 1.0,
+          "quantity": 1.0,
+          "line_number": 5,
+          "unique_key": "202606301228112680035664928105_STAT_ORDER_PICKED_UP_1",
+          "line_indicators": {
+            "free_gift": false,
+            "gift_wrap": false,
+            "cancellation_requested": false,
+            "qualified_medical_expense": false,
+            "virtual_bundle_component": false
+          },
+          "relationships": [
+            {}
+          ],
+          "item": {
+            "tcin": "81618506",
+            "dpci": "203-22-0332",
+            "upc": "012993221133",
+            "description": "LaCroix Sparkling Water Guava Sao Paulo - 8pk/12 fl oz Cans",
+            "original_unit_price": 4.39,
+            "unit_price": 4.39,
+            "list_price": 4.39,
+            "max_price": false,
+            "buy_unit_of_measure": "Each",
+            "images": {
+              "alternate_images": [
+                "GUEST_f082c8d3-4f06-4d7b-acbf-e3141d4e11a1",
+                "GUEST_f451c9fe-bd83-4cdd-b082-feddc504790e",
+                "GUEST_34499418-34b7-48d4-a855-35d0cef4cb86",
+                "GUEST_0dd13298-1b82-4274-aee1-b9cd47474846",
+                "GUEST_ce589fb4-267d-43be-882a-5b00a98fe790"
+              ],
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_81f38c49-a258-4f2e-b848-6f0a5f36765a"
+            },
+            "max_purchase_limit": 10,
+            "bundle_parent": false,
+            "fragile": false,
+            "ship_in_original_container": false,
+            "seller_details": {
+              "id": "1135673",
+              "name": "NATIONAL RETAIL BRANDS"
+            },
+            "item_return_eligibility": {
+              "return_method": "Mail In or Store",
+              "ltl_item": false
+            },
+            "product_classification": {
+              "product_type_name": "GROCERY",
+              "product_subtype_name": "BEVERAGE"
+            },
+            "availability": {
+              "in_stock": false
+            }
+          },
+          "cancellation": {},
+          "quantity_keys": [
+            "1"
+          ]
+        },
+        {
+          "order_line_id": "d688fd01-749f-11f1-9357-cff159925ef6",
+          "order_line_key": "202606301228112690035664928106",
+          "original_quantity": 1.0,
+          "quantity": 1.0,
+          "line_number": 6,
+          "unique_key": "202606301228112690035664928106_STAT_ORDER_PICKED_UP_1",
+          "line_indicators": {
+            "free_gift": false,
+            "gift_wrap": false,
+            "cancellation_requested": false,
+            "qualified_medical_expense": false,
+            "virtual_bundle_component": false
+          },
+          "relationships": [
+            {}
+          ],
+          "item": {
+            "tcin": "14915876",
+            "dpci": "203-22-0272",
+            "upc": "012993221201",
+            "description": "LaCroix Sparkling Water Pamplemousse (Grapefruit) - 8pk/12 fl oz Cans",
+            "original_unit_price": 4.39,
+            "unit_price": 4.39,
+            "list_price": 4.39,
+            "max_price": false,
+            "buy_unit_of_measure": "Each",
+            "images": {
+              "alternate_images": [
+                "GUEST_32eba147-b092-491f-9ccf-0c7bac951c69",
+                "GUEST_d7aaf466-a08e-4c51-8590-ae501cb1c104",
+                "GUEST_031a1cbc-bc19-40ea-bdb0-d60b71b5d7ca"
+              ],
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_920f1386-d927-41f0-9f27-b8d3b56cf967"
+            },
+            "max_purchase_limit": 10,
+            "bundle_parent": false,
+            "fragile": false,
+            "ship_in_original_container": false,
+            "seller_details": {
+              "id": "1135673",
+              "name": "NATIONAL RETAIL BRANDS"
+            },
+            "item_return_eligibility": {
+              "return_method": "Mail In or Store",
+              "ltl_item": false
+            },
+            "product_classification": {
+              "product_type_name": "GROCERY",
+              "product_subtype_name": "BEVERAGE"
+            },
+            "availability": {
+              "in_stock": false
+            }
+          },
+          "cancellation": {},
+          "quantity_keys": [
+            "1"
+          ]
+        },
+        {
+          "order_line_id": "c4001d81-749f-11f1-a9dd-fd17f2e3f0c6",
+          "order_line_key": "202606301228112680035664928104",
+          "original_quantity": 1.0,
+          "quantity": 1.0,
+          "line_number": 4,
+          "unique_key": "202606301228112680035664928104_STAT_ORDER_PICKED_UP_1",
+          "line_indicators": {
+            "free_gift": false,
+            "gift_wrap": false,
+            "cancellation_requested": false,
+            "qualified_medical_expense": false,
+            "virtual_bundle_component": false
+          },
+          "relationships": [
+            {}
+          ],
+          "item": {
+            "tcin": "51541605",
+            "dpci": "203-22-0265",
+            "upc": "012993221058",
+            "description": "LaCroix Sparkling Water Tangerine - 8pk/12 fl oz Cans",
+            "original_unit_price": 4.39,
+            "unit_price": 4.39,
+            "list_price": 4.39,
+            "max_price": false,
+            "buy_unit_of_measure": "Each",
+            "images": {
+              "alternate_images": [
+                "GUEST_0ed50b30-d9c5-4536-8ec5-c273a2323617",
+                "GUEST_6746834d-1340-4e62-8a83-92f623824edf",
+                "GUEST_e3ae8c19-a70c-413a-bb59-26ecdcbafec8",
+                "GUEST_b25748f2-874d-4806-8d22-c23c58096282"
+              ],
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_13158d14-333a-41d9-891a-f3bd13ec65e4"
+            },
+            "max_purchase_limit": 10,
+            "bundle_parent": false,
+            "fragile": false,
+            "ship_in_original_container": false,
+            "seller_details": {
+              "id": "1135673",
+              "name": "NATIONAL RETAIL BRANDS"
+            },
+            "item_return_eligibility": {
+              "return_method": "Mail In or Store",
+              "ltl_item": false
+            },
+            "product_classification": {
+              "product_type_name": "GROCERY",
+              "product_subtype_name": "BEVERAGE"
+            },
+            "availability": {
+              "in_stock": false
+            }
+          },
+          "cancellation": {},
+          "quantity_keys": [
+            "1"
+          ]
+        },
+        {
+          "order_line_id": "0b304191-749f-11f1-9dbb-e95c493e98a8",
+          "order_line_key": "202606301228112680035664928103",
+          "original_quantity": 1.0,
+          "quantity": 1.0,
+          "line_number": 3,
+          "unique_key": "202606301228112680035664928103_STAT_ORDER_PICKED_UP_1",
+          "line_indicators": {
+            "free_gift": false,
+            "gift_wrap": false,
+            "cancellation_requested": false,
+            "qualified_medical_expense": false,
+            "virtual_bundle_component": false
+          },
+          "relationships": [
+            {}
+          ],
+          "item": {
+            "tcin": "81039617",
+            "dpci": "007-06-0061",
+            "upc": "810005414258",
+            "description": "Millie Moon Luxury Disposable Diapers - Size 2 - 96ct",
+            "original_unit_price": 26.99,
+            "unit_price": 26.99,
+            "list_price": 26.99,
+            "max_price": false,
+            "buy_unit_of_measure": "Each",
+            "images": {
+              "alternate_images": [
+                "GUEST_7e38102d-e93b-4c77-92b6-1e4dd49b335b",
+                "GUEST_62a116e2-bf07-4c25-bd7c-aede4a00caba",
+                "GUEST_98f87932-79a1-407f-9f12-c8c6b078d721",
+                "GUEST_ea2fcc92-926c-4b16-a9db-7eaf125e1dff",
+                "GUEST_f849e391-3ae7-47da-8584-d2c8859ca8ee",
+                "GUEST_1fda64f9-3ec1-48b3-a3e1-0515038e9976",
+                "GUEST_f790dd17-fca1-4e18-ab40-a8386bb85e49",
+                "GUEST_a0d6988c-48cf-4bc6-b8e4-610f47ade23b",
+                "GUEST_ab1b315c-4bfe-449d-9417-fe8e7a95cbaa"
+              ],
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_94333244-d4bf-480e-964b-9f66e8a3422b"
+            },
+            "max_purchase_limit": 10,
+            "bundle_parent": false,
+            "fragile": false,
+            "ship_in_original_container": false,
+            "seller_details": {
+              "id": "1313288",
+              "name": "ZURU LLC"
+            },
+            "item_return_eligibility": {
+              "return_method": "Mail in or Store",
+              "ltl_item": false
+            },
+            "variation_themes": [
+              {
+                "name": "Size",
+                "value": "2"
+              },
+              {
+                "name": "Count",
+                "value": "96ct"
+              }
+            ],
+            "product_classification": {
+              "product_type_name": "BABY",
+              "product_subtype_name": "CLEANING + DIAPERING"
+            },
+            "availability": {
+              "in_stock": false
+            }
+          },
+          "cancellation": {},
+          "quantity_keys": [
+            "1"
+          ]
+        },
+        {
+          "order_line_id": "de569c81-74a5-11f1-98fc-c507d0f076df",
+          "order_line_key": "202606301228112690035664928108",
+          "original_quantity": 1.0,
+          "quantity": 1.0,
+          "line_number": 8,
+          "unique_key": "202606301228112690035664928108_STAT_ORDER_PICKED_UP_1",
+          "line_indicators": {
+            "free_gift": false,
+            "gift_wrap": false,
+            "cancellation_requested": false,
+            "qualified_medical_expense": false,
+            "virtual_bundle_component": false
+          },
+          "relationships": [
+            {}
+          ],
+          "item": {
+            "tcin": "84761458",
+            "dpci": "200-08-2958",
+            "upc": "842815141086",
+            "description": "Reduce 14oz Plastic Hydrate Tritan Kids Water Bottle with Straw Lid Berry Sweet",
+            "original_unit_price": 9.89,
+            "unit_price": 9.89,
+            "list_price": 10.99,
+            "max_price": false,
+            "buy_unit_of_measure": "Each",
+            "images": {
+              "alternate_images": [
+                "GUEST_8caf7224-31e9-4d4d-ad2b-10770a04b595",
+                "GUEST_78313fb7-fcab-45bb-88b4-64ca91b2214f",
+                "GUEST_dd81ee95-904b-4cd4-83bf-e97dcc099822",
+                "GUEST_196f92e1-9ae4-4b91-bbf9-1650ec3a89a0",
+                "GUEST_94a192d4-aee2-4579-9f92-ab5632873e53",
+                "GUEST_f80da2c9-2a49-4082-a6da-816088a04832",
+                "GUEST_6d5a8bba-e31c-4c71-8eec-91f9e2f82fb6",
+                "GUEST_1ce7a0f4-2b5b-45ec-9991-4496ace140ca",
+                "GUEST_9e3d591e-59c5-4e41-b737-0650ae7a9d32"
+              ],
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_d7015301-439c-4a40-887e-562adb0e67a1"
+            },
+            "max_purchase_limit": 20,
+            "bundle_parent": false,
+            "fragile": false,
+            "ship_in_original_container": false,
+            "seller_details": {
+              "id": "1308604",
+              "name": "BASE BRANDS,LLC"
+            },
+            "item_return_eligibility": {
+              "return_method": "Mail in or Store",
+              "ltl_item": false
+            },
+            "variation_themes": [
+              {
+                "name": "Color",
+                "value": "Berry Sweet"
+              }
+            ],
+            "product_classification": {
+              "product_type_name": "HOME",
+              "product_subtype_name": "DINING & SERVEWARE"
+            },
+            "availability": {
+              "in_stock": false
+            }
+          },
+          "cancellation": {},
+          "quantity_keys": [
+            "1"
+          ]
+        },
+        {
+          "order_line_id": "a8eae591-749d-11f1-b4fb-1119957b7e6f",
+          "order_line_key": "202606301228112670035664928101",
+          "original_quantity": 1.0,
+          "quantity": 1.0,
+          "line_number": 1,
+          "unique_key": "202606301228112670035664928101_STAT_ORDER_PICKED_UP_1",
+          "line_indicators": {
+            "free_gift": false,
+            "gift_wrap": false,
+            "cancellation_requested": false,
+            "qualified_medical_expense": false,
+            "virtual_bundle_component": false
+          },
+          "relationships": [
+            {}
+          ],
+          "item": {
+            "tcin": "13972218",
+            "dpci": "003-05-0097",
+            "upc": "041598000706",
+            "description": "Weiman Unscented Cook Top Daily Cleaning Spray - 12 fl oz",
+            "original_unit_price": 4.99,
+            "unit_price": 4.99,
+            "list_price": 4.99,
+            "max_price": false,
+            "buy_unit_of_measure": "Each",
+            "images": {
+              "alternate_images": [
+                "GUEST_b9519757-e9c1-449b-bbbc-dcbb9a191d9a",
+                "GUEST_3efe1b3b-1210-4668-b0cd-b8cba0f301b4",
+                "GUEST_f25cab07-8b36-4561-9acf-11f2548f4161",
+                "GUEST_9365af67-c25d-47a5-94c5-c411dcf7accd",
+                "GUEST_892b8990-7d12-4c06-be41-e8597efa6625",
+                "GUEST_8b9814a9-99e6-44c9-b36a-56cc761740af",
+                "GUEST_6f01b35f-3696-436a-94fa-fa939e9606ce",
+                "GUEST_8ca5e81d-693b-44da-a5ab-108ff56f5893",
+                "GUEST_5f3a5c24-d2a1-401b-9f1a-1e2d2cff581f"
+              ],
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_cb50bc81-a236-44dd-8238-0858c086102e"
+            },
+            "max_purchase_limit": 4,
+            "bundle_parent": false,
+            "fragile": true,
+            "ship_in_original_container": false,
+            "seller_details": {
+              "id": "1025932",
+              "name": "WEIMAN PRODUCTS LLC"
+            },
+            "item_return_eligibility": {
+              "return_method": "Mail In or Store",
+              "ltl_item": false
+            },
+            "product_classification": {
+              "product_type_name": "LAUNDRY CLEANING AND CLOSET",
+              "product_subtype_name": "cleaning"
+            },
+            "availability": {
+              "in_stock": false
+            }
+          },
+          "cancellation": {},
+          "quantity_keys": [
+            "1"
+          ]
+        }
+      ],
+      "sorting_key": 3
+    },
+    {
+      "grouping_metadata": {
+        "fulfillment_type": "ShipToHome",
+        "tracking_number": "TLMD0840A01D0EE9",
+        "status": "STAT_DELIVERED",
+        "estimated_delivery_date": "2026-07-01T05:00:00.000Z",
+        "node_id": "840",
+        "address_id": "f2dd42a7-74b7-11f1-8410-0a103cb2ec6e",
+        "status_date": "2026-07-01T13:50:15Z",
+        "fulfillment_method": "2-day",
+        "status_code": "3700.7777",
+        "cancellation": {}
+      },
+      "unique_key": "68499db00f3420c4b73aff8e0dbffc273c49a596fa991fd8256ba96645cd2097",
+      "shipment": {
+        "shipment_number": "6020149621013",
+        "release_id": "98598814244416",
+        "shipment_status": "Late",
+        "vcd_number": "758-219-457",
+        "carrier": "TLMD",
+        "tracking_number": "TLMD0840A01D0EE9",
+        "receipt_id": "6181-3991-1435-3569-7",
+        "gift_receipt_id": "5-6181-3991-1435-3569-7",
+        "self_receipt_id": "2-6181-3991-1435-3569-7",
+        "display_tracking": false,
+        "consolidated_order": false,
+        "routing": "MXC",
+        "has_shipment_edits": false,
+        "level_of_service": {
+          "service_code": "G2",
+          "service_name": "STANDARD"
+        }
+      },
+      "package_indicators": {
+        "contain_registry_item": false,
+        "contain_free_gift": false,
+        "contain_xaa_citizens_one_item": false,
+        "contain_mobile_carrier_type_item": false,
+        "contain_adult_beverage_items": false,
+        "repromise_requested": false,
+        "validate_returns": true
+      },
+      "eligibility": {
+        "cancellable": false,
+        "requestable_for_cancellation": false,
+        "item_modification": false,
+        "return_cancellable": false,
+        "repromise": false,
+        "repromise_shipping": false,
+        "pickup_extend_modification": false,
+        "nudge_to_extend_pickup": false,
+        "nominee_modification": false,
+        "approve_delay": false
+      },
+      "fulfillment": {
+        "address_id": "f2dd42a7-74b7-11f1-8410-0a103cb2ec6e",
+        "fulfillment_type": "ShipToHome",
+        "fulfillment_method": "2-day",
+        "node_id": "840",
+        "status": {
+          "code": "3700.7777",
+          "key": "STAT_DELIVERED",
+          "date": "2026-07-01T13:50:15Z"
+        },
+        "fulfillment_dates": {
+          "guest_promised_delivery_start_date": "2026-07-01T10:00:00.000Z",
+          "guest_promised_delivery_end_date": "2026-07-01T10:00:00.000Z",
+          "original_guest_promised_delivery_start_date": "2026-07-01T05:00:00.000Z",
+          "original_guest_promised_delivery_end_date": "2026-07-01T10:00:00.000Z",
+          "estimated_start_date": "2026-07-01T13:50:15Z",
+          "estimated_end_date": "2026-07-01T13:50:15Z",
+          "fulfilled_date": "2026-07-01T13:50:15Z"
+        },
+        "delivery_preference": {
+          "early_delivery_allowed": false,
+          "door_delivery_required": false
+        },
+        "pre_order": false
+      },
+      "order_lines": [
+        {
+          "order_line_id": "f27ecef1-74b7-11f1-acac-478a63da1bea",
+          "order_line_key": "202606301414427620035664928101",
+          "original_quantity": 1.0,
+          "quantity": 1.0,
+          "line_number": 11,
+          "unique_key": "202606301414427620035664928101_STAT_DELIVERED_1",
+          "line_indicators": {
+            "free_gift": false,
+            "gift_wrap": false,
+            "cancellation_requested": false,
+            "qualified_medical_expense": false,
+            "virtual_bundle_component": false
+          },
+          "relationships": [
+            {
+              "type": "REPROMISE",
+              "parent_order_line_key": "202606301228112690035664928109"
+            }
+          ],
+          "item": {
+            "tcin": "94596122",
+            "dpci": "084-19-0205",
+            "upc": "199268448041",
+            "description": "Mister Spray Bottle Black - Room Essentials&#8482;",
+            "original_unit_price": 5.0,
+            "unit_price": 5.0,
+            "list_price": 5.0,
+            "max_price": false,
+            "images": {
+              "alternate_images": [
+                "GUEST_33dddd8b-7d22-491f-ae24-3291ce6116f2",
+                "GUEST_781d410f-8333-4513-810f-32cb352b04e8"
+              ],
+              "base_url": "//target.scene7.com/is/image/Target/",
+              "primary_image": "GUEST_4c1c490e-bbb0-41ec-9e7f-e2dd8a694831"
+            },
+            "max_purchase_limit": 10,
+            "bundle_parent": false,
+            "fragile": false,
+            "ship_in_original_container": false,
+            "seller_details": {
+              "id": "1985415",
+              "name": "Lucky Star Enterprise & C"
+            },
+            "item_return_eligibility": {
+              "return_method": "Mail In or Store",
+              "ltl_item": false
+            },
+            "variation_themes": [
+              {
+                "name": "Color",
+                "value": "Black"
+              }
+            ],
+            "product_classification": {
+              "product_type_name": "PATIO & OUTDOOR DECOR",
+              "product_subtype_name": "GARDENING"
+            },
+            "availability": {
+              "in_stock": false
+            }
+          },
+          "cancellation": {},
+          "quantity_keys": [
+            "1"
+          ]
+        }
+      ],
+      "sorting_key": 4
+    }
+  ],
+  "order_indicators": {
+    "contain_ltl": false,
+    "contain_carrier_device": false,
+    "contain_invoiced_lines": true,
+    "enable_concierge": true
+  },
+  "target_plus": false,
+  "membership": {
+    "paid_membership_order": true
+  },
+  "snap_charge_more": {
+    "eligibility": false
+  },
+  "guest_pii_data_deleted": false
+}

@@ -1,0 +1,2780 @@
+{
+  "data": {
+    "recommended_products": {
+      "strategy_id": "order_history_bia",
+      "strategy_name": "bia4_personalized",
+      "strategy_description": "Buy again",
+      "placement_id": "order_history_bia",
+      "products": [
+        {
+          "__typename": "ProductSummary",
+          "tcin": "94924105",
+          "promotions": [
+            {
+              "plp_message": "Save $15, when you spend $80 on Baby care items",
+              "pdp_message": "Save $15, when you spend $80 on Baby care items",
+              "promotion_id": "359458777",
+              "external_promotion_alternate_id": "359458777",
+              "subscription_type": "ALL",
+              "circle_offer": true,
+              "promotion_class": "Hurdle",
+              "channel": "online_and_store",
+              "mass_offer": false,
+              "membership_offer_type": "base"
+            }
+          ],
+          "price": {
+            "current_retail": 49.99,
+            "display_was_now": false,
+            "formatted_current_price": "$49.99",
+            "formatted_current_price_type": "reg",
+            "reg_retail": 49.99
+          },
+          "ratings_and_reviews": {
+            "statistics": {
+              "rating": {
+                "average": 4.69,
+                "count": 32
+              }
+            }
+          },
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "SA",
+            "product_classification": {
+              "item_type": {
+                "name": "Formula",
+                "type": "426194"
+              }
+            },
+            "product_description": {
+              "title": "Similac 360 Total Care Gentle Comfort Powder Infant Formula - 29.8oz"
+            },
+            "merchandise_classification": {
+              "class_id": 9,
+              "department_id": 7
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/similac-total-care-gentle-comfort-formula-29-8oz/-/A-94924105",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_9f5315fc-0106-4d41-a24b-da28d140b404",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_10bdf343-df15-43bc-bdbb-a87daa7b3e45",
+                  "https://target.scene7.com/is/image/Target/GUEST_043b0e34-fe2f-4358-b3b2-eacf1a7a821b",
+                  "https://target.scene7.com/is/image/Target/GUEST_2f001b68-74a4-4282-ab4c-8699521ad817",
+                  "https://target.scene7.com/is/image/Target/GUEST_8257ac71-e768-4f04-b0e0-7b30cd3e7628",
+                  "https://target.scene7.com/is/image/Target/GUEST_f906f1d7-acd9-4d53-b333-65b8581d02bd",
+                  "https://target.scene7.com/is/image/Target/GUEST_ac5612e0-9efe-42ba-ba81-cb3d19acac2d",
+                  "https://target.scene7.com/is/image/Target/GUEST_1b26f090-3fde-4984-b1a9-573607cd4f43",
+                  "https://target.scene7.com/is/image/Target/GUEST_bc623bac-f104-4c58-bb84-a54220b968ca"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_9f5315fc-0106-4d41-a24b-da28d140b404",
+                  "image_name": "GUEST_9f5315fc-0106-4d41-a24b-da28d140b404"
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_10bdf343-df15-43bc-bdbb-a87daa7b3e45",
+                    "image_name": "GUEST_10bdf343-df15-43bc-bdbb-a87daa7b3e45"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_043b0e34-fe2f-4358-b3b2-eacf1a7a821b",
+                    "image_name": "GUEST_043b0e34-fe2f-4358-b3b2-eacf1a7a821b"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_2f001b68-74a4-4282-ab4c-8699521ad817",
+                    "image_name": "GUEST_2f001b68-74a4-4282-ab4c-8699521ad817"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_8257ac71-e768-4f04-b0e0-7b30cd3e7628",
+                    "image_name": "GUEST_8257ac71-e768-4f04-b0e0-7b30cd3e7628"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_f906f1d7-acd9-4d53-b333-65b8581d02bd",
+                    "image_name": "GUEST_f906f1d7-acd9-4d53-b333-65b8581d02bd"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_ac5612e0-9efe-42ba-ba81-cb3d19acac2d",
+                    "image_name": "GUEST_ac5612e0-9efe-42ba-ba81-cb3d19acac2d"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_1b26f090-3fde-4984-b1a9-573607cd4f43",
+                    "image_name": "GUEST_1b26f090-3fde-4984-b1a9-573607cd4f43"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_bc623bac-f104-4c58-bb84-a54220b968ca",
+                    "image_name": "GUEST_bc623bac-f104-4c58-bb84-a54220b968ca"
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "52292756",
+          "promotions": [
+            {
+              "plp_message": "Save $10, when you spend $50 on Health and Beauty items",
+              "pdp_message": "Save $10, when you spend $50 on Health and Beauty items",
+              "promotion_id": "130231674",
+              "external_promotion_alternate_id": "130231674",
+              "subscription_type": "ALL",
+              "circle_offer": true,
+              "promotion_class": "Hurdle",
+              "channel": "online_and_store",
+              "mass_offer": false,
+              "membership_offer_type": "base"
+            }
+          ],
+          "price": {
+            "current_retail": 18.39,
+            "display_was_now": false,
+            "formatted_current_price": "$18.39",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$4,028.64",
+            "formatted_unit_price_suffix": "/fluid ounce",
+            "reg_retail": 18.39
+          },
+          "ratings_and_reviews": {
+            "statistics": {
+              "rating": {
+                "average": 4.59,
+                "count": 2448,
+                "secondary_averages": [
+                  {
+                    "id": "quality",
+                    "label": "quality",
+                    "value": 4.66
+                  },
+                  {
+                    "id": "value",
+                    "label": "value",
+                    "value": 4.25
+                  }
+                ]
+              }
+            }
+          },
+          "desirability_cues": [
+            {
+              "code": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases."
+            }
+          ],
+          "ornaments": [
+            {
+              "ornament": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases.",
+              "ornament_type": "guest",
+              "template_type": "light_marker_with_star"
+            }
+          ],
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "SA",
+            "product_classification": {
+              "item_type": {
+                "name": "Eye Drops",
+                "type": "249695"
+              }
+            },
+            "product_description": {
+              "title": "Refresh Optive Mega-3 Lubricant Eye Drops Preservative-Free Artificial Tears - 0.01 fl oz (0.4mL) - 30 Single-Use Containers"
+            },
+            "merchandise_classification": {
+              "class_id": 9,
+              "department_id": 245
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/refresh-optive-mega-3-preservative-free-eye-drops-30ct/-/A-52292756",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_d31aae0d-5a2d-4536-9a81-29a6b695e717",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_c5020dd3-1646-438e-a578-4503474443f8",
+                  "https://target.scene7.com/is/image/Target/GUEST_63994f7f-5807-4723-83b2-121cbc9af89d",
+                  "https://target.scene7.com/is/image/Target/GUEST_cecec6e2-c6c8-4eea-933e-87477db02ce7",
+                  "https://target.scene7.com/is/image/Target/GUEST_04fe9df7-edc1-4dda-b664-566aec7b58a2",
+                  "https://target.scene7.com/is/image/Target/GUEST_8d4a5044-d0b1-4732-8920-f32faeb76de8",
+                  "https://target.scene7.com/is/image/Target/GUEST_fceec882-b127-4bb6-8dc7-3c88fdc75663",
+                  "https://target.scene7.com/is/image/Target/GUEST_78d7f896-a9d2-4e44-b9a5-2f0b6c534c11",
+                  "https://target.scene7.com/is/image/Target/GUEST_6d1fae98-a543-488d-959f-e990b9587624",
+                  "https://target.scene7.com/is/image/Target/GUEST_ac2ac13c-9897-484b-aa9b-00e8975f7cff",
+                  "https://target.scene7.com/is/image/Target/GUEST_9f0756ae-7afb-4a7f-bf2e-9afe6b2fa9e8",
+                  "https://target.scene7.com/is/image/Target/GUEST_7d843682-69eb-485f-a779-4eb3c3fa3c53"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_d31aae0d-5a2d-4536-9a81-29a6b695e717",
+                  "image_name": "GUEST_d31aae0d-5a2d-4536-9a81-29a6b695e717"
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_c5020dd3-1646-438e-a578-4503474443f8",
+                    "image_name": "GUEST_c5020dd3-1646-438e-a578-4503474443f8"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_63994f7f-5807-4723-83b2-121cbc9af89d",
+                    "image_name": "GUEST_63994f7f-5807-4723-83b2-121cbc9af89d"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_cecec6e2-c6c8-4eea-933e-87477db02ce7",
+                    "image_name": "GUEST_cecec6e2-c6c8-4eea-933e-87477db02ce7"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_04fe9df7-edc1-4dda-b664-566aec7b58a2",
+                    "image_name": "GUEST_04fe9df7-edc1-4dda-b664-566aec7b58a2"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_8d4a5044-d0b1-4732-8920-f32faeb76de8",
+                    "image_name": "GUEST_8d4a5044-d0b1-4732-8920-f32faeb76de8"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_fceec882-b127-4bb6-8dc7-3c88fdc75663",
+                    "image_name": "GUEST_fceec882-b127-4bb6-8dc7-3c88fdc75663"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_78d7f896-a9d2-4e44-b9a5-2f0b6c534c11",
+                    "image_name": "GUEST_78d7f896-a9d2-4e44-b9a5-2f0b6c534c11"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_6d1fae98-a543-488d-959f-e990b9587624",
+                    "image_name": "GUEST_6d1fae98-a543-488d-959f-e990b9587624"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_ac2ac13c-9897-484b-aa9b-00e8975f7cff",
+                    "image_name": "GUEST_ac2ac13c-9897-484b-aa9b-00e8975f7cff"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_9f0756ae-7afb-4a7f-bf2e-9afe6b2fa9e8",
+                    "image_name": "GUEST_9f0756ae-7afb-4a7f-bf2e-9afe6b2fa9e8"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_7d843682-69eb-485f-a779-4eb3c3fa3c53",
+                    "image_name": "GUEST_7d843682-69eb-485f-a779-4eb3c3fa3c53"
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "14713533",
+          "promotions": [],
+          "price": {
+            "current_retail": 2.19,
+            "display_was_now": false,
+            "formatted_current_price": "$2.19",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$0.12",
+            "formatted_unit_price_suffix": "/count",
+            "reg_retail": 2.19
+          },
+          "desirability_cues": [
+            {
+              "code": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases."
+            }
+          ],
+          "ornaments": [
+            {
+              "ornament": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases.",
+              "ornament_type": "guest",
+              "template_type": "light_marker_with_star"
+            }
+          ],
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "VC",
+            "product_classification": {
+              "item_type": {
+                "name": "Eggs",
+                "type": "290136"
+              }
+            },
+            "product_description": {
+              "title": "Grade A Large Eggs - 18ct - Good &#38; Gather&#8482; (Packaging May Vary)"
+            },
+            "merchandise_classification": {
+              "class_id": 3,
+              "department_id": 284
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/grade-a-large-eggs-18ct-good-38-gather-8482-packaging-may-vary/-/A-14713533",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_8bc25861-da8d-49ed-97a2-567375198ac6",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_5000a177-abed-4952-853c-520da0e19780",
+                  "https://target.scene7.com/is/image/Target/GUEST_31ed8ad4-9080-420a-931d-503b5f550cd2",
+                  "https://target.scene7.com/is/image/Target/GUEST_7b8f12dd-1295-4b39-a909-8fb5b26aa5c0",
+                  "https://target.scene7.com/is/image/Target/GUEST_36921d58-9c60-44fe-81db-f1969bbdbb89",
+                  "https://target.scene7.com/is/image/Target/GUEST_d03315c1-a062-43c1-8712-dd14e361c455"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_8bc25861-da8d-49ed-97a2-567375198ac6",
+                  "image_name": "GUEST_8bc25861-da8d-49ed-97a2-567375198ac6"
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_5000a177-abed-4952-853c-520da0e19780",
+                    "image_name": "GUEST_5000a177-abed-4952-853c-520da0e19780"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_31ed8ad4-9080-420a-931d-503b5f550cd2",
+                    "image_name": "GUEST_31ed8ad4-9080-420a-931d-503b5f550cd2"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_7b8f12dd-1295-4b39-a909-8fb5b26aa5c0",
+                    "image_name": "GUEST_7b8f12dd-1295-4b39-a909-8fb5b26aa5c0"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_36921d58-9c60-44fe-81db-f1969bbdbb89",
+                    "image_name": "GUEST_36921d58-9c60-44fe-81db-f1969bbdbb89"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_d03315c1-a062-43c1-8712-dd14e361c455",
+                    "image_name": "GUEST_d03315c1-a062-43c1-8712-dd14e361c455"
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "94769016",
+          "promotions": [],
+          "price": {
+            "current_retail": 1.19,
+            "display_was_now": false,
+            "formatted_current_price": "$1.19",
+            "formatted_current_price_type": "reg",
+            "reg_retail": 1.19
+          },
+          "ratings_and_reviews": {
+            "statistics": {
+              "rating": {
+                "average": 4.28,
+                "count": 550,
+                "secondary_averages": [
+                  {
+                    "id": "quality",
+                    "label": "quality",
+                    "value": 3.04
+                  },
+                  {
+                    "id": "taste",
+                    "label": "taste",
+                    "value": 3.43
+                  },
+                  {
+                    "id": "value",
+                    "label": "value",
+                    "value": 3.04
+                  }
+                ]
+              }
+            }
+          },
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "SA",
+            "product_classification": {
+              "item_type": {
+                "name": "Fruit",
+                "type": "432322"
+              }
+            },
+            "product_description": {
+              "title": "Large Hass Avocado - each"
+            },
+            "merchandise_classification": {
+              "class_id": 12,
+              "department_id": 224
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/large-hass-avocado-each/-/A-94769016",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_88b51085-0fbc-4dd2-bc85-558c5ad08e7d",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_52f1e625-584e-46c9-8562-2b2a16828cb2",
+                  "https://target.scene7.com/is/image/Target/GUEST_a93d3065-9ffd-47f4-b4b7-f432fa5ba6c7"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_88b51085-0fbc-4dd2-bc85-558c5ad08e7d",
+                  "image_name": "GUEST_88b51085-0fbc-4dd2-bc85-558c5ad08e7d"
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_52f1e625-584e-46c9-8562-2b2a16828cb2",
+                    "image_name": "GUEST_52f1e625-584e-46c9-8562-2b2a16828cb2"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_a93d3065-9ffd-47f4-b4b7-f432fa5ba6c7",
+                    "image_name": "GUEST_a93d3065-9ffd-47f4-b4b7-f432fa5ba6c7"
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "54498852",
+          "promotions": [],
+          "price": {
+            "current_retail": 3.29,
+            "display_was_now": false,
+            "formatted_current_price": "$3.29",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$0.05",
+            "formatted_unit_price_suffix": "/fluid ounce",
+            "reg_retail": 3.29
+          },
+          "ratings_and_reviews": {
+            "statistics": {
+              "rating": {
+                "average": 4.65,
+                "count": 1281,
+                "secondary_averages": [
+                  {
+                    "id": "quality",
+                    "label": "quality",
+                    "value": 3.81
+                  },
+                  {
+                    "id": "taste",
+                    "label": "taste",
+                    "value": 3.69
+                  },
+                  {
+                    "id": "value",
+                    "label": "value",
+                    "value": 4.0
+                  }
+                ]
+              }
+            }
+          },
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "SA",
+            "product_classification": {
+              "item_type": {
+                "name": "Milk Substitutes",
+                "type": "434374"
+              }
+            },
+            "product_description": {
+              "title": "Lactose Free Vitamin D Milk - 0.5gal - Good & Gather&#8482;"
+            },
+            "merchandise_classification": {
+              "class_id": 6,
+              "department_id": 284
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/lactose-free-vitamin-d-milk-0-5gal-good-gather-8482/-/A-54498852",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_7c2bd13b-7ffb-442e-ab9d-f1e22e5f30d0",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_fb0b1872-a6dd-431b-98b8-e66c764e2f59",
+                  "https://target.scene7.com/is/image/Target/GUEST_d00d36d0-5637-4dfc-967e-da082f7e07d5",
+                  "https://target.scene7.com/is/image/Target/GUEST_fcc166de-42f2-4cb9-8bd8-d53bda3156f0",
+                  "https://target.scene7.com/is/image/Target/GUEST_d03315c1-a062-43c1-8712-dd14e361c455"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_7c2bd13b-7ffb-442e-ab9d-f1e22e5f30d0",
+                  "image_name": "GUEST_7c2bd13b-7ffb-442e-ab9d-f1e22e5f30d0",
+                  "alt_text": "Red and white carton of Good & Gather Lactose Free Milk with Vitamin D, labeled as ultra-pasteurized and half gallon (1.89 L)."
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_fb0b1872-a6dd-431b-98b8-e66c764e2f59",
+                    "image_name": "GUEST_fb0b1872-a6dd-431b-98b8-e66c764e2f59",
+                    "alt_text": "Red colored milk carton with a nutrition facts label showing 150 calories per serving."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_d00d36d0-5637-4dfc-967e-da082f7e07d5",
+                    "image_name": "GUEST_d00d36d0-5637-4dfc-967e-da082f7e07d5",
+                    "alt_text": "A clear glass filled with white colored milk against a white background."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_fcc166de-42f2-4cb9-8bd8-d53bda3156f0",
+                    "image_name": "GUEST_fcc166de-42f2-4cb9-8bd8-d53bda3156f0",
+                    "alt_text": "Nutrition label showing 150 calories per serving with ingredients including milk, lactase enzyme, and vitamin D3, and a note stating \"CONTAINS MILK.\""
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_d03315c1-a062-43c1-8712-dd14e361c455",
+                    "image_name": "GUEST_d03315c1-a062-43c1-8712-dd14e361c455",
+                    "alt_text": "Text stating \"Made without 100+ unwanted ingredients\" with details about no artificial flavors, sweeteners, synthetic colors, or high-fructose corn syrup, and a website link for more information."
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "77788700",
+          "promotions": [],
+          "price": {
+            "current_retail": 3.29,
+            "display_was_now": false,
+            "formatted_current_price": "$3.29",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$0.07",
+            "formatted_unit_price_suffix": "/ounce",
+            "reg_retail": 3.29
+          },
+          "ratings_and_reviews": {
+            "statistics": {
+              "rating": {
+                "average": 4.38,
+                "count": 2655,
+                "secondary_averages": [
+                  {
+                    "id": "quality",
+                    "label": "quality",
+                    "value": 2.48
+                  },
+                  {
+                    "id": "taste",
+                    "label": "taste",
+                    "value": 2.88
+                  },
+                  {
+                    "id": "value",
+                    "label": "value",
+                    "value": 2.88
+                  }
+                ]
+              }
+            }
+          },
+          "desirability_cues": [
+            {
+              "code": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases."
+            }
+          ],
+          "ornaments": [
+            {
+              "ornament": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases.",
+              "ornament_type": "guest",
+              "template_type": "light_marker_with_star"
+            }
+          ],
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "SA",
+            "product_classification": {
+              "item_type": {
+                "name": "Vegetables",
+                "type": "432323"
+              }
+            },
+            "product_description": {
+              "title": "Fresh Yellow Onions - 3lb Bag - Good &#38; Gather&#8482;"
+            },
+            "merchandise_classification": {
+              "class_id": 17,
+              "department_id": 211
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/yellow-onions-3lb-bag-good-38-gather-8482/-/A-77788700",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_70131a9d-a3a4-41b8-b348-2c928548b288",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_2f39379e-da27-49f3-b13a-bb5864d214ca",
+                  "https://target.scene7.com/is/image/Target/GUEST_bc8e1c94-ac85-4eef-92b1-5428ccae29f5",
+                  "https://target.scene7.com/is/image/Target/GUEST_19cb8933-7635-433a-9486-0db10a2a3cfc",
+                  "https://target.scene7.com/is/image/Target/GUEST_d03315c1-a062-43c1-8712-dd14e361c455"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_70131a9d-a3a4-41b8-b348-2c928548b288",
+                  "image_name": "GUEST_70131a9d-a3a4-41b8-b348-2c928548b288",
+                  "alt_text": "A mesh bag containing several yellow colored onions with a red tag labeled \"Yellow Onions 3 lb.\""
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_2f39379e-da27-49f3-b13a-bb5864d214ca",
+                    "image_name": "GUEST_2f39379e-da27-49f3-b13a-bb5864d214ca",
+                    "alt_text": "Three yellow colored onions with papery skins are placed on a white surface."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_bc8e1c94-ac85-4eef-92b1-5428ccae29f5",
+                    "image_name": "GUEST_bc8e1c94-ac85-4eef-92b1-5428ccae29f5",
+                    "alt_text": "A halved brown colored onion with one quarter and a slice separated, showing the white interior layers."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_19cb8933-7635-433a-9486-0db10a2a3cfc",
+                    "image_name": "GUEST_19cb8933-7635-433a-9486-0db10a2a3cfc",
+                    "alt_text": "100% satisfaction guaranteed or your money back.* Our produce is selected & stocked with care, guaranteed fresh. *Receipt required for a full refund"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_d03315c1-a062-43c1-8712-dd14e361c455",
+                    "image_name": "GUEST_d03315c1-a062-43c1-8712-dd14e361c455",
+                    "alt_text": "Text stating \"Made without 100+ unwanted ingredients\" with details about no artificial flavors, sweeteners, synthetic colors, or high-fructose corn syrup, and a website link for more information."
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "89550661",
+          "promotions": [
+            {
+              "plp_message": "Save $10, when you spend $50 on Health and Beauty items",
+              "pdp_message": "Save $10, when you spend $50 on Health and Beauty items",
+              "promotion_id": "130231674",
+              "external_promotion_alternate_id": "130231674",
+              "subscription_type": "ALL",
+              "circle_offer": true,
+              "promotion_class": "Hurdle",
+              "channel": "online_and_store",
+              "mass_offer": false,
+              "membership_offer_type": "base"
+            }
+          ],
+          "price": {
+            "current_retail": 9.99,
+            "display_was_now": false,
+            "formatted_current_price": "$9.99",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$0.54",
+            "formatted_unit_price_suffix": "/fluid ounce",
+            "reg_retail": 9.99
+          },
+          "ratings_and_reviews": {
+            "statistics": {
+              "rating": {
+                "average": 4.65,
+                "count": 686,
+                "secondary_averages": [
+                  {
+                    "id": "cleans effectively",
+                    "label": "cleans effectively",
+                    "value": 4.69
+                  },
+                  {
+                    "id": "quality",
+                    "label": "quality",
+                    "value": 4.6
+                  },
+                  {
+                    "id": "scent",
+                    "label": "scent",
+                    "value": 4.62
+                  },
+                  {
+                    "id": "value",
+                    "label": "value",
+                    "value": 4.41
+                  }
+                ]
+              }
+            }
+          },
+          "desirability_cues": [
+            {
+              "code": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases."
+            }
+          ],
+          "ornaments": [
+            {
+              "ornament": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases.",
+              "ornament_type": "guest",
+              "template_type": "light_marker_with_star"
+            }
+          ],
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "CC",
+            "product_classification": {
+              "item_type": {
+                "name": "Body Washes",
+                "type": "250524"
+              }
+            },
+            "product_description": {
+              "title": "Dove Hydration Boost Serum Body Wash Drenches Dry Skin with 6% Hydrating Serum with Hyaluronic Acid - 18.5 fl oz"
+            },
+            "merchandise_classification": {
+              "class_id": 0,
+              "department_id": 49
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/dove-serum-body-wash-hydration-boost-18-5-fl-oz/-/A-89550661",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_d0b8779f-666b-4f36-b012-0ef39fc2c1aa",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_7168432d-b120-4b3f-90e3-e5cd3242ca61",
+                  "https://target.scene7.com/is/image/Target/GUEST_a3bf3520-4920-4642-b261-381521ac1c65",
+                  "https://target.scene7.com/is/image/Target/GUEST_590225c8-0d73-4b86-9289-4e31a1ddbb53",
+                  "https://target.scene7.com/is/image/Target/GUEST_63e1127e-32a5-4b80-8e83-595dff087a00",
+                  "https://target.scene7.com/is/image/Target/GUEST_d45ea143-2c9a-4f80-9e09-2faa19fa662c",
+                  "https://target.scene7.com/is/image/Target/GUEST_583cde1c-c820-448c-9875-bbb5d987114a",
+                  "https://target.scene7.com/is/image/Target/GUEST_2c974b55-3120-488e-b42f-a3958d6523d1",
+                  "https://target.scene7.com/is/image/Target/GUEST_f0935d67-410e-490d-a43b-40e7fc4cb8c3"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_d0b8779f-666b-4f36-b012-0ef39fc2c1aa",
+                  "image_name": "GUEST_d0b8779f-666b-4f36-b012-0ef39fc2c1aa",
+                  "alt_text": "White bottle of Dove serum+hydration body wash with a pump top, surrounded by bubbles."
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_7168432d-b120-4b3f-90e3-e5cd3242ca61",
+                    "image_name": "GUEST_7168432d-b120-4b3f-90e3-e5cd3242ca61"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_a3bf3520-4920-4642-b261-381521ac1c65",
+                    "image_name": "GUEST_a3bf3520-4920-4642-b261-381521ac1c65",
+                    "alt_text": "Two white bottles of Dove body wash with gold colored pumps, featuring text \"serum+hydration\" and \"hydration boost,\" surrounded by bubbles, with additional text \"refreshed design, timeless care, now with the power of vitamin E.\""
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_590225c8-0d73-4b86-9289-4e31a1ddbb53",
+                    "image_name": "GUEST_590225c8-0d73-4b86-9289-4e31a1ddbb53",
+                    "alt_text": "White bottle with gold pump dispensing clear liquid, featuring text about hyaluronic acid and squalene benefits for skin."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_63e1127e-32a5-4b80-8e83-595dff087a00",
+                    "image_name": "GUEST_63e1127e-32a5-4b80-8e83-595dff087a00"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_d45ea143-2c9a-4f80-9e09-2faa19fa662c",
+                    "image_name": "GUEST_d45ea143-2c9a-4f80-9e09-2faa19fa662c",
+                    "alt_text": "White colored body wash with bubbles, featuring the text \"smooth texture & creamy lather\" and a gold colored bird logo."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_583cde1c-c820-448c-9875-bbb5d987114a",
+                    "image_name": "GUEST_583cde1c-c820-448c-9875-bbb5d987114a",
+                    "alt_text": "A close-up of a white jasmine flower with the text \"fresh jasmine\" and a gold colored bird logo in the corner."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_2c974b55-3120-488e-b42f-a3958d6523d1",
+                    "image_name": "GUEST_2c974b55-3120-488e-b42f-a3958d6523d1"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_f0935d67-410e-490d-a43b-40e7fc4cb8c3",
+                    "image_name": "GUEST_f0935d67-410e-490d-a43b-40e7fc4cb8c3"
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "87823129",
+          "promotions": [
+            {
+              "plp_message": "Buy 1, get 1 25% off select trash bags",
+              "pdp_message": "Buy 1, get 1 25% off select trash bags",
+              "promotion_id": "519613468",
+              "subscription_type": "ALL",
+              "circle_offer": false,
+              "promotion_class": "BOGO",
+              "channel": "online_and_store",
+              "mass_offer": true
+            }
+          ],
+          "price": {
+            "current_retail": 16.69,
+            "display_was_now": false,
+            "formatted_current_price": "$16.69",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$0.17",
+            "formatted_unit_price_suffix": "/count",
+            "reg_retail": 16.69
+          },
+          "desirability_cues": [
+            {
+              "code": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases."
+            }
+          ],
+          "ornaments": [
+            {
+              "ornament": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases.",
+              "ornament_type": "guest",
+              "template_type": "light_marker_with_star"
+            }
+          ],
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "VC",
+            "product_classification": {
+              "item_type": {
+                "name": "Trash Bags",
+                "type": "253741"
+              }
+            },
+            "product_description": {
+              "title": "UltraStretch Tall Kitchen Drawstring Trash Bags - Unscented - 13gal/100ct - up&#38;up&#8482;"
+            },
+            "merchandise_classification": {
+              "class_id": 2,
+              "department_id": 253
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/ultrastretch-tall-kitchen-drawstring-trash-bags-unscented-13-gallon-100ct-up-38-up-8482/-/A-87823129",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_9e316831-1f1b-484a-9b40-79e313a289b2",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_07f2aac6-e90d-4bbd-a211-70415c4bf780",
+                  "https://target.scene7.com/is/image/Target/GUEST_116a88bc-e970-4485-bc5d-d20e8fd9d9f5",
+                  "https://target.scene7.com/is/image/Target/GUEST_91fcf876-a059-447f-b23c-e1aab74c7b5e"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_9e316831-1f1b-484a-9b40-79e313a289b2",
+                  "image_name": "GUEST_9e316831-1f1b-484a-9b40-79e313a289b2",
+                  "alt_text": "A box of unscented tall kitchen drawstring bags with a 13-gallon capacity, featuring an orange drawstring and labeled with \"100 Drawstring Bags\" and \"up&up.\""
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_07f2aac6-e90d-4bbd-a211-70415c4bf780",
+                    "image_name": "GUEST_07f2aac6-e90d-4bbd-a211-70415c4bf780",
+                    "alt_text": "A white colored trash bag with an orange tie, filled and tied at the top, against a light blue background."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_116a88bc-e970-4485-bc5d-d20e8fd9d9f5",
+                    "image_name": "GUEST_116a88bc-e970-4485-bc5d-d20e8fd9d9f5",
+                    "alt_text": "A box of unscented tall kitchen drawstring bags with a 13-gallon capacity, containing 100 bags, is shown with a white bag tied with an orange drawstring on the front."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_91fcf876-a059-447f-b23c-e1aab74c7b5e",
+                    "image_name": "GUEST_91fcf876-a059-447f-b23c-e1aab74c7b5e",
+                    "alt_text": "Two packages of unscented tall kitchen 13-gallon bags with orange ties, featuring the \"up&up\" brand logo and text stating \"New look. Same trusted quality.\""
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "87990518",
+          "promotions": [
+            {
+              "plp_message": "Save $15, when you spend $80 on Baby care items",
+              "pdp_message": "Save $15, when you spend $80 on Baby care items",
+              "promotion_id": "359458777",
+              "external_promotion_alternate_id": "359458777",
+              "subscription_type": "ALL",
+              "circle_offer": true,
+              "promotion_class": "Hurdle",
+              "channel": "online_and_store",
+              "mass_offer": false,
+              "membership_offer_type": "base"
+            }
+          ],
+          "price": {
+            "current_retail": 25.99,
+            "display_was_now": false,
+            "formatted_current_price": "$25.99",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$0.16",
+            "formatted_unit_price_suffix": "/count",
+            "reg_retail": 25.99
+          },
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "VC",
+            "product_classification": {
+              "item_type": {
+                "name": "Disposable Diapers",
+                "type": "241102"
+              }
+            },
+            "product_description": {
+              "title": "Disposable Diapers - Size 2 - 162ct - up&#38;up&#8482;"
+            },
+            "merchandise_classification": {
+              "class_id": 1,
+              "department_id": 7
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/disposable-diapers-giant-pack-size-2-162ct-up-38-up-8482/-/A-87990518",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_6ac16e80-3db5-4492-8fe8-43513d8a2bea",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_1450dbe1-6be4-4f66-99f7-db2ec93ec20d",
+                  "https://target.scene7.com/is/image/Target/GUEST_07e83c13-306a-4424-9364-2eac8fe82c10",
+                  "https://target.scene7.com/is/image/Target/GUEST_98d86003-411f-472f-ad89-b57779021939",
+                  "https://target.scene7.com/is/image/Target/GUEST_bff5311c-a818-4c25-a255-32763fc592da",
+                  "https://target.scene7.com/is/image/Target/GUEST_bf6dd4d6-ef4c-40ea-9b96-2e6df546714d",
+                  "https://target.scene7.com/is/image/Target/GUEST_790fa97d-cdbb-4a0d-8f1e-bffef95a42aa",
+                  "https://target.scene7.com/is/image/Target/GUEST_1a551fcc-0c8f-434f-b4db-436edf7fc581",
+                  "https://target.scene7.com/is/image/Target/GUEST_d779f63c-c42d-4b4d-a689-10243ea55353",
+                  "https://target.scene7.com/is/image/Target/GUEST_afb9c45b-187d-4ea1-ae18-83a6f56505ef"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_6ac16e80-3db5-4492-8fe8-43513d8a2bea",
+                  "image_name": "GUEST_6ac16e80-3db5-4492-8fe8-43513d8a2bea",
+                  "alt_text": "A box of up&up brand diapers labeled \"Absorbent & Soft Diapers\" with size 2 for 12-18 lb (5-8 kg) babies, containing 162 diapers."
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_1450dbe1-6be4-4f66-99f7-db2ec93ec20d",
+                    "image_name": "GUEST_1450dbe1-6be4-4f66-99f7-db2ec93ec20d",
+                    "alt_text": "A circular badge with \"Best of Forbes Vetted 2026\" and the text \"Best Value Diapers\" below it on a light blue background."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_07e83c13-306a-4424-9364-2eac8fe82c10",
+                    "image_name": "GUEST_07e83c13-306a-4424-9364-2eac8fe82c10",
+                    "alt_text": "A baby wearing a white colored diaper is crawling on a light blue surface."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_98d86003-411f-472f-ad89-b57779021939",
+                    "image_name": "GUEST_98d86003-411f-472f-ad89-b57779021939",
+                    "alt_text": "Two white diapers with colorful designs and the number \"2\" printed on them, laid on a light gray surface."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_bff5311c-a818-4c25-a255-32763fc592da",
+                    "image_name": "GUEST_bff5311c-a818-4c25-a255-32763fc592da",
+                    "alt_text": "A white diaper with colorful sea-themed illustrations, featuring labeled elements such as tinted secure-grip tabs, breathable outer cover, wetness indicator, comfort-touch liner, and super-absorb channels."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_bf6dd4d6-ef4c-40ea-9b96-2e6df546714d",
+                    "image_name": "GUEST_bf6dd4d6-ef4c-40ea-9b96-2e6df546714d",
+                    "alt_text": "Size chart for disposable diapers showing size, weight, average time in size, and average diapers per day."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_790fa97d-cdbb-4a0d-8f1e-bffef95a42aa",
+                    "image_name": "GUEST_790fa97d-cdbb-4a0d-8f1e-bffef95a42aa",
+                    "alt_text": "A white diaper with features labeled, including a pocketed waistband, tinted secure-grip tabs, comfort-touch liner, superabsorb channels, breathable outer cover, and wetness indicator, with whale illustrations and the number 2."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_1a551fcc-0c8f-434f-b4db-436edf7fc581",
+                    "image_name": "GUEST_1a551fcc-0c8f-434f-b4db-436edf7fc581",
+                    "alt_text": "The back of a diaper package displaying ingredients, warnings, and certifications with a light blue border."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_d779f63c-c42d-4b4d-a689-10243ea55353",
+                    "image_name": "GUEST_d779f63c-c42d-4b4d-a689-10243ea55353"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_afb9c45b-187d-4ea1-ae18-83a6f56505ef",
+                    "image_name": "GUEST_afb9c45b-187d-4ea1-ae18-83a6f56505ef",
+                    "alt_text": "A chart listing diaper ingredients and their purposes, including sodium polyacrylate for absorbency and cellulose pulp for leakage protection."
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "83521698",
+          "promotions": [],
+          "price": {
+            "current_retail": 6.0,
+            "display_was_now": false,
+            "formatted_current_price": "$6.00",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$3.00",
+            "formatted_unit_price_suffix": "/count",
+            "reg_retail": 6.0
+          },
+          "ratings_and_reviews": {
+            "statistics": {
+              "rating": {
+                "average": 4.71,
+                "count": 684,
+                "secondary_averages": [
+                  {
+                    "id": "quality",
+                    "label": "quality",
+                    "value": 4.52
+                  },
+                  {
+                    "id": "value",
+                    "label": "value",
+                    "value": 4.5
+                  }
+                ]
+              }
+            }
+          },
+          "desirability_cues": [
+            {
+              "code": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases."
+            }
+          ],
+          "ornaments": [
+            {
+              "ornament": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases.",
+              "ornament_type": "guest",
+              "template_type": "light_marker_with_star"
+            },
+            {
+              "ornament": "low_returns",
+              "display": "Rarely returned",
+              "ornament_type": "enterprise",
+              "template_type": "thumbs_up_with_bold_text"
+            }
+          ],
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "SA",
+            "product_classification": {
+              "item_type": {
+                "name": "Clothes Hangers",
+                "type": "107795084"
+              }
+            },
+            "product_description": {
+              "title": "2pk Wood Pant Hangers w/Clips Natural - Brightroom&#8482;: Non-Slip Skirt &#38; Pants Storage"
+            },
+            "merchandise_classification": {
+              "class_id": 5,
+              "department_id": 2
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/2pk-wood-pant-hangers-with-clips-natural-brightroom-8482/-/A-83521698",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_1813576a-4f39-4cd7-bdbe-93b3af3f26d8",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_bdcca03d-3551-48e6-9b96-6e406e71d778",
+                  "https://target.scene7.com/is/image/Target/GUEST_88cf5849-1fbb-40a4-b0e7-55255320a615"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_1813576a-4f39-4cd7-bdbe-93b3af3f26d8",
+                  "image_name": "GUEST_1813576a-4f39-4cd7-bdbe-93b3af3f26d8",
+                  "alt_text": "Two natural wood pant hangers with black metal clips and hooks, designed for hanging skirts and pants."
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_bdcca03d-3551-48e6-9b96-6e406e71d778",
+                    "image_name": "GUEST_bdcca03d-3551-48e6-9b96-6e406e71d778",
+                    "alt_text": "Wood pant hanger with clips holding light-colored pants, hanging on a black rod."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_88cf5849-1fbb-40a4-b0e7-55255320a615",
+                    "image_name": "GUEST_88cf5849-1fbb-40a4-b0e7-55255320a615",
+                    "alt_text": "Wooden pant hanger with a natural finish, featuring black metal clips and a bar for hanging."
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "95116850",
+          "promotions": [],
+          "price": {
+            "current_retail": 3.99,
+            "display_was_now": false,
+            "formatted_current_price": "$3.99",
+            "formatted_current_price_type": "reg",
+            "reg_retail": 3.99
+          },
+          "ratings_and_reviews": {
+            "statistics": {
+              "rating": {
+                "average": 4.64,
+                "count": 303,
+                "secondary_averages": [
+                  {
+                    "id": "quality",
+                    "label": "quality",
+                    "value": 3.67
+                  },
+                  {
+                    "id": "taste",
+                    "label": "taste",
+                    "value": 3.5
+                  },
+                  {
+                    "id": "value",
+                    "label": "value",
+                    "value": 3.67
+                  }
+                ]
+              }
+            }
+          },
+          "desirability_cues": [
+            {
+              "code": "bestseller",
+              "display": "Bestseller",
+              "long_description": "Based on sales and guest views of this item within the last 30 days."
+            }
+          ],
+          "ornaments": [
+            {
+              "ornament": "bestseller",
+              "display": "Bestseller",
+              "long_description": "Based on sales and guest views of this item within the last 30 days.",
+              "ornament_type": "guest",
+              "template_type": "dark_marker_with_trophy"
+            }
+          ],
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "SA",
+            "product_classification": {
+              "item_type": {
+                "name": "Bagels",
+                "type": "74015137"
+              }
+            },
+            "product_description": {
+              "title": "Thomas Plain Bagels - 18oz/6ct"
+            },
+            "merchandise_classification": {
+              "class_id": 1,
+              "department_id": 261
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/thomas-plain-bagels-18oz-6ct/-/A-95116850",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_13d23127-d4d2-452c-9e37-9776602e1a6c",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_fe8f3ad5-7814-4227-81f6-bf54bf9b5b8a",
+                  "https://target.scene7.com/is/image/Target/GUEST_af904d5f-9bed-4310-a8c1-622c8d0cb860",
+                  "https://target.scene7.com/is/image/Target/GUEST_81349524-4d7f-44e5-9baf-c99bb5bf82cb",
+                  "https://target.scene7.com/is/image/Target/GUEST_abe8af62-7ead-4717-af9d-e79b6ea0acf0",
+                  "https://target.scene7.com/is/image/Target/GUEST_0d2310d2-1ff1-4a8a-b568-791a7dee7197",
+                  "https://target.scene7.com/is/image/Target/GUEST_afb3e98d-5018-4bf3-9e81-e2a7462c6154",
+                  "https://target.scene7.com/is/image/Target/GUEST_58ae0895-b69e-48cd-8c87-d0a3bd593623"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_13d23127-d4d2-452c-9e37-9776602e1a6c",
+                  "image_name": "GUEST_13d23127-d4d2-452c-9e37-9776602e1a6c"
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_fe8f3ad5-7814-4227-81f6-bf54bf9b5b8a",
+                    "image_name": "GUEST_fe8f3ad5-7814-4227-81f6-bf54bf9b5b8a"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_af904d5f-9bed-4310-a8c1-622c8d0cb860",
+                    "image_name": "GUEST_af904d5f-9bed-4310-a8c1-622c8d0cb860"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_81349524-4d7f-44e5-9baf-c99bb5bf82cb",
+                    "image_name": "GUEST_81349524-4d7f-44e5-9baf-c99bb5bf82cb"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_abe8af62-7ead-4717-af9d-e79b6ea0acf0",
+                    "image_name": "GUEST_abe8af62-7ead-4717-af9d-e79b6ea0acf0"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_0d2310d2-1ff1-4a8a-b568-791a7dee7197",
+                    "image_name": "GUEST_0d2310d2-1ff1-4a8a-b568-791a7dee7197"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_afb3e98d-5018-4bf3-9e81-e2a7462c6154",
+                    "image_name": "GUEST_afb3e98d-5018-4bf3-9e81-e2a7462c6154"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_58ae0895-b69e-48cd-8c87-d0a3bd593623",
+                    "image_name": "GUEST_58ae0895-b69e-48cd-8c87-d0a3bd593623"
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "91961804",
+          "promotions": [],
+          "price": {
+            "current_retail": 4.49,
+            "display_was_now": false,
+            "formatted_current_price": "$4.49",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$0.50",
+            "formatted_unit_price_suffix": "/ounce",
+            "reg_retail": 4.49
+          },
+          "ratings_and_reviews": {
+            "statistics": {
+              "rating": {
+                "average": 4.79,
+                "count": 56,
+                "secondary_averages": [
+                  {
+                    "id": "quality",
+                    "label": "quality",
+                    "value": 4.82
+                  },
+                  {
+                    "id": "taste",
+                    "label": "taste",
+                    "value": 5.0
+                  },
+                  {
+                    "id": "value",
+                    "label": "value",
+                    "value": 4.82
+                  }
+                ]
+              }
+            }
+          },
+          "desirability_cues": [
+            {
+              "code": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases."
+            }
+          ],
+          "ornaments": [
+            {
+              "ornament": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases.",
+              "ornament_type": "guest",
+              "template_type": "light_marker_with_star"
+            }
+          ],
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "SA",
+            "product_classification": {
+              "item_type": {
+                "name": "Fruit Spreads",
+                "type": "437278"
+              }
+            },
+            "product_description": {
+              "title": "Fig Spread - 9oz - Good &#38; Gather&#8482;"
+            },
+            "merchandise_classification": {
+              "class_id": 2,
+              "department_id": 212
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/fig-spread-9oz-good-38-gather-8482/-/A-91961804",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_27a2a66f-b02a-42a8-83ca-4a249b8ac0e8",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_0c762150-9b64-4afd-b6cb-13273371a44f",
+                  "https://target.scene7.com/is/image/Target/GUEST_cbda22be-4d18-4174-8854-c96ee97d96b0",
+                  "https://target.scene7.com/is/image/Target/GUEST_04e6a43d-3753-464d-82b4-ecf80a868564",
+                  "https://target.scene7.com/is/image/Target/GUEST_d03315c1-a062-43c1-8712-dd14e361c455"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_27a2a66f-b02a-42a8-83ca-4a249b8ac0e8",
+                  "image_name": "GUEST_27a2a66f-b02a-42a8-83ca-4a249b8ac0e8",
+                  "alt_text": "A jar of Good & Gather Fig Spread with a black lid, featuring an image of crackers topped with the spread and labeled \"NET WT 9 OZ (255g).\""
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_0c762150-9b64-4afd-b6cb-13273371a44f",
+                    "image_name": "GUEST_0c762150-9b64-4afd-b6cb-13273371a44f",
+                    "alt_text": "A jar with a black lid displaying a nutrition facts label, showing 60 calories per serving and ingredients including figs, sugar, and citric acid."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_cbda22be-4d18-4174-8854-c96ee97d96b0",
+                    "image_name": "GUEST_cbda22be-4d18-4174-8854-c96ee97d96b0",
+                    "alt_text": "A round cracker topped with a glossy red colored spread, placed next to another plain cracker, with a sprig of rosemary nearby."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_04e6a43d-3753-464d-82b4-ecf80a868564",
+                    "image_name": "GUEST_04e6a43d-3753-464d-82b4-ecf80a868564",
+                    "alt_text": "Nutrition label showing 60 calories per serving, 0g total fat, 10mg sodium, 16g total carbohydrates, 0g protein, and ingredients including figs, sugar, citric acid, and fruit pectin."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_d03315c1-a062-43c1-8712-dd14e361c455",
+                    "image_name": "GUEST_d03315c1-a062-43c1-8712-dd14e361c455",
+                    "alt_text": "Text stating \"Made without 100+ unwanted ingredients\" with details including \"No artificial flavors,\" \"No artificial sweeteners,\" \"No synthetic colors,\" and \"No high-fructose corn syrup,\" along with a website link for more information."
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "15013629",
+          "promotions": [],
+          "price": {
+            "current_retail": 0.89,
+            "display_was_now": false,
+            "formatted_current_price": "$0.89",
+            "formatted_current_price_type": "reg",
+            "reg_retail": 0.89
+          },
+          "ratings_and_reviews": {
+            "statistics": {
+              "rating": {
+                "average": 4.61,
+                "count": 3968,
+                "secondary_averages": [
+                  {
+                    "id": "quality",
+                    "label": "quality",
+                    "value": 3.47
+                  },
+                  {
+                    "id": "taste",
+                    "label": "taste",
+                    "value": 3.63
+                  },
+                  {
+                    "id": "value",
+                    "label": "value",
+                    "value": 3.59
+                  }
+                ]
+              }
+            }
+          },
+          "desirability_cues": [
+            {
+              "code": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases."
+            }
+          ],
+          "ornaments": [
+            {
+              "ornament": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases.",
+              "ornament_type": "guest",
+              "template_type": "light_marker_with_star"
+            }
+          ],
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "SA",
+            "product_classification": {
+              "item_type": {
+                "name": "Fruit",
+                "type": "432322"
+              }
+            },
+            "product_description": {
+              "title": "Fresh Lemon - each"
+            },
+            "merchandise_classification": {
+              "class_id": 1,
+              "department_id": 267
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/lemon-each/-/A-15013629",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_83fc2746-ffd9-4567-9bbf-7cb763b29e7f",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_752ba0b5-b726-47e0-a0c5-fc646e4ec020",
+                  "https://target.scene7.com/is/image/Target/GUEST_3378ac0e-98c9-4b4e-b3a7-6f6a16aa69e2",
+                  "https://target.scene7.com/is/image/Target/GUEST_19cb8933-7635-433a-9486-0db10a2a3cfc"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_83fc2746-ffd9-4567-9bbf-7cb763b29e7f",
+                  "image_name": "GUEST_83fc2746-ffd9-4567-9bbf-7cb763b29e7f"
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_752ba0b5-b726-47e0-a0c5-fc646e4ec020",
+                    "image_name": "GUEST_752ba0b5-b726-47e0-a0c5-fc646e4ec020"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_3378ac0e-98c9-4b4e-b3a7-6f6a16aa69e2",
+                    "image_name": "GUEST_3378ac0e-98c9-4b4e-b3a7-6f6a16aa69e2"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_19cb8933-7635-433a-9486-0db10a2a3cfc",
+                    "image_name": "GUEST_19cb8933-7635-433a-9486-0db10a2a3cfc"
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "12955140",
+          "promotions": [],
+          "price": {
+            "current_retail": 3.99,
+            "display_was_now": false,
+            "formatted_current_price": "$3.99",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$0.33",
+            "formatted_unit_price_suffix": "/ounce",
+            "reg_retail": 3.99
+          },
+          "desirability_cues": [
+            {
+              "code": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases."
+            }
+          ],
+          "ornaments": [
+            {
+              "ornament": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases.",
+              "ornament_type": "guest",
+              "template_type": "light_marker_with_star"
+            }
+          ],
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "VC",
+            "product_classification": {
+              "item_type": {
+                "name": "Cheeses",
+                "type": "113286005"
+              }
+            },
+            "product_description": {
+              "title": "Kraft Singles American Cheese Slices - 12oz/16ct"
+            },
+            "merchandise_classification": {
+              "class_id": 11,
+              "department_id": 284
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/kraft-singles-american-cheese-slices-12oz-16ct/-/A-12955140",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_620ed99b-e572-4487-a038-8dadb6347367",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_f4930646-61ab-408e-b2e1-3a139d2e0daf",
+                  "https://target.scene7.com/is/image/Target/GUEST_d2151f69-473e-4fa9-b605-c2fc3456aab9",
+                  "https://target.scene7.com/is/image/Target/GUEST_968828f5-fe24-4878-a3e1-424d19824c69",
+                  "https://target.scene7.com/is/image/Target/GUEST_b76c8b1a-f170-4c0b-8d7c-f86bff0939be",
+                  "https://target.scene7.com/is/image/Target/GUEST_28b83a10-5b47-4958-b6b0-3599efb83d4e",
+                  "https://target.scene7.com/is/image/Target/GUEST_9e2b0c88-cfdc-4f21-8ea3-0fe7e37dfe75",
+                  "https://target.scene7.com/is/image/Target/GUEST_fa0c5480-7f9f-462f-a160-3d2ebbb57dc5",
+                  "https://target.scene7.com/is/image/Target/GUEST_059917e7-a120-46f1-91f3-bf9bcc42c38d"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_620ed99b-e572-4487-a038-8dadb6347367",
+                  "image_name": "GUEST_620ed99b-e572-4487-a038-8dadb6347367",
+                  "alt_text": "Packaging of Kraft Singles American cheese slices with an image of a cheeseburger and text stating \"Made with Real Dairy\" and \"16 slices.\""
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_f4930646-61ab-408e-b2e1-3a139d2e0daf",
+                    "image_name": "GUEST_f4930646-61ab-408e-b2e1-3a139d2e0daf",
+                    "alt_text": "Nutrition label showing 50 calories per serving, with details including total fat 3.5g, cholesterol 15mg, sodium 230mg, total carbohydrates 2g, protein 4g, and calcium 330mg."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_d2151f69-473e-4fa9-b605-c2fc3456aab9",
+                    "image_name": "GUEST_d2151f69-473e-4fa9-b605-c2fc3456aab9"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_968828f5-fe24-4878-a3e1-424d19824c69",
+                    "image_name": "GUEST_968828f5-fe24-4878-a3e1-424d19824c69",
+                    "alt_text": "A stack of yellow colored cheese slices with a blue square overlay displaying the text \"16 Slices of Creamy Goodness.\""
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_b76c8b1a-f170-4c0b-8d7c-f86bff0939be",
+                    "image_name": "GUEST_b76c8b1a-f170-4c0b-8d7c-f86bff0939be",
+                    "alt_text": "Two hands pulling apart a grilled cheese sandwich with melted cheese stretching between the slices, with \"Kraft Singles\" and \"PERFECTLY MELTY\" text visible."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_28b83a10-5b47-4958-b6b0-3599efb83d4e",
+                    "image_name": "GUEST_28b83a10-5b47-4958-b6b0-3599efb83d4e",
+                    "alt_text": "A cheeseburger with a slice of yellow colored cheese, lettuce, tomato, and bacon held between two hands, with \"Kraft Singles\" and \"EVERY SINGLE TIME\" text visible."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_9e2b0c88-cfdc-4f21-8ea3-0fe7e37dfe75",
+                    "image_name": "GUEST_9e2b0c88-cfdc-4f21-8ea3-0fe7e37dfe75",
+                    "alt_text": "Stacks of orange colored cheese slices surround a white square with the text \"MADE WITH REAL DAIRY\" in bold blue letters."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_fa0c5480-7f9f-462f-a160-3d2ebbb57dc5",
+                    "image_name": "GUEST_fa0c5480-7f9f-462f-a160-3d2ebbb57dc5"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_059917e7-a120-46f1-91f3-bf9bcc42c38d",
+                    "image_name": "GUEST_059917e7-a120-46f1-91f3-bf9bcc42c38d",
+                    "alt_text": "Four packages of Kraft Singles cheese in American, White American, 2% Milk American, and Sharp Cheddar varieties, each labeled \"Made with Real Dairy.\""
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "14082220",
+          "promotions": [],
+          "price": {
+            "current_retail": 9.99,
+            "display_was_now": false,
+            "formatted_current_price": "$9.99",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$0.91",
+            "formatted_unit_price_suffix": "/ounce",
+            "reg_retail": 9.99
+          },
+          "ratings_and_reviews": {
+            "statistics": {
+              "rating": {
+                "average": 4.7,
+                "count": 1557,
+                "secondary_averages": [
+                  {
+                    "id": "quality",
+                    "label": "quality",
+                    "value": 4.74
+                  },
+                  {
+                    "id": "taste",
+                    "label": "taste",
+                    "value": 4.91
+                  },
+                  {
+                    "id": "value",
+                    "label": "value",
+                    "value": 4.66
+                  }
+                ]
+              }
+            }
+          },
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "SA",
+            "product_classification": {
+              "item_type": {
+                "name": "Crackers",
+                "type": "426173"
+              }
+            },
+            "product_description": {
+              "title": "Annie&#39;s Homegrown Variety Snack Pack - 12ct/11oz"
+            },
+            "merchandise_classification": {
+              "class_id": 10,
+              "department_id": 71
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/annie-s-homegrown-variety-snack-pack-12ct/-/A-14082220",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_8913c27a-56b8-4fe9-b263-1690b885a854",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_c77daa7c-4232-46c5-9583-0752651c36a2",
+                  "https://target.scene7.com/is/image/Target/GUEST_cac48d17-df62-41d9-819a-87f73fd040bb",
+                  "https://target.scene7.com/is/image/Target/GUEST_07288a40-236f-4e11-92cc-c89838a432e3",
+                  "https://target.scene7.com/is/image/Target/GUEST_ad195b1f-99d8-45e8-9bd2-1c366813086d",
+                  "https://target.scene7.com/is/image/Target/GUEST_5634f3f0-b7d2-4135-8da2-22bb29f41018",
+                  "https://target.scene7.com/is/image/Target/GUEST_cfd5665a-44ec-41bc-a907-047edb6b6dbf",
+                  "https://target.scene7.com/is/image/Target/GUEST_b14cf4ec-ed65-41e6-9390-cf05d7afc372",
+                  "https://target.scene7.com/is/image/Target/GUEST_4980a2a5-b623-42c3-b24c-952e62f663cc"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_8913c27a-56b8-4fe9-b263-1690b885a854",
+                  "image_name": "GUEST_8913c27a-56b8-4fe9-b263-1690b885a854"
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_c77daa7c-4232-46c5-9583-0752651c36a2",
+                    "image_name": "GUEST_c77daa7c-4232-46c5-9583-0752651c36a2"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_cac48d17-df62-41d9-819a-87f73fd040bb",
+                    "image_name": "GUEST_cac48d17-df62-41d9-819a-87f73fd040bb"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_07288a40-236f-4e11-92cc-c89838a432e3",
+                    "image_name": "GUEST_07288a40-236f-4e11-92cc-c89838a432e3"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_ad195b1f-99d8-45e8-9bd2-1c366813086d",
+                    "image_name": "GUEST_ad195b1f-99d8-45e8-9bd2-1c366813086d"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_5634f3f0-b7d2-4135-8da2-22bb29f41018",
+                    "image_name": "GUEST_5634f3f0-b7d2-4135-8da2-22bb29f41018"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_cfd5665a-44ec-41bc-a907-047edb6b6dbf",
+                    "image_name": "GUEST_cfd5665a-44ec-41bc-a907-047edb6b6dbf"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_b14cf4ec-ed65-41e6-9390-cf05d7afc372",
+                    "image_name": "GUEST_b14cf4ec-ed65-41e6-9390-cf05d7afc372"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_4980a2a5-b623-42c3-b24c-952e62f663cc",
+                    "image_name": "GUEST_4980a2a5-b623-42c3-b24c-952e62f663cc"
+                  }
+                ],
+                "swatch_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_0d6150cb-6f3c-4bbf-afb3-b94430a652ce",
+                  "image_name": "GUEST_0d6150cb-6f3c-4bbf-afb3-b94430a652ce"
+                }
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "87670002",
+          "promotions": [],
+          "price": {
+            "current_retail": 8.99,
+            "display_was_now": false,
+            "formatted_current_price": "$8.99",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$0.49",
+            "formatted_unit_price_suffix": "/ounce",
+            "reg_retail": 8.99
+          },
+          "ratings_and_reviews": {
+            "statistics": {
+              "rating": {
+                "average": 4.38,
+                "count": 8,
+                "secondary_averages": [
+                  {
+                    "id": "quality",
+                    "label": "quality",
+                    "value": 5.0
+                  },
+                  {
+                    "id": "taste",
+                    "label": "taste",
+                    "value": 5.0
+                  },
+                  {
+                    "id": "value",
+                    "label": "value",
+                    "value": 5.0
+                  }
+                ]
+              }
+            }
+          },
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "SA",
+            "product_classification": {
+              "item_type": {
+                "name": "Sausages",
+                "type": "435424"
+              }
+            },
+            "product_description": {
+              "title": "Jimmy Dean Frozen Fully Cooked All-Natural Pork Patties - 21.6oz"
+            },
+            "merchandise_classification": {
+              "class_id": 5,
+              "department_id": 270
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/jimmy-dean-frozen-fully-cooked-all-natural-pork-patties-18-3oz/-/A-87670002",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_9fd004dd-742d-4a50-9b0a-60fbbdeea42d",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_d13adfa9-f5d0-4059-a331-a7f57f813170",
+                  "https://target.scene7.com/is/image/Target/GUEST_21027d1a-215e-4f4e-843f-782d4bb1726d",
+                  "https://target.scene7.com/is/image/Target/GUEST_ad44a98b-6380-45f2-9509-cdf40167d5ca",
+                  "https://target.scene7.com/is/image/Target/GUEST_97684628-019d-4785-b6e2-512a9e606403",
+                  "https://target.scene7.com/is/image/Target/GUEST_81e374e5-59c3-4c12-8fda-b9f27a763975",
+                  "https://target.scene7.com/is/image/Target/GUEST_ae264d53-3253-40c7-8368-ae822f8bcd35",
+                  "https://target.scene7.com/is/image/Target/GUEST_0f724062-c993-4e49-a02e-64bb892b4f37",
+                  "https://target.scene7.com/is/image/Target/GUEST_17d94bb6-f6a2-422a-ad52-4b7c1e12ac0f",
+                  "https://target.scene7.com/is/image/Target/GUEST_8d89e480-fdd2-446d-b4a5-a27eeac69b54",
+                  "https://target.scene7.com/is/image/Target/GUEST_0a2735ca-bd3a-4f54-9752-23600a839eaf",
+                  "https://target.scene7.com/is/image/Target/GUEST_f15ff6c3-fc9b-4b63-8532-fef2b85a4b6d"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_9fd004dd-742d-4a50-9b0a-60fbbdeea42d",
+                  "image_name": "GUEST_9fd004dd-742d-4a50-9b0a-60fbbdeea42d"
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_d13adfa9-f5d0-4059-a331-a7f57f813170",
+                    "image_name": "GUEST_d13adfa9-f5d0-4059-a331-a7f57f813170"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_21027d1a-215e-4f4e-843f-782d4bb1726d",
+                    "image_name": "GUEST_21027d1a-215e-4f4e-843f-782d4bb1726d"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_ad44a98b-6380-45f2-9509-cdf40167d5ca",
+                    "image_name": "GUEST_ad44a98b-6380-45f2-9509-cdf40167d5ca"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_97684628-019d-4785-b6e2-512a9e606403",
+                    "image_name": "GUEST_97684628-019d-4785-b6e2-512a9e606403"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_81e374e5-59c3-4c12-8fda-b9f27a763975",
+                    "image_name": "GUEST_81e374e5-59c3-4c12-8fda-b9f27a763975"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_ae264d53-3253-40c7-8368-ae822f8bcd35",
+                    "image_name": "GUEST_ae264d53-3253-40c7-8368-ae822f8bcd35"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_0f724062-c993-4e49-a02e-64bb892b4f37",
+                    "image_name": "GUEST_0f724062-c993-4e49-a02e-64bb892b4f37"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_17d94bb6-f6a2-422a-ad52-4b7c1e12ac0f",
+                    "image_name": "GUEST_17d94bb6-f6a2-422a-ad52-4b7c1e12ac0f"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_8d89e480-fdd2-446d-b4a5-a27eeac69b54",
+                    "image_name": "GUEST_8d89e480-fdd2-446d-b4a5-a27eeac69b54"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_0a2735ca-bd3a-4f54-9752-23600a839eaf",
+                    "image_name": "GUEST_0a2735ca-bd3a-4f54-9752-23600a839eaf"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_f15ff6c3-fc9b-4b63-8532-fef2b85a4b6d",
+                    "image_name": "GUEST_f15ff6c3-fc9b-4b63-8532-fef2b85a4b6d"
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "47811638",
+          "promotions": [],
+          "price": {
+            "current_retail": 0.29,
+            "display_was_now": false,
+            "formatted_current_price": "$0.29",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$0.00",
+            "formatted_unit_price_suffix": "/count",
+            "reg_retail": 0.29
+          },
+          "ratings_and_reviews": {
+            "statistics": {
+              "rating": {
+                "average": 4.14,
+                "count": 407,
+                "secondary_averages": [
+                  {
+                    "id": "quality",
+                    "label": "quality",
+                    "value": 1.68
+                  },
+                  {
+                    "id": "taste",
+                    "label": "taste",
+                    "value": 2.12
+                  },
+                  {
+                    "id": "value",
+                    "label": "value",
+                    "value": 1.95
+                  }
+                ]
+              }
+            }
+          },
+          "desirability_cues": [
+            {
+              "code": "bestseller",
+              "display": "Bestseller",
+              "long_description": "Based on sales and guest views of this item within the last 30 days."
+            }
+          ],
+          "ornaments": [
+            {
+              "ornament": "bestseller",
+              "display": "Bestseller",
+              "long_description": "Based on sales and guest views of this item within the last 30 days.",
+              "ornament_type": "guest",
+              "template_type": "dark_marker_with_trophy"
+            }
+          ],
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "SA",
+            "product_classification": {
+              "item_type": {
+                "name": "Vegetables",
+                "type": "432323"
+              }
+            },
+            "product_description": {
+              "title": "Fresh Roma Tomato - each"
+            },
+            "merchandise_classification": {
+              "class_id": 12,
+              "department_id": 211
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/extra-large-roma-tomato-each/-/A-47811638",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_a19aa6fe-d6cb-4a07-960b-2e0dd5e07e39",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_ad45f3ef-e666-4322-82ff-2a1780c2b2ac",
+                  "https://target.scene7.com/is/image/Target/GUEST_52524f16-9b8d-420f-bd78-4ff68f5c54d8",
+                  "https://target.scene7.com/is/image/Target/GUEST_fd441bf4-a7e3-461a-880c-5853c12f3d92",
+                  "https://target.scene7.com/is/image/Target/GUEST_19cb8933-7635-433a-9486-0db10a2a3cfc"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_a19aa6fe-d6cb-4a07-960b-2e0dd5e07e39",
+                  "image_name": "GUEST_a19aa6fe-d6cb-4a07-960b-2e0dd5e07e39"
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_ad45f3ef-e666-4322-82ff-2a1780c2b2ac",
+                    "image_name": "GUEST_ad45f3ef-e666-4322-82ff-2a1780c2b2ac"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_52524f16-9b8d-420f-bd78-4ff68f5c54d8",
+                    "image_name": "GUEST_52524f16-9b8d-420f-bd78-4ff68f5c54d8"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_fd441bf4-a7e3-461a-880c-5853c12f3d92",
+                    "image_name": "GUEST_fd441bf4-a7e3-461a-880c-5853c12f3d92"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_19cb8933-7635-433a-9486-0db10a2a3cfc",
+                    "image_name": "GUEST_19cb8933-7635-433a-9486-0db10a2a3cfc"
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "80160226",
+          "promotions": [
+            {
+              "plp_message": "Save $10, when you spend $50 on Health and Beauty items",
+              "pdp_message": "Save $10, when you spend $50 on Health and Beauty items",
+              "promotion_id": "130231674",
+              "external_promotion_alternate_id": "130231674",
+              "subscription_type": "ALL",
+              "circle_offer": true,
+              "promotion_class": "Hurdle",
+              "channel": "online_and_store",
+              "mass_offer": false,
+              "membership_offer_type": "base"
+            }
+          ],
+          "price": {
+            "current_retail": 11.0,
+            "display_was_now": false,
+            "formatted_current_price": "$11.00",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$5.50",
+            "formatted_unit_price_suffix": "/ounce",
+            "reg_retail": 11.0
+          },
+          "desirability_cues": [
+            {
+              "code": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases."
+            }
+          ],
+          "ornaments": [
+            {
+              "ornament": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases.",
+              "ornament_type": "guest",
+              "template_type": "light_marker_with_star"
+            }
+          ],
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "VC",
+            "product_classification": {
+              "item_type": {
+                "name": "Face Cleansers",
+                "type": "250642"
+              }
+            },
+            "product_description": {
+              "title": "e.l.f. SKIN Holy Hydration Makeup Melting Cleansing Balm - 2 oz: Paraben-Free, Vegan, For Oily, Combination &#38; Dry Skin"
+            },
+            "merchandise_classification": {
+              "class_id": 16,
+              "department_id": 52
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/e-l-f-holy-hydration-makeup-melting-scented-cleansing-balm-2oz/-/A-80160226",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_419dfbe4-610b-4577-8ef5-ffe6fd87f41e",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_c92a24c5-9f5d-42a0-baa9-c3891558129a",
+                  "https://target.scene7.com/is/image/Target/GUEST_733fb5be-2fc4-4662-ab1d-3d652f5fd3db",
+                  "https://target.scene7.com/is/image/Target/GUEST_c8efb8fa-d7e3-4c41-9ac3-6625bb44d8c4",
+                  "https://target.scene7.com/is/image/Target/GUEST_7aabd186-97fb-4c22-bea3-ca08472464f7",
+                  "https://target.scene7.com/is/image/Target/GUEST_c054c3b8-32f3-46ef-9dd9-7ed95d15cb23",
+                  "https://target.scene7.com/is/image/Target/GUEST_60cfc84e-1a74-45f4-a557-47f54b2168bd",
+                  "https://target.scene7.com/is/image/Target/GUEST_dd02e07e-f3b6-4284-aa7d-1c40aa4ba38e",
+                  "https://target.scene7.com/is/image/Target/GUEST_2eeb553a-3bf1-44ea-b9c8-f3f72d21ab1d"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_419dfbe4-610b-4577-8ef5-ffe6fd87f41e",
+                  "image_name": "GUEST_419dfbe4-610b-4577-8ef5-ffe6fd87f41e"
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_c92a24c5-9f5d-42a0-baa9-c3891558129a",
+                    "image_name": "GUEST_c92a24c5-9f5d-42a0-baa9-c3891558129a"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_733fb5be-2fc4-4662-ab1d-3d652f5fd3db",
+                    "image_name": "GUEST_733fb5be-2fc4-4662-ab1d-3d652f5fd3db"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_c8efb8fa-d7e3-4c41-9ac3-6625bb44d8c4",
+                    "image_name": "GUEST_c8efb8fa-d7e3-4c41-9ac3-6625bb44d8c4"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_7aabd186-97fb-4c22-bea3-ca08472464f7",
+                    "image_name": "GUEST_7aabd186-97fb-4c22-bea3-ca08472464f7"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_c054c3b8-32f3-46ef-9dd9-7ed95d15cb23",
+                    "image_name": "GUEST_c054c3b8-32f3-46ef-9dd9-7ed95d15cb23"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_60cfc84e-1a74-45f4-a557-47f54b2168bd",
+                    "image_name": "GUEST_60cfc84e-1a74-45f4-a557-47f54b2168bd"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_dd02e07e-f3b6-4284-aa7d-1c40aa4ba38e",
+                    "image_name": "GUEST_dd02e07e-f3b6-4284-aa7d-1c40aa4ba38e"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_2eeb553a-3bf1-44ea-b9c8-f3f72d21ab1d",
+                    "image_name": "GUEST_2eeb553a-3bf1-44ea-b9c8-f3f72d21ab1d"
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "81039617",
+          "promotions": [
+            {
+              "plp_message": "Save $15, when you spend $80 on Baby care items",
+              "pdp_message": "Save $15, when you spend $80 on Baby care items",
+              "promotion_id": "359458777",
+              "external_promotion_alternate_id": "359458777",
+              "subscription_type": "ALL",
+              "circle_offer": true,
+              "promotion_class": "Hurdle",
+              "channel": "online_and_store",
+              "mass_offer": false,
+              "membership_offer_type": "base"
+            }
+          ],
+          "price": {
+            "current_retail": 26.99,
+            "display_was_now": false,
+            "formatted_current_price": "$26.99",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$0.28",
+            "formatted_unit_price_suffix": "/count",
+            "reg_retail": 26.99
+          },
+          "desirability_cues": [
+            {
+              "code": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases."
+            }
+          ],
+          "ornaments": [
+            {
+              "ornament": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases.",
+              "ornament_type": "guest",
+              "template_type": "light_marker_with_star"
+            }
+          ],
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "VC",
+            "product_classification": {
+              "item_type": {
+                "name": "Disposable Diapers",
+                "type": "241102"
+              }
+            },
+            "product_description": {
+              "title": "Millie Moon Luxury Disposable Diapers - Size 2 - 96ct"
+            },
+            "merchandise_classification": {
+              "class_id": 6,
+              "department_id": 7
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/millie-moon-luxury-diapers-size-2-96ct/-/A-81039617",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_94333244-d4bf-480e-964b-9f66e8a3422b",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_7e38102d-e93b-4c77-92b6-1e4dd49b335b",
+                  "https://target.scene7.com/is/image/Target/GUEST_62a116e2-bf07-4c25-bd7c-aede4a00caba",
+                  "https://target.scene7.com/is/image/Target/GUEST_98f87932-79a1-407f-9f12-c8c6b078d721",
+                  "https://target.scene7.com/is/image/Target/GUEST_ea2fcc92-926c-4b16-a9db-7eaf125e1dff",
+                  "https://target.scene7.com/is/image/Target/GUEST_f849e391-3ae7-47da-8584-d2c8859ca8ee",
+                  "https://target.scene7.com/is/image/Target/GUEST_1fda64f9-3ec1-48b3-a3e1-0515038e9976",
+                  "https://target.scene7.com/is/image/Target/GUEST_f790dd17-fca1-4e18-ab40-a8386bb85e49",
+                  "https://target.scene7.com/is/image/Target/GUEST_a0d6988c-48cf-4bc6-b8e4-610f47ade23b",
+                  "https://target.scene7.com/is/image/Target/GUEST_ab1b315c-4bfe-449d-9417-fe8e7a95cbaa"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_94333244-d4bf-480e-964b-9f66e8a3422b",
+                  "image_name": "GUEST_94333244-d4bf-480e-964b-9f66e8a3422b",
+                  "alt_text": "A box of Millie Moon luxury diapers with \"Cloud Touch Softness\" and \"96 Pack\" labels, featuring a baby wearing a diaper."
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_7e38102d-e93b-4c77-92b6-1e4dd49b335b",
+                    "image_name": "GUEST_7e38102d-e93b-4c77-92b6-1e4dd49b335b",
+                    "alt_text": "Box of diapers with features listed including dermatologically tested, feather soft, 12-hour absorbency, wetness indicator, double leak guard, pH balance liner, secure tabs, and snug high waist."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_62a116e2-bf07-4c25-bd7c-aede4a00caba",
+                    "image_name": "GUEST_62a116e2-bf07-4c25-bd7c-aede4a00caba",
+                    "alt_text": "A white diaper with decorative patterns, featuring a snug and high waistband, secure tabs, Cloudtouch\u2122 softness, wetness indicator, double leak guards, and up to 12-hour absorbency, with the text \"Millie Moon\" visible."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_98f87932-79a1-407f-9f12-c8c6b078d721",
+                    "image_name": "GUEST_98f87932-79a1-407f-9f12-c8c6b078d721",
+                    "alt_text": "A baby wearing a diaper with \"Millie Moon\" text, held by an adult, with text stating \"Dermatologist tested safe on sensitive skin, 0% Lotions, Latex or Fragrance.\""
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_ea2fcc92-926c-4b16-a9db-7eaf125e1dff",
+                    "image_name": "GUEST_ea2fcc92-926c-4b16-a9db-7eaf125e1dff",
+                    "alt_text": "A baby wearing a diaper with \"Millie Moon\" text visible, held by an adult."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_f849e391-3ae7-47da-8584-d2c8859ca8ee",
+                    "image_name": "GUEST_f849e391-3ae7-47da-8584-d2c8859ca8ee",
+                    "alt_text": "A baby wearing a white colored diaper with blue and beige patterns, featuring secure tabs, a snug and high waistband, and double leak guards, with text stating \"Up To 12 Hour Absorbency.\""
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_1fda64f9-3ec1-48b3-a3e1-0515038e9976",
+                    "image_name": "GUEST_1fda64f9-3ec1-48b3-a3e1-0515038e9976",
+                    "alt_text": "Chart showing diaper sizes N to 7 with corresponding weight ranges from less than 9 lbs to over 37 lbs."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_f790dd17-fca1-4e18-ab40-a8386bb85e49",
+                    "image_name": "GUEST_f790dd17-fca1-4e18-ab40-a8386bb85e49",
+                    "alt_text": "A baby wearing a patterned diaper with the text \"Millie Moon\" visible on the waistband, lying on a white surface."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_a0d6988c-48cf-4bc6-b8e4-610f47ade23b",
+                    "image_name": "GUEST_a0d6988c-48cf-4bc6-b8e4-610f47ade23b",
+                    "alt_text": "A baby wearing a diaper is held by an adult in a cozy room with a lamp and soft furnishings, with text reading \"Made with CloudTouch\u2122 Softness for ultimate comfort.\""
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_ab1b315c-4bfe-449d-9417-fe8e7a95cbaa",
+                    "image_name": "GUEST_ab1b315c-4bfe-449d-9417-fe8e7a95cbaa",
+                    "alt_text": "Boxes of Millie Moon Overnight Diapers, Luxury Diapers, Training Pants, and Sensitive Wipes are displayed on a beige surface."
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "14871917",
+          "promotions": [],
+          "price": {
+            "current_retail": 9.49,
+            "display_was_now": false,
+            "formatted_current_price": "$9.49",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$0.59",
+            "formatted_unit_price_suffix": "/ounce",
+            "reg_retail": 9.49
+          },
+          "ratings_and_reviews": {
+            "statistics": {
+              "rating": {
+                "average": 4.5,
+                "count": 809,
+                "secondary_averages": [
+                  {
+                    "id": "quality",
+                    "label": "quality",
+                    "value": 3.37
+                  },
+                  {
+                    "id": "taste",
+                    "label": "taste",
+                    "value": 3.75
+                  },
+                  {
+                    "id": "value",
+                    "label": "value",
+                    "value": 3.55
+                  }
+                ]
+              }
+            }
+          },
+          "desirability_cues": [
+            {
+              "code": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases."
+            }
+          ],
+          "ornaments": [
+            {
+              "ornament": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases.",
+              "ornament_type": "guest",
+              "template_type": "light_marker_with_star"
+            }
+          ],
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "SA",
+            "product_classification": {
+              "item_type": {
+                "name": "Shellfish",
+                "type": "435712"
+              }
+            },
+            "product_description": {
+              "title": "Jumbo Tail On Peeled &#38; Deveined Raw Shrimp - Frozen - 26-30ct per lb/16oz - Good &#38; Gather&#8482;"
+            },
+            "merchandise_classification": {
+              "class_id": 7,
+              "department_id": 210
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/jumbo-tail-on-peeled-38-deveined-raw-shrimp-frozen-26-30ct-per-lb-16oz-good-38-gather-8482/-/A-14871917",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_d9240a45-3de0-45a7-8c39-e43c52c03b53",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_0fe6a435-d805-400f-8658-7e9c81bc2990",
+                  "https://target.scene7.com/is/image/Target/GUEST_50da9f97-1cd4-4f88-852e-027bc5c05ecc",
+                  "https://target.scene7.com/is/image/Target/GUEST_0707c99f-7ac6-4e6c-968f-980035a4f3ef",
+                  "https://target.scene7.com/is/image/Target/GUEST_0d3dd1f5-f0a5-4ecb-a72c-1376db52c3da",
+                  "https://target.scene7.com/is/image/Target/GUEST_d03315c1-a062-43c1-8712-dd14e361c455"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_d9240a45-3de0-45a7-8c39-e43c52c03b53",
+                  "image_name": "GUEST_d9240a45-3de0-45a7-8c39-e43c52c03b53",
+                  "alt_text": "A turquoise package of Good & Gather Jumbo Raw Shrimp, labeled as tail-on, peeled, and deveined, with 26-30 shrimp per pound and a net weight of 16 oz (1 lb) 454g."
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_0fe6a435-d805-400f-8658-7e9c81bc2990",
+                    "image_name": "GUEST_0fe6a435-d805-400f-8658-7e9c81bc2990",
+                    "alt_text": "A turquoise colored package of shrimp with nutrition facts, cooking directions, and quick dip recipes printed on the back."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_50da9f97-1cd4-4f88-852e-027bc5c05ecc",
+                    "image_name": "GUEST_50da9f97-1cd4-4f88-852e-027bc5c05ecc",
+                    "alt_text": "Raw shrimp placed on a piece of parchment paper in a white square dish."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_0707c99f-7ac6-4e6c-968f-980035a4f3ef",
+                    "image_name": "GUEST_0707c99f-7ac6-4e6c-968f-980035a4f3ef",
+                    "alt_text": "A plate of spaghetti with pesto sauce, topped with cooked shrimp and cherry tomatoes."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_0d3dd1f5-f0a5-4ecb-a72c-1376db52c3da",
+                    "image_name": "GUEST_0d3dd1f5-f0a5-4ecb-a72c-1376db52c3da",
+                    "alt_text": "Nutrition label showing 70 calories per serving with ingredients including shrimp, water, salt, and various phosphates, and a note about processing in a facility that handles wheat."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_d03315c1-a062-43c1-8712-dd14e361c455",
+                    "image_name": "GUEST_d03315c1-a062-43c1-8712-dd14e361c455",
+                    "alt_text": "Label with \"Good & Gather\" logo stating \"Made without 100+ unwanted ingredients\" and listing \"No artificial flavors, No artificial sweeteners, No synthetic colors, No high-fructose corn syrup,\" with a website link for more details."
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "79495109",
+          "promotions": [],
+          "price": {
+            "current_retail": 1.89,
+            "display_was_now": false,
+            "formatted_current_price": "$1.89",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$3.78",
+            "formatted_unit_price_suffix": "/ounce",
+            "reg_retail": 1.89
+          },
+          "ratings_and_reviews": {
+            "statistics": {
+              "rating": {
+                "average": 3.01,
+                "count": 436,
+                "secondary_averages": [
+                  {
+                    "id": "quality",
+                    "label": "quality",
+                    "value": 1.47
+                  },
+                  {
+                    "id": "taste",
+                    "label": "taste",
+                    "value": 1.7
+                  },
+                  {
+                    "id": "value",
+                    "label": "value",
+                    "value": 1.55
+                  }
+                ]
+              }
+            }
+          },
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "SA",
+            "product_classification": {
+              "item_type": {
+                "name": "Spices and Herbs",
+                "type": "90352341"
+              }
+            },
+            "product_description": {
+              "title": "Organic Basil - 0.5oz - Good &#38; Gather&#8482;"
+            },
+            "merchandise_classification": {
+              "class_id": 19,
+              "department_id": 211
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/organic-basil-0-5oz-good-38-gather-8482/-/A-79495109",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_cae12ef8-1d08-4841-b266-acfb23bbdd1d",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_618e34e4-01b1-4a3e-ae70-a0850b2a93ee",
+                  "https://target.scene7.com/is/image/Target/GUEST_86c70609-8f7c-40c1-9d02-882e4dd46907",
+                  "https://target.scene7.com/is/image/Target/GUEST_19cb8933-7635-433a-9486-0db10a2a3cfc",
+                  "https://target.scene7.com/is/image/Target/GUEST_d03315c1-a062-43c1-8712-dd14e361c455"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_cae12ef8-1d08-4841-b266-acfb23bbdd1d",
+                  "image_name": "GUEST_cae12ef8-1d08-4841-b266-acfb23bbdd1d",
+                  "alt_text": "A clear plastic container of organic basil with a blue label displaying \"Good & Gather organic basil\" and \"NET WT 0.5 OZ (14.1g).\""
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_618e34e4-01b1-4a3e-ae70-a0850b2a93ee",
+                    "image_name": "GUEST_618e34e4-01b1-4a3e-ae70-a0850b2a93ee",
+                    "alt_text": "A sprig of fresh green colored basil leaves on a white background."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_86c70609-8f7c-40c1-9d02-882e4dd46907",
+                    "image_name": "GUEST_86c70609-8f7c-40c1-9d02-882e4dd46907",
+                    "alt_text": "Fresh green basil leaves in an open clear plastic container."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_19cb8933-7635-433a-9486-0db10a2a3cfc",
+                    "image_name": "GUEST_19cb8933-7635-433a-9486-0db10a2a3cfc",
+                    "alt_text": "100% satisfaction guaranteed or your money back.* Our produce is selected & stocked with care, guaranteed fresh. *Receipt required for a full refund"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_d03315c1-a062-43c1-8712-dd14e361c455",
+                    "image_name": "GUEST_d03315c1-a062-43c1-8712-dd14e361c455",
+                    "alt_text": "Label with \"Good & Gather\" logo and text stating \"Made without 100+ unwanted ingredients\" including no artificial flavors, sweeteners, synthetic colors, or high-fructose corn syrup, with a website link for more details."
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "94351559",
+          "promotions": [],
+          "price": {
+            "current_retail": 4.99,
+            "display_was_now": false,
+            "formatted_current_price": "$4.99",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$0.11",
+            "formatted_unit_price_suffix": "/fluid ounce",
+            "reg_retail": 4.99
+          },
+          "ratings_and_reviews": {
+            "statistics": {
+              "rating": {
+                "average": 4.69,
+                "count": 816,
+                "secondary_averages": [
+                  {
+                    "id": "quality",
+                    "label": "quality",
+                    "value": 3.38
+                  },
+                  {
+                    "id": "taste",
+                    "label": "taste",
+                    "value": 3.71
+                  },
+                  {
+                    "id": "value",
+                    "label": "value",
+                    "value": 3.1
+                  }
+                ]
+              }
+            }
+          },
+          "desirability_cues": [
+            {
+              "code": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases."
+            }
+          ],
+          "ornaments": [
+            {
+              "ornament": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases.",
+              "ornament_type": "guest",
+              "template_type": "light_marker_with_star"
+            }
+          ],
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "SA",
+            "product_classification": {
+              "item_type": {
+                "name": "Juices",
+                "type": "290666"
+              }
+            },
+            "product_description": {
+              "title": "Simply Beverages Orange Pulp Free Juice - 46 fl oz"
+            },
+            "merchandise_classification": {
+              "class_id": 4,
+              "department_id": 284
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/simply-beverages-orange-pulp-free-juice-46-fl-oz/-/A-94351559",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_686b6a9f-30b6-4f95-afcb-8e1105fb1132",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_340f4ee2-78ec-4a93-8b0f-60e3e461d738",
+                  "https://target.scene7.com/is/image/Target/GUEST_308c6229-aa54-4b13-aee6-1c8df803d8f4",
+                  "https://target.scene7.com/is/image/Target/GUEST_82dbde42-a079-4bd4-9a31-cff5f41c91c6",
+                  "https://target.scene7.com/is/image/Target/GUEST_7626b640-9824-458e-9c03-bde8252909c0",
+                  "https://target.scene7.com/is/image/Target/GUEST_8224deb2-9ad3-4220-8130-33d3d975bc55",
+                  "https://target.scene7.com/is/image/Target/GUEST_cee23fed-9b65-49de-beda-024a69dfcb5c",
+                  "https://target.scene7.com/is/image/Target/GUEST_2f0b7ad0-3c79-44ba-b37e-c272b39eb8fe"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_686b6a9f-30b6-4f95-afcb-8e1105fb1132",
+                  "image_name": "GUEST_686b6a9f-30b6-4f95-afcb-8e1105fb1132"
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_340f4ee2-78ec-4a93-8b0f-60e3e461d738",
+                    "image_name": "GUEST_340f4ee2-78ec-4a93-8b0f-60e3e461d738"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_308c6229-aa54-4b13-aee6-1c8df803d8f4",
+                    "image_name": "GUEST_308c6229-aa54-4b13-aee6-1c8df803d8f4"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_82dbde42-a079-4bd4-9a31-cff5f41c91c6",
+                    "image_name": "GUEST_82dbde42-a079-4bd4-9a31-cff5f41c91c6"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_7626b640-9824-458e-9c03-bde8252909c0",
+                    "image_name": "GUEST_7626b640-9824-458e-9c03-bde8252909c0"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_8224deb2-9ad3-4220-8130-33d3d975bc55",
+                    "image_name": "GUEST_8224deb2-9ad3-4220-8130-33d3d975bc55"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_cee23fed-9b65-49de-beda-024a69dfcb5c",
+                    "image_name": "GUEST_cee23fed-9b65-49de-beda-024a69dfcb5c"
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_2f0b7ad0-3c79-44ba-b37e-c272b39eb8fe",
+                    "image_name": "GUEST_2f0b7ad0-3c79-44ba-b37e-c272b39eb8fe"
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "13651996",
+          "promotions": [],
+          "price": {
+            "current_retail": 3.69,
+            "display_was_now": false,
+            "formatted_current_price": "$3.69",
+            "formatted_current_price_type": "reg",
+            "formatted_unit_price": "$0.29",
+            "formatted_unit_price_suffix": "/fluid ounce",
+            "reg_retail": 3.69
+          },
+          "ratings_and_reviews": {
+            "statistics": {
+              "rating": {
+                "average": 4.68,
+                "count": 968,
+                "secondary_averages": [
+                  {
+                    "id": "quality",
+                    "label": "quality",
+                    "value": 3.65
+                  },
+                  {
+                    "id": "taste",
+                    "label": "taste",
+                    "value": 3.76
+                  },
+                  {
+                    "id": "value",
+                    "label": "value",
+                    "value": 3.5
+                  }
+                ]
+              }
+            }
+          },
+          "desirability_cues": [
+            {
+              "code": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases."
+            }
+          ],
+          "ornaments": [
+            {
+              "ornament": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases.",
+              "ornament_type": "guest",
+              "template_type": "light_marker_with_star"
+            }
+          ],
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "SA",
+            "product_classification": {
+              "item_type": {
+                "name": "Relish",
+                "type": "437282"
+              }
+            },
+            "product_description": {
+              "title": "Heinz Sweet Relish - 12.7 fl oz"
+            },
+            "merchandise_classification": {
+              "class_id": 6,
+              "department_id": 212
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/heinz-sweet-relish-12-7-fl-oz/-/A-13651996",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_8d86822d-a308-4fed-90c3-2680b430d3d7",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_3d382943-0aaf-444c-bb75-06b92c6cc174",
+                  "https://target.scene7.com/is/image/Target/GUEST_a92d924e-7faf-4cca-ba66-ef05a96aad7b",
+                  "https://target.scene7.com/is/image/Target/GUEST_cf8a3525-8154-4162-9f67-01ef04afb6b1",
+                  "https://target.scene7.com/is/image/Target/GUEST_4428d82d-0b86-4308-9fca-21a698d32ad9",
+                  "https://target.scene7.com/is/image/Target/GUEST_1e665e73-9c50-4e55-870a-5292cf03fa38",
+                  "https://target.scene7.com/is/image/Target/GUEST_e77f0ed9-f78c-4f37-b6d7-5b83a542dae4",
+                  "https://target.scene7.com/is/image/Target/GUEST_f6c8fa61-73fd-4601-b0dc-c74c5af3536e",
+                  "https://target.scene7.com/is/image/Target/GUEST_73a7b63e-dd51-4ee1-927c-6f99403141c3"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_8d86822d-a308-4fed-90c3-2680b430d3d7",
+                  "image_name": "GUEST_8d86822d-a308-4fed-90c3-2680b430d3d7",
+                  "alt_text": "A bottle of Heinz Sweet Relish with a label showing \"12.7 oz.\""
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_3d382943-0aaf-444c-bb75-06b92c6cc174",
+                    "image_name": "GUEST_3d382943-0aaf-444c-bb75-06b92c6cc174",
+                    "alt_text": "Nutrition label showing serving size of 1 Tbsp (15g), 10 calories per serving, 0g total fat, 60mg sodium, 3g total carbohydrates, and 0g protein."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_a92d924e-7faf-4cca-ba66-ef05a96aad7b",
+                    "image_name": "GUEST_a92d924e-7faf-4cca-ba66-ef05a96aad7b",
+                    "alt_text": "Close-up of pickles with a green box containing the text \"SWEET, TANGY AND SAVORY FLAVOR.\""
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_cf8a3525-8154-4162-9f67-01ef04afb6b1",
+                    "image_name": "GUEST_cf8a3525-8154-4162-9f67-01ef04afb6b1",
+                    "alt_text": "A hot dog in a bun topped with yellow colored mustard and green colored relish, with the text \"DRIZZLE ON HOT DOGS AND HAMBURGERS\" below."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_4428d82d-0b86-4308-9fca-21a698d32ad9",
+                    "image_name": "GUEST_4428d82d-0b86-4308-9fca-21a698d32ad9",
+                    "alt_text": "Four deviled eggs topped with dill and paprika on a blue surface, with the text \"ADD IT TO YOUR FAVORITE RECIPES\" below."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_1e665e73-9c50-4e55-870a-5292cf03fa38",
+                    "image_name": "GUEST_1e665e73-9c50-4e55-870a-5292cf03fa38",
+                    "alt_text": "Nutrition label showing serving size of 1 Tbsp (15g), 10 calories per serving, 0g total fat, 60mg sodium, 3g total carbohydrates, and 0g protein."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_e77f0ed9-f78c-4f37-b6d7-5b83a542dae4",
+                    "image_name": "GUEST_e77f0ed9-f78c-4f37-b6d7-5b83a542dae4",
+                    "alt_text": "Three bottles of Heinz condiments\u2014tomato ketchup, sweet relish, and yellow mustard\u2014are displayed behind a hot dog and a cheeseburger, with the text \"Nothing Else Tastes Like Heinz\" below."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_f6c8fa61-73fd-4601-b0dc-c74c5af3536e",
+                    "image_name": "GUEST_f6c8fa61-73fd-4601-b0dc-c74c5af3536e",
+                    "alt_text": "A bottle of Heinz Sweet Relish with a visible nutrition facts label and ingredients list on the back."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_73a7b63e-dd51-4ee1-927c-6f99403141c3",
+                    "image_name": "GUEST_73a7b63e-dd51-4ee1-927c-6f99403141c3",
+                    "alt_text": "A bottle of Heinz Sweet Relish with a label showing 12.7 fl oz (375 ml) and 10 calories per serving."
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        },
+        {
+          "__typename": "ProductSummary",
+          "tcin": "93286403",
+          "promotions": [],
+          "price": {
+            "current_retail": 6.0,
+            "display_was_now": false,
+            "formatted_current_price": "$6.00",
+            "formatted_current_price_type": "reg",
+            "reg_retail": 6.0
+          },
+          "ratings_and_reviews": {
+            "statistics": {
+              "rating": {
+                "average": 4.61,
+                "count": 425,
+                "secondary_averages": [
+                  {
+                    "id": "quality",
+                    "label": "quality",
+                    "value": 4.68
+                  },
+                  {
+                    "id": "value",
+                    "label": "value",
+                    "value": 4.65
+                  }
+                ]
+              }
+            }
+          },
+          "desirability_cues": [
+            {
+              "code": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases."
+            }
+          ],
+          "ornaments": [
+            {
+              "ornament": "highly_rated",
+              "display": "Highly rated",
+              "long_description": "Based on average star rating, number of ratings and reviews (including incentivized), and verified purchases.",
+              "ornament_type": "guest",
+              "template_type": "light_marker_with_star"
+            },
+            {
+              "ornament": "low_returns",
+              "display": "Rarely returned",
+              "ornament_type": "enterprise",
+              "template_type": "thumbs_up_with_bold_text"
+            }
+          ],
+          "item": {
+            "cart_add_on_threshold": 35.0,
+            "relationship_type_code": "SA",
+            "product_classification": {
+              "item_type": {
+                "name": "Utility Storage Tubs and Totes",
+                "type": "257509"
+              }
+            },
+            "product_description": {
+              "title": "15qt Clear Storage Bin with Latches - Brightroom&#8482;"
+            },
+            "merchandise_classification": {
+              "class_id": 2,
+              "department_id": 2
+            },
+            "enrichment": {
+              "buy_url": "https://www.target.com/p/15qt-storage-bin-with-latches-brightroom-8482/-/A-93286403",
+              "images": {
+                "primary_image_url": "https://target.scene7.com/is/image/Target/GUEST_dbdfe477-1fd6-42b6-b5bb-989181defe0d",
+                "alternate_image_urls": [
+                  "https://target.scene7.com/is/image/Target/GUEST_c173c10e-1787-42e8-a95e-14bc466e0637",
+                  "https://target.scene7.com/is/image/Target/GUEST_93a0569d-3933-498e-a689-519dfd01e1ad",
+                  "https://target.scene7.com/is/image/Target/GUEST_6980d041-a6b4-4ab7-9529-e41ee4004c60"
+                ]
+              },
+              "image_info": {
+                "base_url": "//target.scene7.com/is/image/Target/",
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_dbdfe477-1fd6-42b6-b5bb-989181defe0d",
+                  "image_name": "GUEST_dbdfe477-1fd6-42b6-b5bb-989181defe0d",
+                  "alt_text": "Clear rectangular storage bin with a lid and teal colored latches."
+                },
+                "alternate_images": [
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_c173c10e-1787-42e8-a95e-14bc466e0637",
+                    "image_name": "GUEST_c173c10e-1787-42e8-a95e-14bc466e0637",
+                    "alt_text": "A clear plastic storage bin with a white lid and blue handles, containing balls of yarn and knitting needles, placed on a light-colored carpet."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_93a0569d-3933-498e-a689-519dfd01e1ad",
+                    "image_name": "GUEST_93a0569d-3933-498e-a689-519dfd01e1ad",
+                    "alt_text": "A clear plastic storage bin with a turquoise colored latch on the lid."
+                  },
+                  {
+                    "url": "https://target.scene7.com/is/image/Target/GUEST_6980d041-a6b4-4ab7-9529-e41ee4004c60",
+                    "image_name": "GUEST_6980d041-a6b4-4ab7-9529-e41ee4004c60",
+                    "alt_text": "Clear plastic storage bin with a white lid and blue latches, containing yarn balls and knitting needles, placed on a beige carpet."
+                  }
+                ],
+                "swatch_image": {}
+              }
+            }
+          }
+        }
+      ],
+      "doctype": "bia4_personalizedd_e1f733cf576127be3bc6a07a2dcbdf7860b1f512"
+    }
+  }
+}

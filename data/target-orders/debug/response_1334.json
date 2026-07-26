@@ -1,0 +1,45 @@
+{
+  "orders": [],
+  "tags": {
+    "good": [
+      {
+        "label": "Good Communication",
+        "value": "good_communication"
+      },
+      {
+        "label": "Attention to Detail",
+        "value": "attention_to_detail"
+      },
+      {
+        "label": "Exceptional Shopper",
+        "value": "exceptional_shopper"
+      },
+      {
+        "label": "Good Substitutions",
+        "value": "good_substitutions"
+      }
+    ],
+    "default": [
+      {
+        "label": "Poor Attention to detail",
+        "value": "poor_attention_to_detail"
+      },
+      {
+        "label": "Late Delivery",
+        "value": "late_delivery"
+      },
+      {
+        "label": "Poor Substitution choices",
+        "value": "poor_substitution_choices"
+      },
+      {
+        "label": "Item Issue",
+        "value": "item_issue"
+      },
+      {
+        "label": "Too little communication",
+        "value": "too_little_communication"
+      }
+    ]
+  }
+}

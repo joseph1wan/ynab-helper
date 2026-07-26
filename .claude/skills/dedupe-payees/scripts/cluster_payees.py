@@ -195,6 +195,31 @@ def cluster(
     return clusters
 
 
+def _uncut(name: str, candidates: list[str]) -> str:
+    """Repair a bank-truncated name using a fuller sibling in the cluster.
+
+    Card feeds clip names to a fixed width ("Fairview Highland Park Ph",
+    "SHUANG HUR ORIENTAL MA"), and those are the *shortest* members, so a
+    shortest-wins tiebreak would enshrine the mangled form. A sibling that
+    continues the name **mid-word** is the completed version; one that
+    continues after a space is a different, longer name ("Bruegger's" ->
+    "Bruegger's Bagels") and must be left alone.
+    """
+    best = name
+    for other in candidates:
+        if len(other) <= len(best):
+            continue
+        if not other.casefold().startswith(name.casefold()):
+            continue
+        # The continuation must be a letter/digit to count as a cut word.
+        # Punctuation means a new segment, not a truncation: "Xcel Energy"
+        # -> "XCEL ENERGY-MN DES:..." is a different, junkier string, and
+        # "Bruegger's" -> "Bruegger's Bagels" is a longer real name.
+        if other[len(name)].isalnum():
+            best = other
+    return best
+
+
 def pick_canonical(members: list[dict]) -> str:
     """Pick the cleanest-looking name among members that have transactions.
 
@@ -205,6 +230,8 @@ def pick_canonical(members: list[dict]) -> str:
     """
     used = [m for m in members if m["txn_count"] > 0]
     tied = used or members
+    names = [m["name"] for m in members]
+    tied = [{**m, "name": _uncut(m["name"], names)} for m in tied]
 
     def ugliness(m: dict) -> tuple:
         name = m["name"]

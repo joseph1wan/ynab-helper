@@ -1,0 +1,10 @@
+{
+  "transaction_id": "120d741f-18e5-449c-8148-a8e31bb49fd1",
+  "original": {
+    "amount": -58210,
+    "payee_name": "Target.com",
+    "memo": "",
+    "category_id": "1566a5af-525e-4c75-9fb3-a77fa3014947"
+  },
+  "applied_at": "2026-07-25T17:33:47.756058+00:00"
+}

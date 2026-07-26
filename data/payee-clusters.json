@@ -1,0 +1,2003 @@
+{
+  "generated_at": "2026-07-25T17:18:55.401275+00:00",
+  "total_payees": 2535,
+  "clusters": [
+    {
+      "confidence": "exact",
+      "canonical": "Acts2 Midwest",
+      "action": "merged",
+      "members": [
+        {
+          "id": "5a083723-67b9-4757-b2f5-21ba172ef9ae",
+          "name": "Acts2 Midwest",
+          "txn_count": 5
+        },
+        {
+          "id": "09a85f33-6081-4207-8ee3-2ba2e7d0f466",
+          "name": "Acts2 Midwest DES:Receivable ID:026DLAZDZ1IU3GN INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026DLAZDZ1IU3GN Acts2 Midwest Bill.com I nv Expense Claims",
+          "txn_count": 1
+        },
+        {
+          "id": "bd457097-dc55-41f0-90a1-bf62e5d92edd",
+          "name": "Acts2 Midwest DES:Receivable ID:026LLFSTY1JQSCM INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026LLFSTY1JQSCM Acts2 Midwest Bill.com I nv Expense Claims",
+          "txn_count": 1
+        },
+        {
+          "id": "f1f8e70d-29a0-4ec9-89ce-9bdb115fde8f",
+          "name": "Acts2 Midwest DES:Receivable ID:026SSWTJQ1KV51T INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026SSWTJQ1KV51T Acts2 Midwest Bill.com M ultiple invoices",
+          "txn_count": 1
+        },
+        {
+          "id": "05559da6-a9de-4c88-b23b-b553756db50f",
+          "name": "Acts2 Midwest DES:Receivable ID:016KTBLAT3UZS9J INDN:Joseph Wan (joseph.wan CO ID:XXXXX95317 CCD PMT INFO:016KTBLAT3UZS9J Acts2 Midwest Bill.com M ultiple invoices",
+          "txn_count": 1
+        },
+        {
+          "id": "8ada6cec-c128-419a-b146-babe922d789c",
+          "name": "Acts2 Midwest DES:Receivable ID:026YRPTGA1LM3EN INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026YRPTGA1LM3EN Acts2 Midwest Bill.com M ultiple invoices",
+          "txn_count": 1
+        },
+        {
+          "id": "54143480-11a6-41a3-83ea-4f7ea1c4d974",
+          "name": "Acts2 Midwest DES:Receivable ID:026TLBFAT1NDQR4 INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026TLBFAT1NDQR4 Acts2 Midwest Bill.com M ultiple invoices",
+          "txn_count": 1
+        },
+        {
+          "id": "eac8ffa2-bb24-4041-93bf-715ab68a1dea",
+          "name": "Acts2 Midwest DES:Receivable ID:026LJZYKO1OBWX0 INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026LJZYKO1OBWX0 Acts2 Midwest Bill.com I nv Expense Claims",
+          "txn_count": 1
+        },
+        {
+          "id": "011de2e6-4642-4b5d-bc38-f0f83f2c45fb",
+          "name": "Acts2 Midwest DES:Receivable ID:016OAWLFO3XIIBZ INDN:Joseph Wan (joseph.wan CO ID:XXXXX95317 CCD PMT INFO:016OAWLFO3XIIBZ Acts2 Midwest Bill.com M ultiple invoices",
+          "txn_count": 1
+        },
+        {
+          "id": "f12887e4-4223-4a84-bfa9-169ee4b1205c",
+          "name": "Acts2 Midwest DES:Receivable ID:026YUDDUZ1OWQH6 INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026YUDDUZ1OWQH6 Acts2 Midwest Bill.com I nv Expense Claims",
+          "txn_count": 1
+        },
+        {
+          "id": "730a36bb-1d1a-4091-9d28-a89bd1a9d3aa",
+          "name": "Acts2 Midwest DES:Receivable ID:016KPSPXB3XWHU5 INDN:Joseph Wan (joseph.wan CO ID:XXXXX95317 CCD PMT INFO:016KPSPXB3XWHU5 Acts2 Midwest Bill.com I nv Expense Claims",
+          "txn_count": 1
+        },
+        {
+          "id": "d5be4196-6763-44ff-a35c-e069e26d3e26",
+          "name": "Acts2 Midwest DES:Receivable ID:026TQMUDJ1PE8XH INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026TQMUDJ1PE8XH Acts2 Midwest Bill.com I nv Expense Claims",
+          "txn_count": 1
+        },
+        {
+          "id": "71ef797b-326f-436e-9101-c7f732a0d01b",
+          "name": "Acts2 Midwest DES:Receivable ID:026YADGCA1Q84XL INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026YADGCA1Q84XL Acts2 Midwest Bill.com I nv Expense Claims",
+          "txn_count": 1
+        },
+        {
+          "id": "e8b27601-d530-4d1a-ba71-90d6f4c5dfcf",
+          "name": "Acts2 Midwest DES:Receivable ID:026LGWYKO1PWGLV INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026LGWYKO1PWGLV Acts2 Midwest Bill.com M ultiple invoices",
+          "txn_count": 1
+        },
+        {
+          "id": "da69d3f4-7276-41c7-8148-ca566257494e",
+          "name": "Acts2 Midwest DES:Receivable ID:026KPNWWK1RMR1N INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026KPNWWK1RMR1N Acts2 Midwest Bill.com I nv Expense Claims",
+          "txn_count": 1
+        },
+        {
+          "id": "e5e13f5e-6b9b-4125-9202-6f49faccc541",
+          "name": "Acts2 Midwest DES:Receivable ID:026WGNNKX1T8165 INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026WGNNKX1T8165 Acts2 Midwest Bill.com M ultiple invoices",
+          "txn_count": 1
+        },
+        {
+          "id": "1cd99735-a0f2-4379-9675-a8657fe1c26f",
+          "name": "Acts2 Midwest DES:Receivable ID:026HLOJVT1T2C9X INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026HLOJVT1T2C9X Acts2 Midwest Bill.com I nv Expense Claims",
+          "txn_count": 1
+        },
+        {
+          "id": "bf16c21c-fe3a-43d4-b727-f38889f14b96",
+          "name": "Acts2 Midwest DES:Receivable ID:016XKUAIW4076YS INDN:Joseph Wan (joseph.wan CO ID:XXXXX95317 CCD PMT INFO:016XKUAIW4076YS Acts2 Midwest Bill.com M ultiple invoices",
+          "txn_count": 1
+        },
+        {
+          "id": "2abd8a11-a654-43ad-a9ee-b32deb1e411b",
+          "name": "Acts2 Midwest DES:Receivable ID:026XNXAAE1SL6TG INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026XNXAAE1SL6TG Acts2 Midwest Bill.com I nv Expense Claims",
+          "txn_count": 1
+        },
+        {
+          "id": "2d8edf91-29cf-49e5-89b0-a16b2d2ab52c",
+          "name": "Acts2 Midwest DES:Receivable ID:026MGWNSV1UQPPY INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026MGWNSV1UQPPY Acts2 Midwest Bill.com M ultiple invoices",
+          "txn_count": 1
+        },
+        {
+          "id": "9bb99c06-7f78-442a-b1cb-45568e23deff",
+          "name": "Acts2 Midwest DES:GBLPF4J7YV ID: INDN:Mang Wan Minn CO ID:XXXXX39000 PPD PMT INFO:Mang Wan Minn",
+          "txn_count": 1
+        },
+        {
+          "id": "d297f4e4-0ccb-485c-97ff-79c7dc14e6e7",
+          "name": "Acts2 Midwest DES:RD7AS4HYGR ID: INDN:Mang Wan Minn CO ID:XXXXX39000 PPD PMT INFO:Mang Wan Minn",
+          "txn_count": 1
+        },
+        {
+          "id": "9f91a356-99d4-47f3-9068-8ce269cef9c2",
+          "name": "Acts2 Midwest DES:VW4WBAA3UA ID: INDN:Mang Wan Minn CO ID:XXXXX39000 PPD PMT INFO:Mang Wan Minn",
+          "txn_count": 1
+        },
+        {
+          "id": "a28ca946-d6c3-4dc9-99a2-157024e7e1fe",
+          "name": "Acts2 Midwest DES:9H2CMMP3W4 ID: INDN:Mang Wan Minn CO ID:XXXXX39000 PPD PMT INFO:Mang Wan Minn",
+          "txn_count": 1
+        },
+        {
+          "id": "d65e1a3f-c672-4495-a4e5-6fee77fbac4c",
+          "name": "Acts2 Midwest DES:DONATIONS ID:XXXXX2221736 INDN:Wan,JosephXXXXX2221736 CO ID:XXXXX13206 WEB",
+          "txn_count": 0
+        },
+        {
+          "id": "06a7cf58-6767-47e5-8383-14630437f84e",
+          "name": "Acts2 Midwest DES:Receivable ID:016KEFRZK3MB23J INDN:Joseph Wan (joseph.wan CO ID:XXXXX95317 CCD PMT INFO:016KEFRZK3MB23J Acts2 Midwest Bill.com M ultiple invoices",
+          "txn_count": 0
+        },
+        {
+          "id": "b0dd41c8-2a27-4a02-8d29-28e0dcb30f5d",
+          "name": "Acts2 Midwest DES:DONATIONS ID:XXXXX8778346 INDN:Wan,JosephXXXXX8778346 CO ID:XXXXX13206 WEB",
+          "txn_count": 0
+        },
+        {
+          "id": "df770639-b3f2-4643-a9d4-bad8a8e6df67",
+          "name": "Acts2 Midwest DES:Receivable ID:016GLCFHJ3MGBAR INDN:Joseph Wan (joseph.wan CO ID:XXXXX95317 CCD PMT INFO:016GLCFHJ3MGBAR Acts2 Midwest Bill.com I nv Expense Claims",
+          "txn_count": 0
+        },
+        {
+          "id": "6c14f5ef-63ea-488d-b7af-de08f70995e5",
+          "name": "Acts2 Midwest DES:Receivable ID:026IWWPJK19IY2B INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026IWWPJK19IY2B Acts2 Midwest Bill.com M ultiple invoices",
+          "txn_count": 0
+        },
+        {
+          "id": "9f28b2ec-08bc-45e7-8fa3-4bad3ada1370",
+          "name": "Acts2 Midwest DES:Receivable ID:026IWWPJK19IY2B INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026IWWPJK19IY2B Acts2 Midwest Bill.com M ultiple invoices",
+          "txn_count": 0
+        },
+        {
+          "id": "2c42e3c1-4993-4165-818c-f22efb39ddcf",
+          "name": "Acts2 Midwest DES:Receivable ID:026DXANDE1A0AEZ INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026DXANDE1A0AEZ Acts2 Midwest Bill.com I nv Expense Claims",
+          "txn_count": 0
+        },
+        {
+          "id": "4b928f07-bad2-46e7-a801-6c6a6c82144a",
+          "name": "Acts2 Midwest DES:DONATIONS ID:XXXXX6615418 INDN:Wan,JosephXXXXX6615418 CO ID:XXXXX13206 WEB",
+          "txn_count": 0
+        },
+        {
+          "id": "1c96c92e-b16b-4e19-86b4-401632912f22",
+          "name": "Acts2 Midwest DES:Receivable ID:026LQOKKR1BNK2Z INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026LQOKKR1BNK2Z Acts2 Midwest Bill.com I nv Expense Claims",
+          "txn_count": 0
+        },
+        {
+          "id": "30349718-930c-43b7-9f6f-ef282c27673b",
+          "name": "Acts2 Midwest DES:Receivable ID:026VSIFXD1BIRPY INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026VSIFXD1BIRPY Acts2 Midwest Bill.com I nv Expense Claims",
+          "txn_count": 0
+        },
+        {
+          "id": "f7e20083-191c-4044-b274-233b03d75ca3",
+          "name": "Acts2 Midwest DES:Receivable ID:026ITZIHF1B8NG0 INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026ITZIHF1B8NG0 Acts2 Midwest Bill.com I nv Expense Claims",
+          "txn_count": 0
+        },
+        {
+          "id": "c438bbf5-a981-4dc7-bc8f-f6211aeed0c1",
+          "name": "Acts2 Midwest DES:DONATIONS ID:XXXXX4455002 INDN:Wan,JosephXXXXX4455002 CO ID:XXXXX13206 WEB",
+          "txn_count": 0
+        },
+        {
+          "id": "0eb5c283-0a11-4337-b732-ae463e829967",
+          "name": "Acts2 Midwest DES:Receivable ID:026ZNIIIX1CKT9K INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026ZNIIIX1CKT9K Acts2 Midwest Bill.com I nv Expense Claims",
+          "txn_count": 0
+        },
+        {
+          "id": "bbf8fb50-bdb9-40b4-8c3d-16b09101b1fa",
+          "name": "Acts2 Midwest DES:DONATIONS ID:XXXXX3448886 INDN:Wan,JosephXXXXX3448886 CO ID:XXXXX13206 WEB",
+          "txn_count": 0
+        },
+        {
+          "id": "41749f96-ab68-44d3-bdaa-a50d207fe847",
+          "name": "Acts2 Midwest DES:DONATIONS ID:XXXXX5965348 INDN:Wan,JosephXXXXX5965348 CO ID:XXXXX13206 WEB",
+          "txn_count": 0
+        },
+        {
+          "id": "2791de3c-7f07-4660-bbf3-3163fd932c9d",
+          "name": "Acts2 Midwest DES:Receivable ID:026CMAADK1E292G INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026CMAADK1E292G Acts2 Midwest Bill.com I nv Expense Claims",
+          "txn_count": 0
+        },
+        {
+          "id": "7246f566-31f6-4931-84d7-58dff8c16fe5",
+          "name": "Acts2 Midwest DES:Receivable ID:026XWZSDW1E292H INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026XWZSDW1E292H Acts2 Midwest Bill.com M ultiple invoices",
+          "txn_count": 0
+        },
+        {
+          "id": "813f4bb6-eabb-4bf8-b824-324b63063736",
+          "name": "Acts2 Midwest DES:Receivable ID:016RFMGMI3QDS3V INDN:Joseph Wan (joseph.wan CO ID:XXXXX95317 CCD PMT INFO:016RFMGMI3QDS3V Acts2 Midwest Bill.com M ultiple invoices",
+          "txn_count": 0
+        },
+        {
+          "id": "74d0d50e-0125-4b5d-a7f6-7b1aa82ecd5a",
+          "name": "Acts2 Midwest DES:DONATIONS ID:XXXXX3321256 INDN:Wan,JosephXXXXX3321256 CO ID:XXXXX13206 WEB",
+          "txn_count": 0
+        },
+        {
+          "id": "3b104f63-195a-49ef-888a-cabf729f3044",
+          "name": "Acts2 Midwest DES:DONATIONS ID:XXXXX8757934 INDN:Wan,JosephXXXXX8757934 CO ID:XXXXX13206 WEB",
+          "txn_count": 0
+        },
+        {
+          "id": "df837123-0ca3-4a06-bb5f-ece2cfc0fc3c",
+          "name": "Acts2 Midwest DES:DONATIONS ID:XXXXX6613921 INDN:Wan,JosephXXXXX6613921 CO ID:XXXXX13206 WEB",
+          "txn_count": 0
+        },
+        {
+          "id": "1a9ae328-bb35-431c-87bf-5b6938259a64",
+          "name": "Acts2 Midwest DES:Receivable ID:026PQOUKY1HWIDU INDN:Mang Wan CO ID:XXXXX95317 PPD PMT INFO:026PQOUKY1HWIDU Acts2 Midwest Bill.com I nv Expense Claims",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Target",
+      "action": "merged",
+      "members": [
+        {
+          "id": "f673bcad-2f59-46ac-9817-92e8f1a13919",
+          "name": "TARGET 00021014 SAINT PAUL MN",
+          "txn_count": 19
+        },
+        {
+          "id": "ab9d1104-b934-44d3-81c0-ad8a57931eb9",
+          "name": "TARGET 00022293 ST PAUL MN",
+          "txn_count": 3
+        },
+        {
+          "id": "ff2c0c44-945e-4e7f-8b6f-dd8e8944aab4",
+          "name": "Target",
+          "txn_count": 1
+        },
+        {
+          "id": "c9b39317-6e8a-4bc9-b4e1-a7e4987701bf",
+          "name": "TARGET        00026153",
+          "txn_count": 0
+        },
+        {
+          "id": "7f1a9fb6-cbd9-4743-9a88-3871ac65e26e",
+          "name": "TARGET        00023069",
+          "txn_count": 0
+        },
+        {
+          "id": "d3d2e5a4-beac-4a05-a7a8-58d5604bffd0",
+          "name": "TARGET        00025841",
+          "txn_count": 0
+        },
+        {
+          "id": "fa8cd072-4074-4893-bc51-182eedb574b6",
+          "name": "TARGET        00021857",
+          "txn_count": 0
+        },
+        {
+          "id": "f0225d48-a14a-4600-bea3-70b7911f355d",
+          "name": "TARGET        00002758",
+          "txn_count": 0
+        },
+        {
+          "id": "5c3154c2-3fb4-4004-adb2-7e2287f415cd",
+          "name": "TARGET        00006940",
+          "txn_count": 0
+        },
+        {
+          "id": "e0436c9d-acd6-4434-a90c-4414d9815139",
+          "name": "TARGET        00032003",
+          "txn_count": 0
+        },
+        {
+          "id": "59332a01-7b24-4e59-a75f-2e58f0f37ba0",
+          "name": "TARGET        00001008",
+          "txn_count": 0
+        },
+        {
+          "id": "b6b94101-27a5-49b0-95cc-d6baaced47d6",
+          "name": "TARGET        00022293",
+          "txn_count": 0
+        },
+        {
+          "id": "f688b50f-24d3-44a2-a1ce-032b66e1acc4",
+          "name": "TARGET        00034389",
+          "txn_count": 0
+        },
+        {
+          "id": "1c2f83f4-9886-4991-a617-7a5ca23e7d7f",
+          "name": "TARGET        00021014",
+          "txn_count": 0
+        },
+        {
+          "id": "5f027882-aa16-4a19-8b07-8d47b99bd26b",
+          "name": "TARGET 00006197 SAINT PAUL MN",
+          "txn_count": 0
+        },
+        {
+          "id": "03e00a29-da69-4bea-8fb7-613185cde2cb",
+          "name": "TARGET 00010959 MINNEAPOLIS MN",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "State of Minnesota",
+      "action": "merged",
+      "members": [
+        {
+          "id": "a51fcfa6-88d9-4839-9fc5-cbcf43ff4aaa",
+          "name": "STATE OF MINNESO DES:PFML ID:ZXMWDTHTJTMFJXF INDN:Mang Wan CO ID:ZZ16007162 WEB",
+          "txn_count": 1
+        },
+        {
+          "id": "81879976-87d4-4f10-950f-4a209fbb7cdd",
+          "name": "STATE OF MINNESO DES:PFML ID:8JYRJYBK4JJPRH4 INDN:Mang Wan CO ID:ZZ16007162 WEB",
+          "txn_count": 1
+        },
+        {
+          "id": "caa45325-e493-4992-88df-62a38fbf5dc7",
+          "name": "STATE OF MINNESO DES:PFML ID:SE2QWUSAXYPI8HL INDN:Mang Wan CO ID:ZZ16007162 WEB",
+          "txn_count": 1
+        },
+        {
+          "id": "7dcdb45f-421d-4dd9-9029-b44a84b8e25d",
+          "name": "STATE OF MINNESO DES:PFML ID:FODG5EYZK3PEHBD INDN:Mang Wan CO ID:ZZ16007162 WEB",
+          "txn_count": 1
+        },
+        {
+          "id": "29a8240f-e0c4-4b0d-8662-f8bc4b0f415f",
+          "name": "STATE OF MINNESO DES:PFML ID:OCP6VDGQEDTYNJS INDN:Mang Wan CO ID:ZZ16007162 WEB",
+          "txn_count": 1
+        },
+        {
+          "id": "1e687c6e-2382-4bf6-b2da-d1534422a091",
+          "name": "STATE OF MINNESO DES:PFML ID:IXYNY5KIOIZSHXQ INDN:Mang Wan CO ID:ZZ16007162 WEB",
+          "txn_count": 1
+        },
+        {
+          "id": "2cfd15e3-bf73-4573-b4b0-3eac27b0a8da",
+          "name": "STATE OF MINNESO DES:PFML ID:IDK2WZWNMACSAYK INDN:Mang Wan CO ID:ZZ16007162 WEB",
+          "txn_count": 1
+        },
+        {
+          "id": "a2db00c2-6ec2-4447-b2fe-21ce0aeb306f",
+          "name": "STATE OF MINNESO DES:PFML ID:AGNUTBKFMBJC5OG INDN:Joseph Wan CO ID:ZZ16007162 WEB",
+          "txn_count": 1
+        },
+        {
+          "id": "68ddbc52-5293-43b1-bf90-651c9065e004",
+          "name": "STATE OF MINNESO DES:PFML ID:UZ3DJTOABCZUFQQ INDN:Joseph Wan CO ID:ZZ16007162 WEB",
+          "txn_count": 1
+        },
+        {
+          "id": "09829ca7-c19d-4c38-85c5-5efd65ebd35c",
+          "name": "STATE OF MINNESO DES:PFML ID:NDIHXDAZSOQXS2M INDN:Mang Wan CO ID:ZZ16007162 WEB",
+          "txn_count": 1
+        },
+        {
+          "id": "a8e34432-9150-453e-a6c8-edce7fef4a7a",
+          "name": "STATE OF MINNESO DES:PFML ID:PJ1BHOGIDUXYLIE INDN:Mang Wan CO ID:ZZ16007162 WEB",
+          "txn_count": 1
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Dominium",
+      "action": "merged",
+      "members": [
+        {
+          "id": "687b9dfc-132d-4b5b-8690-5921288a2a8b",
+          "name": "Dominium",
+          "txn_count": 2
+        },
+        {
+          "id": "fa1d425e-e6ed-4bfa-bbd3-b325903e49a2",
+          "name": "DOMINIUM-450 DES:WEB PMTS ID:NNTVPH INDN:JosephWan CO ID:XXXXX27989 WEB",
+          "txn_count": 0
+        },
+        {
+          "id": "e4ec72b3-60b8-4e2a-833f-c75eb25490a8",
+          "name": "DOMINIUM-450 DES:WEB PMTS ID:3BJJYH INDN:JosephWan CO ID:XXXXX27989 WEB",
+          "txn_count": 0
+        },
+        {
+          "id": "1b185fae-7185-46de-bebd-9e5879ddc9c4",
+          "name": "DOMINIUM-450 DES:WEB PMTS ID:Y4FM2J INDN:JosephWan CO ID:XXXXX27989 WEB",
+          "txn_count": 0
+        },
+        {
+          "id": "fd9fc921-8f0b-49fb-af94-f848f6be4733",
+          "name": "DOMINIUM-450 DES:WEB PMTS ID:P0TD8J INDN:JosephWan CO ID:XXXXX27989 WEB",
+          "txn_count": 0
+        },
+        {
+          "id": "24ffd8c1-10b5-47b8-80f2-b1e1c67533b0",
+          "name": "DOMINIUM-450 DES:WEB PMTS ID:0CTCGJ INDN:JosephWan CO ID:XXXXX27989 WEB",
+          "txn_count": 0
+        },
+        {
+          "id": "5bc4296c-06f6-4d7e-ad1a-b00afa069de6",
+          "name": "DOMINIUM-450 DES:WEB PMTS ID:RHG5NJ INDN:JosephWan CO ID:XXXXX27989 WEB",
+          "txn_count": 0
+        },
+        {
+          "id": "404ab2b8-72be-40f8-8aef-9d1e488f8b18",
+          "name": "DOMINIUM-450 DES:WEB PMTS ID:8M37VJ INDN:JosephWan CO ID:XXXXX27989 WEB",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Personal Care",
+      "action": "merged",
+      "members": [
+        {
+          "id": "adfeba9f-bcec-42fe-ad98-5d0ed6e6b16e",
+          "name": "Personal Care",
+          "txn_count": 3
+        },
+        {
+          "id": "f3317ba4-ff83-42bf-82d5-386b27b4b8b4",
+          "name": "PERSONAL CARE DE DES:E-CHECK ID:XXXXXXXXXX00137 INDN:mang wan CO ID:XXXXX15225 PPD",
+          "txn_count": 0
+        },
+        {
+          "id": "9a26b679-d165-4765-84d0-2cc508df8ee2",
+          "name": "PERSONAL CARE DE DES:E-CHECK ID:XXXXXXXXXX00137 INDN:mang wan CO ID:XXXXX15225 PPD",
+          "txn_count": 0
+        },
+        {
+          "id": "2b1f7b7b-c63d-44a7-8488-54b44558268c",
+          "name": "PERSONAL CARE DE DES:E-CHECK ID:XXXXXXXXXX22229 INDN:mang wan CO ID:XXXXX15225 PPD",
+          "txn_count": 0
+        },
+        {
+          "id": "45b5093f-8a7e-4fc9-a03c-49c543a313dd",
+          "name": "PERSONAL CARE DE DES:E-CHECK ID:XXXXXXXXXX11439 INDN:mang wan CO ID:XXXXX15225 PPD",
+          "txn_count": 0
+        },
+        {
+          "id": "2a4c57c0-fc2f-463d-8d98-bd51fc56814d",
+          "name": "PERSONAL CARE DE DES:E-CHECK ID:XXXXXXXXXX41133 INDN:mang wan CO ID:XXXXX15225 PPD",
+          "txn_count": 0
+        },
+        {
+          "id": "e2fc7d3e-20b3-40d7-9689-65a86dfcd9c8",
+          "name": "PERSONAL CARE DE DES:E-CHECK ID:XXXXXXXXXX13740 INDN:mang wan CO ID:XXXXX15225 PPD",
+          "txn_count": 0
+        },
+        {
+          "id": "ccae913f-2845-47c0-997a-af14af67a1ea",
+          "name": "PERSONAL CARE DE DES:E-CHECK ID:XXXXXXXXXX79500 INDN:mang wan CO ID:XXXXX15225 PPD",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Conservice",
+      "action": "merged",
+      "members": [
+        {
+          "id": "5f89d5cb-4360-46e6-91ab-e2261d0321e4",
+          "name": "Conservice",
+          "txn_count": 12
+        },
+        {
+          "id": "09bf65e0-0d50-4118-a158-8c82e7e94d50",
+          "name": "Conservice Indn:Joseph Wan Payment",
+          "txn_count": 0
+        },
+        {
+          "id": "d8432d90-4d0c-4a5c-b762-dc9c312b0598",
+          "name": "Conservice Indn:Joseph Wan CO ID",
+          "txn_count": 0
+        },
+        {
+          "id": "c46003c5-9f5d-4e88-b866-29d9f819d48b",
+          "name": "Conservice Indn:Joseph Wan CO ID",
+          "txn_count": 0
+        },
+        {
+          "id": "82011d5b-6eb1-48ea-bc74-9fd37c8594b8",
+          "name": "CONSERVICE DES:AUTO EFT ID:37365046 INDN:Joseph Wan CO ID:XXXXX60875 PPD",
+          "txn_count": 0
+        },
+        {
+          "id": "38bb7313-063b-4c44-ba93-a84ce56d42c3",
+          "name": "CONSERVICE DES:AUTO EFT ID:37365046 INDN:Joseph Wan CO ID:XXXXX60875 PPD",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Target.com",
+      "action": "merged",
+      "members": [
+        {
+          "id": "3a605e6b-7a0d-4495-90ed-fc0a471a5565",
+          "name": "TARGET.COM BROOKLYN PARKMN",
+          "txn_count": 149
+        },
+        {
+          "id": "847bae50-4bbe-4259-8930-a18523db6508",
+          "name": "TARGET.COM * 800-591-3869 MN",
+          "txn_count": 24
+        },
+        {
+          "id": "0fb833d3-3dc3-406e-b4d9-a74d2828125c",
+          "name": "TARGET.COM BROOKLYN PARK MN CRED",
+          "txn_count": 3
+        },
+        {
+          "id": "0b06c891-3023-46ce-9e56-44371d20f4be",
+          "name": "TARGET.COM * 800-591- CREDIT",
+          "txn_count": 3
+        },
+        {
+          "id": "b93ab7c3-e74f-411a-a90f-b53b73cffc0f",
+          "name": "TARGET.COM  *",
+          "txn_count": 0
+        },
+        {
+          "id": "445d3534-732d-4f95-ae51-852dcbe68802",
+          "name": "TARGET.COM",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Xcel Energy",
+      "action": "merged",
+      "members": [
+        {
+          "id": "8f36d72d-34f6-4c60-aaf8-501291312aa5",
+          "name": "Xcel Energy",
+          "txn_count": 12
+        },
+        {
+          "id": "9dc2cc94-74d3-4df0-82e7-d7a65ad0f081",
+          "name": "Xcel Energy Mn",
+          "txn_count": 0
+        },
+        {
+          "id": "a38c52de-ce3e-469e-88c7-e6ef5a96e593",
+          "name": "Xcel Energy-MN",
+          "txn_count": 0
+        },
+        {
+          "id": "5acfadda-6a37-4d08-b6cd-9a82745973d7",
+          "name": "XCEL ENERGY-MN DES:XCELENERGY ID:XXXXX218396 INDN:JOSEPH H WAN CO ID:X",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Zoom",
+      "action": "merged",
+      "members": [
+        {
+          "id": "87217868-5118-4039-b668-6912414ea67c",
+          "name": "Zoom",
+          "txn_count": 8
+        },
+        {
+          "id": "c376cb73-bc75-4e1c-842d-9a9245cb1821",
+          "name": "Zoom.Us",
+          "txn_count": 0
+        },
+        {
+          "id": "9df7808b-033d-44af-8e3b-0a4d3675fc5e",
+          "name": "ZOOM.COM WWW.ZOOM.US",
+          "txn_count": 0
+        },
+        {
+          "id": "151c4624-629d-44ca-a644-44af5d89bcd7",
+          "name": "ZOOM.COM ZOOM.US",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "A2N Exchange",
+      "action": "merged",
+      "members": [
+        {
+          "id": "932fee96-3215-4181-af39-b170886fdfb1",
+          "name": "A2N Exchange DES:ZU8KAY5AEE ID: INDN:Mang Wan Minn CO ID:XXXXX39000 PPD PMT INFO:Mang Wan Minn",
+          "txn_count": 1
+        },
+        {
+          "id": "70de9ecb-dd01-4780-a920-539648a9b0a8",
+          "name": "A2N Exchange DES:YTAU2Q7D7B ID: INDN:Mang Wan Minn CO ID:XXXXX39000 PPD PMT INFO:Mang Wan Minn",
+          "txn_count": 1
+        },
+        {
+          "id": "75a26366-a3d0-4b7b-b80c-111823c7c6dd",
+          "name": "A2N Exchange DES:FEQFJQU7F5 ID: INDN:Mang Wan Minn CO ID:XXXXX39000 PPD PMT INFO:Mang Wan Minn",
+          "txn_count": 1
+        },
+        {
+          "id": "d2496016-22d0-4266-b478-fb184179fd5c",
+          "name": "A2N Exchange DES:F7PK5B9FH7 ID: INDN:Mang Wan Minn CO ID:XXXXX39000 PPD PMT INFO:Mang Wan Minn",
+          "txn_count": 1
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Old Navy",
+      "action": "merged",
+      "members": [
+        {
+          "id": "b4a3de9a-89ea-4b38-bb1b-41495cfe7e0f",
+          "name": "Old Navy",
+          "txn_count": 4
+        },
+        {
+          "id": "03d67b24-5ede-430c-bd55-91d7672573d8",
+          "name": "Old Navy US",
+          "txn_count": 0
+        },
+        {
+          "id": "7a31ee92-682c-4f06-9a07-81ee31b09a8c",
+          "name": "Old Navy Online OH OH",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Travelers-GEICO Agency",
+      "action": "merged",
+      "members": [
+        {
+          "id": "b376011d-175e-4b89-b39b-c093f961a684",
+          "name": "Travelers-GEICO Agency",
+          "txn_count": 1
+        },
+        {
+          "id": "3d898713-40d3-4f35-933b-ecc061bbc17f",
+          "name": "Travelers Geico Agency",
+          "txn_count": 0
+        },
+        {
+          "id": "8c8f46a0-ccbc-45ec-9553-0d16c1654d22",
+          "name": "TRAVELERS-GEICO AGENCY 877-205-5772 CT",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Shanghai Wholesale",
+      "action": "merged",
+      "members": [
+        {
+          "id": "b6c86ecd-902b-4e92-9083-17807055b33e",
+          "name": "Shanghai Wholesale",
+          "txn_count": 2
+        },
+        {
+          "id": "ae516954-bc02-40e3-b5a8-abc28a48b4ed",
+          "name": "SHANGHAI WHOLESALE LLC MINNEAPOLIS MN",
+          "txn_count": 0
+        },
+        {
+          "id": "ef7b7f58-45aa-45f4-9129-ac2f1e75cd05",
+          "name": "Shanghai Wholesale LLC",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Discount Tire",
+      "action": "merged",
+      "members": [
+        {
+          "id": "5bc572eb-9989-4d36-a00e-3ab503e9f4dc",
+          "name": "Discount Tire",
+          "txn_count": 1
+        },
+        {
+          "id": "75c57227-292b-4425-ba42-b86a0a79c60f",
+          "name": "DISCOUNT-TIRE-CO MNM-06 SAINT PAUL MN",
+          "txn_count": 0
+        },
+        {
+          "id": "4538b2ba-da0e-403e-91aa-363bda0a5727",
+          "name": "Discount-Tire-CO Mnm-06",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Kim's Fresh Market",
+      "action": "merged",
+      "members": [
+        {
+          "id": "d320366b-d54a-4991-9f90-fbe24d339b8d",
+          "name": "Kim's Fresh Market",
+          "txn_count": 4
+        },
+        {
+          "id": "1617872b-1339-4a7f-af71-d4136315e3e0",
+          "name": "Kim S Fresh Market",
+          "txn_count": 0
+        },
+        {
+          "id": "cd5a13d8-54e0-4bee-9ba9-756dd5fbf881",
+          "name": "Kim`s Fresh Market",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Sliver Pizzeria",
+      "action": "merged",
+      "members": [
+        {
+          "id": "f2e7d410-90f4-41ed-bbb4-9c7c84b62ad5",
+          "name": "Sliver Pizzeria",
+          "txn_count": 1
+        },
+        {
+          "id": "d9e1c1b8-78c5-4371-9848-27faf6a85821",
+          "name": "Sliver Pizzeria Fr",
+          "txn_count": 0
+        },
+        {
+          "id": "4219a857-4926-4a24-9451-8ffbebb990fa",
+          "name": "Sliver Pizzeria Frfremont",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Parking Meter",
+      "action": "merged",
+      "members": [
+        {
+          "id": "33149423-6fec-4c71-aff8-bf361aa0207d",
+          "name": "Parking Meter",
+          "txn_count": 1
+        },
+        {
+          "id": "f5a6a956-0f20-447c-b42d-82a3eafd77f3",
+          "name": "PARKING METER ST PAUL SAINT PAUL MN",
+          "txn_count": 0
+        },
+        {
+          "id": "606cb7c7-a7c2-4ba5-a13b-c72a00edbb57",
+          "name": "Parking Meter St Paul",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Onstreet",
+      "action": "merged",
+      "members": [
+        {
+          "id": "6034ebb1-d0ab-4872-a79a-efc2478e485d",
+          "name": "Onstreet",
+          "txn_count": 10
+        },
+        {
+          "id": "a95e3467-9436-4436-8870-649084e2c99f",
+          "name": "ONSTREET 8090",
+          "txn_count": 0
+        },
+        {
+          "id": "c418eb8c-1b18-4361-a6af-c5fd07294ef4",
+          "name": "ONSTREET 8090",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Alco Treas Tax Col",
+      "action": "merged",
+      "members": [
+        {
+          "id": "dc9e55c8-f4fb-47d9-8df1-ad0fa9065901",
+          "name": "Alco Treas Tax Col",
+          "txn_count": 1
+        },
+        {
+          "id": "ee411565-a58b-444a-b50a-3facb1087924",
+          "name": "Alco Treas Tax",
+          "txn_count": 0
+        },
+        {
+          "id": "dd8410b5-94a2-4c46-b902-9a596c1c125b",
+          "name": "Alco Treas Tax",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "In-N-Out Burger",
+      "action": "merged",
+      "members": [
+        {
+          "id": "d8a99c23-2b58-43a2-83bb-b32ac06d6d07",
+          "name": "In-N-Out Burger",
+          "txn_count": 3
+        },
+        {
+          "id": "7d1a16af-3516-4ec9-aa9f-29673578c678",
+          "name": "IN N Out Burger",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Kbop Korean Bistro",
+      "action": "merged",
+      "members": [
+        {
+          "id": "dda7a5ee-d959-45db-9f31-7e59f9b0d703",
+          "name": "Kbop Korean Bistro",
+          "txn_count": 1
+        },
+        {
+          "id": "26b2b8c4-ae8b-4e37-8964-521d534abbbd",
+          "name": "Kbop Korean Bistro MN MN",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Chipotle",
+      "action": "merged",
+      "members": [
+        {
+          "id": "a258815b-e521-4d82-9faa-2d5cada363a0",
+          "name": "Chipotle",
+          "txn_count": 1
+        },
+        {
+          "id": "9dc1cadb-7bae-40ca-9551-20a88b34b127",
+          "name": "CHIPOTLE 0021 MINNEAPOLIS MN",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Resonate Church",
+      "action": "merged",
+      "members": [
+        {
+          "id": "38a5d2f6-acf4-4a7a-8448-b76dfe6d9cad",
+          "name": "Resonate Church",
+          "txn_count": 12
+        },
+        {
+          "id": "fb8a91d6-de50-4863-aa37-8a39eac15c23",
+          "name": "Resonate Church WA WA",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Pizza Luce",
+      "action": "merged",
+      "members": [
+        {
+          "id": "a06577fd-f475-4d9d-897c-9dae9b2c0ff6",
+          "name": "Pizza Luce",
+          "txn_count": 3
+        },
+        {
+          "id": "31ff1656-a530-4c2d-bbac-251fa01d0ea8",
+          "name": "Pizza Luce MN MN",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Shake Shack",
+      "action": "merged",
+      "members": [
+        {
+          "id": "8c00cdc6-36e6-45cf-b8f7-db80168f3f92",
+          "name": "Shake Shack",
+          "txn_count": 1
+        },
+        {
+          "id": "106993cc-68a3-41a1-a2d8-8296b8e3f0fb",
+          "name": "SHAKE SHACK LAS LAS VEGAS NV",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Pilot",
+      "action": "merged",
+      "members": [
+        {
+          "id": "584de63f-1898-46fe-a867-c56239c265d9",
+          "name": "Pilot",
+          "txn_count": 1
+        },
+        {
+          "id": "65c27eeb-2b8f-4307-a612-95e9e8f6af57",
+          "name": "Pilot 01103",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Payment",
+      "action": "skip",
+      "members": [
+        {
+          "id": "652bec4b-acb5-4348-950b-93c3dacd3666",
+          "name": "Payment",
+          "txn_count": 1
+        },
+        {
+          "id": "d12193f5-2459-457a-9874-b6ee3f62e08a",
+          "name": "Payment To Sherilyn Ch'ng",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Chevron",
+      "action": "merged",
+      "members": [
+        {
+          "id": "da653d28-f7b0-4403-aa20-2cd78cafcfea",
+          "name": "Chevron",
+          "txn_count": 1
+        },
+        {
+          "id": "042ce52b-ba28-4230-a10c-caa2cd5e77b9",
+          "name": "CHEVRON 0209516 FRESNO CA",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Asia Supermarket",
+      "action": "merged",
+      "members": [
+        {
+          "id": "5ca503c6-9447-47dd-b28e-2eebebae9a40",
+          "name": "Asia Supermarket",
+          "txn_count": 1
+        },
+        {
+          "id": "a7d638af-b423-47c0-bc70-58793ed9bd32",
+          "name": "ASIA SUPERMARKET FRESNO CA",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Starlink Internet",
+      "action": "merged",
+      "members": [
+        {
+          "id": "218570b7-4710-416b-a384-fe38a01704d9",
+          "name": "Starlink Internet",
+          "txn_count": 11
+        },
+        {
+          "id": "35cf5c44-f35d-438c-8c54-6bd00614085b",
+          "name": "Starlink Internet 310-6829683 CA",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Walgreens",
+      "action": "merged",
+      "members": [
+        {
+          "id": "10e044b6-59d7-4316-94dc-b92f5d8921b0",
+          "name": "Walgreens",
+          "txn_count": 3
+        },
+        {
+          "id": "49b46e61-1735-467d-ba01-e491d4978d34",
+          "name": "WALGREENS #7581 DENVER CO",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Lucki's Kitchen",
+      "action": "merged",
+      "members": [
+        {
+          "id": "48a085a2-e7b5-4248-8a4d-4e0ca6c9b2ca",
+          "name": "Lucki's Kitchen",
+          "txn_count": 2
+        },
+        {
+          "id": "ba9260ab-5256-4f32-adc4-317752caf789",
+          "name": "LUCKI`S KITCHEN",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Yogurtland",
+      "action": "merged",
+      "members": [
+        {
+          "id": "897b59c7-8616-410d-b2a7-b01adbc4fe0a",
+          "name": "Yogurtland",
+          "txn_count": 1
+        },
+        {
+          "id": "3d972e0e-a2f8-4cf9-adf5-0eb35d8ab9a9",
+          "name": "Yogurtland CA",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Benefit Payment",
+      "action": "merged",
+      "members": [
+        {
+          "id": "dd121145-b788-4512-bec9-6c0b1f01358c",
+          "name": "BENEFIT PAYMENT DES:EDI PYMNTS ID:80663068 INDN:Joseph Wan CO ID:HXXXXX1864 PPD",
+          "txn_count": 4
+        },
+        {
+          "id": "7b5f20bd-7871-4a94-97c6-82b520f0b969",
+          "name": "Benefit Payment",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Optum Bank",
+      "action": "merged",
+      "members": [
+        {
+          "id": "29dc4f5a-f852-4226-81a3-a3649501f3bf",
+          "name": "OPTUM BANK DES:REIMBUR ID:XXXXX8781 INDN:JOSEPH H WAN CO ID:XXXXX48773 PPD",
+          "txn_count": 1
+        },
+        {
+          "id": "a2273c71-03ce-4bed-8715-3100f0fedb57",
+          "name": "Optum Bank",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Accountable2You",
+      "action": "merged",
+      "members": [
+        {
+          "id": "7f6f7443-40d8-4a80-a613-eaedb498c464",
+          "name": "Accountable2You",
+          "txn_count": 1
+        },
+        {
+          "id": "0a359cfb-99b6-4aee-84d5-0d4b08c21da7",
+          "name": "Accountable2You",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "University of Michigan Parking",
+      "action": "merged",
+      "members": [
+        {
+          "id": "487cb153-c96d-4176-abbb-c4f39a9b5104",
+          "name": "University of Michigan Parking",
+          "txn_count": 6
+        },
+        {
+          "id": "23df79e6-aeb8-43ff-804c-70ac2bd8ecc5",
+          "name": "University of Michigan Parking",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Woot",
+      "action": "merged",
+      "members": [
+        {
+          "id": "60c12666-43a2-457d-aec3-f07069be3c8d",
+          "name": "Woot",
+          "txn_count": 2
+        },
+        {
+          "id": "bd1401ca-1775-42bc-b057-abdd1601d5ca",
+          "name": "Woot",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Smith Store",
+      "action": "merged",
+      "members": [
+        {
+          "id": "c1bd17db-9894-43d6-b78a-0704fdb226d9",
+          "name": "Smith Store",
+          "txn_count": 1
+        },
+        {
+          "id": "ab6dc7dc-a7ef-4952-895b-feb4d557bd16",
+          "name": "Smith Store",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Venmo",
+      "action": "merged",
+      "members": [
+        {
+          "id": "d4b66599-5abe-4b0c-8f31-d28b86e86f7f",
+          "name": "Venmo",
+          "txn_count": 4
+        },
+        {
+          "id": "826361c8-28dd-4cfa-8424-71a16e77bfc6",
+          "name": "Venmo",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Disney+",
+      "action": "merged",
+      "members": [
+        {
+          "id": "ba062e59-c5ef-4010-8442-67b291f4edc1",
+          "name": "Disney+",
+          "txn_count": 1
+        },
+        {
+          "id": "da75e5f4-76e5-4d1e-8188-ad1f7e4fe6f2",
+          "name": "Disney+",
+          "txn_count": 1
+        }
+      ]
+    },
+    {
+      "confidence": "exact",
+      "canonical": "Dollop Coffee Co.",
+      "action": "merged",
+      "members": [
+        {
+          "id": "ddf169f8-835c-4764-ac09-81073ebf475c",
+          "name": "Dollop Coffee Co.",
+          "txn_count": 1
+        },
+        {
+          "id": "f921cc85-dbc7-4381-a7e9-1a38f05e9ed0",
+          "name": "Dollop Coffee Co",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Interest Earned",
+      "action": "merged",
+      "members": [
+        {
+          "id": "494bc2ea-9831-4347-8bb6-aa689db119f1",
+          "name": "Interest Earned",
+          "txn_count": 12
+        },
+        {
+          "id": "553a37df-b35a-493d-9d6c-c9bae3ed23e4",
+          "name": "Interest earned in January Interest PAID_INTEREST",
+          "txn_count": 0
+        },
+        {
+          "id": "3f982160-9882-4b9f-b2f3-c44e54d5af6b",
+          "name": "Interest earned in February Interest PAID_INTEREST",
+          "txn_count": 0
+        },
+        {
+          "id": "67ff6c1c-a4f1-49e2-afaf-dae81ad56173",
+          "name": "Interest earned in March Interest PAID_INTEREST",
+          "txn_count": 0
+        },
+        {
+          "id": "07d50ab6-fa12-4774-89ec-046f6f5b036b",
+          "name": "Interest earned in April Interest PAID_INTEREST",
+          "txn_count": 0
+        },
+        {
+          "id": "f46fa852-1f62-44aa-b146-da2356463706",
+          "name": "Interest earned in May Interest PAID_INTEREST",
+          "txn_count": 0
+        },
+        {
+          "id": "3e64f5e0-0f9c-4e8d-9847-4d7c8a251bfa",
+          "name": "Interest earned in June Interest PAID_INTEREST",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Shuang Hur Oriental Market",
+      "action": "merged",
+      "members": [
+        {
+          "id": "32f366a4-d55d-4a5a-8273-8aa4c1164c06",
+          "name": "Shuang Hur Oriental Market",
+          "txn_count": 9
+        },
+        {
+          "id": "8042d9f4-e20c-4aae-93e9-88c5174d0e50",
+          "name": "Shuang Hur Oriental Marke",
+          "txn_count": 0
+        },
+        {
+          "id": "e5bdb353-864d-46e8-9862-229fa34403b5",
+          "name": "Shuang Hur Oriental Markest Paul",
+          "txn_count": 0
+        },
+        {
+          "id": "7fa87831-f45e-49bb-9bda-a309c46c61d6",
+          "name": "SHUANG HUR ORIENTAL MA",
+          "txn_count": 0
+        },
+        {
+          "id": "1e9a2bed-b684-4921-8908-07dfcd4f2c69",
+          "name": "SHUANG HUR ORIENTAL MARKEST PAUL MN",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Marc Heu Patisserie",
+      "action": "merged",
+      "members": [
+        {
+          "id": "42d52a04-d599-41c3-b04a-72503fb65c87",
+          "name": "Marc Heu Patisserie",
+          "txn_count": 1
+        },
+        {
+          "id": "149a2e0d-f40b-4ca2-97d8-ca179e95a690",
+          "name": "Marc Heu Patisserie Psaint Paul",
+          "txn_count": 0
+        },
+        {
+          "id": "d02c007f-74b7-4021-a898-4f1c9b1ba2e0",
+          "name": "Marc Heu Patisserie Psaint Paul",
+          "txn_count": 0
+        },
+        {
+          "id": "c5f49664-ee3a-4e05-b6a4-7e5b42b64543",
+          "name": "Marc Heu Patisserie P",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Golden Harvest Foods",
+      "action": "merged",
+      "members": [
+        {
+          "id": "d116e151-a90b-4c25-bd04-7566a9898135",
+          "name": "Golden Harvest Food",
+          "txn_count": 2
+        },
+        {
+          "id": "b31a68aa-9c46-41b4-88c3-f4bb8675a602",
+          "name": "Golden Harvest Foods St. Paul",
+          "txn_count": 1
+        },
+        {
+          "id": "b676a2a4-9fc4-4308-b2d4-56050adb7de9",
+          "name": "Golden Harvest Foods",
+          "txn_count": 1
+        },
+        {
+          "id": "fabc31d0-cd92-4cf9-a271-9236e5ed3cd4",
+          "name": "Golden Harvest",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "GEICO Auto Insurance",
+      "action": "merged",
+      "members": [
+        {
+          "id": "1bc5b724-0908-473f-b3e5-8b0474e558e9",
+          "name": "GEICO Auto Insurance",
+          "txn_count": 2
+        },
+        {
+          "id": "76526d53-b42e-47d8-ad88-4e2e4c4f65b5",
+          "name": "Geico Auto",
+          "txn_count": 0
+        },
+        {
+          "id": "86c8e2d6-9fe4-49c6-a806-681255ecfe2a",
+          "name": "GEICO *AUTO MACON DC",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Tea House Chinese Restaurant",
+      "action": "merged",
+      "members": [
+        {
+          "id": "7e610398-0ddf-437c-9cd4-e25cd2d815e4",
+          "name": "Tea House Chinese Restaurant",
+          "txn_count": 3
+        },
+        {
+          "id": "43715c35-55b9-4e31-a699-9220e0252403",
+          "name": "Tea House Chinese",
+          "txn_count": 0
+        },
+        {
+          "id": "3486e5e7-3bc0-4cb8-a29c-e4b7fbaf29e8",
+          "name": "Tea House Chinese Restau",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Raising Cane's",
+      "action": "merged",
+      "members": [
+        {
+          "id": "53eb63df-5c7e-4ea3-a297-906b5fb3c1ad",
+          "name": "Raising Cane's",
+          "txn_count": 1
+        },
+        {
+          "id": "e8dc7c5f-770a-40ea-a305-df361fdfdde4",
+          "name": "Raising Cane's #Lc 2",
+          "txn_count": 0
+        },
+        {
+          "id": "8a2822be-a315-486a-9a97-0ec43dc62f39",
+          "name": "Raising Cane's Chicken Fingers",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Ipho By Saigon",
+      "action": "merged",
+      "members": [
+        {
+          "id": "604752c1-2fb8-42c1-9e96-4a17001d77d2",
+          "name": "Ipho By Saigon",
+          "txn_count": 1
+        },
+        {
+          "id": "b2c970d4-6cb3-4080-82ae-4a06ded4378a",
+          "name": "Ipho By Saigon Inc",
+          "txn_count": 0
+        },
+        {
+          "id": "9aff8c6d-6408-455f-b5d3-9ad2b2170cb9",
+          "name": "IPHO BY SAIGON SAINT PAUL MN",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Master Noodle",
+      "action": "merged",
+      "members": [
+        {
+          "id": "8a4cde34-8078-4ecb-9f32-5af44dd9d8f0",
+          "name": "Master Noodle",
+          "txn_count": 1
+        },
+        {
+          "id": "52fdaa67-e4b6-4987-a017-6fd4057819c8",
+          "name": "Master Noodle Dinky Town",
+          "txn_count": 0
+        },
+        {
+          "id": "8f0e038a-db4b-48c8-b452-7ec8313e75aa",
+          "name": "MASTER NOODLE (DINKY TOWNMINNEAPOLIS MN",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "The Original Pancake House",
+      "action": "merged",
+      "members": [
+        {
+          "id": "ddca6c1a-010d-4d0b-a284-3007465be7ed",
+          "name": "The Original Pancake House",
+          "txn_count": 1
+        },
+        {
+          "id": "34ba65a7-2f7f-4bf0-8c85-7bb8b68efbf2",
+          "name": "The Original Pancake Hous",
+          "txn_count": 0
+        },
+        {
+          "id": "9e6306c0-9dec-4c6e-9b94-fad682e7413d",
+          "name": "The Original Pancake",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Paris Baguette",
+      "action": "merged",
+      "members": [
+        {
+          "id": "17e83064-4c20-4b87-8927-2b03fbdb3641",
+          "name": "Paris Baguette",
+          "txn_count": 2
+        },
+        {
+          "id": "97bc4b8a-ee8a-470b-9084-6df66bed10fe",
+          "name": "Paris Baguette H-M",
+          "txn_count": 0
+        },
+        {
+          "id": "ce5bdfb8-9cf0-4da4-894f-54881a5a682d",
+          "name": "Paris Baguette H-Mnaperville",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "With A Twist",
+      "action": "merged",
+      "members": [
+        {
+          "id": "6b4ee2f0-2cc2-4afe-86d1-fc74c5b802c9",
+          "name": "With A Twist",
+          "txn_count": 1
+        },
+        {
+          "id": "cf164cbc-94da-4275-8b25-7dd17f81bb00",
+          "name": "With A Twist Sev",
+          "txn_count": 0
+        },
+        {
+          "id": "611de970-0148-4bbd-a3fb-31894116fd73",
+          "name": "With A Twist Seversshakopee",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Midtown Exchange Parking Ramp",
+      "action": "merged",
+      "members": [
+        {
+          "id": "cf3030db-2de0-4e1c-9688-a10f56e43016",
+          "name": "Midtown Exchange Parking Ramp",
+          "txn_count": 1
+        },
+        {
+          "id": "5b475a08-e16c-40af-a73b-017da744a0db",
+          "name": "Midtown Exchange 3",
+          "txn_count": 0
+        },
+        {
+          "id": "57cfe613-c6d0-40d3-aa0a-be699c4809c2",
+          "name": "Midtown Exchange",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Cho Dang Tofu & BBQ",
+      "action": "merged",
+      "members": [
+        {
+          "id": "bd80faba-13ce-4c8c-a239-3c1dd4aa2231",
+          "name": "Cho Dang Tofu & BBQ",
+          "txn_count": 1
+        },
+        {
+          "id": "dfdcdb9b-0be6-423b-b730-c5665e35f316",
+          "name": "CHO DANG TOFU & BB",
+          "txn_count": 0
+        },
+        {
+          "id": "860be101-c2f3-4e67-a466-9a8f071aa38f",
+          "name": "Cho Dang Tofu & BBQ",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Transfer : Sapphire Preferred",
+      "action": "merged",
+      "members": [
+        {
+          "id": "0540bc14-d7cd-45f4-a0f0-4470e686df69",
+          "name": "Transfer : Sapphire Preferred",
+          "txn_count": 12
+        },
+        {
+          "id": "d8311050-b6e2-4cb7-ad5d-f987aaf38ec8",
+          "name": "Transfer : Sapphire",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Woodmans Food",
+      "action": "merged",
+      "members": [
+        {
+          "id": "3355af43-32f6-43fa-94be-6ec589e9c783",
+          "name": "Woodmans Food",
+          "txn_count": 1
+        },
+        {
+          "id": "60d06214-861a-4dda-a799-e795aec9091a",
+          "name": "Woodmans Food Menomonce Fa WI",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Takara Sushi",
+      "action": "merged",
+      "members": [
+        {
+          "id": "32198560-fe82-4fb9-9150-58095762a473",
+          "name": "Takara Sushi",
+          "txn_count": 1
+        },
+        {
+          "id": "5c9f3754-ea74-495c-9e61-ab45d35091ce",
+          "name": "Takara Sushi Inc",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Inver Grove Honda",
+      "action": "merged",
+      "members": [
+        {
+          "id": "dea163f5-236b-41d8-89f6-75489ba3b195",
+          "name": "Inver Grove Honda",
+          "txn_count": 1
+        },
+        {
+          "id": "b66a646c-6366-4189-a22d-ce5a1657bb67",
+          "name": "Inver Grove Honda Inver Grove Hmn",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Kung Fu Tea",
+      "action": "merged",
+      "members": [
+        {
+          "id": "f8a6ca80-5164-4512-afef-58251435f82a",
+          "name": "Kung Fu Tea",
+          "txn_count": 1
+        },
+        {
+          "id": "4ab01c1f-f85d-43bf-a2aa-844ceb212a3b",
+          "name": "Kung Fu Tea University",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Hannah Chiang Westgate",
+      "action": "merged",
+      "members": [
+        {
+          "id": "351f216a-77fd-400d-8119-2778d8328cce",
+          "name": "Hannah Chiang Westgate",
+          "txn_count": 5
+        },
+        {
+          "id": "12144287-7655-44fe-b2cc-1280999fa36a",
+          "name": "Hannah Chiang",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Mi-Sant Kitchen & Bakery",
+      "action": "merged",
+      "members": [
+        {
+          "id": "ff34d6e4-4fe8-4ba3-a530-7925487ad0de",
+          "name": "Mi-Sant Kitchen & Bakery",
+          "txn_count": 6
+        },
+        {
+          "id": "f6f4bdb4-292d-4696-8917-58418bb28025",
+          "name": "MI-Sant Kitchen",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Wallerich Eye Care",
+      "action": "merged",
+      "members": [
+        {
+          "id": "25910216-2bb2-4223-8574-641ed8b0f6b2",
+          "name": "Wallerich Eye Care",
+          "txn_count": 1
+        },
+        {
+          "id": "d9e19f4f-4be6-4de2-8b71-bcb3c4984fff",
+          "name": "Wallerich Eye Care Lsaint Paul",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Goodrich 68",
+      "action": "merged",
+      "members": [
+        {
+          "id": "2c76a888-8a1b-44cc-bdef-abd8fa50a70c",
+          "name": "Goodrich 68",
+          "txn_count": 1
+        },
+        {
+          "id": "396a398b-4a0b-4f85-bdc6-09947c4a7045",
+          "name": "Goodrich 68 LLC",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Bank Of America",
+      "action": "merged",
+      "members": [
+        {
+          "id": "835a424c-3f9a-4b1d-811d-afaffeb2cfbc",
+          "name": "Bank Of America",
+          "txn_count": 7
+        },
+        {
+          "id": "04222e3c-54ed-4727-a68f-79c2ac9a9cc5",
+          "name": "BANK OF AMERICA CREDIT CARD Bill Payment",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Market Fresh",
+      "action": "merged",
+      "members": [
+        {
+          "id": "b4562e21-88c9-408e-bebc-56aabccd4df9",
+          "name": "Market Fresh",
+          "txn_count": 14
+        },
+        {
+          "id": "ae23cb3c-66a6-44ba-a7bc-4ca229edc49a",
+          "name": "Market Fresh St Paul",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Gesmn Rose Cr",
+      "action": "merged",
+      "members": [
+        {
+          "id": "7801ad97-9417-4ce9-8a2a-ba333964c640",
+          "name": "Gesmn Rose Cr",
+          "txn_count": 2
+        },
+        {
+          "id": "2ef6fdb2-92b1-4507-b5f9-4e82455c887d",
+          "name": "Gesmn Rose Cr B",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "The Athletic",
+      "action": "merged",
+      "members": [
+        {
+          "id": "4e6b2e82-d11d-40c8-bf00-713bf8e64365",
+          "name": "The Athletic Media Company",
+          "txn_count": 4
+        },
+        {
+          "id": "61ecfce1-116b-41a3-86a9-82beb7278479",
+          "name": "The Athletic",
+          "txn_count": 1
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "YMCA of the North-Draft",
+      "action": "merged",
+      "members": [
+        {
+          "id": "686c6b60-3adb-4a3e-8047-1e561d6a03e2",
+          "name": "YMCA of the North-Draft",
+          "txn_count": 12
+        },
+        {
+          "id": "a8a91b35-3d6e-4033-ba56-6fec908fc78b",
+          "name": "YMCA of the North",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Fagen Fighters",
+      "action": "merged",
+      "members": [
+        {
+          "id": "b68ee3ec-7272-4790-807a-b37e456d970c",
+          "name": "Fagen Fighters",
+          "txn_count": 1
+        },
+        {
+          "id": "7301745b-46db-4d47-8a62-ef27ef4e1533",
+          "name": "Fagen Fighters Wwii Mgranite Fallsmn",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Statement Credit",
+      "action": "merged",
+      "members": [
+        {
+          "id": "b05a4744-067a-4e69-bbb8-4c39eab43902",
+          "name": "Statement Credit",
+          "txn_count": 3
+        },
+        {
+          "id": "9db6f5e6-032e-460f-9fc7-995de61cf393",
+          "name": "Statement Credit Adjustme",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Interest Charge",
+      "action": "skip",
+      "members": [
+        {
+          "id": "f2cb02af-e401-4628-869a-7c8046fe2555",
+          "name": "Interest Charge",
+          "txn_count": 1
+        },
+        {
+          "id": "039ee8fe-e7aa-4c25-bb8f-4bd52800de5f",
+          "name": "Interest Charge On Promotional Balances",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Park Board",
+      "action": "merged",
+      "members": [
+        {
+          "id": "63fb851f-aa9e-4e3f-927c-61cf2c2e8c17",
+          "name": "Park Board",
+          "txn_count": 2
+        },
+        {
+          "id": "f2662f33-a194-4114-9909-fb6192cd6273",
+          "name": "Park Board Multi Meters",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "TARGET PLUS BROOKLYN PARKMN",
+      "action": "merged",
+      "members": [
+        {
+          "id": "a03df2a7-9207-4a57-a4cb-f1a37bc5f462",
+          "name": "TARGET PLUS BROOKLYN PARKMN",
+          "txn_count": 9
+        },
+        {
+          "id": "b56fa753-0517-42af-9d13-320b64e0c1fd",
+          "name": "TARGET PLUS",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Transfer : Joseph SW Plus",
+      "action": "merged",
+      "members": [
+        {
+          "id": "c50b0b02-61ca-4551-a18c-c1f4c888c624",
+          "name": "Transfer : Joseph SW Plus",
+          "txn_count": 5
+        },
+        {
+          "id": "14f29ca1-d626-402a-8140-2bb388e3a505",
+          "name": "Transfer : Joseph SW",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Alameda County",
+      "action": "skip",
+      "members": [
+        {
+          "id": "bf7523d1-a557-46e4-b5e8-cb96df16d348",
+          "name": "Alameda County",
+          "txn_count": 1
+        },
+        {
+          "id": "d727dc23-1889-4040-9da3-0826e7befe7e",
+          "name": "Alameda County Property Tax",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Tremblay's Sweet Shop",
+      "action": "merged",
+      "members": [
+        {
+          "id": "41f90e57-b9e9-4efa-93b4-99e807dfef39",
+          "name": "Tremblay's Sweet Shop",
+          "txn_count": 1
+        },
+        {
+          "id": "248331c9-a2d5-4947-b99e-1a9e1c1974c6",
+          "name": "Tremblay's Sweet",
+          "txn_count": 0
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Bruegger's",
+      "action": "merged",
+      "members": [
+        {
+          "id": "0b62cd37-dcfb-4640-8a73-a1a8e07bf473",
+          "name": "Bruegger's",
+          "txn_count": 2
+        },
+        {
+          "id": "7228b231-b597-493f-9f3b-f039dede1566",
+          "name": "Bruegger's Bagels",
+          "txn_count": 1
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Fairview Highland Park Pharmacy",
+      "action": "merged",
+      "members": [
+        {
+          "id": "34bd02f5-be75-4164-8530-7aa79af11d96",
+          "name": "Fairview Highland Park Ph",
+          "txn_count": 1
+        },
+        {
+          "id": "92603d9f-0f97-4121-b58c-831334909c31",
+          "name": "Fairview Highland Park Pharmacy",
+          "txn_count": 1
+        }
+      ]
+    },
+    {
+      "confidence": "prefix",
+      "canonical": "Spring Lake Park",
+      "action": "skip",
+      "members": [
+        {
+          "id": "89427e86-11c5-4c6e-828d-8ff6a08270aa",
+          "name": "Spring Lake Park",
+          "txn_count": 2
+        },
+        {
+          "id": "280997db-3094-47da-be74-e89df625b1ab",
+          "name": "Spring Lake Park Ce",
+          "txn_count": 1
+        }
+      ]
+    }
+  ]
+}

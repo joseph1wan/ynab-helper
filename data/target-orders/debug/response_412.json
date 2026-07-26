@@ -1,0 +1,31 @@
+{
+  "data": {
+    "product": {
+      "__typename": "Product",
+      "original_tcin": "90011892",
+      "tcin": "90011892",
+      "item": {
+        "relationship_type_code": "SA",
+        "enrichment": {
+          "image_info": {
+            "primary_image": {
+              "url": "https://target.scene7.com/is/image/Target/GUEST_cc358470-f0bd-457b-b2cb-352b7b0d7c57"
+            }
+          }
+        },
+        "product_description": {
+          "title": "bubly Strawberry Sunset Sparkling Water - 8pk/12 fl oz Cans"
+        }
+      },
+      "price": {
+        "current_retail": 4.39,
+        "display_was_now": false,
+        "formatted_current_price": "$4.39",
+        "formatted_current_price_type": "reg",
+        "formatted_unit_price": "$0.05",
+        "formatted_unit_price_suffix": "/fluid ounce",
+        "reg_retail": 4.39
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "000062025",
+  "title": "Why does my order say it's been delivered when I haven't received it yet?",
+  "topics": [
+    "Didn't Receive Order",
+    "Delivered Not Received"
+  ],
+  "contents": [
+    {
+      "platform": "GENERAL",
+      "content": "<p>If your order status indicates <b>Delivered</b> but you can\u2019t locate the package, it\u2019s possible the carrier marked it delivered by accident. Carriers typically resolve this error within a day or two. Meanwhile, we recommend you check around the property, with your neighbors or your building manager.<br><br>If you\u2019re still not able to locate your package and the carrier status isn\u2019t updated, you can request a replacement or refund online:</p>\n<ol><li>Locate the order under <b>Purchases </b>in the Target app or <b>Orders</b> on Target.com.\u00a0</li><li>Select <b>Fix an issue</b>, then select any items you didn\u2019t receive.\u00a0</li><li>Follow the prompts to complete your refund or replacement request.</li><li>Check your refund or replacement status at any time in order details. We&#39;ll also email you updates, including tracking details for replacement items.</li></ol>\n<p><br>You can also call Target.com Guest Services at 1-800-591-3869 for help.<br><br>Learn about the <a href=\"https://www.target.com/help/article/000063012\" target=\"_blank\">additional carrier services</a> our shipping carriers offer for your Target shipments.\u00a0</p>\n<div>\u00a0</div>",
+      "field_name": "KA_Guest_Agent_Team_Member__c"
+    }
+  ],
+  "created_date": "2014-08-26T17:30:41.000Z",
+  "last_modified_date": "2025-07-09T20:20:02.000Z",
+  "record_type": "Q_A",
+  "data_categories": [
+    "Track_Order"
+  ],
+  "sort_order": 90.0,
+  "visible_in_pkb": true,
+  "visible_in_csp": false,
+  "display_chat_option": true
+}

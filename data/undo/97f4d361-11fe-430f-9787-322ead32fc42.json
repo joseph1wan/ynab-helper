@@ -1,0 +1,10 @@
+{
+  "transaction_id": "97f4d361-11fe-430f-9787-322ead32fc42",
+  "original": {
+    "amount": -103320,
+    "payee_name": "TARGET.COM * 800-591-3869 MN",
+    "memo": "",
+    "category_id": "888aa8b8-257d-4605-871d-7b30d3417be4"
+  },
+  "applied_at": "2026-07-25T16:33:23.114224+00:00"
+}

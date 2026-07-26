@@ -1,0 +1,6026 @@
+{
+  "AjaxWatches": [],
+  "BehaviorSignalSettings": {
+    "ElementBlocks": [
+      {
+        "Selector": "[data-test=\"footer-cart-summary\"] span[data-test=\"cart-summary-subtotal\"]",
+        "Signals": [
+          2,
+          1
+        ]
+      }
+    ]
+  },
+  "Domains": {
+    "OnlyKnownDomains": false
+  },
+  "ElementBlocks": [
+    {
+      "Selector": "input[type=password]",
+      "Consent": false,
+      "Type": 1,
+      "GroupId": 0
+    },
+    {
+      "Selector": "input[type=hidden]",
+      "Consent": false,
+      "Type": 1,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[autocomplete^=cc-]",
+      "Consent": false,
+      "Type": 1,
+      "GroupId": 0
+    },
+    {
+      "Selector": "input:not([type=\"search\"]):not(#searchMobile):not([name=\"searchTerm\"]):not(#share-some-details-to-get-started):not([name=\"search-online-orders\"]):not([name=\"chooseIssue\"]):not([aria-label=\"Search this store\"])",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 1
+    },
+    {
+      "Selector": "textarea:not(mediumSurvey)",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 1
+    },
+    {
+      "Selector": "select:not([data-test=\"cartItem-qty\"]):not(.styles_fulfillmentSectionAddToCartButtonWrapper__QC9l7):not([id^=\"return-reason-\"]):not([name=\"cancellationReason\"])",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 1
+    },
+    {
+      "Selector": "[contenteditable]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 1
+    },
+    {
+      "Selector": "input[type=radio]:not([name^=\"fulfillment-options-\"]):not([name=\"chooseIssue\"]):not([name^=\"fulfillment\"]):not([aria-labelledby=\"chooseIssueLabel\"]):not([for=\"Ordered-it-somewhere-else\"]):not([for=\"Needed-it-sooner\"]):not([for=\"Couldn\u2019t-pick-up-in-time\"]):not([for=\"Purchased-it-at-another-Target-store\"]):not([for=\"Other---Please-describe\"]):not([for=\"Store-requested-I-cancel-it\"]):not([for=\"No-longer-want-the-item\"]):not([for=\"Used-wrong-payment-method\"]):not([for=\"Wanted-the-item-shipped\"]):not([for=\"Ordered-wrong-item\"]):not([for=\"Chose-wrong-store\"]):not([name=\"cancellationReason\"])",
+      "Consent": false,
+      "Type": 1,
+      "GroupId": 1
+    },
+    {
+      "Selector": "input[type=checkbox]:not([data-test^=\"facet-checkbox-\"]):not([name=\"Select all\"]):not([data-test=\"giftOptionCheckbox\"])",
+      "Consent": false,
+      "Type": 1,
+      "GroupId": 1
+    },
+    {
+      "Selector": ".sc-63fd91ce-3 div h1",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"AccountCardBody\"] div.cqdDWw.sc-5da3fdcc-0 p",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "div.cBzSuK.h-padding-a-tight.sc-f82024d1-0 div",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "div.h-padding-b-x2.jbhZyc.sc-f82024d1-0 span.dppkGD.sc-a27fbc5d-5",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/AccountLink\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"gift-card-barcode-image\"]",
+      "Consent": false,
+      "Type": 1,
+      "GroupId": 0
+    },
+    {
+      "Selector": "div[data-test=\"cart-shipping-address\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"cart-order-notes-wrapper\"] p.h-text-grayDark",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"cart-order-notes-wrapper\"] image",
+      "Consent": false,
+      "Type": 1,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test^=\"IconPayment\"] svg",
+      "Consent": false,
+      "Type": 1,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test^=\"IconPayment\"] span",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"tracking-email\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"address\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "div.fbbkgX.sc-5da3fdcc-0 div.inDaCf.sc-f82024d1-0 div.jmHcII.sc-6e2a40c5-4 div.cqdDWw.sc-5da3fdcc-0 div.h-border-l.h-margin-b-tight.h-padding-l-default.sc-f82024d1-0.vqdzq div.bmwoQh.sc-f9e8dafb-1 div.dEKVUv.sc-f9e8dafb-0 div p",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "div.h-padding-b-tiny.h-padding-h-wide.h-text-md.jvOJnd.sc-f82024d1-0 div.h-padding-h-none.h-padding-v-tiny.styles_baseCell__zb2BN.styles_cellStandard__zO7OD span.styles_textSpan__IgvWs ul li.h-text-grayDark.h-text-md",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"error-banner\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "#pageBodyContainer",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[class^=\"styles_utilityHeaderLinksContainer__\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/HeaderPrimaryNav\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/component-footer/PrimaryFooter\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "div[data-test=\"sticky-atc\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/component-footer/SubFooter\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[aria-label=\"Carousel\"][data-test=\"lp-filterBar\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"deals-clearance\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"deals-cartwheel\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"deals-topDeals\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-tracking=\"Target New Arrivals \"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-tracking=\"Target Finds \"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-tracking=\"#TargetStyle\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "#cart-container [data-test=\"order-fulfillment-summary\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"cart-summary-zipCode\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"cart-order-notes-wrapper\"] svg image",
+      "Consent": false,
+      "Type": 1,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"checkout-summary-container\"] div.h-bg-white.h-padding-h-default p.h-padding-v-default.h-text-center.h-text-grayDark.h-text-sm",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"checkout-container\"] #STEP_PICKUP ul li",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"STEP_SHIPPING_CONTAINER\"] [data-test^=\"address\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"digital-gift-inactive-container\"] div span div",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"STEP_PAYMENT_GIFT_CARDS\"] div span p",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "#address",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"checkout-container\"] fieldset.styles_fieldSet___DAve label[for] span p",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test^=\"IconPayment\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "#checkout-container",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "#cart-container",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"shipping-cell-target-circle-card-subheading\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test^=\"payment-card-\"] svg image",
+      "Consent": false,
+      "Type": 1,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"form-error-bucket\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"errorContent\"] [tabindex=\"-1\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/CategoryMenu\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "#login[type=\"submit\"] span",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".ReactModal__Content--after-open[role=\"dialog\"] div[data-test=\"content-wrapper\"] div button[type=\"button\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[type=\"button\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/ZipCodeButton/ZipCodeNumber\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/TypeaheadInput/TypeaheadContent\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"shopper-photo\"]",
+      "Consent": false,
+      "Type": 1,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-component-type=\"Dynamic Placeholder\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/StoreName/StoreName\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"item-attribute-toName\"] div span div",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"item-attribute-fromName\"] div span div",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"item-attribute-email\"] div span div",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-component-title=\"Circle Welcome Message\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/ATCFiatsModal\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"pickupStoreName\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[href=\"https://www.target.com/circlecard/engagement\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"order-confirmation-container\"] [data-test=\"address\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"order-confirmation-container\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/StoreMenu/SelectAStore\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "#carousel_header_title",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/circle/CircleSavingsSection\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/circle/SavedDealsCard\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/circle/CircleAtAGlanceCard\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/circle/CircleSavingsSection\"] img",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-ff-lnk-nav-click-text=\"Target Circle Base\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".ReactModal__Content.ReactModal__Content--after-open a[data-ff-lnk-nav-click-text=\"Target Circle Card\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"accountNav-giftCards\"][href=\"https://www.target.com/guest/gift-card-balance\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"accountNav-Lists\"][href=\"https://www.target.com/lists\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-ff-lnk-nav-click-text=\"Registry\"][data-test=\"accountNav-registries\"][href=\"#\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"accountNav-helpCenter\"][href=\"https://www.target.com/help\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"accountNav-recalls\"][href=\"https://www.target.com/help/articles/news-safety/product-recalls\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"accountNav-privacy\"][href=\"https://www.target.com/guest-privacy/legal-privacy\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@store-locator/StoreHeader\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"panelStoreHours\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@store-locator/FulfillmentOptions\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@store-locator/StoreFeatures/FeaturesLandingPageList\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@store-locator/StoreFeatures/FeaturesList\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@store-locator/StoreLocatorPage\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[aria-labelledby=\"chooseReturnMethodLabel\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[aria-labelledby=\"chooseItemsLabel\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "#concierge-prompt-label",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"order-images-component\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"deals-weeklyAd\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"deals\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/Search/SearchTypeahead/Content\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/SearchInputOverlayMobile\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"digitalDeliveryItem-TARGETEMAILGC\"] [name=\"deliveryDate\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"filtered-results-message\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".styles_ndsLabel__l_gym.styles_styledLabel__iXIZl",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[class^=\"InStoreReturnsFlyout_styledPackageCardGrid__\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[role=\"tooltip\"][data-test=\"@nicollet/SelectCustom/Popover\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[href^=\"https://www.target.com/cart\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".ReactModal__Content [data-test=\"content-wrapper\"] div.h-display-flex.h-flex-align-center.h-text-bold",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[class^=\"styles_styledReasonSelectionContainer\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[aria-labelledby$=\"-chooseSolutionLabel\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".granify-grid-wrapper",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".styles_styled-dialog-modal___kmLq",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[class^=\"GiftFinder_giftFinderPage\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@store-locator/StoreDirectionsAndMaps/StoreInformationButtons\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".view_container__sBZHG",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test^=\"@store-locator/\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[id^=\"return-reason-\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[aria-labelledby=\"chooseIssueLabel\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".ReactModal__Content [href=\"https://rcam.target.com/\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".ReactModal__Content--after-open a[href=\"/c/top-deals/-/N-4xw74\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".ReactModal__Content.ReactModal__Content--after-open [href$=\"/account/memberships\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".ReactModal__Content.ReactModal__Content--after-open [data-test=\"accountNav-recentlyViewed\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".ReactModal__Content--after-open [data-test=\"accountNav-saveForLater\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".ReactModal__Content--after-open [data-test=\"accountNav-helpCenter\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".ReactModal__Content.ReactModal__Content--after-open [data-test=\"accountNav-recalls\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".ReactModal__Content.ReactModal__Content--after-open [data-test=\"accountNav-privacy\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".ReactModal__Overlay.ReactModal__Overlay--after-open [data-ff-lnk-nav-click-text=\"Sign Out\"][data-test=\"accountNav-guestSignOut\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".ReactModal__Content.ReactModal__Content--after-open [href$=\"/account/savings\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".ReactModal__Content.ReactModal__Content--after-open [data-test=\"accountNav-orders\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".ReactModal__Content.ReactModal__Content--after-open [href$=\"/account?lnk=acct_nav_my_account\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[class^=\"styles_orderCard\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"addToCartSuccessModalRecommendationsTile\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[href=\"https://www.target.com/cart\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "#tabContent-tab-Instore",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test$=\"back-button\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".ReactModal__Content.ReactModal__Content--after-open [data-test=\"accountNav-listsAndFavorites\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[class^=\"styles_giftcard-email\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".styles_headerContainer__5P2td",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[class^=\"styles_styledItemTitleGrid\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[aria-label=\"Breadcrumbs\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[href^=\"https://www.target.com/help/contact-us/\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".styles_styledSummary__1e7Ib .h-text-green.h-text-md",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"espItemCard\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[class^=\"styles_ndsAlertCard\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/Price/PriceFull\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test^=\"drawer-item-card-\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[for=\"Wanted-the-item-shipped\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[for=\"Ordered-wrong-item\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[for=\"Chose-wrong-store\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[for=\"No-longer-want-the-item\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[for=\"Store-requested-I-cancel-it\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[for=\"Other---Please-describe\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[for=\"Purchased-it-at-another-Target-store\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[for=\"Couldn\u2019t-pick-up-in-time\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[for=\"Needed-it-sooner\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[for=\"Ordered-it-somewhere-else\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "#item-solution-heading-replacement",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "#item-solution-heading-full-refund",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[href$=\"type=returnByMail\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[href$=\"?type=fixAnIssue\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[href$=\"/rate-and-review\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"faq-heading\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "#login[type=\"submit\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"package-card-item-row\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[class^=\"SelfServiceLinks\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"package-card-heading\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open[role=\"dialog\"] div[data-test=\"content-wrapper\"] div div a[href=\"https://www.target.com/p/women-39-s-hearts-graphic-cardigan-sweater-light-pink-xxs/-/A-94853245?preselect=94853245\"] h4",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open[role=\"dialog\"] div[data-test=\"content-wrapper\"] div div div",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open[role=\"dialog\"] div[data-test=\"content-wrapper\"] div[aria-label=\"Fulfillment\"][data-test=\"@web/AddToCart/FulfillmentSection\"][role=\"region\"] div div[data-test=\"inStoreOnlySection\"] span span[data-test=\"outOfStockMessage\"] span",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open[role=\"dialog\"] div[data-test=\"content-wrapper\"] div div[data-test=\"@web/VariationComponent\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open[role=\"dialog\"] div[data-test=\"content-wrapper\"] div[aria-label=\"Fulfillment\"][data-test=\"@web/AddToCart/FulfillmentSection\"][role=\"region\"] div div[data-test=\"inStoreOnlySection\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open[role=\"dialog\"] div[data-test=\"content-wrapper\"] div div div div",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "html.ReactModal__Html--open[lang=\"en-US\"] body.styles_bodyOpen__52nJc[spellcheck=\"false\"] div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open.styles_ndsBaseModalDrawer__tDfIx.styles_ndsModalDrawer__Pm1IZ.styles_nonScrollModalContent__FXObk.styles_reactModal__L_pFt.styles_right__v4Fl_[tabindex=\"-1\"][role=\"dialog\"][aria-modal=\"true\"] div.styles_contentWrapper__p20AZ.styles_paddedContent__nk0uk[data-test=\"content-wrapper\"] div.lOUJu.sc-c828207f-0.styles_ndsBaseCell__hDDbb.styles_topOnlySmallScreen__BF9G9 a.styles_bordered__nZVq3.styles_fullWidth__gA46D.styles_md__Lvk4a.styles_ndsBaseButton__4Gp2_.styles_ndsButtonSecondary__dTfTU[href=\"https://www.target.com/cart\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "html.ReactModal__Html--open[lang=\"en-US\"] body.styles_bodyOpen__52nJc[spellcheck=\"false\"] div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open.styles_ndsBaseModalDrawer__tDfIx.styles_ndsModalDrawer__Pm1IZ.styles_nonScrollModalContent__FXObk.styles_reactModal__L_pFt.styles_right__v4Fl_[tabindex=\"-1\"][role=\"dialog\"][aria-modal=\"true\"] div.styles_contentWrapper__p20AZ.styles_paddedContent__nk0uk[data-test=\"content-wrapper\"] div h2.h-margin-t-x2.styles_fontSize3__AoSnd.styles_ndsHeading__phw6r.styles_x2Margin__ZKMpf",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "html.ReactModal__Html--open[lang=\"en-US\"] body.styles_bodyOpen__52nJc[spellcheck=\"false\"] div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open.styles_ndsBaseModalDrawer__tDfIx.styles_ndsModalDrawer__Pm1IZ.styles_nonScrollModalContent__FXObk.styles_reactModal__L_pFt.styles_right__v4Fl_[tabindex=\"-1\"][role=\"dialog\"][aria-modal=\"true\"] div.styles_contentWrapper__p20AZ.styles_paddedContent__nk0uk[data-test=\"content-wrapper\"] div[data-test=\"@web/add-to-cart-success-circle-offers\"] div.styles_ndsPopover__aZ_I6.styles_warning__DnaQk[role=\"alert\"][tabindex=\"-1\"][data-floating-ui-focusable=\"\"] span[data-test=\"save-offer-popover-error\"][tabindex=\"-1\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "html.ReactModal__Html--open[lang=\"en-US\"] body.styles_bodyOpen__52nJc[spellcheck=\"false\"] div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open.styles_ndsBaseModalDrawer__tDfIx.styles_ndsModalDrawer__Pm1IZ.styles_nonScrollModalContent__FXObk.styles_reactModal__L_pFt.styles_right__v4Fl_[tabindex=\"-1\"][role=\"dialog\"][aria-modal=\"true\"] div.styles_contentWrapper__p20AZ.styles_paddedContent__nk0uk[data-test=\"content-wrapper\"] div[data-test=\"@web/add-to-cart-success-circle-offers\"] h4.styles_fontSize4__sshdb.styles_ndsHeading__phw6r.styles_x2Margin__ZKMpf",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "html.ReactModal__Html--open[lang=\"en-US\"] body.styles_bodyOpen__52nJc[spellcheck=\"false\"] div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open.styles_ndsBaseModalDrawer__tDfIx.styles_ndsModalDrawer__Pm1IZ.styles_nonScrollModalContent__FXObk.styles_reactModal__L_pFt.styles_right__v4Fl_[tabindex=\"-1\"][role=\"dialog\"][aria-modal=\"true\"] div.styles_contentWrapper__p20AZ.styles_paddedContent__nk0uk[data-test=\"content-wrapper\"] div.kOlFFv.sc-94d1bcd4-1",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "html.ReactModal__Html--open[lang=\"en-US\"] body.styles_bodyOpen__52nJc[spellcheck=\"false\"] div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open.styles_ndsBaseModalDrawer__tDfIx.styles_ndsModalDrawer__Pm1IZ.styles_nonScrollModalContent__FXObk.styles_reactModal__L_pFt.styles_right__v4Fl_[tabindex=\"-1\"][role=\"dialog\"][aria-modal=\"true\"] div.styles_bottom__dnGon.styles_cellModalDrawerHeader__00kw7.styles_ndsBaseCell__hDDbb span.styles_headingWrapper___v71Q h2.styles_fontSize2__rqnzp.styles_heading__lrDgr.styles_ndsHeading__phw6r.styles_x2Margin__ZKMpf[data-test=\"modal-drawer-heading\"][tabindex=\"-1\"] span.h-text-lg",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "html.ReactModal__Html--open[lang=\"en-US\"] body.styles_bodyOpen__52nJc[spellcheck=\"false\"] div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open.styles_ndsBaseModalDrawer__tDfIx.styles_ndsModalDrawer__Pm1IZ.styles_nonScrollModalContent__FXObk.styles_reactModal__L_pFt.styles_right__v4Fl_[tabindex=\"-1\"][role=\"dialog\"][aria-modal=\"true\"] div.styles_contentWrapper__p20AZ.styles_paddedContent__nk0uk[data-test=\"content-wrapper\"] div.dPhrQO.sc-c828207f-1.styles_ndsBaseCell__hDDbb div.h-padding-l-tight h4.styles_fontSize4__sshdb.styles_ndsHeading__phw6r.styles_x4Margin__7WIad",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open.ReactModal__Overlay--before-close div.ReactModal__Content.ReactModal__Content--after-open.ReactModal__Content--before-close[data-test=\"@web/auth-components/AuthSignInFlyout\"][role=\"dialog\"] div[data-test=\"content-wrapper\"] div div div h1",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open.ReactModal__Overlay--before-close div.ReactModal__Content.ReactModal__Content--after-open.ReactModal__Content--before-close[data-test=\"@web/auth-components/AuthSignInFlyout\"][role=\"dialog\"] div[data-test=\"content-wrapper\"] div div div div p",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open.ReactModal__Overlay--before-close div.ReactModal__Content.ReactModal__Content--after-open.ReactModal__Content--before-close[data-test=\"@web/auth-components/AuthSignInFlyout\"][role=\"dialog\"] div[data-test=\"content-wrapper\"] div div div div.divider strong",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open.ReactModal__Overlay--before-close div.ReactModal__Content.ReactModal__Content--after-open.ReactModal__Content--before-close[data-test=\"@web/auth-components/AuthSignInFlyout\"][role=\"dialog\"] div[data-test=\"content-wrapper\"] div div div div div div label[for=\"keepMeSignedIn\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "body div#__next div main#pageBodyContainer div div[data-test=\"@web/SiteTopOfFunnel/PageContentRenderer\"] div div.undefined[data-test=\"@web/SlotRenderer\"] div[data-component-id][data-component-position][data-component-title=\"Product Grid\"][data-content-type=\"dynamic\"] div div div[data-module-type=\"ListingPageProductListCards\"] div[data-test=\"product-grid\"] div[data-test=\"@web/site-top-of-funnel/ProductCardWrapper\"] div[data-test=\"@web/ProductCard/ProductCardVariantDefault\"] div div[data-test=\"@web/ProductCard/body\"] div[data-test=\"product-details\"] div div[data-test=\"@web/ProductCard/ProductCardFulfillmentMessaging\"] div[data-test=\"LPFulfillmentSectionStoreFA_storeMessaging\"] div[data-test=\"lowStockMessaging\"] span",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[class^=\"ArticleContent_articleContentWrapper\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[class^=\"SingleArticle_title\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"item-attribute-USPhone\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[class^=\"styles_giftcard-mobile__\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"checkout-container\"] [class^=\"styles_full-row\"] .h-text-grayDark.h-text-md",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"checkout-container\"] [class^=\"styles_full-row\"] .h-text-bold",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"searchResultsHeading\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"invoice-details-card\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"bread-crumb\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test^=\"freebie-card-container-\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[aria-label=\"Target Circle 360\u2122 freebies\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"footer-cart-summary\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"confirmed-scheduled-delivery-substitution\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "#confirmed-scheduled-delivery-instructions",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[for=\"Used-wrong-payment-method\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[role=\"tooltip\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/TypeaheadInput/TypeaheadContent\"] [type=\"button\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"offer\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"item-card\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".styles_ndsCarousel__yMTV9[aria-label=\"Carousel\"] .styles_cardContainer__QgD7m",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".styles_aboutFreebiesContainer__0Udkg",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".styles_container__DmGTF",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[class^=\"ThinkingState_phrase\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-module-type=\"TopasChatMessage\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"productCardVariantMini\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[class^=\"TermsAndConditions\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[aria-label=\"Ask AI\"][role=\"button\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-module-type=\"AccountCarouselCircleMembership\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-module-type=\"AccountCardPurchases\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-module-type=\"AccountCard\"] [aria-label=\"Settings\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-module-type=\"AccountCard\"] [aria-label=\"Continue Shopping\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-module-type=\"AccountCard\"] [aria-label=\"Shopping partners\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-module-type=\"AccountCard\"] [aria-label=\"Rate & review\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-module-type=\"AccountCard\"] [aria-label=\"Registry & Wish list\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-module-type=\"AccountCard\"] [aria-label=\"My preferences\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test^=\"payment-card-radio-\"][name=\"payment-card-radio\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[role=\"alert\"][data-test=\"toast-manager-entry\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"selectable-address-card-container\"]",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "div[class^=\"styles_styledErrorCard\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-test=\"@web/StoreName/Button\"]",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "[data-module-type=\"OrderHistorySearchFilter\"] #search-online-purchases",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".fs-exclude",
+      "Consent": false,
+      "Type": 1,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".fs-exclude-without-consent",
+      "Consent": true,
+      "Type": 1,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".fs-mask",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".fs-mask-without-consent",
+      "Consent": true,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".fs-unmask",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".fs-unmask-with-consent",
+      "Consent": true,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".fs-hide",
+      "Consent": false,
+      "Type": 1,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".fs-block",
+      "Consent": false,
+      "Type": 1,
+      "GroupId": 0
+    },
+    {
+      "Selector": ".fs-record-with-consent",
+      "Consent": true,
+      "Type": 1,
+      "GroupId": 0
+    },
+    {
+      "Selector": "html",
+      "Consent": false,
+      "Type": 2,
+      "GroupId": 0
+    },
+    {
+      "Selector": "link",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "style",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    },
+    {
+      "Selector": "base",
+      "Consent": false,
+      "Type": 3,
+      "GroupId": 0
+    }
+  ],
+  "NamedElementBlocks": [
+    {
+      "Name": "input[type=password]",
+      "Consent": false,
+      "BlockType": 1,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "input[type=password]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "input[type=hidden]",
+      "Consent": false,
+      "BlockType": 1,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "input[type=hidden]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[autocomplete^=cc-]",
+      "Consent": false,
+      "BlockType": 1,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[autocomplete^=cc-]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "input",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "input:not([type=\"search\"]):not(#searchMobile):not([name=\"searchTerm\"]):not(#share-some-details-to-get-started):not([name=\"search-online-orders\"]):not([name=\"chooseIssue\"]):not([aria-label=\"Search this store\"])",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 1
+    },
+    {
+      "Name": "textarea",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "textarea:not(mediumSurvey)",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 1
+    },
+    {
+      "Name": "select",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "select:not([data-test=\"cartItem-qty\"]):not(.styles_fulfillmentSectionAddToCartButtonWrapper__QC9l7):not([id^=\"return-reason-\"]):not([name=\"cancellationReason\"])",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 1
+    },
+    {
+      "Name": "[contenteditable]",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[contenteditable]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 1
+    },
+    {
+      "Name": "input[type=radio]",
+      "Consent": false,
+      "BlockType": 1,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "input[type=radio]:not([name^=\"fulfillment-options-\"]):not([name=\"chooseIssue\"]):not([name^=\"fulfillment\"]):not([aria-labelledby=\"chooseIssueLabel\"]):not([for=\"Ordered-it-somewhere-else\"]):not([for=\"Needed-it-sooner\"]):not([for=\"Couldn\u2019t-pick-up-in-time\"]):not([for=\"Purchased-it-at-another-Target-store\"]):not([for=\"Other---Please-describe\"]):not([for=\"Store-requested-I-cancel-it\"]):not([for=\"No-longer-want-the-item\"]):not([for=\"Used-wrong-payment-method\"]):not([for=\"Wanted-the-item-shipped\"]):not([for=\"Ordered-wrong-item\"]):not([for=\"Chose-wrong-store\"]):not([name=\"cancellationReason\"])",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 1
+    },
+    {
+      "Name": "input[type=checkbox]",
+      "Consent": false,
+      "BlockType": 1,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "input[type=checkbox]:not([data-test^=\"facet-checkbox-\"]):not([name=\"Select all\"]):not([data-test=\"giftOptionCheckbox\"])",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 1
+    },
+    {
+      "Name": ".sc-63fd91ce-3 div h1",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".sc-63fd91ce-3 div h1",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[data-test=\"AccountCardBody\"] div.cqdDWw.sc-5da3fdcc-0 p",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"AccountCardBody\"] div.cqdDWw.sc-5da3fdcc-0 p",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "div.cBzSuK.h-padding-a-tight.sc-f82024d1-0 div",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "div.cBzSuK.h-padding-a-tight.sc-f82024d1-0 div",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "div.h-padding-b-x2.jbhZyc.sc-f82024d1-0 span.dppkGD.sc-a27fbc5d-5",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "div.h-padding-b-x2.jbhZyc.sc-f82024d1-0 span.dppkGD.sc-a27fbc5d-5",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[data-test=\"@web/AccountLink\"]",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/AccountLink\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[data-test=\"gift-card-barcode-image\"]",
+      "Consent": false,
+      "BlockType": 1,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"gift-card-barcode-image\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "div[data-test=\"cart-shipping-address\"]",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "div[data-test=\"cart-shipping-address\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Checkout - Card Description",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"cart-order-notes-wrapper\"] p.h-text-grayDark",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[data-test=\"cart-order-notes-wrapper\"] image",
+      "Consent": false,
+      "BlockType": 1,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"cart-order-notes-wrapper\"] image",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[data-test^=\"IconPayment\"] svg",
+      "Consent": false,
+      "BlockType": 1,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test^=\"IconPayment\"] svg",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[data-test^=\"IconPayment\"] span",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test^=\"IconPayment\"] span",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[data-test=\"tracking-email\"]",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"tracking-email\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[data-test=\"address\"]",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"address\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "div.fbbkgX.sc-5da3fdcc-0 div.inDaCf.sc-f82024d1-0 div.jmHcII.sc-6e2a40c5-4 div.cqdDWw.sc-5da3fdcc-0 div.h-border-l.h-margin-b-tight.h-padding-l-default.sc-f82024d1-0.vqdzq div.bmwoQh.sc-f9e8dafb-1 div.dEKVUv.sc-f9e8dafb-0 div p",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "div.fbbkgX.sc-5da3fdcc-0 div.inDaCf.sc-f82024d1-0 div.jmHcII.sc-6e2a40c5-4 div.cqdDWw.sc-5da3fdcc-0 div.h-border-l.h-margin-b-tight.h-padding-l-default.sc-f82024d1-0.vqdzq div.bmwoQh.sc-f9e8dafb-1 div.dEKVUv.sc-f9e8dafb-0 div p",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "pickup person",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "div.h-padding-b-tiny.h-padding-h-wide.h-text-md.jvOJnd.sc-f82024d1-0 div.h-padding-h-none.h-padding-v-tiny.styles_baseCell__zb2BN.styles_cellStandard__zO7OD span.styles_textSpan__IgvWs ul li.h-text-grayDark.h-text-md",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Error Banner",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"error-banner\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Page Body Container",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "#pageBodyContainer",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Global Nav - Utility Header Links",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[class^=\"styles_utilityHeaderLinksContainer__\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Global Nav - Primary Nav Links",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/HeaderPrimaryNav\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Footer Nav Links",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/component-footer/PrimaryFooter\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "PDP - Sticky ATC",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "div[data-test=\"sticky-atc\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Global Nav - Subfooter Nav Links",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/component-footer/SubFooter\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Search - Sticky Filter Carousel",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[aria-label=\"Carousel\"][data-test=\"lp-filterBar\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Global Nav - Deals Dropdown - Clearance",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"deals-clearance\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Global Nav - Deals Dropdown - Cartwheel",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"deals-cartwheel\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Global Nav - Deals Dropdown - Top Deals",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"deals-topDeals\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Primary Nav - New & Featured dropdown - New Arrivals",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-tracking=\"Target New Arrivals \"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Primary Nav - New & Featured dropdown - Target Finds",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-tracking=\"Target Finds \"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Primary Nav - New & Featured dropdown - #TargetStyle",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-tracking=\"#TargetStyle\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Cart - Order Fulfillment Summary ",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "#cart-container [data-test=\"order-fulfillment-summary\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Checkout - Cart Summary Zip",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"cart-summary-zipCode\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Checkout - CC Img",
+      "Consent": false,
+      "BlockType": 1,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"cart-order-notes-wrapper\"] svg image",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Checkout - Email ",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"checkout-summary-container\"] div.h-bg-white.h-padding-h-default p.h-padding-v-default.h-text-center.h-text-grayDark.h-text-sm",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Checkout - Name for Pickup List",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"checkout-container\"] #STEP_PICKUP ul li",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Checkout - Shipping Address",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"STEP_SHIPPING_CONTAINER\"] [data-test^=\"address\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Checkout - Gift Details",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"digital-gift-inactive-container\"] div span div",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Checkout - Gift Card Details",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"STEP_PAYMENT_GIFT_CARDS\"] div span p",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Checkout - Address",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "#address",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Checkout - Saved Card Options",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"checkout-container\"] fieldset.styles_fieldSet___DAve label[for] span p",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Checkout - Selected Card Description",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test^=\"IconPayment\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Checkout - Checkout Container",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "#checkout-container",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Cart - Cart Container",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "#cart-container",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Cart - Shipping Discount Detail",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"shipping-cell-target-circle-card-subheading\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Checkout - CC image",
+      "Consent": false,
+      "BlockType": 1,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test^=\"payment-card-\"] svg image",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Error Pop Up",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"form-error-bucket\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Flyout Error Message",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"errorContent\"] [tabindex=\"-1\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Global Nav - Category Dropdown list",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/CategoryMenu\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Auth Flyout - Login Button",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "#login[type=\"submit\"] span",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Auth Flyout - Login with Passkey",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".ReactModal__Content--after-open[role=\"dialog\"] div[data-test=\"content-wrapper\"] div button[type=\"button\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Button Unmask",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[type=\"button\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Zip Code",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/ZipCodeButton/ZipCodeNumber\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Address Autocomplete",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/TypeaheadInput/TypeaheadContent\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Profile Image Exclusion",
+      "Consent": false,
+      "BlockType": 1,
+      "Platforms": [
+        1,
+        3,
+        2
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"shopper-photo\"]",
+          "Platforms": null,
+          "MinVersion": {},
+          "MaxVersion": {
+            "major": 2147483647,
+            "minor": 2147483647,
+            "patch": 2147483647
+          }
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Dynamic Placeholder",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-component-type=\"Dynamic Placeholder\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "store name",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/StoreName/StoreName\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "To name - digital delivery",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"item-attribute-toName\"] div span div",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "From name - digital delivery",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"item-attribute-fromName\"] div span div",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Email - digital delivery",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"item-attribute-email\"] div span div",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Circle welcome message",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-component-title=\"Circle Welcome Message\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "FIAT (Show in-stock stores)",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/ATCFiatsModal\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Pickup Store Name",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"pickupStoreName\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Circle 360 User Link Unmasking",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[href=\"https://www.target.com/circlecard/engagement\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Address Masking",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"order-confirmation-container\"] [data-test=\"address\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Confirmation Page Unmasking",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"order-confirmation-container\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Select a Store",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/StoreMenu/SelectAStore\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Carousel Header Title",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        3,
+        2,
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "#carousel_header_title",
+          "Platforms": null,
+          "MinVersion": {},
+          "MaxVersion": {
+            "major": 2147483647,
+            "minor": 2147483647,
+            "patch": 2147483647
+          }
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Circle Earnings Section",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/circle/CircleSavingsSection\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Saved Deals Card",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/circle/SavedDealsCard\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Circle at a Glance Card",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/circle/CircleAtAGlanceCard\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Circle Section Images",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/circle/CircleSavingsSection\"] img",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Target Circle Base Link",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-ff-lnk-nav-click-text=\"Target Circle Base\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Target Circle Card Link",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".ReactModal__Content.ReactModal__Content--after-open a[data-ff-lnk-nav-click-text=\"Target Circle Card\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Nav Gift Card",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"accountNav-giftCards\"][href=\"https://www.target.com/guest/gift-card-balance\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Nav Lists ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"accountNav-Lists\"][href=\"https://www.target.com/lists\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Regsitry Account Nav",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-ff-lnk-nav-click-text=\"Registry\"][data-test=\"accountNav-registries\"][href=\"#\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Nav Help Link",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"accountNav-helpCenter\"][href=\"https://www.target.com/help\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Nav Recalls",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"accountNav-recalls\"][href=\"https://www.target.com/help/articles/news-safety/product-recalls\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Nav Privacy Policy",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"accountNav-privacy\"][href=\"https://www.target.com/guest-privacy/legal-privacy\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Store Locator Header",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@store-locator/StoreHeader\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Store Hours Panel",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"panelStoreHours\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Store Locator Fulfillment Options",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@store-locator/FulfillmentOptions\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Store Locator Features Landing Page List",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@store-locator/StoreFeatures/FeaturesLandingPageList\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Store Locator Features List",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@store-locator/StoreFeatures/FeaturesList\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Whole Store Locator Page",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@store-locator/StoreLocatorPage\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask [aria-labelledby=\"chooseReturnMethodLabel\"] ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[aria-labelledby=\"chooseReturnMethodLabel\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Choose Items Label",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[aria-labelledby=\"chooseItemsLabel\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask #concierge-prompt-label | Returns",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "#concierge-prompt-label",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask [data-test=\"order-images-component\"]",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"order-images-component\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Secondary Nav [data-test=\"deals-weeklyAd\"]",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"deals-weeklyAd\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Deals Secondary Nav",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"deals\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Search Results",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/Search/SearchTypeahead/Content\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Search Input",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/SearchInputOverlayMobile\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[Web] Unmask Gift Card Delivery Date",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"digitalDeliveryItem-TARGETEMAILGC\"] [name=\"deliveryDate\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[Web] Unmask Filtered Results Message",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"filtered-results-message\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[Unstable] Unmask Filter Options Web",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".styles_ndsLabel__l_gym.styles_styledLabel__iXIZl",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[Web] Unmask Returns Flyout",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[class^=\"InStoreReturnsFlyout_styledPackageCardGrid__\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask PDP Select Custom Popover",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[role=\"tooltip\"][data-test=\"@nicollet/SelectCustom/Popover\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[Web] Unmask View Cart Button",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[href^=\"https://www.target.com/cart\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[Web] Mask Zipcode",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".ReactModal__Content [data-test=\"content-wrapper\"] div.h-display-flex.h-flex-align-center.h-text-bold",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[Web] Unmask Return Section",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[class^=\"styles_styledReasonSelectionContainer\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[Web] Unmask Return Solution Label",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[aria-labelledby$=\"-chooseSolutionLabel\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[Web] Unmask Granify Grid",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".granify-grid-wrapper",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[UNSTABLE] Unmask Gift Network Error Modal",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".styles_styled-dialog-modal___kmLq",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Chatbot assistant gift finder",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[class^=\"GiftFinder_giftFinderPage\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Store Information Buttons",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@store-locator/StoreDirectionsAndMaps/StoreInformationButtons\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[UNSTABLE] Unmask Store Info Page",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".view_container__sBZHG",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Store Locator",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test^=\"@store-locator/\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Return Reason",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[id^=\"return-reason-\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Cancellation Reason Codes",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[aria-labelledby=\"chooseIssueLabel\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Flyout - Card",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".ReactModal__Content [href=\"https://rcam.target.com/\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Flyout - Deals",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".ReactModal__Content--after-open a[href=\"/c/top-deals/-/N-4xw74\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Flyout Memberships",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".ReactModal__Content.ReactModal__Content--after-open [href$=\"/account/memberships\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Flyout - History",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".ReactModal__Content.ReactModal__Content--after-open [data-test=\"accountNav-recentlyViewed\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Flyout - Save for Later",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".ReactModal__Content--after-open [data-test=\"accountNav-saveForLater\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Flyout - Help Center",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".ReactModal__Content--after-open [data-test=\"accountNav-helpCenter\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Flyout - Recalls",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".ReactModal__Content.ReactModal__Content--after-open [data-test=\"accountNav-recalls\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Flyout - Privacy",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".ReactModal__Content.ReactModal__Content--after-open [data-test=\"accountNav-privacy\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Flyout - Sign out",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".ReactModal__Overlay.ReactModal__Overlay--after-open [data-ff-lnk-nav-click-text=\"Sign Out\"][data-test=\"accountNav-guestSignOut\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Flyout - Savings",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".ReactModal__Content.ReactModal__Content--after-open [href$=\"/account/savings\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Flyout - Orders",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".ReactModal__Content.ReactModal__Content--after-open [data-test=\"accountNav-orders\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Flyout - My Target",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".ReactModal__Content.ReactModal__Content--after-open [href$=\"/account?lnk=acct_nav_my_account\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Orders",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[class^=\"styles_orderCard\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Cart Modal Recommendations Title",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"addToCartSuccessModalRecommendationsTile\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask View Cart Button",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[href=\"https://www.target.com/cart\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask In-Store Content",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "#tabContent-tab-Instore",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Back Button",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test$=\"back-button\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Flyout - Lists and Favorites",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".ReactModal__Content.ReactModal__Content--after-open [data-test=\"accountNav-listsAndFavorites\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Mask Email Address on Order Confirmation",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[class^=\"styles_giftcard-email\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[Unstable] Damaged Upon Arrival Header",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".styles_headerContainer__5P2td",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Item Grid",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[class^=\"styles_styledItemTitleGrid\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Breadcrumbs",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[aria-label=\"Breadcrumbs\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Contact Us Links",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[href^=\"https://www.target.com/help/contact-us/\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "[Unstable] Unmask Replacement Text",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".styles_styledSummary__1e7Ib .h-text-green.h-text-md",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask ESP Item Card",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"espItemCard\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Alerts Card",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[class^=\"styles_ndsAlertCard\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Product Price - Save for Later",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/Price/PriceFull\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Drawer Item",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test^=\"drawer-item-card-\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Reason Label",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[for=\"Wanted-the-item-shipped\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Reason Label",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[for=\"Ordered-wrong-item\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Reason Label",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[for=\"Chose-wrong-store\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Reason Label",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[for=\"No-longer-want-the-item\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Reason Label",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[for=\"Store-requested-I-cancel-it\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Reason Label",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[for=\"Other---Please-describe\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Reason Label",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[for=\"Purchased-it-at-another-Target-store\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Reason Label",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[for=\"Couldn\u2019t-pick-up-in-time\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Reason Label",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[for=\"Needed-it-sooner\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Reason Label",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[for=\"Ordered-it-somewhere-else\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Item Solution Heading Replacement",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "#item-solution-heading-replacement",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Item Solution Heading Full Refund",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "#item-solution-heading-full-refund",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Return by Mail",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[href$=\"type=returnByMail\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Fix an Issue",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[href$=\"?type=fixAnIssue\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Rate and Review",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[href$=\"/rate-and-review\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask FAQ Heading",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"faq-heading\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Login Button",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "#login[type=\"submit\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Package Card Item",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"package-card-item-row\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Self Service Links",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[class^=\"SelfServiceLinks\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Package Card Heading",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"package-card-heading\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Product Title | Web PDP Choose Option Drawer",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open[role=\"dialog\"] div[data-test=\"content-wrapper\"] div div a[href=\"https://www.target.com/p/women-39-s-hearts-graphic-cardigan-sweater-light-pink-xxs/-/A-94853245?preselect=94853245\"] h4",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Brand Name | Web Choose Option PDP Drawer",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open[role=\"dialog\"] div[data-test=\"content-wrapper\"] div div div",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Store Availability | Web Choose Option PDP Drawer",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open[role=\"dialog\"] div[data-test=\"content-wrapper\"] div[aria-label=\"Fulfillment\"][data-test=\"@web/AddToCart/FulfillmentSection\"][role=\"region\"] div div[data-test=\"inStoreOnlySection\"] span span[data-test=\"outOfStockMessage\"] span",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Variation Component | Web Choose Option PDP Drawer",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open[role=\"dialog\"] div[data-test=\"content-wrapper\"] div div[data-test=\"@web/VariationComponent\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Fulfillment Availability | Web Choose Option PDP Drawer",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open[role=\"dialog\"] div[data-test=\"content-wrapper\"] div[aria-label=\"Fulfillment\"][data-test=\"@web/AddToCart/FulfillmentSection\"][role=\"region\"] div div[data-test=\"inStoreOnlySection\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Registry List Eligibility | Web Choose Option PDP Drawer",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open[role=\"dialog\"] div[data-test=\"content-wrapper\"] div div div div",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Web View Cart",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "html.ReactModal__Html--open[lang=\"en-US\"] body.styles_bodyOpen__52nJc[spellcheck=\"false\"] div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open.styles_ndsBaseModalDrawer__tDfIx.styles_ndsModalDrawer__Pm1IZ.styles_nonScrollModalContent__FXObk.styles_reactModal__L_pFt.styles_right__v4Fl_[tabindex=\"-1\"][role=\"dialog\"][aria-modal=\"true\"] div.styles_contentWrapper__p20AZ.styles_paddedContent__nk0uk[data-test=\"content-wrapper\"] div.lOUJu.sc-c828207f-0.styles_ndsBaseCell__hDDbb.styles_topOnlySmallScreen__BF9G9 a.styles_bordered__nZVq3.styles_fullWidth__gA46D.styles_md__Lvk4a.styles_ndsBaseButton__4Gp2_.styles_ndsButtonSecondary__dTfTU[href=\"https://www.target.com/cart\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Web | Frequently Also Added",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "html.ReactModal__Html--open[lang=\"en-US\"] body.styles_bodyOpen__52nJc[spellcheck=\"false\"] div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open.styles_ndsBaseModalDrawer__tDfIx.styles_ndsModalDrawer__Pm1IZ.styles_nonScrollModalContent__FXObk.styles_reactModal__L_pFt.styles_right__v4Fl_[tabindex=\"-1\"][role=\"dialog\"][aria-modal=\"true\"] div.styles_contentWrapper__p20AZ.styles_paddedContent__nk0uk[data-test=\"content-wrapper\"] div h2.h-margin-t-x2.styles_fontSize3__AoSnd.styles_ndsHeading__phw6r.styles_x2Margin__ZKMpf",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Web | Save Offer Popover Error",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "html.ReactModal__Html--open[lang=\"en-US\"] body.styles_bodyOpen__52nJc[spellcheck=\"false\"] div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open.styles_ndsBaseModalDrawer__tDfIx.styles_ndsModalDrawer__Pm1IZ.styles_nonScrollModalContent__FXObk.styles_reactModal__L_pFt.styles_right__v4Fl_[tabindex=\"-1\"][role=\"dialog\"][aria-modal=\"true\"] div.styles_contentWrapper__p20AZ.styles_paddedContent__nk0uk[data-test=\"content-wrapper\"] div[data-test=\"@web/add-to-cart-success-circle-offers\"] div.styles_ndsPopover__aZ_I6.styles_warning__DnaQk[role=\"alert\"][tabindex=\"-1\"][data-floating-ui-focusable=\"\"] span[data-test=\"save-offer-popover-error\"][tabindex=\"-1\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Web Flyout Available Deals",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "html.ReactModal__Html--open[lang=\"en-US\"] body.styles_bodyOpen__52nJc[spellcheck=\"false\"] div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open.styles_ndsBaseModalDrawer__tDfIx.styles_ndsModalDrawer__Pm1IZ.styles_nonScrollModalContent__FXObk.styles_reactModal__L_pFt.styles_right__v4Fl_[tabindex=\"-1\"][role=\"dialog\"][aria-modal=\"true\"] div.styles_contentWrapper__p20AZ.styles_paddedContent__nk0uk[data-test=\"content-wrapper\"] div[data-test=\"@web/add-to-cart-success-circle-offers\"] h4.styles_fontSize4__sshdb.styles_ndsHeading__phw6r.styles_x2Margin__ZKMpf",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Web Flyout Fulfillment Method and EDD",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "html.ReactModal__Html--open[lang=\"en-US\"] body.styles_bodyOpen__52nJc[spellcheck=\"false\"] div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open.styles_ndsBaseModalDrawer__tDfIx.styles_ndsModalDrawer__Pm1IZ.styles_nonScrollModalContent__FXObk.styles_reactModal__L_pFt.styles_right__v4Fl_[tabindex=\"-1\"][role=\"dialog\"][aria-modal=\"true\"] div.styles_contentWrapper__p20AZ.styles_paddedContent__nk0uk[data-test=\"content-wrapper\"] div.kOlFFv.sc-94d1bcd4-1",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Web Flyout Action Header",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "html.ReactModal__Html--open[lang=\"en-US\"] body.styles_bodyOpen__52nJc[spellcheck=\"false\"] div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open.styles_ndsBaseModalDrawer__tDfIx.styles_ndsModalDrawer__Pm1IZ.styles_nonScrollModalContent__FXObk.styles_reactModal__L_pFt.styles_right__v4Fl_[tabindex=\"-1\"][role=\"dialog\"][aria-modal=\"true\"] div.styles_bottom__dnGon.styles_cellModalDrawerHeader__00kw7.styles_ndsBaseCell__hDDbb span.styles_headingWrapper___v71Q h2.styles_fontSize2__rqnzp.styles_heading__lrDgr.styles_ndsHeading__phw6r.styles_x2Margin__ZKMpf[data-test=\"modal-drawer-heading\"][tabindex=\"-1\"] span.h-text-lg",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Web Flyout Product Title",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "html.ReactModal__Html--open[lang=\"en-US\"] body.styles_bodyOpen__52nJc[spellcheck=\"false\"] div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open div.ReactModal__Content.ReactModal__Content--after-open.styles_ndsBaseModalDrawer__tDfIx.styles_ndsModalDrawer__Pm1IZ.styles_nonScrollModalContent__FXObk.styles_reactModal__L_pFt.styles_right__v4Fl_[tabindex=\"-1\"][role=\"dialog\"][aria-modal=\"true\"] div.styles_contentWrapper__p20AZ.styles_paddedContent__nk0uk[data-test=\"content-wrapper\"] div.dPhrQO.sc-c828207f-1.styles_ndsBaseCell__hDDbb div.h-padding-l-tight h4.styles_fontSize4__sshdb.styles_ndsHeading__phw6r.styles_x4Margin__7WIad",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Mobile Web Sign In Flyout Banner",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open.ReactModal__Overlay--before-close div.ReactModal__Content.ReactModal__Content--after-open.ReactModal__Content--before-close[data-test=\"@web/auth-components/AuthSignInFlyout\"][role=\"dialog\"] div[data-test=\"content-wrapper\"] div div div h1",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Mobile Web Sigh In Flyout Terms & Privacy Disclaimer",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open.ReactModal__Overlay--before-close div.ReactModal__Content.ReactModal__Content--after-open.ReactModal__Content--before-close[data-test=\"@web/auth-components/AuthSignInFlyout\"][role=\"dialog\"] div[data-test=\"content-wrapper\"] div div div div p",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Mobile Web Sign In Flyout \"Or\"",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open.ReactModal__Overlay--before-close div.ReactModal__Content.ReactModal__Content--after-open.ReactModal__Content--before-close[data-test=\"@web/auth-components/AuthSignInFlyout\"][role=\"dialog\"] div[data-test=\"content-wrapper\"] div div div div.divider strong",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Mobile Web Sign In Flyout Keep Me Signed In",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "body div.ModalDrawer div.ReactModal__Overlay.ReactModal__Overlay--after-open.ReactModal__Overlay--before-close div.ReactModal__Content.ReactModal__Content--after-open.ReactModal__Content--before-close[data-test=\"@web/auth-components/AuthSignInFlyout\"][role=\"dialog\"] div[data-test=\"content-wrapper\"] div div div div div div label[for=\"keepMeSignedIn\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Mobile Web PDP Fulfillment Inventory Qty and Location label",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "body div#__next div main#pageBodyContainer div div[data-test=\"@web/SiteTopOfFunnel/PageContentRenderer\"] div div.undefined[data-test=\"@web/SlotRenderer\"] div[data-component-id][data-component-position][data-component-title=\"Product Grid\"][data-content-type=\"dynamic\"] div div div[data-module-type=\"ListingPageProductListCards\"] div[data-test=\"product-grid\"] div[data-test=\"@web/site-top-of-funnel/ProductCardWrapper\"] div[data-test=\"@web/ProductCard/ProductCardVariantDefault\"] div div[data-test=\"@web/ProductCard/body\"] div[data-test=\"product-details\"] div div[data-test=\"@web/ProductCard/ProductCardFulfillmentMessaging\"] div[data-test=\"LPFulfillmentSectionStoreFA_storeMessaging\"] div[data-test=\"lowStockMessaging\"] span",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Article Content",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[class^=\"ArticleContent_articleContentWrapper\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Article Title",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[class^=\"SingleArticle_title\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Mask Phone Number",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"item-attribute-USPhone\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Mask Mobile Gift Card Phone Number",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[class^=\"styles_giftcard-mobile__\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Mask Expiration Dates",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"checkout-container\"] [class^=\"styles_full-row\"] .h-text-grayDark.h-text-md",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Mast Last 4 CC",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"checkout-container\"] [class^=\"styles_full-row\"] .h-text-bold",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Search Results Heading",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"searchResultsHeading\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Invoice Details Card",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"invoice-details-card\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Breadcrumbs",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"bread-crumb\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Circle 360 Freebie",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test^=\"freebie-card-container-\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Circle 360 Title",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[aria-label=\"Target Circle 360\u2122 freebies\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Cart Footer",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"footer-cart-summary\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Mask Substitution Preference",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"confirmed-scheduled-delivery-substitution\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Mask Confirmed Scheduled Delivery Instructions",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "#confirmed-scheduled-delivery-instructions",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Used Wrong Payment Method Cancellation Reason",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[for=\"Used-wrong-payment-method\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Tooltip",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[role=\"tooltip\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Mask Address Type Ahead Content",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/TypeaheadInput/TypeaheadContent\"] [type=\"button\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Offers ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"offer\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Item Card ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"item-card\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Freebies Carousel ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".styles_ndsCarousel__yMTV9[aria-label=\"Carousel\"] .styles_cardContainer__QgD7m",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Freebies Container ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".styles_aboutFreebiesContainer__0Udkg",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Circle Freebies Content ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".styles_container__DmGTF",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Thinking State AI",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[class^=\"ThinkingState_phrase\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask AI Chat Response",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-module-type=\"TopasChatMessage\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Product Variant Card",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"productCardVariantMini\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Terms and Conditions",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[class^=\"TermsAndConditions\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Ask AI Button",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[aria-label=\"Ask AI\"][role=\"button\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Carousel Circle Membership ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-module-type=\"AccountCarouselCircleMembership\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Card Purchases ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-module-type=\"AccountCardPurchases\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Card Settings ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-module-type=\"AccountCard\"] [aria-label=\"Settings\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Card Continue Shopping ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-module-type=\"AccountCard\"] [aria-label=\"Continue Shopping\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Card Shopping Partners ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-module-type=\"AccountCard\"] [aria-label=\"Shopping partners\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Card Rate & Review ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-module-type=\"AccountCard\"] [aria-label=\"Rate & review\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Card Registry & Wish List ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-module-type=\"AccountCard\"] [aria-label=\"Registry & Wish list\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Account Card My Preferences ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-module-type=\"AccountCard\"] [aria-label=\"My preferences\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Payment Card Radio Button ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test^=\"payment-card-radio-\"][name=\"payment-card-radio\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Toast Entry ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[role=\"alert\"][data-test=\"toast-manager-entry\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Mask Selectable Address Card Container ",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"selectable-address-card-container\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Gift Card Error ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "div[class^=\"styles_styledErrorCard\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Store Name",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-test=\"@web/StoreName/Button\"]",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "Unmask Order History Search Filter ",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "[data-module-type=\"OrderHistorySearchFilter\"] #search-online-purchases",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "",
+      "Consent": false,
+      "BlockType": 1,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".fs-exclude",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "",
+      "Consent": true,
+      "BlockType": 1,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".fs-exclude-without-consent",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".fs-mask",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "",
+      "Consent": true,
+      "BlockType": 2,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".fs-mask-without-consent",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".fs-unmask",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "",
+      "Consent": true,
+      "BlockType": 3,
+      "Platforms": [
+        1,
+        2,
+        3
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".fs-unmask-with-consent",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "",
+      "Consent": false,
+      "BlockType": 1,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".fs-hide",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "",
+      "Consent": false,
+      "BlockType": 1,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".fs-block",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "",
+      "Consent": true,
+      "BlockType": 1,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": ".fs-record-with-consent",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "",
+      "Consent": false,
+      "BlockType": 2,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "html",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "link",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "style",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    },
+    {
+      "Name": "",
+      "Consent": false,
+      "BlockType": 3,
+      "Platforms": [
+        1
+      ],
+      "TargetedSelectorsForCapture": [
+        {
+          "Selector": "base",
+          "Platforms": null,
+          "MinVersion": null,
+          "MaxVersion": null
+        }
+      ],
+      "GroupId": 0
+    }
+  ],
+  "ElementDeferreds": [],
+  "ElementKeeps": null,
+  "ElementWatches": [
+    {
+      "Selector": "[data-test=\"fulfilment-name\"]"
+    },
+    {
+      "Selector": "div[data-test=\"@web/site-top-of-funnel/ProductCardVariantExtended\"]"
+    },
+    {
+      "Selector": "body div#__next div div main#pageBodyContainer div div[data-test=\"@web/SiteTopOfFunnel/PromoListPageTitle\"] div"
+    },
+    {
+      "Selector": "[href=\"https://www.target.com/c/entertainment-gift-ideas/-/N-vnjum\"]"
+    },
+    {
+      "Selector": "button[aria-label=\"More information\"]"
+    },
+    {
+      "Selector": "[data-module-type=\"ProductDetailFulfillment\"] [data-test=\"@web/AddToCart/FulfillmentSection\"] .h-margin-b-x2"
+    },
+    {
+      "Selector": "html[lang=\"en-US\"] body[spellcheck=\"false\"] div#__next main.l-container-fixed div div.styles_row__QFU7M div.styles_col__1j4Kg div div.styles_row__QFU7M div.styles_activeContentSection__6ca0k div.h-margin-v-jumbo.styles_row__QFU7M div.styles_styledErrorCard___K1bd p.h-text-bold.h-text-xl[role=\"alert\"][tabindex=\"-1\"]"
+    },
+    {
+      "Selector": "body div div div[aria-labelledby=\"_r_7_\"][role=\"dialog\"]"
+    },
+    {
+      "Selector": "[data-module-type=\"ProductDetailFulfillmentMessaging\"] button[type=\"button\"] div div"
+    },
+    {
+      "Selector": "#pageBodyContainer[aria-labelledby=\"pdp-product-title-id\"] .h-margin-a-jumbo.h-text-center.h-text-grayDark"
+    },
+    {
+      "Selector": "[role=\"dialog\"] div.styles_bodyPadding__t2PF8.styles_body__kQRBi div.h-padding-b-x2.styles_radioGroup__esWwR fieldset.styles_fieldSet__9TxZU div.styles_cancelReasonRadio__FGug0.styles_row__QFU7M"
+    },
+    {
+      "Selector": "[data-test=\"product-offer-type\"]"
+    },
+    {
+      "Selector": "[data-test=\"bulk-action-error-alert\"]"
+    },
+    {
+      "Selector": "[data-test=\"form-error-bucket\"] h3"
+    },
+    {
+      "Selector": "[data-test=\"add-to-cart-spinner\"]"
+    },
+    {
+      "Selector": ".granify-grid-wrapper"
+    },
+    {
+      "Selector": "[data-test=\"store-pickup-capacity-alert-message\"]"
+    },
+    {
+      "Selector": "[data-test=\"fulfillmentErrorSection\"] span"
+    },
+    {
+      "Selector": "[data-module-type=\"ProductDetailFulfillmentMessaging\"] div.h-margin-a-module-gap button[class^=\"styles_MessageLink__\"]"
+    },
+    {
+      "Selector": "[data-test=\"productNotFound\"]"
+    },
+    {
+      "Selector": "[href^=\"https://www.target.com/cart\"]"
+    },
+    {
+      "Selector": "[data-test=\"@web/AddToCart/FulfillmentSection\"] [type=\"button\"][disabled=\"\"]"
+    },
+    {
+      "Selector": ".GiftFinder_giftFinderPage__6BAgk .Chatbot_chatbotContainer__GEkSq .Chatbot_chatHistory__TlgLl .Chatbot_chatMessageContainer__lQMK3[role=\"region\"][aria-label=\"Latest message\"] .Chatbot_assistant__2KS_B"
+    },
+    {
+      "Selector": "[role=\"alert\"]"
+    },
+    {
+      "Selector": "[data-test=\"inStoreOnlySection\"] [data-test=\"discontinuedMessage\"]"
+    },
+    {
+      "Selector": "a[href*=\"type=fixAnIssue\"]"
+    },
+    {
+      "Selector": ".fulfillment-message"
+    },
+    {
+      "Selector": "[data-test=\"form-error-bucket\"]"
+    },
+    {
+      "Selector": "[data-test=\"grouped-cart-fulfillment-heading\"]"
+    },
+    {
+      "Selector": "div#__next div div div div#checkout-container[data-test=\"checkout-container\"] div div div[data-test=\"STEP_SHIPPING_CONTAINER\"] div[data-test=\"shipping-address-form\"] form div div div[data-test=\"form-error-bucket\"]"
+    },
+    {
+      "Selector": "[data-test=\"inStoreOnlySecondaryMessage\"]"
+    },
+    {
+      "Selector": "[data-test=\"saved-for-later-alert\"]"
+    },
+    {
+      "Selector": ".granify-show"
+    },
+    {
+      "Selector": "[aria-label$=\"out of stock\"]"
+    },
+    {
+      "Selector": "#above-the-fold-information h1#pdp-product-title-id"
+    },
+    {
+      "Selector": "[data-test=\"error-banner\"]"
+    },
+    {
+      "Selector": "#cartLoading"
+    },
+    {
+      "Selector": "button[aria-label=\"Why? shipping info\"][data-test=\"shippingInfoButton\"]"
+    },
+    {
+      "Selector": "h2[data-test=\"nullLowRecoveryKeyword\"]"
+    },
+    {
+      "Selector": "body div#__next div div div div#checkout-container[data-test=\"checkout-container\"] div div div div div div fieldset div.axiom-checkout-element-disabled div label[for=\"applePayRadio\"]"
+    },
+    {
+      "Selector": "[data-test=\"cartItem\"] [data-test=\"item-current-price-type\"]"
+    },
+    {
+      "Selector": "[aria-label=\"Out of stock\"]"
+    },
+    {
+      "Selector": "[data-test=\"cart-sameday-threshold-error\"]"
+    },
+    {
+      "Selector": ".styles_drive-up-info__0pHoD"
+    },
+    {
+      "Selector": "[data-test=\"review-summary-value\"]"
+    },
+    {
+      "Selector": "a[href*=\"returnByMail\"]"
+    },
+    {
+      "Selector": "[data-test=\"cart-container\"] div.styles_cart-layout-wrapper__BYYBG.styles_row__QFU7M div.styles_col__1j4Kg div div.h-margin-t-tight div.h-bg-white.h-border-a.h-margin-b-default.h-padding-h-default.styles_blended-cart-item-group__jems6.undefined div.h-padding-h-none.styles_isTwoLines__Zn_n3.styles_ndsBaseCell__Bjng2.styles_ndsCellStandard__GAwi0"
+    },
+    {
+      "Selector": "[data-test=\"storeBlockNonBuyableMessages\"] [data-test=\"notSoldAtMessage\"]"
+    },
+    {
+      "Selector": "div[data-module-type=\"ProductDetailFulfillment\"] div[aria-label=\"Fulfillment\"] [data-test=\"inStoreOnlySection\"] [type=\"button\"][disabled=\"\"]"
+    },
+    {
+      "Selector": "[data-test=\"targetPlusExtraInfoSection\"]"
+    },
+    {
+      "Selector": "[data-test=\"NonbuyableSection\"] span"
+    },
+    {
+      "Selector": "[data-test=\"facet-card-Get it tomorrow\"]"
+    },
+    {
+      "Selector": "[data-test=\"errorContent\"] span"
+    },
+    {
+      "Selector": "[data-test=\"lp-filterBar\"] [disabled=\"\"]"
+    },
+    {
+      "Selector": "[href=\"/icons/light/TargetPlusMark.svg#TargetPlusMark\"]"
+    },
+    {
+      "Selector": "[data-test=\"applePayButton\"]"
+    },
+    {
+      "Selector": "[data-test=\"cart-reference\"]"
+    }
+  ],
+  "OrgSettings": {
+    "AttributeBlocklist": [
+      {
+        "Target": 0,
+        "Tag": "*",
+        "Name": "src",
+        "Action": 2
+      },
+      {
+        "Target": 0,
+        "Tag": "iframe",
+        "Name": "srcdoc",
+        "Action": 0
+      },
+      {
+        "Target": 0,
+        "Tag": "frame",
+        "Name": "src",
+        "Action": 2
+      },
+      {
+        "Target": 0,
+        "Tag": "frame",
+        "Name": "srcdoc",
+        "Action": 0
+      },
+      {
+        "Target": 0,
+        "Tag": "*",
+        "Name": "data-v-form-field",
+        "Action": 0
+      },
+      {
+        "Target": 1,
+        "Tag": "*",
+        "Name": "alt",
+        "Action": 0
+      },
+      {
+        "Target": 1,
+        "Tag": "*",
+        "Name": "checked",
+        "Action": 0
+      },
+      {
+        "Target": 1,
+        "Tag": "*",
+        "Name": "data",
+        "Action": 0
+      },
+      {
+        "Target": 1,
+        "Tag": "*",
+        "Name": "href",
+        "Action": 0
+      },
+      {
+        "Target": 1,
+        "Tag": "*",
+        "Name": "placeholder",
+        "Action": 0
+      },
+      {
+        "Target": 1,
+        "Tag": "*",
+        "Name": "src",
+        "Action": 0
+      },
+      {
+        "Target": 1,
+        "Tag": "*",
+        "Name": "srcset",
+        "Action": 0
+      },
+      {
+        "Target": 1,
+        "Tag": "*",
+        "Name": "style",
+        "Action": 3
+      },
+      {
+        "Target": 1,
+        "Tag": "*",
+        "Name": "title",
+        "Action": 0
+      },
+      {
+        "Target": 1,
+        "Tag": "*",
+        "Name": "value",
+        "Action": 0
+      },
+      {
+        "Target": 2,
+        "Tag": "*",
+        "Name": "checked",
+        "Action": 0
+      },
+      {
+        "Target": 2,
+        "Tag": "*",
+        "Name": "data",
+        "Action": 0
+      },
+      {
+        "Target": 2,
+        "Tag": "*",
+        "Name": "alt",
+        "Action": 1
+      },
+      {
+        "Target": 2,
+        "Tag": "*",
+        "Name": "placeholder",
+        "Action": 1
+      },
+      {
+        "Target": 2,
+        "Tag": "*",
+        "Name": "title",
+        "Action": 1
+      },
+      {
+        "Target": 2,
+        "Tag": "*",
+        "Name": "value",
+        "Action": 1
+      },
+      {
+        "Target": 2,
+        "Tag": "option",
+        "Name": "label",
+        "Action": 1
+      },
+      {
+        "Target": 2,
+        "Tag": "*",
+        "Name": "placeholder",
+        "Action": 1
+      },
+      {
+        "Target": 1,
+        "Tag": "*",
+        "Name": "data-com.agilebits.onepassword.initial-value",
+        "Action": 0
+      },
+      {
+        "Target": 1,
+        "Tag": "*",
+        "Name": "data-kwcachedvalue",
+        "Action": 0
+      },
+      {
+        "Target": 0,
+        "Tag": "*",
+        "Name": "href",
+        "Action": 2
+      }
+    ],
+    "HttpRequestHeadersAllowlist": [
+      "a-im",
+      "accept",
+      "accept-charset",
+      "accept-encoding",
+      "accept-language",
+      "accept-datetime",
+      "access-control-request-method",
+      "access-control-request-headers",
+      "cache-control",
+      "connection",
+      "content-length",
+      "content-md5",
+      "content-type",
+      "date",
+      "expect",
+      "forwarded",
+      "from",
+      "host",
+      "if-match",
+      "if-modified-since",
+      "if-none-match",
+      "if-range",
+      "if-unmodified-since",
+      "max-forwards",
+      "origin",
+      "pragma",
+      "range",
+      "referer",
+      "te",
+      "user-agent",
+      "upgrade",
+      "via",
+      "warning",
+      "x-b3-traceid",
+      "x-request-id",
+      "x-correlation-id",
+      "traceparent",
+      "tracestate",
+      "cf-ray",
+      "x-amzn-trace-id",
+      "x-datadog-trace-id",
+      "sentry-trace"
+    ],
+    "HttpResponseHeadersAllowlist": [
+      "access-control-allow-origin",
+      "access-control-allow-credentials",
+      "access-control-expose-headers",
+      "access-control-max-age",
+      "access-control-allow-methods",
+      "access-control-allow-headers",
+      "accept-patch",
+      "accept-ranges",
+      "age",
+      "allow",
+      "alt-svc",
+      "cache-control",
+      "connection",
+      "content-disposition",
+      "content-encoding",
+      "content-language",
+      "content-length",
+      "content-location",
+      "content-md5",
+      "content-range",
+      "content-type",
+      "date",
+      "delta-base",
+      "etag",
+      "expires",
+      "im",
+      "last-modified",
+      "link",
+      "location",
+      "permanent",
+      "p3p",
+      "pragma",
+      "proxy-authenticate",
+      "public-key-pins",
+      "retry-after",
+      "server",
+      "status",
+      "strict-transport-security",
+      "trailer",
+      "transfer-encoding",
+      "tk",
+      "upgrade",
+      "vary",
+      "via",
+      "warning",
+      "www-authenticate",
+      "x-b3-traceid",
+      "x-frame-options",
+      "x-request-id",
+      "x-correlation-id",
+      "traceparent",
+      "tracestate",
+      "cf-ray",
+      "x-amzn-trace-id",
+      "x-datadog-trace-id",
+      "sentry-trace",
+      "server-timing"
+    ],
+    "MaxAjaxPayloadLength": 16384,
+    "MaxConsoleLogPerPage": 1024,
+    "MaxPerfMarksPerPage": 16384,
+    "MaxUrlLength": 2048,
+    "RecordPerformanceResourceImg": true,
+    "RecordPerformanceResourceTiming": true,
+    "SessionLimits": {
+      "MaxPages": 250
+    },
+    "UrlPathBlocklist": [],
+    "UrlPrivacyConfig": [
+      {
+        "Exclude": {
+          "Hash": [
+            {
+              "Expression": "#access_token.*"
+            }
+          ],
+          "QueryParam": [
+            {
+              "Expression": "(password.*=)(.*)"
+            },
+            {
+              "Expression": "(token.*=)(.*)"
+            },
+            {
+              "Expression": "^(code=)(.*)"
+            },
+            {
+              "Expression": "^(jwt=)(.*)"
+            }
+          ]
+        }
+      }
+    ],
+    "UrlQueryStringBlocklist": [
+      "(password.*=)(.*)",
+      "(token.*=)(.*)",
+      "^(code=)(.*)",
+      "^(jwt=)(.*)"
+    ]
+  },
+  "UrlKeeps": null,
+  "DwellTime": 10
+}

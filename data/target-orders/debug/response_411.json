@@ -1,0 +1,180 @@
+{
+  "data": {
+    "product": {
+      "__typename": "Product",
+      "original_tcin": "94992376",
+      "tcin": "1012144800",
+      "item": {
+        "relationship_type_code": "VAP",
+        "enrichment": {
+          "image_info": {
+            "primary_image": {
+              "url": "https://target.scene7.com/is/image/Target/GUEST_fda06d0d-f88e-40d5-be3c-80747bf4f147"
+            }
+          }
+        },
+        "product_description": {
+          "title": "Pastel Wide Ruled Spiral Notebooks"
+        }
+      },
+      "price": {
+        "formatted_comparison_price": "$1.49",
+        "formatted_comparison_price_type": "reg",
+        "formatted_current_price": "$1.19",
+        "formatted_current_price_type": "sale"
+      },
+      "children": [
+        {
+          "__typename": "Product",
+          "original_tcin": "1006323124",
+          "tcin": "1006323124",
+          "item": {
+            "relationship_type_code": "VC",
+            "enrichment": {
+              "image_info": {
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_fda06d0d-f88e-40d5-be3c-80747bf4f147",
+                  "alt_text": "A light blue colored spiral notebook with a \"Wide Ruled\" label, containing 70 sheets and measuring 7 1/2 x 10 1/2 inches."
+                }
+              }
+            },
+            "product_description": {
+              "title": "Wide Rule Spiral Notebook 7.5&#34;x10.5&#34; Poly Cover 70 Sheets Pastel Blue - up&#38;up&#8482;"
+            }
+          },
+          "price": {
+            "current_retail": 1.19,
+            "display_was_now": false,
+            "formatted_comparison_price": "$1.49",
+            "formatted_comparison_price_type": "reg",
+            "formatted_current_price": "$1.19",
+            "formatted_current_price_type": "sale",
+            "reg_retail": 1.49,
+            "save_dollar": 0.3,
+            "save_percent": 20.0
+          }
+        },
+        {
+          "__typename": "Product",
+          "original_tcin": "94992362",
+          "tcin": "94992362",
+          "item": {
+            "relationship_type_code": "VC",
+            "enrichment": {
+              "image_info": {
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_361a3764-f7ab-4884-a39c-6389e8a66866",
+                  "alt_text": "A light blue colored spiral notebook with a \"Wide Ruled\" label and 70 sheets, measuring 7 \u00bd in x 10 \u00bd in (19 cm x 26.7 cm)."
+                }
+              }
+            },
+            "product_description": {
+              "title": "Spiral Notebook Wide 7.5&#34;x10.5&#34; Poly Cover 70 Sheets Pastel Green - up&#38;up&#8482;"
+            }
+          },
+          "price": {
+            "current_retail": 1.19,
+            "display_was_now": false,
+            "formatted_comparison_price": "$1.49",
+            "formatted_comparison_price_type": "reg",
+            "formatted_current_price": "$1.19",
+            "formatted_current_price_type": "sale",
+            "reg_retail": 1.49,
+            "save_dollar": 0.3,
+            "save_percent": 20.0
+          }
+        },
+        {
+          "__typename": "Product",
+          "original_tcin": "94992366",
+          "tcin": "94992366",
+          "item": {
+            "relationship_type_code": "VC",
+            "enrichment": {
+              "image_info": {
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_e837e4fa-eeb6-4b54-a10f-a5bd494ca51b",
+                  "alt_text": "A light pink colored spiral notebook with a blue label reading \"Wide Ruled, 70 Sheets, 7 1/2 in x 10 1/2 in (19 cm x 26.7 cm).\""
+                }
+              }
+            },
+            "product_description": {
+              "title": "Wide Ruled Spiral Notebook 7.5&#34;x10.5&#34; Poly Cover 70 Sheets Pastel Pink - up&#38;up&#8482;"
+            }
+          },
+          "price": {
+            "current_retail": 1.19,
+            "display_was_now": false,
+            "formatted_comparison_price": "$1.49",
+            "formatted_comparison_price_type": "reg",
+            "formatted_current_price": "$1.19",
+            "formatted_current_price_type": "sale",
+            "reg_retail": 1.49,
+            "save_dollar": 0.3,
+            "save_percent": 20.0
+          }
+        },
+        {
+          "__typename": "Product",
+          "original_tcin": "94992376",
+          "tcin": "94992376",
+          "item": {
+            "relationship_type_code": "VC",
+            "enrichment": {
+              "image_info": {
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_5777aef1-75bf-4f65-8032-f475a4dd0ef7",
+                  "alt_text": "A light purple colored spiral notebook with a blue label reading \"Wide Ruled, 70 Sheets, 7 1/2 in x 10 1/2 in (19 cm x 26.7 cm).\""
+                }
+              }
+            },
+            "product_description": {
+              "title": "Wide Rule Spiral Notebook 7.5&#34;x10.5&#34; Poly Cover 70 Sheets Pastel Purple - up&#38;up&#8482;"
+            }
+          },
+          "price": {
+            "current_retail": 1.19,
+            "display_was_now": false,
+            "formatted_comparison_price": "$1.49",
+            "formatted_comparison_price_type": "reg",
+            "formatted_current_price": "$1.19",
+            "formatted_current_price_type": "sale",
+            "reg_retail": 1.49,
+            "save_dollar": 0.3,
+            "save_percent": 20.0
+          }
+        },
+        {
+          "__typename": "Product",
+          "original_tcin": "94992393",
+          "tcin": "94992393",
+          "item": {
+            "relationship_type_code": "VC",
+            "enrichment": {
+              "image_info": {
+                "primary_image": {
+                  "url": "https://target.scene7.com/is/image/Target/GUEST_30f03abc-d5db-41e6-a36b-4a0c97805e92",
+                  "alt_text": "A cream colored spiral notebook with a blue label reading \"Wide Ruled, 70 Sheets, 7 1/2 in x 10 1/2 in (19 cm x 26.7 cm).\""
+                }
+              }
+            },
+            "product_description": {
+              "title": "Wide Rule Spiral Notebook 7.5&#34;x10.5&#34; Poly Cover 70 Sheets Pastel Yellow - up&#38;up&#8482;"
+            }
+          },
+          "price": {
+            "current_retail": 1.19,
+            "display_was_now": false,
+            "formatted_comparison_price": "$1.49",
+            "formatted_comparison_price_type": "reg",
+            "formatted_current_price": "$1.19",
+            "formatted_current_price_type": "sale",
+            "reg_retail": 1.49,
+            "save_dollar": 0.3,
+            "save_percent": 20.0
+          }
+        }
+      ]
+    }
+  }
+}
