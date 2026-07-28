@@ -4,12 +4,14 @@ import re
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
+from typing import Any
 
 from ynab_helper.config import CONFIG_DIR, load_categories, load_rules, resolve_path
 from ynab_helper.rules_audit import ValidationIssue, audit_orders, validate_rules
 from ynab_helper.target_scraper import load_cached_orders
 
 RULES_PATH = CONFIG_DIR / "rules.yaml"
+COSTCO_RULES_PATH = CONFIG_DIR / "rules_costco.yaml"
 
 
 @dataclass
@@ -24,7 +26,11 @@ def _quote(value: str) -> str:
 
 
 def _validate_new_rule(
-    pattern: str, category: str, rules: list[dict[str, str]], fallback_category: str
+    pattern: str,
+    category: str,
+    rules: list[dict[str, str]],
+    fallback_category: str,
+    allowed_categories: list[str] | None = None,
 ) -> list[ValidationIssue]:
     if not pattern:
         raise ValueError("Pattern is required")
@@ -42,7 +48,8 @@ def _validate_new_rule(
         )
 
     categories = load_categories()
-    allowed_categories = load_rules().get("allowed_categories", [])
+    if allowed_categories is None:
+        allowed_categories = load_rules().get("allowed_categories", [])
     if category not in allowed_categories:
         raise ValueError(f"Category not in allowed_categories: {category}")
     if category not in categories:
@@ -162,20 +169,30 @@ def update_rule(
     category: str,
     note: str | None = None,
     rules_path: Path = RULES_PATH,
+    rules_data: dict[str, Any] | None = None,
+    orders: list[Any] | None = None,
 ) -> RuleAppendResult:
-    """Replace the rule at index, validating the resulting rule set like append_rule."""
-    rules_data = load_rules()
+    """Replace the rule at index, validating the resulting rule set like append_rule.
+
+    `rules_data`/`orders` default to Target's rules.yaml / data/target-orders
+    when omitted, so every existing call site is unaffected. Pass both
+    explicitly to edit a different rules file (e.g. Costco's).
+    """
+    if rules_data is None:
+        rules_data = load_rules()
     rules = rules_data.get("rules", [])
     fallback_category = rules_data.get("fallback_category", "Shopping")
+    allowed_categories = rules_data.get("allowed_categories")
 
     if index < 0 or index >= len(rules):
         raise IndexError("Rule index out of range")
 
     other_rules = rules[:index] + rules[index + 1 :]
-    issues = _validate_new_rule(pattern, category, other_rules, fallback_category)
+    issues = _validate_new_rule(pattern, category, other_rules, fallback_category, allowed_categories)
 
-    orders_dir = resolve_path("data/target-orders")
-    orders = load_cached_orders(orders_dir, date.min)
+    if orders is None:
+        orders_dir = resolve_path("data/target-orders")
+        orders = load_cached_orders(orders_dir, date.min)
     candidate_rules = [*other_rules, {"pattern": pattern, "category": category}]
     matched, _fallback, _suspect = audit_orders(orders, candidate_rules, fallback_category)
     new_pattern_index = len(other_rules)
@@ -200,7 +217,12 @@ def update_rule(
 
 
 def append_rule(
-    pattern: str, category: str, note: str | None = None, rules_path: Path = RULES_PATH
+    pattern: str,
+    category: str,
+    note: str | None = None,
+    rules_path: Path = RULES_PATH,
+    rules_data: dict[str, Any] | None = None,
+    orders: list[Any] | None = None,
 ) -> RuleAppendResult:
     """Append a new rule to config/rules.yaml, preserving comments and formatting.
 
@@ -208,15 +230,22 @@ def append_rule(
     refuses on any error-severity issue from the shared rules_audit validator.
     Returns collisions (items that already matched an earlier rule) as a warning,
     but does not block on them.
+
+    `rules_data`/`orders` default to Target's rules.yaml / data/target-orders
+    when omitted, so every existing call site is unaffected. Pass both
+    explicitly to append to a different rules file (e.g. Costco's).
     """
-    rules_data = load_rules()
+    if rules_data is None:
+        rules_data = load_rules()
     rules = rules_data.get("rules", [])
     fallback_category = rules_data.get("fallback_category", "Shopping")
+    allowed_categories = rules_data.get("allowed_categories")
 
-    issues = _validate_new_rule(pattern, category, rules, fallback_category)
+    issues = _validate_new_rule(pattern, category, rules, fallback_category, allowed_categories)
 
-    orders_dir = resolve_path("data/target-orders")
-    orders = load_cached_orders(orders_dir, date.min)
+    if orders is None:
+        orders_dir = resolve_path("data/target-orders")
+        orders = load_cached_orders(orders_dir, date.min)
     candidate_rules = [*rules, {"pattern": pattern, "category": category}]
     matched, _fallback, _suspect = audit_orders(orders, candidate_rules, fallback_category)
     new_pattern_index = len(rules)

@@ -1,6 +1,8 @@
 # Glossary
 
-Terms used in the Target → YNAB auto-categorizer.
+Terms used in the Target → YNAB and Costco → YNAB auto-categorizers. These
+run as separate, parallel pipelines with independent code, config, and data
+directories, but share the vocabulary below.
 
 ## YNAB
 
@@ -28,16 +30,34 @@ Terms used in the Target → YNAB auto-categorizer.
 
 **Order total** — What Target reports. May differ from the bank-posted YNAB amount due to RedCard discounts.
 
+## Costco
+
+**Receipt** — A Costco purchase with a date, total, and line items. Manually pasted from a copied receipt page (Costco has no live scraper — paste is the only ingestion path).
+
+**Gas Station Receipt** — A single-line-item receipt for a fuel purchase. The synthesized line item is always named `"Costco Gas - <grade>"` (e.g. "Costco Gas - Regular"), so gas rules can anchor on a stable prefix instead of the fuel grade alone.
+
+**In-Warehouse Receipt** — A multi-item receipt from an in-store purchase. Item prices are listed pre-discount on the receipt; a discount line immediately below the item it applies to is netted into that item's line total during parsing, so a Line item's price already reflects any instant savings.
+
+**Line item** — Same concept as Target's: a single product on a receipt (name, quantity, line price), after discounts have been netted in.
+
+**Receipt ID** — Costco has no order/invoice id pair like Target. The stable identifier is a composite of warehouse number, date, and transaction number: `{store_number}_{receipt_date}_{transaction_number}` (e.g. `774_2026-07-16_439` for an in-warehouse receipt, or `774_2026-07-16_16397` for a gas station receipt using its `Invoice#` as the transaction number).
+
+**Warehouse number** — Costco's store identifier (e.g. `774`), found as `Whse: 774` (in-warehouse receipts) or `#774` in the header (both receipt types).
+
+**Instant Savings** — A receipt-level discount summary line on In-Warehouse receipts. Already reflected per-item via netted discount lines; never subtracted a second time.
+
 ## This tool
 
-**Bootstrap date** — First-run scrape start date, auto-detected from the oldest uncategorized TARGET transaction in YNAB.
+Match/Proposal/Rule/Fallback category/Undo snapshot apply identically to both the Target and Costco pipelines below — each pipeline has its own proposals file, rules file, and orders directory, but the concepts are the same.
 
-**Match** — A Target order paired with a YNAB transaction by exact date and exact amount.
+**Bootstrap date** — First-run scrape start date, auto-detected from the oldest uncategorized TARGET transaction in YNAB. Costco has no scrape step, so it has no bootstrap date — its since-date comes from the oldest cached receipt.
 
-**Proposal** — A matched pair plus proposed category splits, written to `data/proposals/latest.json`.
+**Match** — A Target order or Costco receipt paired with a YNAB transaction by exact date and exact amount. Costco transactions are additionally restricted to specific YNAB accounts (`costco_account_names` in config, e.g. Sapphire, Bilt) and a payee-name substring (`costco_payee_pattern`, default "COSTCO") before the date/amount match is attempted.
 
-**Rule** — A regex pattern in `config/rules.yaml` mapping item name keywords to a YNAB category.
+**Proposal** — A matched pair plus proposed category splits, written to `data/proposals/latest.json` (Target) or `data/proposals/costco-latest.json` (Costco).
+
+**Rule** — A regex pattern in `config/rules.yaml` (Target) or `config/rules_costco.yaml` (Costco) mapping item name keywords to a YNAB category. The two rule sets are independent — a rule in one file is never consulted for the other pipeline's items.
 
 **Fallback category** — Category used when no rule matches. Items using fallback are flagged as unmatched for rule learning.
 
-**Undo snapshot** — JSON saved before PATCHing YNAB, allowing restore of the original lump-sum transaction.
+**Undo snapshot** — JSON saved before PATCHing YNAB, allowing restore of the original lump-sum transaction. Undo snapshots are shared across both pipelines (keyed by YNAB transaction id), so `ynab-helper undo` reverts the most recent approval regardless of which pipeline applied it.

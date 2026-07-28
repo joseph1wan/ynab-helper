@@ -1,0 +1,26 @@
+# Same conventions as rules.yaml: case-insensitive, UNANCHORED past a
+# leading \b, first-match-wins. Use SINGLE quotes for every pattern — in
+# double-quoted YAML strings \b is parsed as a backspace escape (\x08),
+# which compiles fine but never matches.
+#
+# Costco item names on In-Warehouse receipts are abbreviated, all-caps codes
+# (e.g. "KLNX ULTR", "KS ORG STOCK") rather than full product names — build
+# these rules up against real imported receipts, not guessed in advance.
+#
+# Verify changes with: uv run ynab-helper audit-rules --pipeline costco
+rules:
+  - pattern: '^Costco Gas'
+    category: 'Gas & Parking'
+    note: 'gas station receipts — line item is synthesized as "Costco Gas - <grade>"'
+fallback_category: 'Groceries'
+
+# Categories that make sense as Costco line-item split targets. Every rule
+# category and fallback_category above must appear here.
+allowed_categories:
+  - 'Gas & Parking'
+  - 'Groceries'
+  - 'Home Supplies'
+  - 'Health'
+  - 'Personal Care'
+  - 'Beauty'
+  - 'Eating Out'

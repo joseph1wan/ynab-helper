@@ -9,6 +9,8 @@ import click
 import uvicorn
 
 from ynab_helper.config import CONFIG_DIR, load_categories, load_config, load_rules, resolve_path
+from ynab_helper.costco_fetch import run_costco_propose
+from ynab_helper.costco_import import import_pasted_receipts
 from ynab_helper.fetch import run_fetch, run_propose
 from ynab_helper.invoice_import import import_pasted_invoices
 from ynab_helper.rules_audit import build_report, render_text, report_to_dict
@@ -152,6 +154,70 @@ def propose_cmd(since_str: str | None, until_str: str | None) -> None:
     )
     config = load_config()
     click.echo(f"Proposals written to {resolve_path(config['proposals_path'])}")
+
+
+@main.command("import-costco-receipts")
+@click.argument("files", nargs=-1, type=click.Path(exists=True, path_type=Path))
+@click.option(
+    "--keep",
+    is_flag=True,
+    help="Parse without moving the source .txt out of the inbox (or wherever FILES live)",
+)
+def import_costco_receipts_cmd(files: tuple[Path, ...], keep: bool) -> None:
+    """Parse manually pasted Costco receipt text into cached order JSON.
+
+    Workflow: open a receipt on costco.com's Orders & Purchases page,
+    select-all + copy the page (Gas Station or In-Warehouse), save it as a
+    .txt file in data/costco-orders/pasted/inbox/, then run this command
+    with no arguments to drain the inbox. Successfully parsed files are
+    archived to data/costco-orders/pasted/; failures are left in place so
+    you can inspect and retry.
+    """
+    orders_dir = resolve_path(load_config().get("costco_orders_dir", "data/costco-orders"))
+    inbox_dir = orders_dir / "pasted" / "inbox"
+    archive_dir = orders_dir / "pasted"
+    inbox_dir.mkdir(parents=True, exist_ok=True)
+
+    report = import_pasted_receipts(
+        inbox_dir=inbox_dir,
+        archive_dir=archive_dir,
+        output_dir=orders_dir,
+        files=list(files) if files else None,
+        keep=keep,
+    )
+
+    for item in report.imported:
+        click.echo(
+            f"{item.source.name} -> {item.output_path.name} "
+            f"({item.item_count} item{'s' if item.item_count != 1 else ''}, "
+            f"${item.total / 1000:.2f})"
+        )
+    for failure in report.failed:
+        click.echo(f"{failure.source.name}: FAILED — {failure.reason}", err=True)
+
+    click.echo(f"Imported {len(report.imported)}, failed {len(report.failed)}")
+    if report.failed:
+        raise SystemExit(1)
+
+
+@main.command("propose-costco")
+@click.option("--since", "since_str", default=None, help="Only propose receipts on or after YYYY-MM-DD")
+@click.option("--until", "until_str", default=None, help="Only propose receipts on or before YYYY-MM-DD")
+def propose_costco_cmd(since_str: str | None, until_str: str | None) -> None:
+    """Match saved Costco receipts to YNAB and write review proposals."""
+    since_override = date.fromisoformat(since_str) if since_str else None
+    until_override = date.fromisoformat(until_str) if until_str else None
+    result = run_costco_propose(since_override, until_override)
+    until_note = f" through {until_override}" if until_override else ""
+    click.echo(
+        f"Proposed since {result.since_date}{until_note}: {len(result.proposals)} matched, "
+        f"{len(result.unmatched_orders)} unmatched receipts, "
+        f"{len(result.unmatched_transactions)} unmatched txns"
+    )
+    config = load_config()
+    click.echo(
+        f"Proposals written to {resolve_path(config.get('costco_proposals_path', 'data/proposals/costco-latest.json'))}"
+    )
 
 
 @main.command("audit-rules")

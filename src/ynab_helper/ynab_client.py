@@ -55,6 +55,16 @@ class YnabClient:
                 categories[category["name"]] = category["id"]
         return categories
 
+    def list_accounts(self) -> dict[str, str]:
+        """Return mapping of account name -> account id (excludes deleted)."""
+        data = self._get(f"/budgets/{self.budget_id}/accounts")
+        accounts: dict[str, str] = {}
+        for account in data["accounts"]:
+            if account.get("deleted"):
+                continue
+            accounts[account["name"]] = account["id"]
+        return accounts
+
     def get_transactions_since(self, since_date: date) -> list[YnabTransaction]:
         data = self._get(
             f"/budgets/{self.budget_id}/transactions",
@@ -84,6 +94,46 @@ class YnabClient:
             if txn.amount >= 0:
                 continue
             if until_date is not None and txn.date > until_date:
+                continue
+            payee = (txn.payee_name or "").upper()
+            if pattern not in payee:
+                continue
+            if txn.subtransactions:
+                continue
+            if txn.approved:
+                continue
+            results.append(txn)
+        return results
+
+    def get_uncategorized_costco_transactions(
+        self,
+        account_ids: list[str],
+        payee_pattern: str,
+        since_date: date | None = None,
+        until_date: date | None = None,
+    ) -> list[YnabTransaction]:
+        """Same filtering as get_uncategorized_target_transactions, plus an
+        account-id membership check. Takes resolved account_ids (not names)
+        so the caller resolves names -> ids once via list_accounts() and can
+        raise a clear error if a configured account name isn't found,
+        instead of this silently returning zero matches."""
+        params: dict[str, Any] = {}
+        if since_date:
+            params["since_date"] = since_date.isoformat()
+        data = self._get(
+            f"/budgets/{self.budget_id}/transactions",
+            params=params or None,
+        )
+        pattern = payee_pattern.upper()
+        account_id_set = set(account_ids)
+        results: list[YnabTransaction] = []
+        for raw in data["transactions"]:
+            txn = self._parse_transaction(raw)
+            if txn.amount >= 0:
+                continue
+            if until_date is not None and txn.date > until_date:
+                continue
+            if txn.account_id not in account_id_set:
                 continue
             payee = (txn.payee_name or "").upper()
             if pattern not in payee:

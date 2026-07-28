@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import date
 from pathlib import Path
 from typing import Any
 
@@ -7,10 +8,26 @@ from fastapi import FastAPI, Form, HTTPException, Request
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 
-from ynab_helper.config import load_categories, load_config, load_rules, resolve_path
+from ynab_helper.config import load_categories, load_config, load_rules, load_rules_costco, resolve_path
+from ynab_helper.costco_fetch import recategorize_line_costco
+from ynab_helper.costco_orders import load_cached_costco_orders
 from ynab_helper.fetch import clear_applied, load_proposals, recategorize_line, set_line_note
-from ynab_helper.rules_editor import append_rule, delete_rule, list_rules, reorder_rule, update_rule
-from ynab_helper.undo import apply_all_pending, apply_proposal, list_undo_snapshots, undo_last
+from ynab_helper.rules_editor import (
+    COSTCO_RULES_PATH,
+    append_rule,
+    delete_rule,
+    list_rules,
+    reorder_rule,
+    update_rule,
+)
+from ynab_helper.undo import (
+    apply_all_pending,
+    apply_all_pending_costco,
+    apply_costco_proposal,
+    apply_proposal,
+    list_undo_snapshots,
+    undo_last,
+)
 
 TEMPLATES = Jinja2Templates(
     directory=str(Path(__file__).parent / "templates")
@@ -198,3 +215,184 @@ def undo() -> RedirectResponse:
     if not restored:
         raise HTTPException(status_code=404, detail="Nothing to undo")
     return RedirectResponse(url="/", status_code=303)
+
+
+@app.get("/costco", response_class=HTMLResponse)
+def costco_index(request: Request) -> HTMLResponse:
+    config = load_config()
+    proposals_path = resolve_path(config.get("costco_proposals_path", "data/proposals/costco-latest.json"))
+    if not proposals_path.exists():
+        raise HTTPException(
+            status_code=404,
+            detail="No Costco proposals found. Run: ynab-helper propose-costco",
+        )
+    data = load_proposals(proposals_path)
+    proposals = data.get("proposals", [])
+    pending = [(i, p) for i, p in enumerate(proposals) if p.get("status") != "applied"]
+    applied = [(i, p) for i, p in enumerate(proposals) if p.get("status") == "applied"]
+    return TEMPLATES.TemplateResponse(
+        request,
+        "costco.html",
+        {
+            "data": data,
+            "pending": pending,
+            "applied": applied,
+            "undo_count": len(list_undo_snapshots()),
+            "pending_count": len(pending),
+            "fmt": _milliunits_to_dollars,
+            "categories": sorted(load_rules_costco().get("allowed_categories", [])),
+        },
+    )
+
+
+@app.post("/costco/approve/{index}")
+def costco_approve(index: int) -> RedirectResponse:
+    try:
+        apply_costco_proposal(index)
+    except (IndexError, ValueError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return RedirectResponse(url="/costco", status_code=303)
+
+
+@app.post("/costco/recategorize/{proposal_index}/{line_index}")
+def costco_recategorize(
+    proposal_index: int, line_index: int, category_name: str = Form(...)
+) -> JSONResponse:
+    config = load_config()
+    proposals_path = resolve_path(config.get("costco_proposals_path", "data/proposals/costco-latest.json"))
+    try:
+        proposal = recategorize_line_costco(proposals_path, proposal_index, line_index, category_name)
+    except (IndexError, ValueError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return _line_patch_response(proposal, line_index)
+
+
+@app.post("/costco/note/{proposal_index}/{line_index}")
+def costco_note(proposal_index: int, line_index: int, note: str = Form("")) -> JSONResponse:
+    config = load_config()
+    proposals_path = resolve_path(config.get("costco_proposals_path", "data/proposals/costco-latest.json"))
+    try:
+        proposal = set_line_note(proposals_path, proposal_index, line_index, note)
+    except (IndexError, ValueError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return _line_patch_response(proposal, line_index)
+
+
+@app.post("/costco/rules")
+def costco_add_rule(
+    pattern: str = Form(...), category_name: str = Form(...), note: str = Form("")
+) -> JSONResponse:
+    config = load_config()
+    orders_dir = resolve_path(config.get("costco_orders_dir", "data/costco-orders"))
+    try:
+        result = append_rule(
+            pattern,
+            category_name,
+            note or None,
+            rules_path=COSTCO_RULES_PATH,
+            rules_data=load_rules_costco(),
+            orders=load_cached_costco_orders(orders_dir, date.min),
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return JSONResponse(
+        {
+            "ok": True,
+            "collisions": result.collisions,
+            "warnings": [i.message for i in result.issues if i.severity == "warning"],
+        }
+    )
+
+
+@app.get("/costco/rules", response_class=HTMLResponse)
+def costco_rules_page(request: Request) -> HTMLResponse:
+    return TEMPLATES.TemplateResponse(
+        request,
+        "costco_rules.html",
+        {
+            "rules": list_rules(rules_path=COSTCO_RULES_PATH),
+            "categories": sorted(load_rules_costco().get("allowed_categories", [])),
+        },
+    )
+
+
+@app.post("/costco/rules/{index}/move")
+def costco_move_rule(index: int, direction: str = Form(...)) -> JSONResponse:
+    rules = list_rules(rules_path=COSTCO_RULES_PATH)
+    if index < 0 or index >= len(rules):
+        raise HTTPException(status_code=400, detail="Rule index out of range")
+
+    if direction == "up":
+        to_index = index - 1
+    elif direction == "down":
+        to_index = index + 1
+    elif direction == "top":
+        to_index = 0
+    elif direction == "bottom":
+        to_index = len(rules) - 1
+    else:
+        raise HTTPException(status_code=400, detail=f"Unknown direction: {direction}")
+
+    try:
+        reorder_rule(index, to_index, rules_path=COSTCO_RULES_PATH)
+    except (IndexError, ValueError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return JSONResponse({"rules": list_rules(rules_path=COSTCO_RULES_PATH)})
+
+
+@app.post("/costco/rules/{index}")
+def costco_edit_rule(
+    index: int, pattern: str = Form(...), category_name: str = Form(...), note: str = Form("")
+) -> JSONResponse:
+    config = load_config()
+    orders_dir = resolve_path(config.get("costco_orders_dir", "data/costco-orders"))
+    try:
+        result = update_rule(
+            index,
+            pattern,
+            category_name,
+            note or None,
+            rules_path=COSTCO_RULES_PATH,
+            rules_data=load_rules_costco(),
+            orders=load_cached_costco_orders(orders_dir, date.min),
+        )
+    except (IndexError, ValueError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return JSONResponse(
+        {
+            "ok": True,
+            "collisions": result.collisions,
+            "warnings": [i.message for i in result.issues if i.severity == "warning"],
+        }
+    )
+
+
+@app.post("/costco/rules/{index}/delete")
+def costco_delete_rule_route(index: int) -> JSONResponse:
+    try:
+        delete_rule(index, rules_path=COSTCO_RULES_PATH)
+    except (IndexError, ValueError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return JSONResponse({"ok": True})
+
+
+@app.post("/costco/clear-applied")
+def costco_clear_applied_route() -> RedirectResponse:
+    config = load_config()
+    proposals_path = resolve_path(config.get("costco_proposals_path", "data/proposals/costco-latest.json"))
+    clear_applied(proposals_path)
+    return RedirectResponse(url="/costco", status_code=303)
+
+
+@app.post("/costco/approve-all")
+def costco_approve_all() -> RedirectResponse:
+    apply_all_pending_costco()
+    return RedirectResponse(url="/costco", status_code=303)
+
+
+@app.post("/costco/undo")
+def costco_undo() -> RedirectResponse:
+    restored = undo_last(1)
+    if not restored:
+        raise HTTPException(status_code=404, detail="Nothing to undo")
+    return RedirectResponse(url="/costco", status_code=303)

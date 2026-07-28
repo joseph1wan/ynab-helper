@@ -85,3 +85,45 @@ class ScrapeResult:
     orders: list[TargetOrder]
     since_date: date
     fetched_at: datetime
+
+
+@dataclass
+class CostcoOrder:
+    receipt_id: str
+    receipt_date: date
+    total: int  # milliunits (positive)
+    line_items: list[LineItem]
+    receipt_type: str  # "gas" | "warehouse"
+    store_number: str
+    transaction_number: str
+    tax: int = 0
+    shipping: int = 0  # always 0; kept so compute_splits() works unmodified via duck typing
+    fees: int = 0  # always 0; ditto
+
+    @property
+    def subtotal(self) -> int:
+        return sum(item.line_total for item in self.line_items)
+
+    @property
+    def order_id(self) -> str:
+        """Alias so rules_audit.audit_orders() (which reads .order_id) works unmodified."""
+        return self.receipt_id
+
+
+@dataclass
+class CostcoMatchProposal:
+    costco_order: CostcoOrder
+    ynab_transaction: YnabTransaction
+    categorized_lines: list[CategorizedLine]
+    splits: list[ProposedSplit]
+    unmatched_items: list[LineItem] = field(default_factory=list)
+    rounding_delta: int = 0
+
+
+@dataclass
+class CostcoFetchResult:
+    proposals: list[CostcoMatchProposal]
+    unmatched_orders: list[CostcoOrder]
+    unmatched_transactions: list[YnabTransaction]
+    since_date: date
+    fetched_at: datetime

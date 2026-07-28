@@ -41,6 +41,10 @@ def load_rules() -> dict[str, Any]:
     return load_yaml(CONFIG_DIR / "rules.yaml")
 
 
+def load_rules_costco() -> dict[str, Any]:
+    return load_yaml(CONFIG_DIR / "rules_costco.yaml")
+
+
 def load_categories() -> dict[str, str]:
     path = CONFIG_DIR / "categories.json"
     if not path.exists():

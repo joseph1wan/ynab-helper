@@ -1,0 +1,33 @@
+Gas Station Receipt
+Lake In The Hills #774
+250 N RANDALL RD
+LAKE IN THE HILLS, IL 60156
+Member
+111948273562
+Invoice#
+16397
+Date:
+07/16/26
+Time:
+15:48
+Auth#
+08945I
+VI Acct #
+************6586
+Pump
+Gallons
+Price
+6
+14.026
+$3.899
+Product
+Amount
+Regular
+$54.69
+Total Sale
+$54.69
+Sale - Contactless
+Approved
+TranID# 619706016397
+Thank you for your purchase of Kirkland
+Signature Fuel.

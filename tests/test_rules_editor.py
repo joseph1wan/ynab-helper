@@ -184,3 +184,61 @@ def test_update_rule_rejects_unknown_category(rules_copy: Path) -> None:
 def test_update_rule_rejects_out_of_range(rules_copy: Path) -> None:
     with pytest.raises(IndexError):
         update_rule(9999, r"\bexampleitem\b", "Groceries", rules_path=rules_copy)
+
+
+@pytest.fixture
+def costco_rules_copy(tmp_path: Path) -> Path:
+    """A throwaway copy of rules_costco.yaml, for testing the optional
+    rules_data/orders params without touching the shipped file."""
+    dest = tmp_path / "rules_costco.yaml"
+    dest.write_text((CONFIG_DIR / "rules_costco.yaml").read_text())
+    return dest
+
+
+def test_append_rule_with_explicit_rules_data_targets_costco_categories(
+    costco_rules_copy: Path,
+) -> None:
+    import yaml
+
+    rules_data = yaml.safe_load(costco_rules_copy.read_text())
+
+    append_rule(
+        r"\bexampleitem\b",
+        "Groceries",
+        rules_path=costco_rules_copy,
+        rules_data=rules_data,
+        orders=[],
+    )
+
+    updated = costco_rules_copy.read_text()
+    assert "exampleitem" in updated
+    assert "Gas & Parking" in updated  # header/shipped rule untouched
+
+
+def test_append_rule_with_explicit_rules_data_rejects_category_not_in_costco_allowlist(
+    costco_rules_copy: Path,
+) -> None:
+    import yaml
+
+    rules_data = yaml.safe_load(costco_rules_copy.read_text())
+
+    # "Chloe" is a valid Target category but not in rules_costco.yaml's
+    # allowed_categories — proves allowed_categories comes from the passed
+    # rules_data, not the default Target rules.yaml.
+    with pytest.raises(ValueError):
+        append_rule(
+            r"\bexampleitem\b",
+            "Chloe",
+            rules_path=costco_rules_copy,
+            rules_data=rules_data,
+            orders=[],
+        )
+
+
+def test_default_target_call_sites_unaffected_by_new_optional_params(rules_copy: Path) -> None:
+    """Regression check: every existing Target call site omits rules_data/orders
+    and must behave exactly as before."""
+    before = list_rules(rules_path=rules_copy)
+    append_rule(r"\bZzyzxRegression\b", "Groceries", rules_path=rules_copy)
+    after = list_rules(rules_path=rules_copy)
+    assert len(after) == len(before) + 1

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YNAB Helper — Review</title>
+  <title>YNAB Helper — Costco Review</title>
   <style>
     :root {
       --bg: #14161a;
@@ -89,22 +89,22 @@
   </style>
 </head>
 <body>
-  <h1>Target → YNAB Review</h1>
-  <nav class="tabs"><a href="/" class="active">Review</a><a href="/rules">Rules</a><a href="/costco">Costco</a></nav>
+  <h1>Costco → YNAB Review</h1>
+  <nav class="tabs"><a href="/">Review</a><a href="/rules">Rules</a><a href="/costco" class="active">Costco</a></nav>
   <div class="meta">
     Fetched {{ data.fetched_at }} · Since {{ data.since_date }} ·
     {{ data.proposals | length }} matched ·
-    {{ data.unmatched_orders | length }} unmatched orders ·
+    {{ data.unmatched_orders | length }} unmatched receipts ·
     {{ data.unmatched_transactions | length }} unmatched txns
   </div>
 
   <div class="toolbar">
-    <form method="post" action="/approve-all" onsubmit="return confirm('Push {{ pending_count }} pending proposal(s) to YNAB?')">
+    <form method="post" action="/costco/approve-all" onsubmit="return confirm('Push {{ pending_count }} pending proposal(s) to YNAB?')">
       <button type="submit" class="primary" {% if pending_count == 0 %}disabled{% endif %}>
         Approve all &amp; push ({{ pending_count }})
       </button>
     </form>
-    <form method="post" action="/undo">
+    <form method="post" action="/costco/undo">
       <button type="submit" class="danger" {% if undo_count == 0 %}disabled{% endif %}>
         Undo last ({{ undo_count }})
       </button>
@@ -113,9 +113,10 @@
 
   {% macro render_proposal(pi, proposal, editable) %}
   <div class="card {% if not editable %}applied{% endif %}" id="proposal-{{ pi }}">
-    <strong>Order {{ proposal.target_order.order_id }}</strong>
-    · {{ proposal.target_order.order_date }}
-    · Target {{ fmt(proposal.target_order.total) }}
+    <strong>Receipt {{ proposal.costco_order.receipt_id }}</strong>
+    · {{ proposal.costco_order.receipt_date }}
+    · ({{ proposal.costco_order.receipt_type }})
+    · Costco {{ fmt(proposal.costco_order.total) }}
     ↔ YNAB {{ fmt(proposal.ynab_transaction.amount) }}
     {% if not editable %}<em>(applied)</em>{% endif %}
 
@@ -192,7 +193,7 @@
     </table>
 
     <p class="unmatched" id="unmatched-{{ pi }}" {% if not proposal.unmatched_items %}style="display:none"{% endif %}>
-      Unmatched items (run the categorize-unmatched skill or `ynab-helper audit-rules`):
+      Unmatched items:
       <span class="unmatched-names">{{ proposal.unmatched_items | map(attribute='name') | join(', ') }}</span>
     </p>
 
@@ -202,7 +203,7 @@
 
     {% if editable %}
     <div class="actions">
-      <form method="post" action="/approve/{{ pi }}">
+      <form method="post" action="/costco/approve/{{ pi }}">
         <button type="submit" class="primary">Approve &amp; push to YNAB</button>
       </form>
     </div>
@@ -221,7 +222,7 @@
   <details class="applied-section">
     <summary>
       Applied ({{ applied | length }})
-      <form method="post" action="/clear-applied" onsubmit="return confirm('Remove all {{ applied | length }} applied proposal(s) from this review? YNAB transactions are unaffected.')">
+      <form method="post" action="/costco/clear-applied" onsubmit="return confirm('Remove all {{ applied | length }} applied proposal(s) from this review? YNAB transactions are unaffected.')">
         <button type="submit" class="danger small">Clear applied</button>
       </form>
     </summary>
@@ -232,10 +233,10 @@
   {% endif %}
 
   {% if data.unmatched_orders %}
-  <h2>Unmatched Target orders</h2>
+  <h2>Unmatched Costco receipts</h2>
   {% for order in data.unmatched_orders %}
   <div class="card">
-    {{ order.order_date }} · {{ fmt(order.total) }} · {{ order.order_id }}
+    {{ order.receipt_date }} · {{ fmt(order.total) }} · {{ order.receipt_id }} · ({{ order.receipt_type }})
     <ul>
       {% for item in order.line_items %}
       <li>{{ item.name }} ({{ fmt(item.line_total) }})</li>
@@ -304,7 +305,7 @@
       select.addEventListener('change', async () => {
         const pi = select.dataset.pi, li = select.dataset.li;
         try {
-          const data = await postForm(`/recategorize/${pi}/${li}`, { category_name: select.value });
+          const data = await postForm(`/costco/recategorize/${pi}/${li}`, { category_name: select.value });
           const row = document.getElementById(`line-${pi}-${li}`);
           row.querySelector('.rule-value').textContent = data.matched_rule || '—';
           patchProposal(pi, data);
@@ -319,7 +320,7 @@
       const save = async () => {
         const pi = input.dataset.pi, li = input.dataset.li;
         try {
-          const data = await postForm(`/note/${pi}/${li}`, { note: input.value });
+          const data = await postForm(`/costco/note/${pi}/${li}`, { note: input.value });
           const flash = input.parentElement.querySelector('.saved-flash');
           flash.classList.add('show');
           setTimeout(() => flash.classList.remove('show'), 1200);
@@ -370,8 +371,8 @@
         const note = noteInput ? noteInput.value : '';
         const result = form.querySelector('.rule-result');
         try {
-          const data = await postForm('/rules', { pattern, category_name: category, note });
-          let msg = 'Rule added — re-run `propose` to apply it.';
+          const data = await postForm('/costco/rules', { pattern, category_name: category, note });
+          let msg = 'Rule added — re-run `propose-costco` to apply it.';
           if (data.collisions && data.collisions.length) {
             msg += ' Collides with: ' + data.collisions.join(', ');
           }

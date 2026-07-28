@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YNAB Helper — Rules</title>
+  <title>YNAB Helper — Costco Rules</title>
   <style>
     :root {
       --bg: #14161a;
@@ -78,8 +78,8 @@
   </style>
 </head>
 <body>
-  <h1>Target → YNAB Rules</h1>
-  <nav class="tabs"><a href="/">Review</a><a href="/rules" class="active">Rules</a><a href="/costco">Costco</a></nav>
+  <h1>Costco → YNAB Rules</h1>
+  <nav class="tabs"><a href="/">Review</a><a href="/rules">Rules</a><a href="/costco">Costco</a></nav>
   <div class="meta">
     First-match-wins: rule position is priority. Row 1 is checked first.
   </div>
@@ -116,7 +116,7 @@
     </tbody>
   </table>
 
-  <div class="banner">Changes here take effect after you re-run <code>propose</code>.</div>
+  <div class="banner">Changes here take effect after you re-run <code>propose-costco</code>.</div>
 
   <script>
     const categories = {{ categories | tojson }};
@@ -204,7 +204,7 @@
           const tr = btn.closest('tr');
           const index = tr.dataset.index;
           try {
-            const data = await postForm(`/rules/${index}/move`, { direction: btn.dataset.dir });
+            const data = await postForm(`/costco/rules/${index}/move`, { direction: btn.dataset.dir });
             renderRules(data.rules);
           } catch (e) {
             alert('Failed to reorder: ' + e.message);
@@ -219,7 +219,7 @@
           const pattern = tr.querySelector('.rule-pattern-view')?.textContent ?? 'this rule';
           if (!confirm(`Delete rule: ${pattern}?`)) return;
           try {
-            await postForm(`/rules/${index}/delete`, {});
+            await postForm(`/costco/rules/${index}/delete`, {});
             tr.remove();
           } catch (e) {
             alert('Failed to delete: ' + e.message);
@@ -255,7 +255,7 @@
         const note = tr.querySelector('.edit-note').value;
         const result = tr.querySelector('.rule-result');
         try {
-          const data = await postForm(`/rules/${index}`, { pattern, category_name, note });
+          const data = await postForm(`/costco/rules/${index}`, { pattern, category_name, note });
           let msg = 'Saved.';
           if (data.collisions && data.collisions.length) {
             msg += ' Collides with: ' + data.collisions.join(', ');
