@@ -90,7 +90,7 @@
 </head>
 <body>
   <h1>Target → YNAB Review</h1>
-  <nav class="tabs"><a href="/" class="active">Review</a><a href="/rules">Rules</a></nav>
+  <nav class="tabs"><a href="/" class="active">Review</a><a href="/paypal">PayPal</a><a href="/rules">Rules</a></nav>
   <div class="meta">
     Fetched {{ data.fetched_at }} · Since {{ data.since_date }} ·
     {{ data.proposals | length }} matched ·
@@ -192,7 +192,7 @@
     </table>
 
     <p class="unmatched" id="unmatched-{{ pi }}" {% if not proposal.unmatched_items %}style="display:none"{% endif %}>
-      Unmatched items (run the categorize-unmatched skill or `ynab-helper audit-rules`):
+      Unmatched items (run the categorize-unmatched skill):
       <span class="unmatched-names">{{ proposal.unmatched_items | map(attribute='name') | join(', ') }}</span>
     </p>
 

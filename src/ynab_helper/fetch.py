@@ -225,7 +225,8 @@ def clear_applied(proposals_path: Path) -> int:
     """Drop applied proposals from the review file. Returns count removed.
 
     Leaves data/target-orders/*.json, data/state.json, and data/undo/*.json
-    untouched so audit-rules keeps its full item corpus and pushes stay undoable.
+    untouched so rule validation keeps its full item corpus and pushes stay
+    undoable.
     """
     data = load_proposals(proposals_path)
     proposals = data.get("proposals", [])

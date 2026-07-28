@@ -6,8 +6,29 @@
 # parsed as a backspace escape character (\x08), which silently produces a
 # regex that compiles fine but never matches anything.
 #
-# Verify changes with: uv run ynab-helper audit-rules
 rules:
+  - pattern: '\bdish\s+(?:soap|detergent)\b|\bdishwashing\b'
+    category: 'Home Supplies'
+  - pattern: '\btoiletwand\b|\btoilet\s+cleaning\b|\bcleaning\s+wand\b'
+    category: 'Home Supplies'
+  - pattern: '\btoilet spray\b|\bbathroom spray\b'
+    category: 'Personal Care'
+  - pattern: '\bstarbucks\b|\bcold brew\b|\biced coffee\b'
+    category: 'Eating Out'
+  - pattern: '\bcradle cap\b'
+    category: 'Nathanael'
+  - pattern: '\bface wash\b|\bface cleanser\b|\bfacial cleanser\b'
+    category: 'Personal Care'
+  - pattern: '\bpackaging tape\b|\bpacking tape\b|\bmoving box(?:es)?\b'
+    category: 'Home Supplies'
+  - pattern: '\btoothpaste\b|\btoothcare\b|\bmouthwash\b|\bfloss\b'
+    category: 'Personal Care'
+  - pattern: '\bmakeup remover\b|\bmicellar water\b'
+    category: 'Personal Care'
+  - pattern: '\brinse aid\b'
+    category: 'Home Supplies'
+  - pattern: '\bwrapping paper\b|\bgift bags?\b|\bgift tags?\b'
+    category: 'Gifts'
   - pattern: '\bToddler\s+Girl'
     category: 'Chloe'
     note: 'girl clothes'
@@ -36,7 +57,8 @@ fallback_category: 'Groceries'
 # purchase should ever be split into.
 #
 # Every rule category and fallback_category above must appear here.
-# Enforced by `uv run ynab-helper audit-rules`.
+# Enforced by the rule-editing validator (ynab_helper.rules_editor) and by
+# tests/test_rules_config.py.
 allowed_categories:
   - 'Activities'
   - 'Beauty'

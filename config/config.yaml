@@ -5,3 +5,6 @@ target_auth_path: auth/target.json
 state_path: data/state.json
 proposals_path: data/proposals/latest.json
 initial_since: null
+paypal_account_name: Paypal
+paypal_records_path: data/paypal/records.json
+paypal_review_path: data/paypal/review.json

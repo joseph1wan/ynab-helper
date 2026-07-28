@@ -39,6 +39,7 @@ class YnabTransaction:
     cleared: str
     approved: bool | None
     subtransactions: list[dict[str, Any]] = field(default_factory=list)
+    transfer_account_id: str | None = None
 
     @property
     def abs_amount(self) -> int:
@@ -85,3 +86,13 @@ class ScrapeResult:
     orders: list[TargetOrder]
     since_date: date
     fetched_at: datetime
+
+
+@dataclass
+class PaypalRecord:
+    date: date
+    name: str  # counterparty; empty on rows that never carry one
+    type: str  # "General Payment" | "Mobile Payment" | "Donation Payment" | ...
+    amount: int  # milliunits, signed
+    note: str  # the CSV "Item Title" column
+    transaction_id: str
