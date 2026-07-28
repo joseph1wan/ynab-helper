@@ -39,6 +39,8 @@ review:  proposals/latest.json → FastAPI web UI → PATCH YNAB API
   - `load_cached_orders()` — reads saved order JSONs; always re-parses invoice HTML from `debug/` when present to override stale line items
   - `_parse_invoice_html_line_items()` — scopes parsing to each `data-test="invoice-details-card"` card; extracts name from `<b><p>`, qty from `data-test="item-quantity"`, Amount from the infoRow's last innerDiv
 
+- **`invoice_text.py` / `invoice_import.py`** — manual fallback for when the scraper is soft-blocked or captures mid-hydration HTML: copy an invoice page's rendered text (select-all + copy, no page source needed) into `data/target-orders/pasted/inbox/*.txt`, then run `uv run ynab-helper import-invoices`. `invoice_text.parse_invoice_text()` parses the plain-text layout (order/invoice id, date, per-item name/qty/Amount, Invoice total — stops scanning at "Invoice total" so giftcard/coupon rows below it are never read as items); `invoice_import.import_pasted_invoices()` writes `data/target-orders/{order_id}_{invoice_id}.json` (same shape the scraper writes) and archives the source `.txt` to `data/target-orders/pasted/`. A pasted invoice takes precedence over scraped HTML for the same invoice id — `_parse_invoices_for_order()` skips re-parsing HTML when a matching paste archive exists, and never emits a duplicate bare `{order_id}.json` when an invoice-keyed JSON for that order is already on disk.
+
 - **`fetch.py`** — orchestrates both phases via `run_fetch()` and `run_propose()`
 
 - **`matcher.py`** — exact match on `(order_date, total_milliunits)` ↔ `(txn_date, abs(txn_amount))`
@@ -60,6 +62,7 @@ All monetary values are stored as integer milliunits (YNAB's unit: $1.00 = 1000)
 - `config/config.yaml` — `${YNAB_TOKEN}` interpolated from `.env` at startup
 - `config/rules.yaml` — human-edited regex rules, plus `allowed_categories` (the curated subset of YNAB categories a Target split may target — `categories.json` is a raw dump that also includes credit-card payment categories and transfer categories that should never be a split target); re-run `sync-categories` when YNAB categories change
 - `data/target-orders/*.json` — one file per order; line items are re-parsed from invoice HTML on every `load_cached_orders` call when `debug/invoice_*.html` exists
+- `data/target-orders/pasted/inbox/*.txt` — drop zone for manually copy-pasted invoice text; drained by `uv run ynab-helper import-invoices` (see `invoice_text.py` above). Successfully imported files are archived to `data/target-orders/pasted/`; failures are left in the inbox.
 
 ### Invoice HTML parser details
 

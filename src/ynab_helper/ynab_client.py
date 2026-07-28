@@ -63,8 +63,13 @@ class YnabClient:
         return [self._parse_transaction(txn) for txn in data["transactions"]]
 
     def get_uncategorized_target_transactions(
-        self, payee_pattern: str, since_date: date | None = None
+        self,
+        payee_pattern: str,
+        since_date: date | None = None,
+        until_date: date | None = None,
     ) -> list[YnabTransaction]:
+        # YNAB's API only supports a since_date filter server-side; an upper
+        # bound has to be applied client-side after fetching.
         params: dict[str, Any] = {}
         if since_date:
             params["since_date"] = since_date.isoformat()
@@ -77,6 +82,8 @@ class YnabClient:
         for raw in data["transactions"]:
             txn = self._parse_transaction(raw)
             if txn.amount >= 0:
+                continue
+            if until_date is not None and txn.date > until_date:
                 continue
             payee = (txn.payee_name or "").upper()
             if pattern not in payee:
@@ -103,7 +110,7 @@ class YnabClient:
     ) -> dict[str, Any]:
         return self._patch(
             f"/budgets/{self.budget_id}/transactions/{transaction_id}",
-            {"subtransactions": subtransactions},
+            {"subtransactions": subtransactions, "approved": True},
         )
 
     def patch_transactions_bulk(

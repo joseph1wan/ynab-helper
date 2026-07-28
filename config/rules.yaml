@@ -8,11 +8,12 @@
 #
 # Verify changes with: uv run ynab-helper audit-rules
 rules:
+  - pattern: '\bToddler\s+Girl'
+    category: 'Chloe'
+    note: 'girl clothes'
   - pattern: '\bdiapers?\b|\bbaby\s+wipes?\b|\bsimilac\b|\benfamil\b|\binfants?\b|\b(?:baby|toddler)\s+formula\b'
     category: 'Nathanael'
-  - pattern: '\bmilks?\b|\bcreams?\b|\bcreamy\b|\bcreamers?\b|\bblueberr|\braspberr|\bham\b|\bhamburgers?\b|\bbreaded\b|\bbuttermilk\b|\bbiscuits?\b|\bsyrups?\b|\bnutella\b|\bgrocer|\bproduce\b|\bbread\b|\bsnacks?\b'
-    category: 'Groceries'
-  - pattern: '\bpillow|\bsheets?\b|\bblankets?\b|\bbedding\b|\btowels?\b|\bbath'
+  - pattern: '\bpillow|\bsheets?\b|\bblankets?\b|\bbedding\b|\btowels?\b|\bbath|\bnapkins?\b'
     category: 'Home Supplies'
   - pattern: '\bshampoos?\b|\bsoaps?\b|\blotions?\b|\bdeodorants?\b|\bhair'
     category: 'Personal Care'
@@ -20,10 +21,13 @@ rules:
     category: 'Home Decor'
   - pattern: '\bbugs?\b|\binsect|\brepellents?\b|\bsprays?\b|\bpests?\b'
     category: 'Home Supplies'
-  - pattern: '\bToddler\s+Girl'
-    category: 'Chloe'
-    note: 'girl clothes'
-fallback_category: 'Home Supplies'
+  - pattern: '\bToddler\s+Boys|\bBaby\s+Boys\b'
+    category: 'Nathanael'
+  - pattern: '\bEye Drops'
+    category: 'Personal Care'
+  - pattern: '\bmilks?\b|\bcreams?\b|\bcreamy\b|\bcreamers?\b|\bblueberr|\braspberr|\bham\b|\bhamburgers?\b|\bbreaded\b|\bbuttermilk\b|\bbiscuits?\b|\bsyrups?\b|\bnutella\b|\bgrocer|\bproduce\b|\bbread\b|\bsnacks?\b'
+    category: 'Groceries'
+fallback_category: 'Groceries'
 
 # Categories that make sense as Target line-item split targets. NOT the full
 # YNAB category list — config/categories.json is a raw dump that also

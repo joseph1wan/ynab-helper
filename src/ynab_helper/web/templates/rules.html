@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YNAB Helper — Rules</title>
+  <style>
+    :root {
+      --bg: #14161a;
+      --fg: #e6e6e6;
+      --muted: #9a9a9a;
+      --border: #333844;
+      --card-bg: #1c1f26;
+      --row-border: #2a2e37;
+      --warn: #f0b429;
+      --unmatched: #f87171;
+      --btn-bg: #22252c;
+      --btn-border: #3a3f4a;
+      --primary-bg: #3b82f6;
+      --primary-border: #3b82f6;
+      --danger-bg: #dc2626;
+      --danger-border: #dc2626;
+      --btn-fg: #e6e6e6;
+      --input-bg: #14161a;
+      --ok: #34d399;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ffffff;
+        --fg: #1a1a1a;
+        --muted: #666;
+        --border: #ddd;
+        --card-bg: #ffffff;
+        --row-border: #eee;
+        --warn: #b45309;
+        --unmatched: #b91c1c;
+        --btn-bg: #fff;
+        --btn-border: #ccc;
+        --primary-bg: #2563eb;
+        --primary-border: #2563eb;
+        --danger-bg: #dc2626;
+        --danger-border: #dc2626;
+        --btn-fg: #1a1a1a;
+        --input-bg: #fff;
+        --ok: #15803d;
+      }
+    }
+    body { font-family: system-ui, sans-serif; margin: 2rem; max-width: 1100px; color: var(--fg); background: var(--bg); }
+    h1 { font-size: 1.5rem; }
+    .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 1rem; }
+    nav.tabs { margin-bottom: 1.25rem; display: flex; gap: 0.4rem; }
+    nav.tabs a {
+      color: var(--fg); text-decoration: none; font-weight: 600; font-size: 0.9rem;
+      padding: 0.45rem 1rem; border-radius: 6px; border: 1px solid var(--btn-border);
+      background: var(--btn-bg);
+    }
+    nav.tabs a:hover { background: var(--card-bg); }
+    nav.tabs a.active { background: var(--primary-bg); border-color: var(--primary-border); color: #fff; }
+    input#search { width: 100%; max-width: 24rem; margin-bottom: 1rem; padding: 0.4rem 0.6rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; }
+    th, td { text-align: left; padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--row-border); vertical-align: middle; }
+    th:last-child, td:last-child { padding-right: 1rem; }
+    th { color: var(--muted); font-weight: 600; }
+    td.pattern { font-family: ui-monospace, monospace; font-size: 0.85rem; }
+    td.rule-note { color: var(--muted); }
+    select, input[type=text] {
+      background: var(--input-bg); color: var(--fg); border: 1px solid var(--btn-border);
+      border-radius: 4px; padding: 0.25rem 0.4rem; font-size: 0.85rem;
+    }
+    button { padding: 0.3rem 0.6rem; border-radius: 6px; border: 1px solid var(--btn-border); cursor: pointer; background: var(--btn-bg); color: var(--btn-fg); font-size: 0.85rem; }
+    button.primary { background: var(--primary-bg); color: #fff; border-color: var(--primary-border); }
+    button.danger { background: var(--danger-bg); color: #fff; border-color: var(--danger-border); }
+    button.icon { padding: 0.2rem 0.45rem; }
+    .move-btns { display: flex; gap: 0.2rem; }
+    .row-actions { display: flex; gap: 0.3rem; }
+    .rule-result { font-size: 0.8rem; margin-top: 0.3rem; }
+    .banner { font-size: 0.85rem; color: var(--muted); margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Target → YNAB Rules</h1>
+  <nav class="tabs"><a href="/">Review</a><a href="/rules" class="active">Rules</a></nav>
+  <div class="meta">
+    First-match-wins: rule position is priority. Row 1 is checked first.
+  </div>
+
+  <input type="text" id="search" placeholder="Search pattern, category, or note…">
+
+  <table>
+    <thead>
+      <tr><th>#</th><th>Pattern</th><th>Category</th><th>Note</th><th>Priority</th><th></th></tr>
+    </thead>
+    <tbody id="rules-body">
+      {% for rule in rules %}
+      <tr data-index="{{ rule.index }}">
+        <td class="rule-num">{{ loop.index }}</td>
+        <td class="pattern rule-pattern-view">{{ rule.pattern }}</td>
+        <td class="rule-category-view">{{ rule.category }}</td>
+        <td class="rule-note">{{ rule.note or '—' }}</td>
+        <td>
+          <div class="move-btns">
+            <button type="button" class="icon move-btn" data-dir="top" {% if loop.first %}disabled{% endif %}>⤒</button>
+            <button type="button" class="icon move-btn" data-dir="up" {% if loop.first %}disabled{% endif %}>↑</button>
+            <button type="button" class="icon move-btn" data-dir="down" {% if loop.last %}disabled{% endif %}>↓</button>
+            <button type="button" class="icon move-btn" data-dir="bottom" {% if loop.last %}disabled{% endif %}>⤓</button>
+          </div>
+        </td>
+        <td>
+          <div class="row-actions">
+            <button type="button" class="edit-btn">Edit</button>
+            <button type="button" class="danger delete-btn">Delete</button>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="banner">Changes here take effect after you re-run <code>propose</code>.</div>
+
+  <script>
+    const categories = {{ categories | tojson }};
+
+    function rowHtml(rule, index, total) {
+      const patternEsc = rule.pattern.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+      const noteEsc = (rule.note || '—').replace(/&/g, '&amp;').replace(/</g, '&lt;');
+      const catOptions = categories.map(c =>
+        `<option value="${c}" ${c === rule.category ? 'selected' : ''}>${c}</option>`
+      ).join('');
+      return `
+        <td class="rule-num">${index + 1}</td>
+        <td class="pattern rule-pattern-view">${patternEsc}</td>
+        <td class="rule-category-view">${rule.category}</td>
+        <td class="rule-note">${noteEsc}</td>
+        <td>
+          <div class="move-btns">
+            <button type="button" class="icon move-btn" data-dir="top" ${index === 0 ? 'disabled' : ''}>⤒</button>
+            <button type="button" class="icon move-btn" data-dir="up" ${index === 0 ? 'disabled' : ''}>↑</button>
+            <button type="button" class="icon move-btn" data-dir="down" ${index === total - 1 ? 'disabled' : ''}>↓</button>
+            <button type="button" class="icon move-btn" data-dir="bottom" ${index === total - 1 ? 'disabled' : ''}>⤓</button>
+          </div>
+        </td>
+        <td>
+          <div class="row-actions">
+            <button type="button" class="edit-btn">Edit</button>
+            <button type="button" class="danger delete-btn">Delete</button>
+          </div>
+        </td>
+      `;
+    }
+
+    function editFormHtml(rule) {
+      const catOptions = categories.map(c =>
+        `<option value="${c}" ${c === rule.category ? 'selected' : ''}>${c}</option>`
+      ).join('');
+      return `
+        <td class="rule-num">${rule.index + 1}</td>
+        <td><input type="text" class="edit-pattern" value="${rule.pattern.replace(/"/g, '&quot;')}"></td>
+        <td><select class="edit-category">${catOptions}</select></td>
+        <td><input type="text" class="edit-note" value="${(rule.note || '').replace(/"/g, '&quot;')}" placeholder="why?"></td>
+        <td colspan="2">
+          <button type="button" class="primary save-btn">Save</button>
+          <button type="button" class="cancel-btn">Cancel</button>
+          <div class="rule-result"></div>
+        </td>
+      `;
+    }
+
+    function renderRules(rules) {
+      const body = document.getElementById('rules-body');
+      body.innerHTML = '';
+      rules.forEach((rule, i) => {
+        const tr = document.createElement('tr');
+        tr.dataset.index = rule.index;
+        tr.innerHTML = rowHtml(rule, i, rules.length);
+        body.appendChild(tr);
+      });
+      wireRows();
+      applyFilter();
+    }
+
+    async function postForm(url, fields) {
+      const body = new URLSearchParams(fields);
+      const res = await fetch(url, { method: 'POST', body });
+      if (!res.ok) {
+        const detail = await res.text();
+        throw new Error(detail);
+      }
+      return res.json();
+    }
+
+    function currentRules() {
+      return Array.from(document.querySelectorAll('#rules-body tr')).map(tr => ({
+        index: Number(tr.dataset.index),
+        pattern: tr.querySelector('.rule-pattern-view')?.textContent ?? '',
+        category: tr.querySelector('.rule-category-view')?.textContent ?? '',
+        note: null,
+      }));
+    }
+
+    function wireRows() {
+      document.querySelectorAll('.move-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const tr = btn.closest('tr');
+          const index = tr.dataset.index;
+          try {
+            const data = await postForm(`/rules/${index}/move`, { direction: btn.dataset.dir });
+            renderRules(data.rules);
+          } catch (e) {
+            alert('Failed to reorder: ' + e.message);
+          }
+        });
+      });
+
+      document.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const tr = btn.closest('tr');
+          const index = tr.dataset.index;
+          const pattern = tr.querySelector('.rule-pattern-view')?.textContent ?? 'this rule';
+          if (!confirm(`Delete rule: ${pattern}?`)) return;
+          try {
+            await postForm(`/rules/${index}/delete`, {});
+            tr.remove();
+          } catch (e) {
+            alert('Failed to delete: ' + e.message);
+          }
+        });
+      });
+
+      document.querySelectorAll('.edit-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tr = btn.closest('tr');
+          const index = Number(tr.dataset.index);
+          const rule = {
+            index,
+            pattern: tr.querySelector('.rule-pattern-view').textContent,
+            category: tr.querySelector('.rule-category-view').textContent,
+            note: tr.querySelector('.rule-note').textContent === '—' ? '' : tr.querySelector('.rule-note').textContent,
+          };
+          tr.dataset.editing = 'true';
+          tr.innerHTML = editFormHtml(rule);
+          wireEditForm(tr);
+        });
+      });
+    }
+
+    function wireEditForm(tr) {
+      tr.querySelector('.cancel-btn').addEventListener('click', () => {
+        renderRules(currentRules());
+      });
+      tr.querySelector('.save-btn').addEventListener('click', async () => {
+        const index = tr.dataset.index;
+        const pattern = tr.querySelector('.edit-pattern').value;
+        const category_name = tr.querySelector('.edit-category').value;
+        const note = tr.querySelector('.edit-note').value;
+        const result = tr.querySelector('.rule-result');
+        try {
+          const data = await postForm(`/rules/${index}`, { pattern, category_name, note });
+          let msg = 'Saved.';
+          if (data.collisions && data.collisions.length) {
+            msg += ' Collides with: ' + data.collisions.join(', ');
+          }
+          result.textContent = msg;
+          result.style.color = 'var(--ok)';
+          setTimeout(() => location.reload(), 600);
+        } catch (e) {
+          result.textContent = 'Failed: ' + e.message;
+          result.style.color = 'var(--unmatched)';
+        }
+      });
+    }
+
+    function applyFilter() {
+      const q = document.getElementById('search').value.toLowerCase();
+      document.querySelectorAll('#rules-body tr').forEach(tr => {
+        if (tr.dataset.editing === 'true') return;
+        const text = tr.textContent.toLowerCase();
+        tr.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+
+    document.getElementById('search').addEventListener('input', applyFilter);
+    wireRows();
+  </script>
+</body>
+</html>

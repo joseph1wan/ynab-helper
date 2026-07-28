@@ -241,11 +241,15 @@ def clear_applied(proposals_path: Path) -> int:
 
 def run_fetch(
     since_override: date | None = None,
+    until_override: date | None = None,
     overwrite: bool = False,
     skip_scrape: bool = False,
-    headless: bool = True,
+    headless: bool = False,
     debug_pause: bool = False,
 ) -> ScrapeResult:
+    if until_override is not None and since_override is not None and until_override < since_override:
+        raise ValueError(f"--until ({until_override}) is before --since ({since_override})")
+
     config = load_config()
     token = config.get("ynab_token", "")
     if not token:
@@ -267,15 +271,22 @@ def run_fetch(
         )
 
         if skip_scrape:
-            orders = load_cached_orders(orders_dir, since_date)
+            orders = load_cached_orders(orders_dir, since_date, until_date=until_override)
         else:
+            # The live scraper always walks Target's order history newest-first
+            # down to since_date, so an upper bound can only be applied by
+            # filtering the results afterward — everything in between still
+            # gets captured and cached on disk, which is harmless.
             orders = scrape_target_orders(
                 target_auth,
                 since_date,
                 orders_dir,
                 headless=headless,
                 debug_pause=debug_pause,
+                overwrite=overwrite,
             )
+            if until_override is not None:
+                orders = [o for o in orders if o.order_date <= until_override]
 
     result = ScrapeResult(
         orders=orders,
@@ -286,8 +297,13 @@ def run_fetch(
     return result
 
 
-def run_propose(since_override: date | None = None) -> FetchResult:
+def run_propose(
+    since_override: date | None = None, until_override: date | None = None
+) -> FetchResult:
     """Match saved Target orders to YNAB and write review proposals."""
+    if until_override is not None and since_override is not None and until_override < since_override:
+        raise ValueError(f"--until ({until_override}) is before --since ({since_override})")
+
     config = load_config()
     token = config.get("ynab_token", "")
     if not token:
@@ -298,11 +314,19 @@ def run_propose(since_override: date | None = None) -> FetchResult:
     if not all_orders:
         raise ValueError("No saved Target orders found. Run fetch first.")
     since_date = since_override or min(order.order_date for order in all_orders)
-    orders = [order for order in all_orders if order.order_date >= since_date]
+    until_date = until_override
+    orders = [
+        order
+        for order in all_orders
+        if order.order_date >= since_date
+        and (until_date is None or order.order_date <= until_date)
+    ]
 
     with YnabClient(token, config.get("budget_id", "last-used")) as client:
         transactions = client.get_uncategorized_target_transactions(
-            config.get("payee_pattern", "TARGET"), since_date=since_date
+            config.get("payee_pattern", "TARGET"),
+            since_date=since_date,
+            until_date=until_date,
         )
 
     proposals, unmatched_orders, unmatched_transactions = match_orders_to_transactions(

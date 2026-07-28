@@ -57,7 +57,6 @@ def apply_proposal(proposal_index: int) -> dict[str, Any]:
         {
             "amount": split["amount"],
             "category_id": split["category_id"],
-            "memo": ", ".join(split.get("line_items", []))[:200],
         }
         for split in proposal["splits"]
     ]
@@ -117,11 +116,11 @@ def apply_all_pending() -> list[str]:
         bulk_payload.append(
             {
                 "id": txn["id"],
+                "approved": True,
                 "subtransactions": [
                     {
                         "amount": split["amount"],
                         "category_id": split["category_id"],
-                        "memo": ", ".join(split.get("line_items", []))[:200],
                     }
                     for split in proposal["splits"]
                 ],

@@ -9,7 +9,7 @@ from fastapi.templating import Jinja2Templates
 
 from ynab_helper.config import load_categories, load_config, load_rules, resolve_path
 from ynab_helper.fetch import clear_applied, load_proposals, recategorize_line, set_line_note
-from ynab_helper.rules_editor import append_rule
+from ynab_helper.rules_editor import append_rule, delete_rule, list_rules, reorder_rule, update_rule
 from ynab_helper.undo import apply_all_pending, apply_proposal, list_undo_snapshots, undo_last
 
 TEMPLATES = Jinja2Templates(
@@ -114,6 +114,68 @@ def add_rule(
             "warnings": [i.message for i in result.issues if i.severity == "warning"],
         }
     )
+
+
+@app.get("/rules", response_class=HTMLResponse)
+def rules_page(request: Request) -> HTMLResponse:
+    return TEMPLATES.TemplateResponse(
+        request,
+        "rules.html",
+        {
+            "rules": list_rules(),
+            "categories": sorted(load_rules().get("allowed_categories", [])),
+        },
+    )
+
+
+@app.post("/rules/{index}/move")
+def move_rule(index: int, direction: str = Form(...)) -> JSONResponse:
+    rules = list_rules()
+    if index < 0 or index >= len(rules):
+        raise HTTPException(status_code=400, detail="Rule index out of range")
+
+    if direction == "up":
+        to_index = index - 1
+    elif direction == "down":
+        to_index = index + 1
+    elif direction == "top":
+        to_index = 0
+    elif direction == "bottom":
+        to_index = len(rules) - 1
+    else:
+        raise HTTPException(status_code=400, detail=f"Unknown direction: {direction}")
+
+    try:
+        reorder_rule(index, to_index)
+    except (IndexError, ValueError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return JSONResponse({"rules": list_rules()})
+
+
+@app.post("/rules/{index}")
+def edit_rule(
+    index: int, pattern: str = Form(...), category_name: str = Form(...), note: str = Form("")
+) -> JSONResponse:
+    try:
+        result = update_rule(index, pattern, category_name, note or None)
+    except (IndexError, ValueError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return JSONResponse(
+        {
+            "ok": True,
+            "collisions": result.collisions,
+            "warnings": [i.message for i in result.issues if i.severity == "warning"],
+        }
+    )
+
+
+@app.post("/rules/{index}/delete")
+def delete_rule_route(index: int) -> JSONResponse:
+    try:
+        delete_rule(index)
+    except (IndexError, ValueError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return JSONResponse({"ok": True})
 
 
 @app.post("/clear-applied")

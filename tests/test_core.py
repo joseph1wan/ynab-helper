@@ -174,6 +174,7 @@ def test_fetch_defaults_to_visible_browser(monkeypatch: pytest.MonkeyPatch) -> N
     def fake_run_fetch(
         *,
         since_override: date | None = None,
+        until_override: date | None = None,
         overwrite: bool = False,
         skip_scrape: bool = False,
         headless: bool = True,

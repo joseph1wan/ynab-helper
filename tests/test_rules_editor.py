@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 
 from ynab_helper.config import CONFIG_DIR
-from ynab_helper.rules_editor import append_rule
+from ynab_helper.rules_editor import append_rule, delete_rule, list_rules, reorder_rule, update_rule
 
 
 @pytest.fixture
@@ -94,3 +94,93 @@ def test_appended_rule_with_note_still_loads_through_categorizer(rules_copy: Pat
     )
     result = categorizer.categorize(LineItem(name="ZzyzxWidget Dress", quantity=1, line_total=1000))
     assert result.category_name == "Clothes/Shoes"
+
+
+def test_reorder_rule_moves_block_and_preserves_others(rules_copy: Path) -> None:
+    before = list_rules(rules_path=rules_copy)
+    assert len(before) >= 2
+
+    reorder_rule(len(before) - 1, 0, rules_path=rules_copy)
+
+    after = list_rules(rules_path=rules_copy)
+    assert after[0]["pattern"] == before[-1]["pattern"]
+    assert after[1]["pattern"] == before[0]["pattern"]
+    assert len(after) == len(before)
+    # header/comments/allowed_categories block untouched
+    updated = rules_copy.read_text()
+    assert "allowed_categories:" in updated
+    assert "Patterns are case-insensitive" in updated
+
+
+def test_reorder_rule_clamps_out_of_range_target(rules_copy: Path) -> None:
+    before = list_rules(rules_path=rules_copy)
+    reorder_rule(0, 9999, rules_path=rules_copy)
+    after = list_rules(rules_path=rules_copy)
+    assert after[-1]["pattern"] == before[0]["pattern"]
+    assert len(after) == len(before)
+
+
+def test_reorder_rule_rejects_out_of_range_source(rules_copy: Path) -> None:
+    with pytest.raises(IndexError):
+        reorder_rule(9999, 0, rules_path=rules_copy)
+
+
+def test_delete_rule_removes_only_target_block(rules_copy: Path) -> None:
+    before = list_rules(rules_path=rules_copy)
+    target = before[-1]
+
+    delete_rule(target["index"], rules_path=rules_copy)
+
+    after = list_rules(rules_path=rules_copy)
+    assert len(after) == len(before) - 1
+    assert target["pattern"] not in [r["pattern"] for r in after]
+    updated = rules_copy.read_text()
+    assert "allowed_categories:" in updated
+
+
+def test_delete_rule_rejects_out_of_range(rules_copy: Path) -> None:
+    with pytest.raises(IndexError):
+        delete_rule(9999, rules_path=rules_copy)
+
+
+def test_update_rule_replaces_pattern_category_note(rules_copy: Path) -> None:
+    before = list_rules(rules_path=rules_copy)
+    target_index = before[-1]["index"]
+
+    result = update_rule(
+        target_index, r"\bZzyzxUpdated\b", "Clothes/Shoes", "updated note", rules_path=rules_copy
+    )
+
+    after = list_rules(rules_path=rules_copy)
+    assert after[target_index]["pattern"] == r"\bZzyzxUpdated\b"
+    assert after[target_index]["category"] == "Clothes/Shoes"
+    assert after[target_index]["note"] == "updated note"
+    assert len(after) == len(before)
+    assert result.issues is not None
+
+
+def test_update_rule_note_optional_clears_existing_note(rules_copy: Path) -> None:
+    before = list_rules(rules_path=rules_copy)
+    target_index = before[-1]["index"]
+
+    update_rule(target_index, r"\bZzyzxNoNote\b", "Groceries", rules_path=rules_copy)
+
+    after = list_rules(rules_path=rules_copy)
+    assert after[target_index]["note"] is None
+
+
+def test_update_rule_rejects_invalid_regex_and_leaves_file_untouched(rules_copy: Path) -> None:
+    original = rules_copy.read_text()
+    with pytest.raises(ValueError):
+        update_rule(0, r"\b(unclosed", "Groceries", rules_path=rules_copy)
+    assert rules_copy.read_text() == original
+
+
+def test_update_rule_rejects_unknown_category(rules_copy: Path) -> None:
+    with pytest.raises(ValueError):
+        update_rule(0, r"\bexampleitem\b", "Not A Real Category", rules_path=rules_copy)
+
+
+def test_update_rule_rejects_out_of_range(rules_copy: Path) -> None:
+    with pytest.raises(IndexError):
+        update_rule(9999, r"\bexampleitem\b", "Groceries", rules_path=rules_copy)

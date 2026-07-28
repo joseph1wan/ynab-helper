@@ -113,3 +113,57 @@ def test_reached_cutoff_ignores_non_order_responses_and_recent_orders() -> None:
     ]
 
     assert not target_scraper._reached_cutoff(responses, date(2026, 7, 19))
+
+
+def _order(order_id: str) -> target_scraper.TargetOrder:
+    from ynab_helper.models import TargetOrder
+
+    return TargetOrder(order_id=order_id, order_date=date(2026, 7, 16), total=1000, line_items=[])
+
+
+def test_parse_invoices_for_order_skips_html_already_imported_from_paste(tmp_path: Path) -> None:
+    # debug/ and pasted/ must be siblings — _parse_invoices_for_order derives
+    # pasted_dir from debug_dir.parent / "pasted".
+    root = tmp_path / "data" / "target-orders"
+    debug_dir = root / "debug"
+    pasted_dir = root / "pasted"
+    debug_dir.mkdir(parents=True)
+    pasted_dir.mkdir(parents=True)
+
+    # A stale HTML capture present alongside a paste for the same invoice id.
+    (debug_dir / "invoice_912_555.html").write_text("<html>irrelevant, should never be read</html>")
+    (pasted_dir / "invoice_912_555.txt").write_text("already imported")
+    # The paste importer already wrote the JSON this invoice belongs to.
+    (root / "912_555.json").write_text("{}")
+
+    results = target_scraper._parse_invoices_for_order(_order("912"), debug_dir, output_dir=root)
+
+    assert results == []
+
+
+def test_parse_invoices_for_order_falls_back_to_bare_order_when_nothing_exists(
+    tmp_path: Path,
+) -> None:
+    debug_dir = tmp_path / "debug"
+    debug_dir.mkdir()
+    order = _order("912")
+
+    results = target_scraper._parse_invoices_for_order(order, debug_dir)
+
+    assert results == [order]
+
+
+def test_parse_invoices_for_order_does_not_duplicate_when_invoice_json_exists(
+    tmp_path: Path,
+) -> None:
+    debug_dir = tmp_path / "debug"
+    output_dir = tmp_path / "orders"
+    debug_dir.mkdir()
+    output_dir.mkdir()
+    (output_dir / "912_555.json").write_text("{}")
+
+    results = target_scraper._parse_invoices_for_order(
+        _order("912"), debug_dir, output_dir=output_dir
+    )
+
+    assert results == []

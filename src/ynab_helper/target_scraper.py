@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import json
+import random
 import re
+import time
 from datetime import date, datetime
 from html import unescape
 from pathlib import Path
@@ -36,6 +38,22 @@ def _pause_for_debug(step_name: str, enabled: bool = False) -> None:
     if not enabled:
         return
     print(f"[debug] {step_name} — press Enter to continue...")
+    input()
+
+
+def _pause_if_weird(reason: str, headless: bool) -> None:
+    """Pause for manual inspection when the page looks off, e.g. an empty
+    order list or content that never finished rendering — the symptoms we've
+    seen from Target serving a degraded/stuck response to automated traffic.
+
+    Always fires (unlike --debug-pause, which is opt-in for routine steps)
+    because these are specifically the moments worth a human look. No-op
+    when headless, since there's no visible window and no one to press Enter.
+    """
+    if headless:
+        print(f"[warning] {reason} (headless — continuing without pause)")
+        return
+    print(f"[warning] {reason} — inspect the browser window, then press Enter to continue...")
     input()
 
 
@@ -430,8 +448,12 @@ def _make_error_logger(debug_dir: Path) -> Any:
     return _log_error
 
 
-def _needs_invoice_capture(order_id: str, debug_dir: Path) -> bool:
+def _needs_invoice_capture(
+    order_id: str, debug_dir: Path, overwrite: bool = False
+) -> bool:
     """True if we should open this order's detail page to capture invoices."""
+    if overwrite:
+        return True
     detail_path = debug_dir / f"order_{order_id}.html"
     if not detail_path.exists():
         return True
@@ -457,6 +479,8 @@ def _capture_invoices_for_order(
     log_error: Any,
     ensure_captcha_clearance: Any | None = None,
     debug_pause: bool = False,
+    overwrite: bool = False,
+    headless: bool = False,
 ) -> None:
     """Open the order detail in a new tab, then capture each invoice in its own tab.
 
@@ -498,25 +522,54 @@ def _capture_invoices_for_order(
         for invoice_href in invoice_hrefs:
             invoice_id = invoice_href.rstrip("/").split("/")[-1]
             invoice_path = debug_dir / f"invoice_{order_id}_{invoice_id}.html"
-            if invoice_path.exists():
+            if invoice_path.exists() and not overwrite:
                 print(f"  {order_id}/{invoice_id}: already captured, skipping")
                 continue
-            invoice_page = context.new_page()
+
+            # Throttle between invoice captures to look like a person
+            # clicking through order history, not a bot — rapid back-to-back
+            # new-tab goto()s to invoice URLs were getting served an infinite
+            # loading skeleton (no invoice-details-card ever renders).
+            time.sleep(random.uniform(4.0, 8.0))
+
+            # Re-establish the order-detail page as the referrer before each
+            # click, since the previous iteration navigated this tab away.
+            detail_page.goto(
+                f"https://www.target.com{order_href}",
+                wait_until="domcontentloaded",
+                timeout=60000,
+            )
+            if ensure_captcha_clearance:
+                ensure_captcha_clearance(detail_page)
+
+            # Pause as if scanning the order-detail page before clicking —
+            # an instant click right after page load is itself a bot tell.
+            time.sleep(random.uniform(1.5, 3.5))
+
             try:
-                invoice_page.goto(
-                    f"https://www.target.com{invoice_href}",
-                    wait_until="domcontentloaded",
-                    timeout=60000,
-                )
-                invoice_page.wait_for_load_state("domcontentloaded", timeout=10000)
+                link = detail_page.locator(f'a[href="{invoice_href}"]').first
+                link.wait_for(state="attached", timeout=5000)
+                link.click()
+                detail_page.wait_for_load_state("domcontentloaded", timeout=60000)
                 if ensure_captcha_clearance:
-                    ensure_captcha_clearance(invoice_page)
-                invoice_path.write_text(invoice_page.content(), encoding="utf-8")
+                    ensure_captcha_clearance(detail_page)
+                try:
+                    detail_page.wait_for_selector(
+                        '[data-test="invoice-details-card"]', timeout=15000
+                    )
+                except Exception:
+                    _pause_if_weird(
+                        f"{order_id}/{invoice_id}: invoice-details-card never "
+                        "rendered — Target may be serving a stuck/degraded page",
+                        headless=headless,
+                    )
+                else:
+                    # Pause as if actually reading the invoice before moving on.
+                    time.sleep(random.uniform(2.0, 4.5))
+                invoice_path.write_text(detail_page.content(), encoding="utf-8")
                 print(f"  {order_id}/{invoice_id}: saved to {invoice_path.name}")
             except Exception as exc:
                 log_error(order_id, invoice_id, exc)
-            finally:
-                invoice_page.close()
 
         _pause_for_debug(f"after invoices for {order_id}", enabled=debug_pause)
     except Exception as exc:
@@ -525,20 +578,35 @@ def _capture_invoices_for_order(
         detail_page.close()
 
 
-def _parse_invoices_for_order(order: TargetOrder, debug_dir: Path) -> list[TargetOrder]:
-    """Return one TargetOrder per invoice HTML found for this order.
+def _parse_invoices_for_order(
+    order: TargetOrder, debug_dir: Path, output_dir: Path | None = None
+) -> list[TargetOrder]:
+    """Return one TargetOrder per invoice found for this order.
 
     Each invoice maps to its own YNAB charge (separate bank posting).
-    Falls back to the original order if no invoice files exist.
+    A manually pasted invoice (data/target-orders/pasted/invoice_{order}_{invoice}.txt,
+    see invoice_import.py) takes precedence over scraped HTML for the same
+    invoice id, since it's human-verified and immune to the hydration/$0
+    failures a rushed scrape can produce — so it's skipped here entirely,
+    letting the already-imported JSON stand.
+
+    Falls back to the original bare order only if no invoice files exist at
+    all *and* an invoice-keyed record for this order isn't already on disk
+    (output_dir) — otherwise a bare {order_id}.json would sit alongside a
+    good {order_id}_{invoice_id}.json and double-match at propose time.
     """
+    pasted_dir = debug_dir.parent / "pasted"
     invoice_files = sorted(debug_dir.glob(f"invoice_{order.order_id}_*.html"))
-    if not invoice_files:
-        return [order]
 
     results: list[TargetOrder] = []
     for invoice_path in invoice_files:
         # invoice_{order_id}_{invoice_id}.html → invoice_id is the last segment
         invoice_id = invoice_path.stem.split("_", 2)[-1]
+
+        if (pasted_dir / f"invoice_{order.order_id}_{invoice_id}.txt").exists():
+            # Already imported from a paste; that JSON takes precedence.
+            continue
+
         html = invoice_path.read_text(encoding="utf-8", errors="ignore")
         items = _parse_invoice_html_line_items(html)
         if not items:
@@ -553,11 +621,23 @@ def _parse_invoices_for_order(order: TargetOrder, debug_dir: Path) -> list[Targe
             )
         )
 
-    return results if results else [order]
+    if results:
+        return results
+
+    if output_dir is not None and list(output_dir.glob(f"{order.order_id}_*.json")):
+        # An invoice-keyed record for this order already exists (from a
+        # paste import or an earlier successful scrape) — don't also emit
+        # a bare duplicate.
+        return []
+
+    return [order]
 
 
 def _collect_orders_from_responses(
-    responses: list[dict[str, Any]], since_date: date, debug_dir: Path | None = None
+    responses: list[dict[str, Any]],
+    since_date: date,
+    debug_dir: Path | None = None,
+    output_dir: Path | None = None,
 ) -> list[TargetOrder]:
     seen_order_ids: set[str] = set()
     orders: list[TargetOrder] = []
@@ -570,7 +650,7 @@ def _collect_orders_from_responses(
                 continue
             seen_order_ids.add(order.order_id)
             if debug_dir is not None:
-                orders.extend(_parse_invoices_for_order(order, debug_dir))
+                orders.extend(_parse_invoices_for_order(order, debug_dir, output_dir=output_dir))
             else:
                 orders.append(order)
     return sorted(orders, key=lambda o: o.order_date)
@@ -593,7 +673,17 @@ def scrape_target_orders(
     output_dir: Path,
     headless: bool = False,
     debug_pause: bool = False,
+    overwrite: bool = False,
 ) -> list[TargetOrder]:
+    if headless:
+        # Headless runs can't show a captcha challenge or a _pause_if_weird
+        # prompt for manual inspection — both silently no-op, which is how
+        # a soft-blocked/degraded scrape ends up looking like a normal
+        # success (see: the "saved 9 orders" incident). Always run headed.
+        raise ValueError(
+            "Headless scraping is disabled — Target's soft-blocking is only "
+            "visible/recoverable in a headed browser. Run with a visible window."
+        )
     if not auth_path.exists():
         raise FileNotFoundError(
             f"Target auth not found at {auth_path}. "
@@ -679,12 +769,20 @@ def scrape_target_orders(
             ]
             print(f"Batch {batch_number}: {len(new_hrefs)} new order(s) to process")
 
+            if not batch_hrefs:
+                _pause_if_weird(
+                    f"Batch {batch_number}: 0 order links matched "
+                    f"{ORDER_LINK_SELECTOR!r} — page may be blocked, "
+                    "degraded, or its markup changed",
+                    headless=headless,
+                )
+
             for order_href in new_hrefs:
                 order_id = order_href.rstrip("/").split("/")[-1]
                 seen_order_ids.add(order_id)
                 ensure_captcha_clearance(page)
 
-                if not _needs_invoice_capture(order_id, debug_dir):
+                if not _needs_invoice_capture(order_id, debug_dir, overwrite=overwrite):
                     print(f"  {order_id}: all invoices already captured, skipping")
                     continue
 
@@ -696,7 +794,14 @@ def scrape_target_orders(
                     log_error,
                     ensure_captcha_clearance=ensure_captcha_clearance,
                     debug_pause=debug_pause,
+                    overwrite=overwrite,
+                    headless=headless,
                 )
+
+                # Pause between orders too, not just between invoices within
+                # the same order — otherwise the order-to-order handoff is
+                # still an instant, bot-paced transition.
+                time.sleep(random.uniform(2.5, 5.5))
 
             if _reached_cutoff(captured, since_date):
                 print(f"Reached date cutoff ({since_date}) after batch {batch_number}")
@@ -704,16 +809,21 @@ def scrape_target_orders(
 
             _pause_for_debug(f"before loading batch {batch_number + 1}", enabled=debug_pause)
             captured_before = len(captured)
-            page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-            page.wait_for_timeout(1500)
+            # Scroll gradually rather than jumping straight to the bottom —
+            # closer to how a person actually scans down a page.
+            for _ in range(4):
+                page.mouse.wheel(0, random.randint(300, 600))
+                page.wait_for_timeout(random.randint(300, 700))
+            page.wait_for_timeout(random.randint(1500, 3000))
             if _reached_cutoff(captured[captured_before:], since_date):
                 break
 
             load_more = page.locator('button:has-text("Load more"), button:has-text("Show more")')
             if load_more.count() > 0:
                 try:
+                    time.sleep(random.uniform(1.0, 2.5))
                     load_more.first.click(timeout=2000)
-                    page.wait_for_timeout(2000)
+                    page.wait_for_timeout(random.randint(2000, 4000))
                 except Exception:
                     break
             else:
@@ -725,7 +835,9 @@ def scrape_target_orders(
         _pause_for_debug("all batches done (Chrome will close after you continue)", enabled=debug_pause)
         context.close()
 
-    orders = _collect_orders_from_responses(captured, since_date, debug_dir=debug_dir)
+    orders = _collect_orders_from_responses(
+        captured, since_date, debug_dir=debug_dir, output_dir=output_dir
+    )
     for order in orders:
         # order.order_id is "{order_id}_{invoice_id}" for invoice-based orders,
         # or just "{order_id}" for orders with no invoice HTML captured yet.
@@ -780,7 +892,9 @@ def _order_from_json(raw: dict[str, Any]) -> TargetOrder | None:
         return None
 
 
-def load_cached_orders(output_dir: Path, since_date: date) -> list[TargetOrder]:
+def load_cached_orders(
+    output_dir: Path, since_date: date, until_date: date | None = None
+) -> list[TargetOrder]:
     if not output_dir.exists():
         return []
     orders: list[TargetOrder] = []
@@ -789,6 +903,8 @@ def load_cached_orders(output_dir: Path, since_date: date) -> list[TargetOrder]:
             raw = json.load(f)
         order = _order_from_json(raw)
         if order is None or order.order_date < since_date:
+            continue
+        if until_date is not None and order.order_date > until_date:
             continue
         orders.append(order)
     return sorted(orders, key=lambda o: o.order_date)

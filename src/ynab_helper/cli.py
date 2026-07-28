@@ -10,6 +10,7 @@ import uvicorn
 
 from ynab_helper.config import CONFIG_DIR, load_categories, load_config, load_rules, resolve_path
 from ynab_helper.fetch import run_fetch, run_propose
+from ynab_helper.invoice_import import import_pasted_invoices
 from ynab_helper.rules_audit import build_report, render_text, report_to_dict
 from ynab_helper.target_scraper import load_cached_orders, save_target_session
 from ynab_helper.undo import undo_last
@@ -54,43 +55,98 @@ def sync_categories() -> None:
 
 @main.command("fetch")
 @click.option("--since", "since_str", default=None, help="Override start date YYYY-MM-DD")
+@click.option("--until", "until_str", default=None, help="Only keep orders on or before YYYY-MM-DD")
 @click.option(
     "--overwrite",
     is_flag=True,
     help="Ignore the last successful fetch and re-scrape from --since/bootstrap date",
 )
 @click.option("--skip-scrape", is_flag=True, help="Use cached Target orders only")
-@click.option("--headed/--headless", default=True, help="Run browser with visible window")
 @click.option("--debug-pause", is_flag=True, help="Pause after each scraper step until Enter is pressed")
 def fetch_cmd(
     since_str: str | None,
+    until_str: str | None,
     overwrite: bool,
     skip_scrape: bool,
-    headed: bool,
     debug_pause: bool,
 ) -> None:
-    """Scrape Target orders and save them locally."""
+    """Scrape Target orders and save them locally.
+
+    Always runs with a visible browser window — headless scraping is
+    disabled since captcha challenges and degraded/stuck pages are only
+    recoverable with the window visible.
+    """
     since_override = date.fromisoformat(since_str) if since_str else None
+    until_override = date.fromisoformat(until_str) if until_str else None
     result = run_fetch(
         since_override=since_override,
+        until_override=until_override,
         overwrite=overwrite,
         skip_scrape=skip_scrape,
-        headless=not headed,
+        headless=False,
         debug_pause=debug_pause,
     )
+    until_note = f" through {until_override}" if until_override else ""
     click.echo(
-        f"Fetched since {result.since_date}: "
+        f"Fetched since {result.since_date}{until_note}: "
         f"saved {len(result.orders)} Target orders"
     )
 
 
+@main.command("import-invoices")
+@click.argument("files", nargs=-1, type=click.Path(exists=True, path_type=Path))
+@click.option(
+    "--keep",
+    is_flag=True,
+    help="Parse without moving the source .txt out of the inbox (or wherever FILES live)",
+)
+def import_invoices_cmd(files: tuple[Path, ...], keep: bool) -> None:
+    """Parse manually pasted Target invoice text into cached order JSON.
+
+    Workflow: open an invoice on target.com, select-all + copy the page,
+    save it as a .txt file in data/target-orders/pasted/inbox/, then run
+    this command with no arguments to drain the inbox. Successfully parsed
+    files are archived to data/target-orders/pasted/; failures are left in
+    place so you can inspect and retry.
+    """
+    orders_dir = resolve_path("data/target-orders")
+    inbox_dir = orders_dir / "pasted" / "inbox"
+    archive_dir = orders_dir / "pasted"
+    inbox_dir.mkdir(parents=True, exist_ok=True)
+
+    report = import_pasted_invoices(
+        inbox_dir=inbox_dir,
+        archive_dir=archive_dir,
+        output_dir=orders_dir,
+        files=list(files) if files else None,
+        keep=keep,
+    )
+
+    for item in report.imported:
+        click.echo(
+            f"{item.source.name} -> {item.output_path.name} "
+            f"({item.item_count} item{'s' if item.item_count != 1 else ''}, "
+            f"${item.total / 1000:.2f})"
+        )
+    for failure in report.failed:
+        click.echo(f"{failure.source.name}: FAILED — {failure.reason}", err=True)
+
+    click.echo(f"Imported {len(report.imported)}, failed {len(report.failed)}")
+    if report.failed:
+        raise SystemExit(1)
+
+
 @main.command("propose")
 @click.option("--since", "since_str", default=None, help="Only propose orders on or after YYYY-MM-DD")
-def propose_cmd(since_str: str | None) -> None:
+@click.option("--until", "until_str", default=None, help="Only propose orders on or before YYYY-MM-DD")
+def propose_cmd(since_str: str | None, until_str: str | None) -> None:
     """Match saved Target orders to YNAB and write review proposals."""
-    result = run_propose(date.fromisoformat(since_str) if since_str else None)
+    since_override = date.fromisoformat(since_str) if since_str else None
+    until_override = date.fromisoformat(until_str) if until_str else None
+    result = run_propose(since_override, until_override)
+    until_note = f" through {until_override}" if until_override else ""
     click.echo(
-        f"Proposed since {result.since_date}: {len(result.proposals)} matched, "
+        f"Proposed since {result.since_date}{until_note}: {len(result.proposals)} matched, "
         f"{len(result.unmatched_orders)} unmatched orders, "
         f"{len(result.unmatched_transactions)} unmatched txns"
     )
