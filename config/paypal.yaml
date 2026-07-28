@@ -1,0 +1,52 @@
+# Config for the PayPal review tab (`/paypal`) — reviewing unapproved
+# transactions on the Paypal YNAB account, enriched with the linked PayPal
+# CSV note. Scoped strictly to that one account; Target/Amazon/etc never
+# appear here. See CONTEXT.md for what a "Source" is and why each one gets
+# its own module instead of a shared engine.
+
+# Categories offered in the review dropdown. Deliberately separate from
+# rules.yaml's allowed_categories, which is curated for Target line-item
+# splits and has no P2P/giving categories. config/categories.json is a raw
+# YNAB dump that also includes credit-card payment categories and transfer
+# categories, none of which belong here.
+paypal_categories:
+  - 'Activities'
+  - 'Charity'
+  - 'Daycare'
+  - 'Eating Out'
+  - 'Gifts'
+  - 'Groceries'
+  - 'Health'
+  - 'Joseph'
+  - 'Mang'
+  - 'Missions'
+  - 'One Offs'
+  - 'Personal Care'
+  - 'Reimbursables'
+  - 'Staff Fund'
+  - 'Subscriptions'
+  - 'Thanksgiving Offering'
+  - 'Tithe'
+  - 'Treating Others'
+  - 'Trips'
+
+# Local "remembered" categorizations, keyed on the PayPal note/description
+# text only — payee-name matching was removed, since a rule should describe
+# what a payment was for, not who sent it. Use SINGLE quotes for patterns
+# for the same reason documented in rules.yaml — \b in a double-quoted YAML
+# string is a backspace escape, not a regex anchor.
+#
+# Hand-edit this list; the review UI no longer auto-appends rules on approve
+# (it used to learn a payee-name pattern per approval, which doesn't fit a
+# description-only model).
+rules:
+  - pattern: '\bgift\b'
+    category: 'Gifts'
+  - pattern: 'Young Oh'
+    category: 'Gifts'
+  - pattern: 'Childcare Voucher'
+    category: 'Daycare'
+  - pattern: 'DT Book'
+    category: 'Activities'
+  - pattern: 'Childcare Funds'
+    category: 'Daycare'
