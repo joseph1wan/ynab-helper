@@ -36,13 +36,8 @@ def resolve_since_date(
     state = load_state(state_path)
     is_first_run = not bool(state and state.get("last_successful_run"))
 
-    # Explicit --since always wins over last_successful_run so the user can
-    # re-fetch a prior window to retry failed invoices without needing --overwrite.
-    if cli_since is not None:
-        return cli_since, False
-
-    configured_since: date | None = None
-    if initial_since:
+    configured_since: date | None = cli_since
+    if configured_since is None and initial_since:
         configured_since = date.fromisoformat(initial_since)
     if configured_since is None and state and state.get("bootstrap_since"):
         configured_since = date.fromisoformat(state["bootstrap_since"])

@@ -58,7 +58,58 @@ class ParsedInvoice:
     invoice_id: str
     order_date_str: str
     total: int
+    card_total: int
     line_items: list[LineItem] = field(default_factory=list)
+
+
+# Payment-summary lines below "Invoice total" that don't represent a charge
+# to a trackable bank/credit account — gift cards and coupon/adjustment rows
+# never post as a YNAB transaction, so their amounts must be excluded when
+# computing the actual card-charged total used for matching.
+_NON_CARD_PAYMENT_LABELS = (
+    "Target GiftCard",
+    "Digital MFR Coupon",
+    "General Ledger Adjustment",
+)
+
+_PAYMENT_SUMMARY_END_MARKERS = (
+    "Help us improve this experience.",
+    "Get top deals, latest trends, and more.",
+)
+
+
+def _parse_card_total(lines: list[str], start_idx: int, invoice_total: int) -> int:
+    """Sum the payment-summary rows after "Invoice total"/"Total refund" and
+    return the portion actually charged to a card (i.e. what will show up as
+    a YNAB transaction), excluding gift cards and coupon/adjustment rows.
+
+    A payment line with no following $ amount means it's the sole payment
+    method for the invoice, so its amount is implied to be whatever's left
+    of invoice_total after the other stated amounts.
+    """
+    entries: list[tuple[str, int | None]] = []
+    i = start_idx
+    while i < len(lines):
+        label = lines[i].strip()
+        if not label or label in _PAYMENT_SUMMARY_END_MARKERS:
+            break
+        amount = None
+        if i + 1 < len(lines) and lines[i + 1].strip().startswith("$"):
+            amount = _amount_to_milliunits(lines[i + 1].strip())
+            i += 2
+        else:
+            i += 1
+        entries.append((label, amount))
+
+    explicit_sum = sum(amount for _, amount in entries if amount is not None)
+    non_card_total = 0
+    for label, amount in entries:
+        if amount is None:
+            amount = invoice_total - explicit_sum
+        if label in _NON_CARD_PAYMENT_LABELS:
+            non_card_total += amount
+
+    return invoice_total - non_card_total
 
 
 def _find_value_after(lines: list[str], label: str) -> str | None:
@@ -127,13 +178,16 @@ def parse_invoice_text(text: str) -> ParsedInvoice | None:
     if total_idx is None:
         return None
     total_value = None
+    total_value_idx = None
     for j in range(total_idx + 1, len(lines)):
         if lines[j].strip():
             total_value = lines[j].strip()
+            total_value_idx = j
             break
     total = _amount_to_milliunits(total_value) if total_value else None
     if total is None:
         return None
+    card_total = _parse_card_total(lines, total_value_idx + 1, total)
 
     item_lines = lines[:total_idx]
     items: list[LineItem] = []
@@ -180,6 +234,7 @@ def parse_invoice_text(text: str) -> ParsedInvoice | None:
         invoice_id=invoice_id,
         order_date_str=order_date_str,
         total=total,
+        card_total=card_total,
         line_items=items,
     )
 

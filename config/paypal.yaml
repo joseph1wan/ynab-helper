@@ -4,31 +4,52 @@
 # appear here. See CONTEXT.md for what a "Source" is and why each one gets
 # its own module instead of a shared engine.
 
-# Categories offered in the review dropdown. Deliberately separate from
-# rules.yaml's allowed_categories, which is curated for Target line-item
-# splits and has no P2P/giving categories. config/categories.json is a raw
-# YNAB dump that also includes credit-card payment categories and transfer
-# categories, none of which belong here.
+# Categories offered in the review dropdown. Shared across all sources
+# (Target, Costco, PayPal) — same list as config/rules.yaml's
+# allowed_categories and config/rules_costco.yaml's allowed_categories, so
+# every source can target any category any of them needs.
+# config/categories.json is a raw YNAB dump that also includes credit-card
+# payment categories and transfer categories, none of which belong here.
+# If you add a category here, add it to the other two files as well.
 paypal_categories:
   - 'Activities'
+  - 'Beauty'
+  - 'Big Home Purchases'
   - 'Charity'
+  - 'Chloe'
   - 'Daycare'
   - 'Eating Out'
+  - 'Electric Bill'
+  - 'Gas & Parking'
   - 'Gifts'
   - 'Groceries'
   - 'Health'
+  - 'Home Decor'
+  - 'Home Supplies'
+  - 'Insurance'
   - 'Joseph'
+  - 'Loans'
+  - 'Maintenance'
   - 'Mang'
   - 'Missions'
+  - 'Mortgage'
+  - 'Nathanael'
   - 'One Offs'
   - 'Personal Care'
+  - 'Property Tax'
   - 'Reimbursables'
+  - 'Rent'
+  - 'Savings'
   - 'Staff Fund'
   - 'Subscriptions'
+  - 'Taxes'
   - 'Thanksgiving Offering'
   - 'Tithe'
+  - 'Tools'
+  - 'Travel'
   - 'Treating Others'
   - 'Trips'
+  - 'Utility Bill'
 
 # Local "remembered" categorizations, keyed on the PayPal note/description
 # text only — payee-name matching was removed, since a rule should describe

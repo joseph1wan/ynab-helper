@@ -18,6 +18,7 @@ from ynab_helper.models import (
     YnabTransaction,
 )
 from ynab_helper.split_calculator import compute_splits
+from ynab_helper.state import load_state
 from ynab_helper.ynab_client import YnabClient
 
 
@@ -198,11 +199,22 @@ def run_costco_propose(
 
     since_date = since_override or min(order.receipt_date for order in all_orders)
     until_date = until_override
+
+    # Once a proposal is applied, its YNAB transaction becomes approved/split
+    # and drops out of get_uncategorized_costco_transactions below — without
+    # this filter the receipt would have no candidate transaction on the
+    # next propose run and would resurface as "unmatched" even though it was
+    # already handled. apply_costco_proposal()/apply_all_pending_costco()
+    # record applied receipt_ids here via mark_applied().
+    state = load_state(resolve_path(config["state_path"])) or {}
+    applied_receipt_ids = set(state.get("processed_order_ids", []))
+
     orders = [
         order
         for order in all_orders
         if order.receipt_date >= since_date
         and (until_date is None or order.receipt_date <= until_date)
+        and order.receipt_id not in applied_receipt_ids
     ]
 
     account_names = config.get("costco_account_names", [])

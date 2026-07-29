@@ -59,6 +59,26 @@ def test_compute_splits_even_fees(categorizer: Categorizer) -> None:
     assert delta == 0
 
 
+def test_compute_splits_refund_produces_positive_amounts(categorizer: Categorizer) -> None:
+    order = TargetOrder(
+        order_id="1",
+        order_date=date(2026, 7, 1),
+        total=50000,
+        line_items=[
+            LineItem(name="Diapers", quantity=1, line_total=30000),
+            LineItem(name="Milk", quantity=1, line_total=20000),
+        ],
+        tax=1000,
+        shipping=0,
+        fees=0,
+    )
+    categorized, _ = categorizer.categorize_all(order.line_items)
+    splits, delta = compute_splits(order, categorized, 50000)
+    assert sum(s.amount for s in splits) == 50000
+    assert all(s.amount > 0 for s in splits)
+    assert delta == 0
+
+
 def test_exact_match(categorizer: Categorizer) -> None:
     order = TargetOrder(
         order_id="ord-1",
@@ -84,6 +104,58 @@ def test_exact_match(categorizer: Categorizer) -> None:
     assert len(unmatched_orders) == 0
     assert len(unmatched_txns) == 0
     assert proposals[0].categorized_lines[0].category_name == "Baby"
+
+
+def test_match_within_date_tolerance(categorizer: Categorizer) -> None:
+    order = TargetOrder(
+        order_id="ord-1",
+        order_date=date(2026, 7, 10),
+        total=87430,
+        line_items=[LineItem(name="Diapers", quantity=1, line_total=87430)],
+    )
+    txn = YnabTransaction(
+        id="txn-1",
+        date=date(2026, 7, 11),
+        amount=-87430,
+        payee_name="TARGET STORE",
+        category_id=None,
+        memo=None,
+        account_id="acct-1",
+        cleared="cleared",
+        approved=True,
+    )
+    proposals, unmatched_orders, unmatched_txns = match_orders_to_transactions(
+        [order], [txn], categorizer
+    )
+    assert len(proposals) == 1
+    assert not unmatched_orders
+    assert not unmatched_txns
+
+
+def test_no_match_outside_date_tolerance(categorizer: Categorizer) -> None:
+    order = TargetOrder(
+        order_id="ord-1",
+        order_date=date(2026, 7, 10),
+        total=87430,
+        line_items=[LineItem(name="Diapers", quantity=1, line_total=87430)],
+    )
+    txn = YnabTransaction(
+        id="txn-1",
+        date=date(2026, 7, 20),
+        amount=-87430,
+        payee_name="TARGET STORE",
+        category_id=None,
+        memo=None,
+        account_id="acct-1",
+        cleared="cleared",
+        approved=True,
+    )
+    proposals, unmatched_orders, unmatched_txns = match_orders_to_transactions(
+        [order], [txn], categorizer
+    )
+    assert not proposals
+    assert len(unmatched_orders) == 1
+    assert len(unmatched_txns) == 1
 
 
 def test_no_match_when_amount_differs(categorizer: Categorizer) -> None:

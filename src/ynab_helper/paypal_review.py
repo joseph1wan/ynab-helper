@@ -262,11 +262,30 @@ def reapply_paypal_rules(review_path: Path) -> int:
 
 
 def clear_applied_paypal_items(review_path: Path) -> int:
+    """Drop applied items from the review file. Returns count removed.
+
+    Also deletes each removed item's data/undo/{txn_id}.json snapshot —
+    once an item is gone from the review file there's no way to flip its
+    status back to "pending" on undo, so leaving the snapshot around would
+    let undo_last() silently revert the YNAB transaction with nothing in
+    the UI to show for it.
+    """
     data = load_paypal_review(review_path)
     items = data.get("items", [])
     remaining = [i for i in items if i.get("status") != "applied"]
-    removed = len(items) - len(remaining)
+    removed_items = [i for i in items if i.get("status") == "applied"]
+    removed = len(removed_items)
     data["items"] = remaining
     with review_path.open("w") as f:
         json.dump(data, f, indent=2)
+
+    undo_dir = resolve_path("data/undo")
+    for item in removed_items:
+        txn_id = item.get("ynab_transaction", {}).get("id")
+        if not txn_id:
+            continue
+        snapshot_path = undo_dir / f"{txn_id}.json"
+        if snapshot_path.exists():
+            snapshot_path.unlink()
+
     return removed

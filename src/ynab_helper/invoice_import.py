@@ -7,7 +7,8 @@ data/target-orders/{order_id}_{invoice_id}.json — the same filename and dict
 shape scrape_target_orders() writes — and archived to
 data/target-orders/pasted/invoice_{order_id}_{invoice_id}.txt so it can be
 re-parsed later without re-copying from Target. Files that fail to parse are
-left in the inbox untouched.
+left in the inbox untouched. Invoices paid entirely by gift card/coupon (no
+card_total) are archived but produce no order JSON — see ImportSkip.
 """
 
 from __future__ import annotations
@@ -36,9 +37,18 @@ class ImportFailure:
 
 
 @dataclass
+class ImportSkip:
+    source: Path
+    order_id: str
+    invoice_id: str
+    reason: str
+
+
+@dataclass
 class ImportReport:
     imported: list[ImportedInvoice] = field(default_factory=list)
     failed: list[ImportFailure] = field(default_factory=list)
+    skipped: list[ImportSkip] = field(default_factory=list)
 
 
 def _order_json_dict(order_id: str, invoice_id: str, order_date_iso: str, total: int, items) -> dict:
@@ -96,9 +106,26 @@ def import_pasted_invoices(
             report.failed.append(ImportFailure(source=path, reason=f"could not parse invoice date: {exc}"))
             continue
 
+        if parsed.card_total == 0:
+            # Paid entirely by gift card / coupon / adjustment — nothing will
+            # ever post as a YNAB transaction for this invoice, so there's no
+            # order JSON to write; it would just sit as permanently unmatched.
+            if not keep:
+                archive_path = archive_dir / f"invoice_{parsed.order_id}_{parsed.invoice_id}.txt"
+                path.replace(archive_path)
+            report.skipped.append(
+                ImportSkip(
+                    source=path,
+                    order_id=parsed.order_id,
+                    invoice_id=parsed.invoice_id,
+                    reason="paid entirely by gift card/coupon — no card charge to match",
+                )
+            )
+            continue
+
         out_path = output_dir / f"{parsed.order_id}_{parsed.invoice_id}.json"
         payload = _order_json_dict(
-            parsed.order_id, parsed.invoice_id, order_date.isoformat(), parsed.total, parsed.line_items
+            parsed.order_id, parsed.invoice_id, order_date.isoformat(), parsed.card_total, parsed.line_items
         )
         with out_path.open("w") as f:
             json.dump(payload, f, indent=2)
@@ -114,7 +141,7 @@ def import_pasted_invoices(
                 invoice_id=parsed.invoice_id,
                 output_path=out_path,
                 item_count=len(parsed.line_items),
-                total=parsed.total,
+                total=parsed.card_total,
             )
         )
 

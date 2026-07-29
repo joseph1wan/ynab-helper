@@ -46,36 +46,62 @@ rules:
     category: 'Nathanael'
   - pattern: '\bEye Drops'
     category: 'Personal Care'
-  - pattern: '\bmilks?\b|\bcreams?\b|\bcreamy\b|\bcreamers?\b|\bblueberr|\braspberr|\bham\b|\bhamburgers?\b|\bbreaded\b|\bbuttermilk\b|\bbiscuits?\b|\bsyrups?\b|\bnutella\b|\bgrocer|\bproduce\b|\bbread\b|\bsnacks?\b'
+  - pattern: '\bmilks?\b|\b(?:whipped|sour|heavy|coffee)\s+creams?\b|\bcreamy\b|\bcreamers?\b|\bblueberr|\braspberr|\bham\b|\bhamburgers?\b|\bbreaded\b|\bbuttermilk\b|\bbiscuits?\b|\bsyrups?\b|\bnutella\b|\bgrocer|\bproduce\b|\bbread\b|\bsnacks?\b'
     category: 'Groceries'
 fallback_category: 'Groceries'
 
-# Categories that make sense as Target line-item split targets. NOT the full
-# YNAB category list — config/categories.json is a raw dump that also
-# includes credit-card payment categories, bills/transfers, and
-# "Inflow: Ready to Assign" / "Uncategorized", none of which a Target
-# purchase should ever be split into.
+# Shared across all sources (Target, Costco, PayPal) — the same list is
+# duplicated verbatim in config/rules_costco.yaml's allowed_categories and
+# config/paypal.yaml's paypal_categories, so every source can target any
+# category any of them needs. Every visible, non-account YNAB category:
+# everything in config/categories.json except the "Credit Card Payments"
+# group (one payment category per account — 'account' below), the
+# "Internal Master Category" group (Inflow: Ready to Assign, Deferred
+# Income SubCategory, Uncategorized — YNAB system bookkeeping, not spend
+# categories), and anything individually hidden in YNAB (e.g. Clothes/Shoes
+# — hidden because it's unused, so it's excluded here too).
 #
 # Every rule category and fallback_category above must appear here.
 # Enforced by the rule-editing validator (ynab_helper.rules_editor) and by
-# tests/test_rules_config.py.
+# tests/test_rules_config.py. If you add a category here, add it to the
+# other two files as well. Re-derive from `sync-categories` output if the
+# YNAB category list changes.
 allowed_categories:
   - 'Activities'
   - 'Beauty'
   - 'Big Home Purchases'
+  - 'Charity'
   - 'Chloe'
-  - 'Clothes/Shoes'
+  - 'Daycare'
   - 'Eating Out'
+  - 'Electric Bill'
+  - 'Gas & Parking'
   - 'Gifts'
   - 'Groceries'
   - 'Health'
   - 'Home Decor'
   - 'Home Supplies'
+  - 'Insurance'
   - 'Joseph'
+  - 'Loans'
   - 'Maintenance'
   - 'Mang'
+  - 'Missions'
+  - 'Mortgage'
   - 'Nathanael'
   - 'One Offs'
   - 'Personal Care'
+  - 'Property Tax'
+  - 'Reimbursables'
+  - 'Rent'
+  - 'Savings'
+  - 'Staff Fund'
+  - 'Subscriptions'
+  - 'Taxes'
+  - 'Thanksgiving Offering'
+  - 'Tithe'
   - 'Tools'
+  - 'Travel'
   - 'Treating Others'
+  - 'Trips'
+  - 'Utility Bill'

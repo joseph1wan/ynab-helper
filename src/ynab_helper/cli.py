@@ -142,6 +142,7 @@ def import_invoices_cmd(files: tuple[Path, ...], keep: bool) -> None:
         f"Imported {total_imported} file(s) "
         f"({report.target_imported} Target, {report.costco_imported} Costco, "
         f"{report.paypal_imported} PayPal / {report.paypal_new_records} new records), "
+        f"skipped {report.target_skipped} Target (gift card/coupon only), "
         f"failed {len(report.failed)}"
     )
     if report.failed:

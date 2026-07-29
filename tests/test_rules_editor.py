@@ -21,13 +21,13 @@ def test_append_rule_preserves_header_comments_and_formatting(rules_copy: Path) 
     header = original.split("rules:")[0]
 
     append_rule(
-        r"\bToddler\s+Girl\b", "Clothes/Shoes", "girl clothes", rules_path=rules_copy
+        r"\bToddler\s+Girl\b", "Health", "health item", rules_path=rules_copy
     )
 
     updated = rules_copy.read_text()
     assert updated.startswith(header)
     assert "- pattern: '\\bToddler\\s+Girl\\b'" in updated
-    assert "category: 'Clothes/Shoes'" in updated
+    assert "category: 'Health'" in updated
     assert "note: 'girl clothes'" in updated
     # existing rules and their single-quoting are untouched
     assert "- pattern: '\\bdiapers?\\b" in updated
@@ -78,7 +78,7 @@ def test_append_rule_rejects_backspace_escape(rules_copy: Path) -> None:
 def test_appended_rule_with_note_still_loads_through_categorizer(rules_copy: Path) -> None:
     # A distinctive pattern that can't collide with any shipped rule, so this test
     # stays valid regardless of what's already in the real rules.yaml.
-    append_rule(r"\bZzyzxWidget\b", "Clothes/Shoes", "girl clothes", rules_path=rules_copy)
+    append_rule(r"\bZzyzxWidget\b", "Health", "health item", rules_path=rules_copy)
 
     import yaml
 
@@ -93,7 +93,7 @@ def test_appended_rule_with_note_still_loads_through_categorizer(rules_copy: Pat
         categories=load_categories(),
     )
     result = categorizer.categorize(LineItem(name="ZzyzxWidget Dress", quantity=1, line_total=1000))
-    assert result.category_name == "Clothes/Shoes"
+    assert result.category_name == "Health"
 
 
 def test_reorder_rule_moves_block_and_preserves_others(rules_copy: Path) -> None:
@@ -148,12 +148,12 @@ def test_update_rule_replaces_pattern_category_note(rules_copy: Path) -> None:
     target_index = before[-1]["index"]
 
     result = update_rule(
-        target_index, r"\bZzyzxUpdated\b", "Clothes/Shoes", "updated note", rules_path=rules_copy
+        target_index, r"\bZzyzxUpdated\b", "Health", "updated note", rules_path=rules_copy
     )
 
     after = list_rules(rules_path=rules_copy)
     assert after[target_index]["pattern"] == r"\bZzyzxUpdated\b"
-    assert after[target_index]["category"] == "Clothes/Shoes"
+    assert after[target_index]["category"] == "Health"
     assert after[target_index]["note"] == "updated note"
     assert len(after) == len(before)
     assert result.issues is not None
@@ -215,16 +215,20 @@ def test_append_rule_with_explicit_rules_data_targets_costco_categories(
     assert "Gas & Parking" in updated  # header/shipped rule untouched
 
 
-def test_append_rule_with_explicit_rules_data_rejects_category_not_in_costco_allowlist(
+def test_append_rule_with_explicit_rules_data_rejects_category_not_in_allowlist(
     costco_rules_copy: Path,
 ) -> None:
     import yaml
 
     rules_data = yaml.safe_load(costco_rules_copy.read_text())
+    # Force a restricted allowlist that excludes "Chloe" — since all three
+    # sources now share one unified allowed_categories list (Target,
+    # Costco, PayPal), the shipped rules_costco.yaml itself no longer
+    # excludes any Target category. Fabricate a narrower one here to prove
+    # allowed_categories comes from the passed rules_data, not whatever the
+    # file (or the default Target rules.yaml) actually contains.
+    rules_data["allowed_categories"] = ["Groceries", "Gas & Parking"]
 
-    # "Chloe" is a valid Target category but not in rules_costco.yaml's
-    # allowed_categories — proves allowed_categories comes from the passed
-    # rules_data, not the default Target rules.yaml.
     with pytest.raises(ValueError):
         append_rule(
             r"\bexampleitem\b",

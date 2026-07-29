@@ -44,15 +44,17 @@ def test_parse_target_order_supports_camel_case_keys() -> None:
 
 def test_parse_invoice_html_line_items() -> None:
     html = """
-    <div class="styles_infoRow__k6eLr">
-      <div>
-        <p>Item</p>
-        <b><p class="h-padding-v-tiny">94844694 - Baby 4pk Moon Short Sleeve Bodysuit - Cloud Island™ Gray 6-9</p></b>
-      </div>
-      <div class="styles_spaceBetweenDiv__bpE2M">
-        <div class="styles_innerDiv__ds__L" data-test="item-quantity"><div>Qty.</div><div><b>1</b></div></div>
-        <div class="styles_innerDiv__ds__L">Unit price<b>$12.00</b></div>
-        <div class="styles_innerDiv__ds__L">Amount<b>$12.00</b></div>
+    <div data-test="invoice-details-card">
+      <div class="styles_infoRow__k6eLr">
+        <div>
+          <p>Item</p>
+          <b><p class="h-padding-v-tiny">94844694 - Baby 4pk Moon Short Sleeve Bodysuit - Cloud Island™ Gray 6-9</p></b>
+        </div>
+        <div class="styles_spaceBetweenDiv__bpE2M">
+          <div class="styles_innerDiv__ds__L" data-test="item-quantity"><div>Qty.</div><div><b>1</b></div></div>
+          <div class="styles_innerDiv__ds__L">Unit price<b>$12.00</b></div>
+          <div class="styles_innerDiv__ds__L">Amount<b>$12.00</b></div>
+        </div>
       </div>
     </div>
     """
@@ -67,10 +69,16 @@ def test_parse_invoice_html_line_items() -> None:
 
 def test_parse_invoice_html_uses_each_rows_own_amount() -> None:
     html = """
-    <div class="styles_infoRow__one"><p>Item</p><p>111 - Apples</p>
-      <div>Qty.</div><div><b>2</b></div><div>Amount<b>$3.50</b></div></div>
-    <div class="styles_infoRow__two"><p>Item</p><p>222 - Bread</p>
-      <div>Qty.</div><div><b>1</b></div><div>Amount<b>$4.25</b></div></div>
+    <div data-test="invoice-details-card">
+      <div class="styles_infoRow__one"><p>Item</p><b><p>111 - Apples</p></b>
+        <div data-test="item-quantity"><div>Qty.</div><div><b>2</b></div></div>
+        <div>Amount<b>$3.50</b></div></div>
+    </div>
+    <div data-test="invoice-details-card">
+      <div class="styles_infoRow__two"><p>Item</p><b><p>222 - Bread</p></b>
+        <div data-test="item-quantity"><div>Qty.</div><div><b>1</b></div></div>
+        <div>Amount<b>$4.25</b></div></div>
+    </div>
     """
 
     items = target_scraper._parse_invoice_html_line_items(html)

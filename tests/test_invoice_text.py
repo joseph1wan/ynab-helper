@@ -23,6 +23,9 @@ def test_parses_single_item_invoice_with_general_ledger_adjustment():
     assert parsed.order_id == "912003599332151"
     assert parsed.invoice_id == "61973991394658558"
     assert parsed.total == 13230
+    # Paid entirely by General Ledger Adjustment + gift card — nothing was
+    # charged to a card, so nothing will ever post as a YNAB transaction.
+    assert parsed.card_total == 0
     assert len(parsed.line_items) == 1
 
     item = parsed.line_items[0]
@@ -41,6 +44,8 @@ def test_parses_multi_item_invoice_and_ignores_payment_lines_below_total():
     assert parsed.order_id == "912003599332151"
     assert parsed.invoice_id == "61973991383936767"
     assert parsed.total == 72810
+    # Paid entirely by coupon + gift cards — no card charge.
+    assert parsed.card_total == 0
     # Exactly 5 items — coupon/giftcard rows after "Invoice total" must not
     # be parsed as additional items.
     assert len(parsed.line_items) == 5
@@ -52,6 +57,16 @@ def test_parses_multi_item_invoice_and_ignores_payment_lines_below_total():
     napkins = next(li for li in parsed.line_items if "Napkins" in li.name)
     assert napkins.line_total == 1990
     assert napkins.quantity == 1
+
+
+def test_parses_mixed_card_and_giftcard_payment():
+    text = _read("invoice_102003548819575_61743991414452924.txt")
+    parsed = parse_invoice_text(text)
+
+    assert parsed is not None
+    assert parsed.total == 5000
+    # Target Mastercard*1743 $1.37 + Target GiftCard $3.63 = $5.00
+    assert parsed.card_total == 1370
 
 
 def test_tcin_prefix_stripped_from_item_names():
@@ -79,24 +94,46 @@ def tmp_dirs(tmp_path: Path) -> tuple[Path, Path, Path]:
 def test_import_writes_order_json_and_archives_source(tmp_dirs):
     inbox, archive, output = tmp_dirs
     dest = inbox / "1.txt"
-    dest.write_text(_read("invoice_912003599332151_61973991394658558.txt"), encoding="utf-8")
+    dest.write_text(_read("invoice_102003548819575_61743991414452924.txt"), encoding="utf-8")
 
     report = import_pasted_invoices(inbox_dir=inbox, archive_dir=archive, output_dir=output)
 
     assert len(report.imported) == 1
     assert not report.failed
+    assert not report.skipped
 
-    out_path = output / "912003599332151_61973991394658558.json"
+    out_path = output / "102003548819575_61743991414452924.json"
     assert out_path.exists()
     assert not dest.exists()
-    assert (archive / "invoice_912003599332151_61973991394658558.txt").exists()
+    assert (archive / "invoice_102003548819575_61743991414452924.txt").exists()
 
     import json
 
     data = json.loads(out_path.read_text())
-    assert data["order_id"] == "912003599332151_61973991394658558"
-    assert data["total"] == 13230
+    assert data["order_id"] == "102003548819575_61743991414452924"
+    # Written total is the card-charged portion ($1.37), not the full $5.00
+    # invoice total — the rest was gift card and will never hit YNAB.
+    assert data["total"] == 1370
     assert len(data["line_items"]) == 1
+
+
+def test_import_skips_invoice_paid_entirely_by_gift_card(tmp_dirs):
+    inbox, archive, output = tmp_dirs
+    dest = inbox / "1.txt"
+    dest.write_text(_read("invoice_912003599332151_61973991394658558.txt"), encoding="utf-8")
+
+    report = import_pasted_invoices(inbox_dir=inbox, archive_dir=archive, output_dir=output)
+
+    assert not report.imported
+    assert not report.failed
+    assert len(report.skipped) == 1
+    assert report.skipped[0].order_id == "912003599332151"
+
+    out_path = output / "912003599332151_61973991394658558.json"
+    assert not out_path.exists()
+    # Still archived — it parsed successfully, just isn't matchable.
+    assert not dest.exists()
+    assert (archive / "invoice_912003599332151_61973991394658558.txt").exists()
 
 
 def test_import_reports_failure_and_leaves_file_in_place(tmp_dirs):

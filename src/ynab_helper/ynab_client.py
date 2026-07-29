@@ -91,8 +91,8 @@ class YnabClient:
         results: list[YnabTransaction] = []
         for raw in data["transactions"]:
             txn = self._parse_transaction(raw)
-            if txn.amount >= 0:
-                continue
+            # amount is not sign-filtered here: outflows are ordinary
+            # purchases, inflows are refunds — both need to be matchable.
             if until_date is not None and txn.date > until_date:
                 continue
             payee = (txn.payee_name or "").upper()
@@ -100,7 +100,14 @@ class YnabClient:
                 continue
             if txn.subtransactions:
                 continue
-            if txn.approved:
+            # A transaction is "done" (already handled, skip it) only once
+            # it's both categorized AND approved. "approved" alone isn't
+            # enough — YNAB auto-assigns a category from renaming rules on
+            # import while leaving approved=false, and we still want to
+            # offer our own split for those. category_id alone isn't enough
+            # either — it drops manually-approved-but-never-categorized
+            # transactions, which do need our proposal.
+            if txn.category_id is not None and txn.approved:
                 continue
             results.append(txn)
         return results
@@ -129,8 +136,6 @@ class YnabClient:
         results: list[YnabTransaction] = []
         for raw in data["transactions"]:
             txn = self._parse_transaction(raw)
-            if txn.amount >= 0:
-                continue
             if until_date is not None and txn.date > until_date:
                 continue
             if txn.account_id not in account_id_set:
@@ -140,7 +145,7 @@ class YnabClient:
                 continue
             if txn.subtransactions:
                 continue
-            if txn.approved:
+            if txn.category_id is not None and txn.approved:
                 continue
             results.append(txn)
         return results

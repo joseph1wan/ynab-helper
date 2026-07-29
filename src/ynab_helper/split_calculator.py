@@ -20,8 +20,11 @@ def compute_splits(
 ) -> tuple[list[ProposedSplit], int]:
     """
     Compute split amounts proportional to line items, with fees split evenly.
-    ynab_total is negative (outflow). Returns (splits, rounding_delta).
+    ynab_total is negative for an outflow (ordinary purchase) or positive
+    for an inflow (refund) — splits are signed to match. Returns (splits,
+    rounding_delta).
     """
+    sign = -1 if ynab_total < 0 else 1
     abs_total = abs(ynab_total)
     subtotal = order.subtotal or 1
     extra_fees = order.tax + order.shipping + order.fees
@@ -55,8 +58,8 @@ def compute_splits(
     splits: list[ProposedSplit] = []
     rounded_sum = 0
     for category_name, amount in raw_amounts.items():
-        negative_amount = -amount
-        rounded = round_to_dollar(negative_amount)
+        signed_amount = sign * amount
+        rounded = round_to_dollar(signed_amount)
         line_names = [
             cl.line_item.name for cl in category_lines[category_name]
         ]

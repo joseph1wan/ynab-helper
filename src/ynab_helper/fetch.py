@@ -11,7 +11,7 @@ from ynab_helper.config import load_categories, load_config, load_rules, resolve
 from ynab_helper.matcher import match_orders_to_transactions
 from ynab_helper.models import CategorizedLine, FetchResult, LineItem, MatchProposal, ScrapeResult, TargetOrder, YnabTransaction
 from ynab_helper.split_calculator import compute_splits
-from ynab_helper.state import mark_fetch_success, resolve_since_date
+from ynab_helper.state import load_state, mark_fetch_success, resolve_since_date
 from ynab_helper.target_scraper import load_cached_orders, scrape_target_orders
 from ynab_helper.ynab_client import YnabClient
 
@@ -224,15 +224,29 @@ def set_line_note(
 def clear_applied(proposals_path: Path) -> int:
     """Drop applied proposals from the review file. Returns count removed.
 
-    Leaves data/target-orders/*.json, data/state.json, and data/undo/*.json
-    untouched so rule validation keeps its full item corpus and pushes stay
-    undoable.
+    Leaves data/target-orders/*.json and data/state.json untouched so rule
+    validation keeps its full item corpus. Also deletes each removed
+    proposal's data/undo/{txn_id}.json snapshot — once a proposal is gone
+    from the review file there's no way to flip its status back to
+    "pending" on undo, so leaving the snapshot around would let undo_last()
+    silently revert the YNAB transaction with nothing in the UI to show
+    for it.
     """
     data = load_proposals(proposals_path)
     proposals = data.get("proposals", [])
     remaining = [p for p in proposals if p.get("status") != "applied"]
-    removed = len(proposals) - len(remaining)
+    removed_proposals = [p for p in proposals if p.get("status") == "applied"]
+    removed = len(removed_proposals)
     data["proposals"] = remaining
+
+    undo_dir = resolve_path("data/undo")
+    for proposal in removed_proposals:
+        txn_id = proposal.get("ynab_transaction", {}).get("id")
+        if not txn_id:
+            continue
+        snapshot_path = undo_dir / f"{txn_id}.json"
+        if snapshot_path.exists():
+            snapshot_path.unlink()
 
     with proposals_path.open("w") as f:
         json.dump(data, f, indent=2)
@@ -316,11 +330,22 @@ def run_propose(
         raise ValueError("No saved Target orders found. Run fetch first.")
     since_date = since_override or min(order.order_date for order in all_orders)
     until_date = until_override
+
+    # Once a proposal is applied, its YNAB transaction becomes approved/split
+    # and drops out of get_uncategorized_target_transactions below — without
+    # this filter the order would have no candidate transaction on the next
+    # propose run and would resurface as "unmatched" even though it was
+    # already handled. apply_proposal()/apply_all_pending() record applied
+    # order_ids here via mark_applied().
+    state = load_state(resolve_path(config["state_path"])) or {}
+    applied_order_ids = set(state.get("processed_order_ids", []))
+
     orders = [
         order
         for order in all_orders
         if order.order_date >= since_date
         and (until_date is None or order.order_date <= until_date)
+        and order.order_id not in applied_order_ids
     ]
 
     with YnabClient(token, config.get("budget_id", "last-used")) as client:

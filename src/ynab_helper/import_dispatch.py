@@ -34,6 +34,7 @@ class DispatchFailure:
 @dataclass
 class DispatchReport:
     target_imported: int = 0
+    target_skipped: int = 0
     costco_imported: int = 0
     paypal_imported: int = 0
     paypal_new_records: int = 0
@@ -89,12 +90,15 @@ def import_inbox(
             keep=keep,
         )
         report.target_imported = len(target_report.imported)
+        report.target_skipped = len(target_report.skipped)
         for item in target_report.imported:
             report.lines.append(
                 f"{item.source.name} -> {item.output_path.name} "
                 f"({item.item_count} item{'s' if item.item_count != 1 else ''}, "
                 f"${item.total / 1000:.2f})"
             )
+        for skip in target_report.skipped:
+            report.lines.append(f"{skip.source.name} -> skipped ({skip.reason})")
         for failure in target_report.failed:
             report.failed.append(DispatchFailure(source=failure.source, reason=failure.reason))
 
