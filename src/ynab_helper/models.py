@@ -131,6 +131,40 @@ class CostcoFetchResult:
 
 
 @dataclass
+class AmazonOrder:
+    order_id: str
+    order_date: date
+    total: int  # milliunits (positive) — Grand Total
+    line_items: list[LineItem]
+    tax: int = 0
+    shipping: int = 0
+    fees: int = 0  # always 0; kept so compute_splits() works unmodified via duck typing
+
+    @property
+    def subtotal(self) -> int:
+        return sum(item.line_total for item in self.line_items)
+
+
+@dataclass
+class AmazonMatchProposal:
+    amazon_order: AmazonOrder
+    ynab_transaction: YnabTransaction
+    categorized_lines: list[CategorizedLine]
+    splits: list[ProposedSplit]
+    unmatched_items: list[LineItem] = field(default_factory=list)
+    rounding_delta: int = 0
+
+
+@dataclass
+class AmazonFetchResult:
+    proposals: list[AmazonMatchProposal]
+    unmatched_orders: list[AmazonOrder]
+    unmatched_transactions: list[YnabTransaction]
+    since_date: date
+    fetched_at: datetime
+
+
+@dataclass
 class PaypalRecord:
     date: date
     name: str  # counterparty; empty on rows that never carry one

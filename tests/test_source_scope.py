@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from datetime import date
 
+from ynab_helper.amazon_fetch import get_source_scope as amazon_scope
 from ynab_helper.costco_fetch import get_source_scope as costco_scope
 from ynab_helper.fetch import get_source_scope as target_scope
 from ynab_helper.models import YnabTransaction
@@ -95,3 +96,19 @@ def test_costco_scope_ignores_unknown_account_names() -> None:
     client = _FakeClient({"Sapphire": "acc-1"})
     scope = costco_scope({"costco_account_names": ["Sapphire", "Unknown"]}, client)
     assert scope.account_ids == {"acc-1"}
+
+
+def test_amazon_scope_reads_payee_pattern() -> None:
+    scope = amazon_scope({"amazon_payee_pattern": "AMAZON"}, _FakeClient({}))
+    assert scope == SourceScope(payee_pattern="AMAZON")
+
+
+def test_amazon_scope_defaults_to_amazon() -> None:
+    scope = amazon_scope({}, _FakeClient({}))
+    assert scope.payee_pattern == "AMAZON"
+
+
+def test_amazon_scope_claims_regardless_of_account() -> None:
+    scope = amazon_scope({"amazon_payee_pattern": "AMAZON"}, _FakeClient({}))
+    assert scope.claims(_txn(account_id="acc-any", payee_name="AMAZON.COM"))
+    assert not scope.claims(_txn(account_id="acc-any", payee_name="TARGET"))

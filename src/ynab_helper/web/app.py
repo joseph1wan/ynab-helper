@@ -8,11 +8,14 @@ from fastapi import FastAPI, Form, HTTPException, Request
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 
+from ynab_helper.amazon_fetch import recategorize_line_amazon
+from ynab_helper.amazon_orders import load_cached_amazon_orders
 from ynab_helper.config import (
     load_categories,
     load_config,
     load_paypal_categories,
     load_rules,
+    load_rules_amazon,
     load_rules_costco,
     resolve_path,
 )
@@ -34,6 +37,7 @@ from ynab_helper.paypal_review import (
     recategorize_item,
 )
 from ynab_helper.rules_editor import (
+    AMAZON_RULES_PATH,
     COSTCO_RULES_PATH,
     append_rule,
     delete_rule,
@@ -43,7 +47,9 @@ from ynab_helper.rules_editor import (
 )
 from ynab_helper.undo import (
     apply_all_pending,
+    apply_all_pending_amazon,
     apply_all_pending_costco,
+    apply_amazon_proposal,
     apply_costco_proposal,
     apply_proposal,
     list_undo_snapshots,
@@ -543,3 +549,184 @@ def other_clear_applied_route() -> RedirectResponse:
     review_path = resolve_path(config.get("other_review_path", "data/other/review.json"))
     clear_applied_other_items(review_path)
     return RedirectResponse(url="/other", status_code=303)
+
+
+@app.get("/amazon", response_class=HTMLResponse)
+def amazon_index(request: Request) -> HTMLResponse:
+    config = load_config()
+    proposals_path = resolve_path(config.get("amazon_proposals_path", "data/proposals/amazon-latest.json"))
+    if not proposals_path.exists():
+        raise HTTPException(
+            status_code=404,
+            detail="No Amazon proposals found. Run: ynab-helper propose-amazon",
+        )
+    data = load_proposals(proposals_path)
+    proposals = data.get("proposals", [])
+    pending = [(i, p) for i, p in enumerate(proposals) if p.get("status") != "applied"]
+    applied = [(i, p) for i, p in enumerate(proposals) if p.get("status") == "applied"]
+    return TEMPLATES.TemplateResponse(
+        request,
+        "amazon.html",
+        {
+            "data": data,
+            "pending": pending,
+            "applied": applied,
+            "undo_count": len(list_undo_snapshots()),
+            "pending_count": len(pending),
+            "fmt": _milliunits_to_dollars,
+            "categories": sorted(load_rules_amazon().get("allowed_categories", [])),
+        },
+    )
+
+
+@app.post("/amazon/approve/{index}")
+def amazon_approve(index: int) -> RedirectResponse:
+    try:
+        apply_amazon_proposal(index)
+    except (IndexError, ValueError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return RedirectResponse(url="/amazon", status_code=303)
+
+
+@app.post("/amazon/recategorize/{proposal_index}/{line_index}")
+def amazon_recategorize(
+    proposal_index: int, line_index: int, category_name: str = Form(...)
+) -> JSONResponse:
+    config = load_config()
+    proposals_path = resolve_path(config.get("amazon_proposals_path", "data/proposals/amazon-latest.json"))
+    try:
+        proposal = recategorize_line_amazon(proposals_path, proposal_index, line_index, category_name)
+    except (IndexError, ValueError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return _line_patch_response(proposal, line_index)
+
+
+@app.post("/amazon/note/{proposal_index}/{line_index}")
+def amazon_note(proposal_index: int, line_index: int, note: str = Form("")) -> JSONResponse:
+    config = load_config()
+    proposals_path = resolve_path(config.get("amazon_proposals_path", "data/proposals/amazon-latest.json"))
+    try:
+        proposal = set_line_note(proposals_path, proposal_index, line_index, note)
+    except (IndexError, ValueError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return _line_patch_response(proposal, line_index)
+
+
+@app.post("/amazon/rules")
+def amazon_add_rule(
+    pattern: str = Form(...), category_name: str = Form(...), note: str = Form("")
+) -> JSONResponse:
+    config = load_config()
+    orders_dir = resolve_path(config.get("amazon_orders_dir", "data/amazon-orders"))
+    try:
+        result = append_rule(
+            pattern,
+            category_name,
+            note or None,
+            rules_path=AMAZON_RULES_PATH,
+            rules_data=load_rules_amazon(),
+            orders=load_cached_amazon_orders(orders_dir, date.min),
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return JSONResponse(
+        {
+            "ok": True,
+            "collisions": result.collisions,
+            "warnings": [i.message for i in result.issues if i.severity == "warning"],
+        }
+    )
+
+
+@app.get("/amazon/rules", response_class=HTMLResponse)
+def amazon_rules_page(request: Request) -> HTMLResponse:
+    return TEMPLATES.TemplateResponse(
+        request,
+        "amazon_rules.html",
+        {
+            "rules": list_rules(rules_path=AMAZON_RULES_PATH),
+            "categories": sorted(load_rules_amazon().get("allowed_categories", [])),
+        },
+    )
+
+
+@app.post("/amazon/rules/{index}/move")
+def amazon_move_rule(index: int, direction: str = Form(...)) -> JSONResponse:
+    rules = list_rules(rules_path=AMAZON_RULES_PATH)
+    if index < 0 or index >= len(rules):
+        raise HTTPException(status_code=400, detail="Rule index out of range")
+
+    if direction == "up":
+        to_index = index - 1
+    elif direction == "down":
+        to_index = index + 1
+    elif direction == "top":
+        to_index = 0
+    elif direction == "bottom":
+        to_index = len(rules) - 1
+    else:
+        raise HTTPException(status_code=400, detail=f"Unknown direction: {direction}")
+
+    try:
+        reorder_rule(index, to_index, rules_path=AMAZON_RULES_PATH)
+    except (IndexError, ValueError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return JSONResponse({"rules": list_rules(rules_path=AMAZON_RULES_PATH)})
+
+
+@app.post("/amazon/rules/{index}")
+def amazon_edit_rule(
+    index: int, pattern: str = Form(...), category_name: str = Form(...), note: str = Form("")
+) -> JSONResponse:
+    config = load_config()
+    orders_dir = resolve_path(config.get("amazon_orders_dir", "data/amazon-orders"))
+    try:
+        result = update_rule(
+            index,
+            pattern,
+            category_name,
+            note or None,
+            rules_path=AMAZON_RULES_PATH,
+            rules_data=load_rules_amazon(),
+            orders=load_cached_amazon_orders(orders_dir, date.min),
+        )
+    except (IndexError, ValueError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return JSONResponse(
+        {
+            "ok": True,
+            "collisions": result.collisions,
+            "warnings": [i.message for i in result.issues if i.severity == "warning"],
+        }
+    )
+
+
+@app.post("/amazon/rules/{index}/delete")
+def amazon_delete_rule_route(index: int) -> JSONResponse:
+    try:
+        delete_rule(index, rules_path=AMAZON_RULES_PATH)
+    except (IndexError, ValueError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return JSONResponse({"ok": True})
+
+
+@app.post("/amazon/clear-applied")
+def amazon_clear_applied_route() -> RedirectResponse:
+    config = load_config()
+    proposals_path = resolve_path(config.get("amazon_proposals_path", "data/proposals/amazon-latest.json"))
+    clear_applied(proposals_path)
+    return RedirectResponse(url="/amazon", status_code=303)
+
+
+@app.post("/amazon/approve-all")
+def amazon_approve_all() -> RedirectResponse:
+    apply_all_pending_amazon()
+    return RedirectResponse(url="/amazon", status_code=303)
+
+
+@app.post("/amazon/undo")
+def amazon_undo() -> RedirectResponse:
+    restored = undo_last(1)
+    if not restored:
+        raise HTTPException(status_code=404, detail="Nothing to undo")
+    return RedirectResponse(url="/amazon", status_code=303)

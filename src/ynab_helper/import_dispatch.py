@@ -1,15 +1,16 @@
 """Unified drain for the single top-level inbox/ directory.
 
 Workflow: paste Target invoices to inbox/target_N.txt, Costco receipts to
-inbox/costco_N.txt (see the pb_target / pb_costco shell aliases), and drop
-PayPal activity CSV exports in as inbox/*.csv — any filename, PayPal is the
-only source that arrives as a CSV. Then run `ynab-helper import-invoices`
-with no arguments to dispatch every file in inbox/ to the right parser by
-filename convention:
+inbox/costco_N.txt, Amazon orders to inbox/amazon_N.txt (see the pb_target /
+pb_costco shell aliases), and drop PayPal activity CSV exports in as
+inbox/*.csv — any filename, PayPal is the only source that arrives as a CSV.
+Then run `ynab-helper import-invoices` with no arguments to dispatch every
+file in inbox/ to the right parser by filename convention:
 
 - *.csv                 -> paypal_csv.import_paypal_csvs
 - target_*.txt          -> invoice_import.import_pasted_invoices
 - costco_*.txt          -> costco_import.import_pasted_receipts
+- amazon_*.txt          -> amazon_import.import_pasted_amazon_orders
 
 Anything else left in inbox/ (wrong prefix, wrong extension) is reported as
 a failure and left in place rather than guessed at.
@@ -20,6 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from ynab_helper.amazon_import import import_pasted_amazon_orders
 from ynab_helper.costco_import import import_pasted_receipts
 from ynab_helper.invoice_import import import_pasted_invoices
 from ynab_helper.paypal_csv import import_paypal_csvs
@@ -36,6 +38,7 @@ class DispatchReport:
     target_imported: int = 0
     target_skipped: int = 0
     costco_imported: int = 0
+    amazon_imported: int = 0
     paypal_imported: int = 0
     paypal_new_records: int = 0
     lines: list[str] = field(default_factory=list)
@@ -54,6 +57,8 @@ def import_inbox(
     costco_archive_dir: Path,
     paypal_records_path: Path,
     paypal_archive_dir: Path,
+    amazon_orders_dir: Path,
+    amazon_archive_dir: Path,
     files: list[Path] | None = None,
     keep: bool = False,
 ) -> DispatchReport:
@@ -64,6 +69,7 @@ def import_inbox(
     target_files: list[Path] = []
     costco_files: list[Path] = []
     paypal_files: list[Path] = []
+    amazon_files: list[Path] = []
 
     for path in candidates:
         name = path.name.lower()
@@ -73,11 +79,13 @@ def import_inbox(
             target_files.append(path)
         elif name.startswith("costco_") and path.suffix.lower() == ".txt":
             costco_files.append(path)
+        elif name.startswith("amazon_") and path.suffix.lower() == ".txt":
+            amazon_files.append(path)
         else:
             report.failed.append(
                 DispatchFailure(
                     source=path,
-                    reason="unrecognized filename — expected target_*.txt, costco_*.txt, or *.csv",
+                    reason="unrecognized filename — expected target_*.txt, costco_*.txt, amazon_*.txt, or *.csv",
                 )
             )
 
@@ -118,6 +126,24 @@ def import_inbox(
                 f"${item.total / 1000:.2f})"
             )
         for failure in costco_report.failed:
+            report.failed.append(DispatchFailure(source=failure.source, reason=failure.reason))
+
+    if amazon_files:
+        amazon_report = import_pasted_amazon_orders(
+            inbox_dir=inbox_dir,
+            archive_dir=amazon_archive_dir,
+            output_dir=amazon_orders_dir,
+            files=amazon_files,
+            keep=keep,
+        )
+        report.amazon_imported = len(amazon_report.imported)
+        for item in amazon_report.imported:
+            report.lines.append(
+                f"{item.source.name} -> {item.output_path.name} "
+                f"({item.item_count} item{'s' if item.item_count != 1 else ''}, "
+                f"${item.total / 1000:.2f})"
+            )
+        for failure in amazon_report.failed:
             report.failed.append(DispatchFailure(source=failure.source, reason=failure.reason))
 
     if paypal_files:

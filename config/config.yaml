@@ -15,3 +15,6 @@ paypal_account_name: Paypal
 paypal_records_path: data/paypal/records.json
 paypal_review_path: data/paypal/review.json
 other_review_path: data/other/review.json
+amazon_payee_pattern: AMAZON
+amazon_proposals_path: data/proposals/amazon-latest.json
+amazon_orders_dir: data/amazon-orders

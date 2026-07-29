@@ -8,6 +8,7 @@ from pathlib import Path
 import click
 import uvicorn
 
+from ynab_helper.amazon_fetch import run_amazon_propose
 from ynab_helper.config import CONFIG_DIR, load_config, resolve_path
 from ynab_helper.costco_fetch import run_costco_propose
 from ynab_helper.fetch import run_fetch, run_propose
@@ -106,12 +107,13 @@ def import_invoices_cmd(files: tuple[Path, ...], keep: bool) -> None:
     """Drain inbox/ and dispatch each file to the right parser by filename.
 
     Workflow: paste a Target invoice to inbox/target_N.txt (pb_target),
-    paste a Costco receipt to inbox/costco_N.txt (pb_costco), or drop a
-    PayPal activity CSV export in as inbox/*.csv, then run this command
-    with no arguments to drain everything at once. Successfully parsed
-    files are archived (Target -> data/target-orders/pasted/, Costco ->
-    data/costco-orders/pasted/, PayPal -> data/paypal/); failures and
-    unrecognized filenames are left in inbox/ so you can inspect and retry.
+    paste a Costco receipt to inbox/costco_N.txt (pb_costco), paste an
+    Amazon order to inbox/amazon_N.txt, or drop a PayPal activity CSV
+    export in as inbox/*.csv, then run this command with no arguments to
+    drain everything at once. Successfully parsed files are archived
+    (Target -> data/target-orders/pasted/, Costco -> data/costco-orders/pasted/,
+    Amazon -> data/amazon-orders/pasted/, PayPal -> data/paypal/); failures
+    and unrecognized filenames are left in inbox/ so you can inspect and retry.
     """
     config = load_config()
     inbox_dir = resolve_path("inbox")
@@ -120,6 +122,7 @@ def import_invoices_cmd(files: tuple[Path, ...], keep: bool) -> None:
     target_orders_dir = resolve_path("data/target-orders")
     costco_orders_dir = resolve_path(config.get("costco_orders_dir", "data/costco-orders"))
     paypal_records_path = resolve_path(config.get("paypal_records_path", "data/paypal/records.json"))
+    amazon_orders_dir = resolve_path(config.get("amazon_orders_dir", "data/amazon-orders"))
 
     report = import_inbox(
         inbox_dir=inbox_dir,
@@ -129,6 +132,8 @@ def import_invoices_cmd(files: tuple[Path, ...], keep: bool) -> None:
         costco_archive_dir=costco_orders_dir / "pasted",
         paypal_records_path=paypal_records_path,
         paypal_archive_dir=paypal_records_path.parent,
+        amazon_orders_dir=amazon_orders_dir,
+        amazon_archive_dir=amazon_orders_dir / "pasted",
         files=list(files) if files else None,
         keep=keep,
     )
@@ -138,10 +143,13 @@ def import_invoices_cmd(files: tuple[Path, ...], keep: bool) -> None:
     for failure in report.failed:
         click.echo(f"{failure.source.name}: FAILED — {failure.reason}", err=True)
 
-    total_imported = report.target_imported + report.costco_imported + report.paypal_imported
+    total_imported = (
+        report.target_imported + report.costco_imported + report.amazon_imported + report.paypal_imported
+    )
     click.echo(
         f"Imported {total_imported} file(s) "
         f"({report.target_imported} Target, {report.costco_imported} Costco, "
+        f"{report.amazon_imported} Amazon, "
         f"{report.paypal_imported} PayPal / {report.paypal_new_records} new records), "
         f"skipped {report.target_skipped} Target (gift card/coupon only), "
         f"failed {len(report.failed)}"
@@ -227,6 +235,26 @@ def propose_costco_cmd(since_str: str | None, until_str: str | None) -> None:
     config = load_config()
     click.echo(
         f"Proposals written to {resolve_path(config.get('costco_proposals_path', 'data/proposals/costco-latest.json'))}"
+    )
+
+
+@main.command("propose-amazon")
+@click.option("--since", "since_str", default=None, help="Only propose orders on or after YYYY-MM-DD")
+@click.option("--until", "until_str", default=None, help="Only propose orders on or before YYYY-MM-DD")
+def propose_amazon_cmd(since_str: str | None, until_str: str | None) -> None:
+    """Match saved Amazon orders to YNAB and write review proposals."""
+    since_override = date.fromisoformat(since_str) if since_str else None
+    until_override = date.fromisoformat(until_str) if until_str else None
+    result = run_amazon_propose(since_override, until_override)
+    until_note = f" through {until_override}" if until_override else ""
+    click.echo(
+        f"Proposed since {result.since_date}{until_note}: {len(result.proposals)} matched, "
+        f"{len(result.unmatched_orders)} unmatched orders, "
+        f"{len(result.unmatched_transactions)} unmatched txns"
+    )
+    config = load_config()
+    click.echo(
+        f"Proposals written to {resolve_path(config.get('amazon_proposals_path', 'data/proposals/amazon-latest.json'))}"
     )
 
 

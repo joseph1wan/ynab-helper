@@ -12,6 +12,7 @@ from ynab_helper.target_scraper import load_cached_orders
 
 RULES_PATH = CONFIG_DIR / "rules.yaml"
 COSTCO_RULES_PATH = CONFIG_DIR / "rules_costco.yaml"
+AMAZON_RULES_PATH = CONFIG_DIR / "rules_amazon.yaml"
 
 
 @dataclass

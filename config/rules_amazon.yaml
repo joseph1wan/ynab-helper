@@ -1,0 +1,57 @@
+# Same conventions as rules.yaml: case-insensitive, UNANCHORED past a
+# leading \b, first-match-wins. Use SINGLE quotes for every pattern — in
+# double-quoted YAML strings \b is parsed as a backspace escape (\x08),
+# which compiles fine but never matches.
+#
+# Amazon item names are full product titles (unlike Costco's abbreviated
+# receipt codes) — build these rules up against real imported orders.
+#
+# Verify changes with: uv run pytest tests/test_rules_amazon_config.py
+rules: []
+fallback_category: 'One Offs'
+
+# Shared across all sources (Target, Costco, PayPal, Amazon) — same list as
+# config/rules.yaml's allowed_categories, config/rules_costco.yaml's
+# allowed_categories, and config/paypal.yaml's paypal_categories, so every
+# source can target any category any of them needs. Every rule category and
+# fallback_category above must appear here. If you add a category here, add
+# it to the other three files as well.
+allowed_categories:
+  - 'Activities'
+  - 'Beauty'
+  - 'Big Home Purchases'
+  - 'Charity'
+  - 'Chloe'
+  - 'Daycare'
+  - 'Eating Out'
+  - 'Electric Bill'
+  - 'Gas & Parking'
+  - 'Gifts'
+  - 'Groceries'
+  - 'Health'
+  - 'Home Decor'
+  - 'Home Supplies'
+  - 'Insurance'
+  - 'Joseph'
+  - 'Loans'
+  - 'Maintenance'
+  - 'Mang'
+  - 'Missions'
+  - 'Mortgage'
+  - 'Nathanael'
+  - 'One Offs'
+  - 'Personal Care'
+  - 'Property Tax'
+  - 'Reimbursables'
+  - 'Rent'
+  - 'Savings'
+  - 'Staff Fund'
+  - 'Subscriptions'
+  - 'Taxes'
+  - 'Thanksgiving Offering'
+  - 'Tithe'
+  - 'Tools'
+  - 'Travel'
+  - 'Treating Others'
+  - 'Trips'
+  - 'Utility Bill'

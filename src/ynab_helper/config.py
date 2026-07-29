@@ -45,6 +45,10 @@ def load_rules_costco() -> dict[str, Any]:
     return load_yaml(CONFIG_DIR / "rules_costco.yaml")
 
 
+def load_rules_amazon() -> dict[str, Any]:
+    return load_yaml(CONFIG_DIR / "rules_amazon.yaml")
+
+
 def load_paypal_config() -> dict[str, Any]:
     return load_yaml(CONFIG_DIR / "paypal.yaml")
 

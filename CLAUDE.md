@@ -65,7 +65,38 @@ review:  proposals/latest.json → FastAPI web UI → PATCH YNAB API
 - **`paypal_review.py`** — builds/approves the review for `/paypal`, scoped to the YNAB account named in `config.yaml`'s `paypal_account_name` (resolved via `YnabClient.get_account_id_by_name`). **Never widen this to "all unapproved transactions, any account"** — that was tried and explicitly rejected; each Source stays scoped to its own account(s). `YnabClient.get_unapproved_account_transactions()` also excludes rows already categorized `Inflow: Ready to Assign` — these are bank-deposit transfers into Paypal with no counterparty or note, so there's nothing for a human to review.
 - Two CLI commands drive `/paypal`: `build-paypal-review [--since]` does a full rebuild — re-fetches unapproved transactions from YNAB, re-links CSV records, re-applies rules from scratch. `propose-paypal` is the lightweight alternative — re-runs current `paypal.yaml` rules against the existing `data/paypal/review.json` on disk, filling in categories only on pending items that don't have one yet (never touches manually-set or applied items, never re-fetches from YNAB). Use `propose-paypal` after editing a rule; use `build-paypal-review` after importing new CSV data.
 
-**Costco and Amazon are planned as future Sources**, following the same shape: their own `*_csv.py`/`*_linker.py`/`*_review.py`/`config/*.yaml`/`/*` tab, scoped to their own YNAB account(s) or payee pattern. Expect their enrichment shape to differ (e.g. Costco/Amazon likely need per-item splits like Target, not PayPal's single-category-per-transaction) — don't force them into PayPal's shape either.
+Costco (`costco_fetch.py` + `config/rules_costco.yaml` + `/costco`) and Amazon (`amazon_fetch.py` + `config/rules_amazon.yaml` + `/amazon`) are built Sources following this same shape — see their own sections below.
+
+### Other review (the catch-all, `/other`)
+
+`/other` shows every unapproved YNAB transaction, any account, that isn't claimed by any of the sources above. It is not itself a Source — it has no import/parse logic and no rules file, by design (anything it shows has already evaded every Source-specific matcher, so there's no established pattern to auto-apply — see `other_review.py`'s module docstring).
+
+**Every Source must expose what it claims, or its transactions leak into `/other`.** The mechanism:
+
+- `source_scope.py` — `SourceScope(account_ids: set[str] | None, payee_pattern: str | None)`. `None` on an axis means "no constraint on that axis"; `.claims(txn)` checks both.
+- Each Source module exposes `get_source_scope(config, client) -> SourceScope` reusing its own existing config keys (see `fetch.py` — payee-only, `costco_fetch.py` — account+payee, `paypal_review.py` — account-only, `amazon_fetch.py` — payee-only).
+- `sources.py` — `SCOPE_GETTERS`, a flat list of every Source's `get_source_scope`. `other_review.build_other_review()` calls all of them and excludes any transaction any scope claims.
+
+**When adding a new Source, you MUST add its `get_source_scope()` to `SCOPE_GETTERS` in `sources.py` as part of that work** — otherwise its transactions will double-appear in both its own new tab and in `/other` (harmless but confusing: it'll look uncategorized in two places, and approving it in one tab won't clear it from the other since they're separate JSON files). This is the one integration point every new Source must touch beyond its own module/config/tab; nothing else in `other_review.py` needs to change.
+
+### Costco review (a third Source)
+
+`/costco` mirrors Target's fetch/propose/split shape (not PayPal's single-category shape), but Costco has no live scraper — receipts are pasted, like Amazon.
+
+- **`costco_receipt_text.py`** — parses pasted Costco receipt text (two layouts: gas station and in-warehouse, detected from the title line). Fail-clean: returns `None` on any missing anchor or reconciliation mismatch rather than emitting bad data.
+- **`costco_import.py`** — drains `inbox/costco_*.txt` into `data/costco-orders/*.json`, archiving sources to `data/costco-orders/pasted/`.
+- **`costco_matcher.py`** — fuzzy match by amount within a ±3-day window (card charges post late), unlike Target's exact-date match.
+- **`costco_fetch.py`** — `run_costco_propose()`, scoped by `costco_account_names` + `costco_payee_pattern`; also exposes `get_source_scope()` for `/other`.
+- `propose-costco [--since] [--until]` CLI command builds the review; `/costco/rules` edits `config/rules_costco.yaml`.
+
+### Amazon review (a fourth Source)
+
+`/amazon` mirrors Costco's shape exactly (paste text → parse → cache JSON → fuzzy-match by amount → split by line item), scoped by payee pattern only (`amazon_payee_pattern`, default `AMAZON`) — Amazon purchases can land on any card, unlike Costco's dedicated accounts, so `amazon_fetch.py` reuses `YnabClient.get_uncategorized_target_transactions()` as-is rather than adding a new client method.
+
+- **`amazon_invoice_text.py`** — parses pasted Amazon order-confirmation-page text (a from-scratch parser, NOT a port of Costco's fixed-width receipt parser — Amazon's paste shape is markdown-link-style items with a bare `$X.XX` price line closing each item, and `* Label:` / `$Amount` total pairs). Quantity is signaled by a bare digit-only line immediately preceding an item's name (defaults to 1 when absent) — when present, the item's price line is a *per-unit* price, not the line total, so `line_total = unit_price * quantity`. Unrecognized total rows (e.g. `Gift Card Amount`) are simply not looked up and have no effect on parsing — `Grand Total` is read directly and is the only total value matched against a YNAB transaction; nothing is computed from the other rows.
+- **`amazon_import.py`** / **`amazon_orders.py`** / **`amazon_matcher.py`** — orchestration/cache/fuzzy-match layers, near-verbatim copies of Costco's equivalents (paste-shape-agnostic).
+- **`amazon_fetch.py`** — `run_amazon_propose()`; also exposes `get_source_scope()` for `/other` (payee-only, see above).
+- `propose-amazon [--since] [--until]` CLI command builds the review; `inbox/amazon_*.txt` is drained by `import-invoices`; `/amazon/rules` edits `config/rules_amazon.yaml`.
 
 ### Milliunits
 
@@ -74,7 +105,7 @@ All monetary values are stored as integer milliunits (YNAB's unit: $1.00 = 1000)
 ### Config files
 
 - `config/config.yaml` — `${YNAB_TOKEN}` interpolated from `.env` at startup
-- `config/rules.yaml` — human-edited regex rules, plus `allowed_categories` (the curated subset of YNAB categories a split may target — `categories.json` is a raw dump that also includes credit-card payment categories and transfer categories that should never be a split target); re-run `sync-categories` when YNAB categories change. This same category list is duplicated verbatim as `allowed_categories` in `config/rules_costco.yaml` and `paypal_categories` in `config/paypal.yaml` — all three sources share one unified allowlist so any source can target any category any of them needs (e.g. PayPal's `Tithe`/`Charity` or Costco's `Gas & Parking`). Adding a category to one requires adding it to the other two.
+- `config/rules.yaml` — human-edited regex rules, plus `allowed_categories` (the curated subset of YNAB categories a split may target — `categories.json` is a raw dump that also includes credit-card payment categories and transfer categories that should never be a split target); re-run `sync-categories` when YNAB categories change. This same category list is duplicated verbatim as `allowed_categories` in `config/rules_costco.yaml` and `config/rules_amazon.yaml`, and as `paypal_categories` in `config/paypal.yaml` — all four sources share one unified allowlist so any source can target any category any of them needs (e.g. PayPal's `Tithe`/`Charity` or Costco's `Gas & Parking`). Adding a category to one requires adding it to the other three. `tests/test_rules_amazon_config.py::test_amazon_allowlist_matches_other_sources` cross-checks all four files stay identical.
 - `data/target-orders/*.json` — one file per order; line items are re-parsed from invoice HTML on every `load_cached_orders` call when `debug/invoice_*.html` exists
 - `inbox/*.txt` — drop zone for manually copy-pasted invoice text; drained by `uv run ynab-helper import-invoices` (see `invoice_text.py` above). Successfully imported files are archived to `data/target-orders/pasted/`; failures are left in the inbox.
 

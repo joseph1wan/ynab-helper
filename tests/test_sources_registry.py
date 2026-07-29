@@ -21,7 +21,7 @@ def _txn(account_id: str = "acc-1", payee_name: str | None = "SOME PAYEE") -> Yn
     )
 
 
-def test_all_source_scopes_returns_three_in_fixed_order() -> None:
+def test_all_source_scopes_returns_four_in_fixed_order() -> None:
     class _FakeClient:
         def get_account_id_by_name(self, name: str) -> str | None:
             return "acc-paypal"
@@ -35,12 +35,14 @@ def test_all_source_scopes_returns_three_in_fixed_order() -> None:
             "costco_account_names": ["Sapphire"],
             "costco_payee_pattern": "COSTCO",
             "paypal_account_name": "Paypal",
+            "amazon_payee_pattern": "AMAZON",
         },
         _FakeClient(),
     )
-    assert len(scopes) == 3
+    assert len(scopes) == 4
     assert scopes[0] == SourceScope(payee_pattern="TARGET")
     assert scopes[2] == SourceScope(account_ids={"acc-paypal"})
+    assert scopes[3] == SourceScope(payee_pattern="AMAZON")
 
 
 def test_is_claimed_true_when_any_scope_claims() -> None:
