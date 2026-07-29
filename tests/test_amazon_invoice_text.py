@@ -67,3 +67,24 @@ def test_unrecognized_total_label_does_not_break_parsing() -> None:
 def test_empty_text_returns_none() -> None:
     assert parse_invoice_text("") is None
     assert parse_invoice_text("   \n  ") is None
+
+
+def test_parses_real_clipboard_paste_with_collapsed_header_and_glued_qty() -> None:
+    """Regression test for a real (non-fabricated) clipboard paste, where:
+    - "Order placed" and "Order #" land on the same line
+    - total labels have no "* " bullet prefix
+    - the quantity (2) is glued directly onto a truncated preview line
+      ("...Storage Bin2") immediately before the item's full title line
+    """
+    text = (FIXTURES / "amazon_sample_3_real_paste.txt").read_text()
+    order = parse_invoice_text(text)
+    assert order is not None
+    assert order.order_id == "114-2174468-2163434"
+    assert order.order_date == date(2026, 6, 21)
+    assert order.total == 460
+    assert order.tax == 1540
+    assert len(order.line_items) == 1
+    item = order.line_items[0]
+    assert item.name == "iDesign Slim Extra Long Clear Storage Bin, Narrow Stackable Organizer for Kitchen or Pantry"
+    assert item.quantity == 2
+    assert item.line_total == 15380

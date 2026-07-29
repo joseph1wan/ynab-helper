@@ -6,50 +6,60 @@ into a .txt file; see `amazon_import.py` for the file-level orchestration
 (inbox draining, archiving) that uses this module.
 
 Unlike Costco's fixed-width monospace POS receipts, Amazon's paste shape is
-markdown-link-style items interspersed with plain prose, e.g.:
+prose interspersed with item blocks, and real clipboard pastes are messier
+than a clean rendering — e.g.:
 
     Order Summary
-    Order placed
-    July 24, 2026
-    Order #
-    111-1239029-5887460
+    Order placed June 21, 2026  Order # 114-2174468-2163434
     ...
     Order Summary
-    * Item(s) Subtotal:
-    $28.72
-    * Shipping & Handling:
-    $2.99
-    * Free Shipping:
-    -$2.99
-    * Estimated tax to be collected:
-    $2.01
-    * Grand Total:
-    $30.73
+    Item(s) Subtotal:
+    $15.38
+    Shipping & Handling:
+    $0.00
+    Estimated tax to be collected:
+    $1.54
+    Gift Card Amount:
+    -$16.46
+    Grand Total:
+    $0.46
 
-    Delivered July 25
-    [Product name](url)
-    Sold by: [Seller](url)
-    Return or replace items: Eligible through August 24, 2026
-    $6.78
-    [Product name 2](url)
-    ...
-    $11.97
+    Delivered June 22
+    Your package was left near the front door or porch.
+    iDesign Slim Extra Long Clear Storage Bin2
+    iDesign Slim Extra Long Clear Storage Bin, Narrow Stackable Organizer for Kitchen or Pantry
+    Sold by: Amazon.com
+    Supplied by: Other
+    Return window closed on July 22, 2026
+    $7.69
 
-Each total is a `* Label:` line followed by a `$Amount` line (Costco's gas
-receipts have this same label-then-value shape, just different label text).
-Only the labels this parser actually needs are looked up — an order may also
-contain a `Gift Card Amount` row, a `Total before tax` row, or some other
-label never seen before; those are simply not looked up and have no effect on
-parsing. `Grand Total` is read directly and is the only total value matched
-against a YNAB transaction — nothing is computed from the other rows.
+Notable real-world quirks this parser tolerates:
 
-Each item is a multi-line block: an optional bare quantity line (e.g. `2`,
-seen directly above the item name when quantity > 1 — default 1 when absent),
-the item name (either a markdown link `[Name](url)` or a bare line, depending
-on how the page was copied), then `Sold by:` / `Supplied by:` / `Return ...`
-/ `Delivered ...` lines to skip, and finally a bare `$X.XX` price line that
-closes out the item (this is the line total for that quantity, not a
-per-unit price — Amazon doesn't show a separate unit-price breakdown).
+- "Order placed" and "Order #" can land on the SAME line (the page's
+  Print/Ship-to layout collapses onto one row), so both are extracted with
+  regex search over the whole text rather than by line position — `\\s`
+  matches across newlines too, so the same regex works whether the label
+  and value are on the same line or different ones.
+- Total labels may or may not carry a "* " bullet prefix depending on how
+  the page was copied; the bullet is optional in the match.
+- Only the labels this parser actually needs are looked up — an order may
+  contain a `Gift Card Amount` row, a `Total before tax` row, or some other
+  label never seen before; those are simply not looked up and have no
+  effect on parsing. `Grand Total` is read directly and is the only total
+  value matched against a YNAB transaction — nothing is computed from the
+  other rows.
+- An item's name can appear TWICE: once as a truncated image-alt-text
+  preview with the quantity badge glued directly onto the end with no
+  separator (`...Storage Bin2`), then again as the full title on the next
+  line. When a candidate name line is immediately followed by another
+  candidate name line, and stripping trailing digits from the first makes
+  it a prefix of the second, the first is treated as the truncated preview
+  (its trailing digits become the quantity) and the second becomes the
+  real item name.
+- Quantity may otherwise appear as its own bare line directly above the
+  item name (no truncation involved). Either way, when quantity > 1 the
+  price shown is a *per-unit* price, not the line total — Amazon doesn't
+  show a separate line-total column — so `line_total = unit_price * qty`.
 
 Order id is a single stable field (`Order #`), unlike Costco's composite
 store/date/transaction id.
@@ -96,15 +106,33 @@ def _amount_to_milliunits(value: str) -> int | None:
     return -amount if negative else amount
 
 
-def _find_value_after(lines: list[str], label: str) -> str | None:
-    """Return the first non-blank line strictly after a line equal to `label`."""
-    for i, line in enumerate(lines):
-        if line.strip() == label:
-            for j in range(i + 1, len(lines)):
-                if lines[j].strip():
-                    return lines[j].strip()
-            return None
-    return None
+_ORDER_ID_RE = re.compile(r"Order #\s*(\S+)")
+_ORDER_DATE_RE = re.compile(r"Order placed\s+([A-Za-z]+\s+\d{1,2},\s*\d{4})")
+
+
+def _find_order_id(text: str) -> str | None:
+    match = _ORDER_ID_RE.search(text)
+    return match.group(1) if match else None
+
+
+def _find_order_date_str(text: str) -> str | None:
+    match = _ORDER_DATE_RE.search(text)
+    return match.group(1) if match else None
+
+
+def _find_total(text: str, label: str) -> str | None:
+    """Find a `<label>[:] <amount>` value anywhere in the text.
+
+    `label` is a regex fragment (callers escape literal parens themselves,
+    e.g. "Item\\(s\\) Subtotal"). Tolerant of an optional leading "* "
+    bullet and of the label and amount landing on the same line or
+    different lines (`\\s` matches newlines).
+    """
+    pattern = re.compile(
+        rf"\*?\s*{label}:?\s*(-?\$[\d,]+\.\d{{2}})", re.IGNORECASE
+    )
+    match = pattern.search(text)
+    return match.group(1) if match else None
 
 
 _ITEM_LINK_RE = re.compile(r"^\[(.+?)\]\(.*\)$")
@@ -116,15 +144,32 @@ _SKIP_PREFIXES = ("Sold by:", "Supplied by:", "Return", "Delivered ")
 _SKIP_LINES = {
     "Your package was left near the front door or porch.",
 }
+_TRAILING_DIGITS_RE = re.compile(r"^(.*\S)(\d+)$")
+
+
+def _is_skip_line(line: str) -> bool:
+    return line in _SKIP_LINES or any(line.startswith(prefix) for prefix in _SKIP_PREFIXES)
+
+
+def _item_name_from_line(line: str) -> str:
+    link_match = _ITEM_LINK_RE.match(line)
+    return link_match.group(1) if link_match else line
+
+
+def _is_candidate_name_line(line: str) -> bool:
+    return not (_BARE_PRICE_RE.match(line) or _BARE_QTY_RE.match(line) or _is_skip_line(line))
 
 
 def _extract_items(lines: list[str]) -> list[LineItem]:
     items: list[LineItem] = []
     pending_qty = 1
     pending_name: str | None = None
+    n = len(lines)
+    i = 0
 
-    for raw_line in lines:
-        line = raw_line.strip()
+    while i < n:
+        line = lines[i].strip()
+        i += 1
         if not line:
             continue
 
@@ -147,7 +192,7 @@ def _extract_items(lines: list[str]) -> list[LineItem]:
             pending_name = None
             continue
 
-        if line in _SKIP_LINES or any(line.startswith(prefix) for prefix in _SKIP_PREFIXES):
+        if _is_skip_line(line):
             continue
 
         if pending_name is not None:
@@ -155,8 +200,27 @@ def _extract_items(lines: list[str]) -> list[LineItem]:
             # let stray prose overwrite it.
             continue
 
-        link_match = _ITEM_LINK_RE.match(line)
-        pending_name = link_match.group(1) if link_match else line
+        candidate = _item_name_from_line(line)
+
+        # Look ahead for the "truncated preview + glued quantity" pattern:
+        # a candidate name line immediately followed by another candidate
+        # name line, where stripping trailing digits from this one makes it
+        # a prefix of the next. If found, this line is noise (an image-alt
+        # preview) — its digits are the quantity, and the real name comes
+        # from the next line on the following loop iteration.
+        j = i
+        while j < n and not lines[j].strip():
+            j += 1
+        if j < n and _is_candidate_name_line(lines[j].strip()):
+            digits_match = _TRAILING_DIGITS_RE.match(candidate)
+            if digits_match:
+                prefix, qty_str = digits_match.groups()
+                next_name = _item_name_from_line(lines[j].strip())
+                if next_name.startswith(prefix):
+                    pending_qty = int(qty_str)
+                    continue
+
+        pending_name = candidate
 
     return items
 
@@ -168,13 +232,11 @@ def parse_invoice_text(text: str) -> ParsedAmazonOrder | None:
     if not text or not text.strip():
         return None
 
-    lines = text.splitlines()
-
-    order_id = _find_value_after(lines, "Order #")
+    order_id = _find_order_id(text)
     if not order_id:
         return None
 
-    date_str = _find_value_after(lines, "Order placed")
+    date_str = _find_order_date_str(text)
     if not date_str:
         return None
     try:
@@ -182,35 +244,36 @@ def parse_invoice_text(text: str) -> ParsedAmazonOrder | None:
     except ValueError:
         return None
 
-    subtotal_str = _find_value_after(lines, "* Item(s) Subtotal:")
+    subtotal_str = _find_total(text, r"Item\(s\) Subtotal")
     subtotal = _amount_to_milliunits(subtotal_str) if subtotal_str else None
     if subtotal is None:
         return None
 
-    tax_str = _find_value_after(lines, "* Estimated tax to be collected:")
+    tax_str = _find_total(text, "Estimated tax to be collected")
     tax = _amount_to_milliunits(tax_str) if tax_str else None
     if tax is None:
         return None
 
-    total_str = _find_value_after(lines, "* Grand Total:")
+    total_str = _find_total(text, "Grand Total")
     total = _amount_to_milliunits(total_str) if total_str else None
     if total is None:
         return None
 
-    shipping_str = _find_value_after(lines, "* Shipping & Handling:")
+    shipping_str = _find_total(text, "Shipping & Handling")
     shipping_and_handling = _amount_to_milliunits(shipping_str) if shipping_str else 0
-    free_shipping_str = _find_value_after(lines, "* Free Shipping:")
+    free_shipping_str = _find_total(text, "Free Shipping")
     free_shipping = _amount_to_milliunits(free_shipping_str) if free_shipping_str else 0
     shipping = (shipping_and_handling or 0) + (free_shipping or 0)
 
     # Item rows appear after the totals block; anchoring the scan to start
-    # after "Grand Total"'s own value line keeps the totals' $-lines from
-    # ever being misread as item prices.
-    grand_total_idx = next(
-        (i for i, line in enumerate(lines) if line.strip() == "* Grand Total:"), None
+    # after Grand Total's own match keeps the totals' $-lines from ever
+    # being misread as item prices.
+    grand_total_pattern = re.compile(
+        r"\*?\s*Grand Total:?\s*-?\$[\d,]+\.\d{2}", re.IGNORECASE
     )
-    item_lines = lines[grand_total_idx + 1 :] if grand_total_idx is not None else lines
-    items = _extract_items(item_lines)
+    grand_total_match = grand_total_pattern.search(text)
+    item_text = text[grand_total_match.end() :] if grand_total_match else text
+    items = _extract_items(item_text.splitlines())
     if not items:
         return None
 
