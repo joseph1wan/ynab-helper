@@ -132,8 +132,14 @@ def _make_receipt_id(store_number: str, receipt_date: date, transaction_number: 
 
 
 def detect_receipt_type(text: str) -> str | None:
-    """Inspect the first few lines for the title row. Returns 'gas' | 'warehouse' | None."""
-    for line in text.splitlines()[:3]:
+    """Scan for the title row. Returns 'gas' | 'warehouse' | None.
+
+    A select-all copy of the Orders & Purchases page includes the order
+    history listing (and, for gas receipts, a "Gas Station" row per order)
+    *before* the actual receipt content, so the title line isn't
+    necessarily near the top — scan the whole text rather than just the
+    first few lines."""
+    for line in text.splitlines():
         stripped = line.strip()
         if stripped == "Gas Station Receipt":
             return "gas"
@@ -142,8 +148,24 @@ def detect_receipt_type(text: str) -> str | None:
     return None
 
 
-def parse_gas_receipt_text(text: str) -> ParsedReceipt | None:
+def _slice_from_title(text: str, title: str) -> list[str] | None:
+    """Return lines starting at the exact `title` line, or None if absent.
+
+    A select-all copy of the Orders & Purchases page prepends the order
+    history listing (and, for gas orders, one "Gas Station" row per order)
+    before the actual receipt — slicing to the title keeps header/footer
+    lookups below from matching listing content instead of the receipt."""
     lines = text.splitlines()
+    for i, line in enumerate(lines):
+        if line.strip() == title:
+            return lines[i:]
+    return None
+
+
+def parse_gas_receipt_text(text: str) -> ParsedReceipt | None:
+    lines = _slice_from_title(text, "Gas Station Receipt")
+    if lines is None:
+        return None
 
     store_number = _store_number_from_header(lines)
     if not store_number:
@@ -193,6 +215,9 @@ def parse_gas_receipt_text(text: str) -> ParsedReceipt | None:
 
 _ITEM_RE = re.compile(r"^(?:E )?(\d+) (.+?) (\d+\.\d{2})\s*([A-Za-z0-9])?$")
 _DISCOUNT_RE = re.compile(r"^(\d+) / (\d+) (\d+\.\d{2})-$")
+# Weighed/multi-unit annotation line preceding the item it describes, e.g.
+# "2 @ 4.49" (2 units at $4.49 each) — informational only, not its own item.
+_QTY_ANNOTATION_RE = re.compile(r"^\d+\s*@\s*\d+\.\d{2}$")
 
 
 def _line_value_after_label(lines: list[str], label: str) -> str | None:
@@ -208,7 +233,9 @@ def _line_value_after_label(lines: list[str], label: str) -> str | None:
 
 
 def parse_warehouse_receipt_text(text: str) -> ParsedReceipt | None:
-    lines = text.splitlines()
+    lines = _slice_from_title(text, "In-Warehouse Receipt")
+    if lines is None:
+        return None
 
     whse_match = next(
         (re.search(r"Whse:\s*(\d+)", line) for line in lines if "Whse:" in line), None
@@ -259,6 +286,9 @@ def parse_warehouse_receipt_text(text: str) -> ParsedReceipt | None:
     for raw_line in lines[start_idx + 1 : end_idx]:
         normalized = re.sub(r"\s+", " ", raw_line.strip())
         if not normalized:
+            continue
+
+        if _QTY_ANNOTATION_RE.match(normalized):
             continue
 
         discount_match = _DISCOUNT_RE.match(normalized)

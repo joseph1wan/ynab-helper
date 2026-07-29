@@ -7,7 +7,7 @@ proposals_path: data/proposals/latest.json
 initial_since: null
 costco_payee_pattern: COSTCO
 costco_account_names:
-  - "Sapphire"
+  - "Sapphire Preferred"
   - "Bilt Palladium Mastercard® – 9780"
 costco_proposals_path: data/proposals/costco-latest.json
 costco_orders_dir: data/costco-orders

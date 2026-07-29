@@ -4,37 +4,42 @@ from ynab_helper.categorizer import Categorizer
 from ynab_helper.models import CostcoMatchProposal, CostcoOrder, YnabTransaction
 from ynab_helper.split_calculator import compute_splits
 
+# Costco card charges routinely post 1-2 days after the receipt date (same
+# post-delay PayPal's linker works around) — an exact-date match misses
+# nearly everything, so match on amount within a window instead.
+MATCH_WINDOW_DAYS = 3
+
 
 def match_costco_orders_to_transactions(
     orders: list[CostcoOrder],
     transactions: list[YnabTransaction],
     categorizer: Categorizer,
 ) -> tuple[list[CostcoMatchProposal], list[CostcoOrder], list[YnabTransaction]]:
-    """Match Costco receipts to YNAB transactions by exact date+total.
+    """Match Costco receipts to YNAB transactions by amount, within a +/-3
+    day window of the receipt date.
 
     Account and payee filtering already happened when `transactions` was
-    fetched (see YnabClient.get_uncategorized_costco_transactions) — this
-    function only does the date+amount join, same as Target's matcher.
+    fetched (see YnabClient.get_uncategorized_costco_transactions). When
+    more than one transaction shares an order's amount within the window,
+    the closest by date wins.
     """
     proposals: list[CostcoMatchProposal] = []
     unmatched_orders: list[CostcoOrder] = []
     used_txn_ids: set[str] = set()
 
-    txn_index: dict[tuple[str, int], list[YnabTransaction]] = {}
-    for txn in transactions:
-        key = (txn.date.isoformat(), txn.abs_amount)
-        txn_index.setdefault(key, []).append(txn)
-
     for order in orders:
-        key = (order.receipt_date.isoformat(), order.total)
         candidates = [
-            t for t in txn_index.get(key, []) if t.id not in used_txn_ids
+            t
+            for t in transactions
+            if t.id not in used_txn_ids
+            and t.abs_amount == order.total
+            and abs((t.date - order.receipt_date).days) <= MATCH_WINDOW_DAYS
         ]
         if not candidates:
             unmatched_orders.append(order)
             continue
 
-        txn = candidates[0]
+        txn = min(candidates, key=lambda t: abs((t.date - order.receipt_date).days))
         used_txn_ids.add(txn.id)
 
         categorized_lines, unmatched_items = categorizer.categorize_all(

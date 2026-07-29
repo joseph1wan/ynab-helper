@@ -10,10 +10,8 @@ import uvicorn
 
 from ynab_helper.config import CONFIG_DIR, load_config, resolve_path
 from ynab_helper.costco_fetch import run_costco_propose
-from ynab_helper.costco_import import import_pasted_receipts
 from ynab_helper.fetch import run_fetch, run_propose
-from ynab_helper.invoice_import import import_pasted_invoices
-from ynab_helper.paypal_csv import import_paypal_csvs
+from ynab_helper.import_dispatch import import_inbox
 from ynab_helper.paypal_review import build_paypal_review, reapply_paypal_rules
 from ynab_helper.target_scraper import load_cached_orders, save_target_session
 from ynab_helper.undo import undo_last
@@ -101,80 +99,51 @@ def fetch_cmd(
 @click.option(
     "--keep",
     is_flag=True,
-    help="Parse without moving the source .txt out of the inbox (or wherever FILES live)",
+    help="Parse without moving source files out of the inbox (or wherever FILES live)",
 )
 def import_invoices_cmd(files: tuple[Path, ...], keep: bool) -> None:
-    """Parse manually pasted Target invoice text into cached order JSON.
+    """Drain inbox/ and dispatch each file to the right parser by filename.
 
-    Workflow: open an invoice on target.com, select-all + copy the page,
-    save it as a .txt file in inbox/, then run this command with no
-    arguments to drain the inbox. Successfully parsed files are archived to
-    data/target-orders/pasted/; failures are left in place so you can
-    inspect and retry.
-    """
-    orders_dir = resolve_path("data/target-orders")
-    inbox_dir = resolve_path("inbox")
-    archive_dir = orders_dir / "pasted"
-    inbox_dir.mkdir(parents=True, exist_ok=True)
-
-    report = import_pasted_invoices(
-        inbox_dir=inbox_dir,
-        archive_dir=archive_dir,
-        output_dir=orders_dir,
-        files=list(files) if files else None,
-        keep=keep,
-    )
-
-    for item in report.imported:
-        click.echo(
-            f"{item.source.name} -> {item.output_path.name} "
-            f"({item.item_count} item{'s' if item.item_count != 1 else ''}, "
-            f"${item.total / 1000:.2f})"
-        )
-    for failure in report.failed:
-        click.echo(f"{failure.source.name}: FAILED — {failure.reason}", err=True)
-
-    click.echo(f"Imported {len(report.imported)}, failed {len(report.failed)}")
-    if report.failed:
-        raise SystemExit(1)
-
-
-@main.command("import-paypal")
-@click.argument("files", nargs=-1, type=click.Path(exists=True, path_type=Path))
-@click.option(
-    "--keep",
-    is_flag=True,
-    help="Parse without moving the source CSV out of the inbox (or wherever FILES live)",
-)
-def import_paypal_cmd(files: tuple[Path, ...], keep: bool) -> None:
-    """Import PayPal activity CSV exports into the local records cache.
-
-    Workflow: export PayPal activity as CSV (Activity -> Statements ->
-    Download -> CSV), save it into data/paypal/inbox/*.CSV, then run this
-    command with no arguments to drain the inbox. Successfully parsed files
-    are archived to data/paypal/; failures are left in place so you can
-    inspect and retry.
+    Workflow: paste a Target invoice to inbox/target_N.txt (pb_target),
+    paste a Costco receipt to inbox/costco_N.txt (pb_costco), or drop a
+    PayPal activity CSV export in as inbox/*.csv, then run this command
+    with no arguments to drain everything at once. Successfully parsed
+    files are archived (Target -> data/target-orders/pasted/, Costco ->
+    data/costco-orders/pasted/, PayPal -> data/paypal/); failures and
+    unrecognized filenames are left in inbox/ so you can inspect and retry.
     """
     config = load_config()
-    records_path = resolve_path(config.get("paypal_records_path", "data/paypal/records.json"))
-    inbox_dir = records_path.parent / "inbox"
-    archive_dir = records_path.parent
+    inbox_dir = resolve_path("inbox")
     inbox_dir.mkdir(parents=True, exist_ok=True)
 
-    report = import_paypal_csvs(
+    target_orders_dir = resolve_path("data/target-orders")
+    costco_orders_dir = resolve_path(config.get("costco_orders_dir", "data/costco-orders"))
+    paypal_records_path = resolve_path(config.get("paypal_records_path", "data/paypal/records.json"))
+
+    report = import_inbox(
         inbox_dir=inbox_dir,
-        archive_dir=archive_dir,
-        records_path=records_path,
+        target_orders_dir=target_orders_dir,
+        target_archive_dir=target_orders_dir / "pasted",
+        costco_orders_dir=costco_orders_dir,
+        costco_archive_dir=costco_orders_dir / "pasted",
+        paypal_records_path=paypal_records_path,
+        paypal_archive_dir=paypal_records_path.parent,
         files=list(files) if files else None,
         keep=keep,
     )
 
-    for item in report.imported:
-        click.echo(f"{item.source.name}: {item.record_count} records")
+    for line in report.lines:
+        click.echo(line)
     for failure in report.failed:
         click.echo(f"{failure.source.name}: FAILED — {failure.reason}", err=True)
 
-    click.echo(f"Imported {len(report.imported)} file(s), {report.new_records} new record(s), {len(report.failed)} failed")
+    total_imported = report.target_imported + report.costco_imported + report.paypal_imported
+    click.echo(
+        f"Imported {total_imported} file(s) "
+        f"({report.target_imported} Target, {report.costco_imported} Costco, "
+        f"{report.paypal_imported} PayPal / {report.paypal_new_records} new records), "
+        f"failed {len(report.failed)}"
+    )
     if report.failed:
         raise SystemExit(1)
 
@@ -226,50 +195,6 @@ def propose_cmd(since_str: str | None, until_str: str | None) -> None:
     )
     config = load_config()
     click.echo(f"Proposals written to {resolve_path(config['proposals_path'])}")
-
-
-@main.command("import-costco-receipts")
-@click.argument("files", nargs=-1, type=click.Path(exists=True, path_type=Path))
-@click.option(
-    "--keep",
-    is_flag=True,
-    help="Parse without moving the source .txt out of the inbox (or wherever FILES live)",
-)
-def import_costco_receipts_cmd(files: tuple[Path, ...], keep: bool) -> None:
-    """Parse manually pasted Costco receipt text into cached order JSON.
-
-    Workflow: open a receipt on costco.com's Orders & Purchases page,
-    select-all + copy the page (Gas Station or In-Warehouse), save it as a
-    .txt file in data/costco-orders/pasted/inbox/, then run this command
-    with no arguments to drain the inbox. Successfully parsed files are
-    archived to data/costco-orders/pasted/; failures are left in place so
-    you can inspect and retry.
-    """
-    orders_dir = resolve_path(load_config().get("costco_orders_dir", "data/costco-orders"))
-    inbox_dir = orders_dir / "pasted" / "inbox"
-    archive_dir = orders_dir / "pasted"
-    inbox_dir.mkdir(parents=True, exist_ok=True)
-
-    report = import_pasted_receipts(
-        inbox_dir=inbox_dir,
-        archive_dir=archive_dir,
-        output_dir=orders_dir,
-        files=list(files) if files else None,
-        keep=keep,
-    )
-
-    for item in report.imported:
-        click.echo(
-            f"{item.source.name} -> {item.output_path.name} "
-            f"({item.item_count} item{'s' if item.item_count != 1 else ''}, "
-            f"${item.total / 1000:.2f})"
-        )
-    for failure in report.failed:
-        click.echo(f"{failure.source.name}: FAILED — {failure.reason}", err=True)
-
-    click.echo(f"Imported {len(report.imported)}, failed {len(report.failed)}")
-    if report.failed:
-        raise SystemExit(1)
 
 
 @main.command("propose-costco")

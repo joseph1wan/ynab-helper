@@ -1,8 +1,8 @@
 """Drain manually pasted Costco receipt .txt files into cached order JSON.
 
 Workflow: copy a Costco receipt's rendered text (Gas Station or In-Warehouse)
-into data/costco-orders/pasted/inbox/*.txt, then run
-`ynab-helper import-costco-receipts`. Each file is parsed by
+into inbox/costco_N.txt, then run
+`ynab-helper import-invoices` to drain the unified inbox. Each file is parsed by
 costco_receipt_text.parse_receipt_text, written as
 data/costco-orders/{receipt_id}.json, and archived to
 data/costco-orders/pasted/receipt_{receipt_id}.txt so it can be re-parsed

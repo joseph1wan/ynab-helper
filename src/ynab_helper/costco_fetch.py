@@ -194,7 +194,7 @@ def run_costco_propose(
     orders_dir = resolve_path(config.get("costco_orders_dir", "data/costco-orders"))
     all_orders = load_cached_costco_orders(orders_dir, date.min)
     if not all_orders:
-        raise ValueError("No saved Costco receipts found. Run import-costco-receipts first.")
+        raise ValueError("No saved Costco receipts found. Run import-invoices first (paste receipts as inbox/costco_N.txt).")
 
     since_date = since_override or min(order.receipt_date for order in all_orders)
     until_date = until_override

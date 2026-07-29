@@ -1,7 +1,9 @@
 """Drain manually exported PayPal activity CSVs into cached PaypalRecord JSON.
 
 Workflow: export PayPal activity as CSV (Activity → Statements → ... → CSV),
-save it into data/paypal/inbox/*.CSV, then run `ynab-helper import-paypal`.
+drop it into inbox/*.csv, then run `ynab-helper import-invoices` to drain
+the unified inbox (dispatches by filename: *.csv here, target_*.txt and
+costco_*.txt to the other two importers).
 Each file is parsed with parse_paypal_csv, merged into data/paypal/records.json
 (deduped on Transaction ID so overlapping exports are safe to re-import), and
 archived to data/paypal/ so it can be re-parsed later without re-exporting.
