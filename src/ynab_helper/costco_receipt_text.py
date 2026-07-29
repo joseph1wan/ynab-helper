@@ -215,6 +215,11 @@ def parse_gas_receipt_text(text: str) -> ParsedReceipt | None:
 
 _ITEM_RE = re.compile(r"^(?:E )?(\d+) (.+?) (\d+\.\d{2})\s*([A-Za-z0-9])?$")
 _DISCOUNT_RE = re.compile(r"^(\d+) / (\d+) (\d+\.\d{2})-$")
+# A second discount format seen on some receipts: "<code> #<tag> <amount>-"
+# (e.g. "382390 #GATORADE 9.90-") — no "/ <orig item code>" back-reference,
+# so (like the item-code discount above) it's netted into whichever item was
+# added immediately before it.
+_DISCOUNT_TAG_RE = re.compile(r"^\d+ #\S+ (\d+\.\d{2})-$")
 # Weighed/multi-unit annotation line preceding the item it describes, e.g.
 # "2 @ 4.49" (2 units at $4.49 each) — informational only, not its own item.
 _QTY_ANNOTATION_RE = re.compile(r"^\d+\s*@\s*\d+\.\d{2}$")
@@ -297,6 +302,13 @@ def parse_warehouse_receipt_text(text: str) -> ParsedReceipt | None:
             amount = _to_milliunits(amount_str)
             if orig_code in items_by_code:
                 items_by_code[orig_code].line_total -= amount
+            continue
+
+        tag_discount_match = _DISCOUNT_TAG_RE.match(normalized)
+        if tag_discount_match:
+            amount = _to_milliunits(tag_discount_match.group(1))
+            if order:
+                items_by_code[order[-1]].line_total -= amount
             continue
 
         item_match = _ITEM_RE.match(normalized)
