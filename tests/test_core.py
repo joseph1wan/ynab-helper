@@ -112,62 +112,6 @@ def test_no_match_when_amount_differs(categorizer: Categorizer) -> None:
     assert len(unmatched_txns) == 1
 
 
-def test_audit_rules_json_output(monkeypatch: pytest.MonkeyPatch) -> None:
-    import json
-
-    order = TargetOrder(
-        order_id="ord-1",
-        order_date=date(2026, 7, 1),
-        total=5000,
-        line_items=[LineItem(name="Whole Milk", quantity=1, line_total=5000)],
-    )
-    monkeypatch.setattr("ynab_helper.cli.load_cached_orders", lambda *a, **k: [order])
-    monkeypatch.setattr(
-        "ynab_helper.cli.load_rules",
-        lambda: {
-            "rules": [{"pattern": r"\bmilk\b", "category": "Groceries"}],
-            "fallback_category": "Groceries",
-            "allowed_categories": ["Groceries"],
-        },
-    )
-    monkeypatch.setattr(
-        "ynab_helper.cli.load_categories", lambda: {"Groceries": "cat-groceries"}
-    )
-
-    runner = CliRunner()
-    result = runner.invoke(main, ["audit-rules", "--json"])
-
-    assert result.exit_code == 0
-    data = json.loads(result.output)
-    assert "stats" in data
-    assert "matched" in data
-    assert "fallback" in data
-    assert "issues" in data
-    assert data["stats"]["matched"] == 1
-
-
-def test_audit_rules_exits_nonzero_on_validation_error(
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    monkeypatch.setattr("ynab_helper.cli.load_cached_orders", lambda *a, **k: [])
-    monkeypatch.setattr(
-        "ynab_helper.cli.load_rules",
-        lambda: {
-            "rules": [{"pattern": r"\bmilk\b", "category": "Nonexistent"}],
-            "fallback_category": "Groceries",
-            "allowed_categories": ["Groceries"],
-        },
-    )
-    monkeypatch.setattr(
-        "ynab_helper.cli.load_categories", lambda: {"Groceries": "cat-groceries"}
-    )
-
-    runner = CliRunner()
-    result = runner.invoke(main, ["audit-rules"])
-
-    assert result.exit_code == 1
-
-
 def test_fetch_defaults_to_visible_browser(monkeypatch: pytest.MonkeyPatch) -> None:
     captured: dict[str, object] = {}
 

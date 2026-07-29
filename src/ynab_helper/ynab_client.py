@@ -153,6 +153,57 @@ class YnabClient:
             return None
         return min(txn.date for txn in txns)
 
+    def get_account_id_by_name(self, name: str) -> str | None:
+        data = self._get(f"/budgets/{self.budget_id}/accounts")
+        for account in data["accounts"]:
+            if account.get("deleted") or account.get("closed"):
+                continue
+            if account["name"] == name:
+                return account["id"]
+        return None
+
+    def get_unapproved_account_transactions(
+        self, account_id: str, since_date: date | None = None
+    ) -> list[YnabTransaction]:
+        """Unapproved, non-transfer transactions on a single account.
+
+        Also excludes "Inflow: Ready to Assign" rows — YNAB auto-assigns
+        that category to bank-deposit inflows (e.g. a BoA -> Paypal
+        transfer) that carry no counterparty or note to review; they need
+        no human categorization decision.
+        """
+        params: dict[str, Any] = {}
+        if since_date:
+            params["since_date"] = since_date.isoformat()
+        data = self._get(
+            f"/budgets/{self.budget_id}/accounts/{account_id}/transactions",
+            params=params or None,
+        )
+        ready_to_assign_id = self.list_categories().get("Inflow: Ready to Assign")
+        results: list[YnabTransaction] = []
+        for raw in data["transactions"]:
+            txn = self._parse_transaction(raw)
+            if txn.approved:
+                continue
+            if txn.transfer_account_id is not None:
+                continue
+            if ready_to_assign_id is not None and txn.category_id == ready_to_assign_id:
+                continue
+            results.append(txn)
+        return results
+
+    def patch_transaction_fields(
+        self,
+        transaction_id: str,
+        category_id: str | None,
+        memo: str | None,
+        approved: bool = True,
+    ) -> dict[str, Any]:
+        return self._patch(
+            f"/budgets/{self.budget_id}/transactions/{transaction_id}",
+            {"category_id": category_id, "memo": memo, "approved": approved},
+        )
+
     def patch_transaction_splits(
         self,
         transaction_id: str,
@@ -186,6 +237,8 @@ class YnabClient:
             "category_id": original.get("category_id"),
             "subtransactions": [],
         }
+        if "approved" in original:
+            payload["approved"] = original["approved"]
         return self._patch(
             f"/budgets/{self.budget_id}/transactions/{transaction_id}",
             payload,
@@ -204,4 +257,5 @@ class YnabClient:
             cleared=raw.get("cleared", "uncleared"),
             approved=raw.get("approved"),
             subtransactions=raw.get("subtransactions") or [],
+            transfer_account_id=raw.get("transfer_account_id"),
         )

@@ -74,10 +74,13 @@ def _find_value_after(lines: list[str], label: str) -> str | None:
 
 def _amount_to_milliunits(value: str) -> int | None:
     cleaned = value.strip().lstrip("$")
+    negative = cleaned.startswith("-")
+    cleaned = cleaned.lstrip("-")
     try:
-        return _to_milliunits(cleaned)
+        milliunits = _to_milliunits(cleaned)
     except (ValueError, TypeError):
         return None
+    return -milliunits if negative else milliunits
 
 
 def parse_invoice_text(text: str) -> ParsedInvoice | None:
@@ -114,10 +117,12 @@ def parse_invoice_text(text: str) -> ParsedInvoice | None:
         return None
     order_date_str = date_line.split(":", 1)[1].strip()
 
-    # Find the "Invoice total" boundary; only scan for items before it so
-    # payment/adjustment rows after it are never mistaken for line items.
+    # Find the "Invoice total" boundary (or "Total refund" on refund invoices);
+    # only scan for items before it so payment/adjustment rows after it are
+    # never mistaken for line items.
     total_idx = next(
-        (i for i, line in enumerate(lines) if line.strip() == "Invoice total"), None
+        (i for i, line in enumerate(lines) if line.strip() in ("Invoice total", "Total refund")),
+        None,
     )
     if total_idx is None:
         return None

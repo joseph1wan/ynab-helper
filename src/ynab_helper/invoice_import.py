@@ -1,7 +1,7 @@
 """Drain manually pasted Target invoice .txt files into cached order JSON.
 
 Workflow: copy an invoice page's rendered text (select-all + copy) into
-data/target-orders/pasted/inbox/*.txt, then run `ynab-helper import-invoices`.
+inbox/*.txt, then run `ynab-helper import-invoices`.
 Each file is parsed by invoice_text.parse_invoice_text, written as
 data/target-orders/{order_id}_{invoice_id}.json — the same filename and dict
 shape scrape_target_orders() writes — and archived to

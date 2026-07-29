@@ -8,12 +8,13 @@ from pathlib import Path
 import click
 import uvicorn
 
-from ynab_helper.config import CONFIG_DIR, load_categories, load_config, load_rules, resolve_path
+from ynab_helper.config import CONFIG_DIR, load_config, resolve_path
 from ynab_helper.costco_fetch import run_costco_propose
 from ynab_helper.costco_import import import_pasted_receipts
 from ynab_helper.fetch import run_fetch, run_propose
 from ynab_helper.invoice_import import import_pasted_invoices
-from ynab_helper.rules_audit import build_report, render_text, report_to_dict
+from ynab_helper.paypal_csv import import_paypal_csvs
+from ynab_helper.paypal_review import build_paypal_review, reapply_paypal_rules
 from ynab_helper.target_scraper import load_cached_orders, save_target_session
 from ynab_helper.undo import undo_last
 from ynab_helper.ynab_client import YnabClient
@@ -106,13 +107,13 @@ def import_invoices_cmd(files: tuple[Path, ...], keep: bool) -> None:
     """Parse manually pasted Target invoice text into cached order JSON.
 
     Workflow: open an invoice on target.com, select-all + copy the page,
-    save it as a .txt file in data/target-orders/pasted/inbox/, then run
-    this command with no arguments to drain the inbox. Successfully parsed
-    files are archived to data/target-orders/pasted/; failures are left in
-    place so you can inspect and retry.
+    save it as a .txt file in inbox/, then run this command with no
+    arguments to drain the inbox. Successfully parsed files are archived to
+    data/target-orders/pasted/; failures are left in place so you can
+    inspect and retry.
     """
     orders_dir = resolve_path("data/target-orders")
-    inbox_dir = orders_dir / "pasted" / "inbox"
+    inbox_dir = resolve_path("inbox")
     archive_dir = orders_dir / "pasted"
     inbox_dir.mkdir(parents=True, exist_ok=True)
 
@@ -136,6 +137,77 @@ def import_invoices_cmd(files: tuple[Path, ...], keep: bool) -> None:
     click.echo(f"Imported {len(report.imported)}, failed {len(report.failed)}")
     if report.failed:
         raise SystemExit(1)
+
+
+@main.command("import-paypal")
+@click.argument("files", nargs=-1, type=click.Path(exists=True, path_type=Path))
+@click.option(
+    "--keep",
+    is_flag=True,
+    help="Parse without moving the source CSV out of the inbox (or wherever FILES live)",
+)
+def import_paypal_cmd(files: tuple[Path, ...], keep: bool) -> None:
+    """Import PayPal activity CSV exports into the local records cache.
+
+    Workflow: export PayPal activity as CSV (Activity -> Statements ->
+    Download -> CSV), save it into data/paypal/inbox/*.CSV, then run this
+    command with no arguments to drain the inbox. Successfully parsed files
+    are archived to data/paypal/; failures are left in place so you can
+    inspect and retry.
+    """
+    config = load_config()
+    records_path = resolve_path(config.get("paypal_records_path", "data/paypal/records.json"))
+    inbox_dir = records_path.parent / "inbox"
+    archive_dir = records_path.parent
+    inbox_dir.mkdir(parents=True, exist_ok=True)
+
+    report = import_paypal_csvs(
+        inbox_dir=inbox_dir,
+        archive_dir=archive_dir,
+        records_path=records_path,
+        files=list(files) if files else None,
+        keep=keep,
+    )
+
+    for item in report.imported:
+        click.echo(f"{item.source.name}: {item.record_count} records")
+    for failure in report.failed:
+        click.echo(f"{failure.source.name}: FAILED — {failure.reason}", err=True)
+
+    click.echo(f"Imported {len(report.imported)} file(s), {report.new_records} new record(s), {len(report.failed)} failed")
+    if report.failed:
+        raise SystemExit(1)
+
+
+@main.command("build-paypal-review")
+@click.option("--since", "since_str", default=None, help="Only include transactions on or after YYYY-MM-DD")
+def build_paypal_review_cmd(since_str: str | None) -> None:
+    """Build the PayPal review tab: unapproved Paypal-account transactions, enriched with PayPal notes."""
+    since_override = date.fromisoformat(since_str) if since_str else None
+    result = build_paypal_review(since_override)
+    linked = sum(1 for item in result["items"] if item.get("paypal"))
+    prefilled = sum(1 for item in result["items"] if item.get("category_name"))
+    click.echo(
+        f"PayPal review built: {len(result['items'])} unapproved transactions on {result['account_name']}, "
+        f"{linked} linked to a PayPal note, {prefilled} pre-filled from config/paypal.yaml"
+    )
+    config = load_config()
+    click.echo(f"Review written to {resolve_path(config.get('paypal_review_path', 'data/paypal/review.json'))}")
+
+
+@main.command("propose-paypal")
+def propose_paypal_cmd() -> None:
+    """Re-run config/paypal.yaml rules against the existing PayPal review, filling in blanks.
+
+    Use this after adding/editing a rule in config/paypal.yaml, instead of
+    build-paypal-review, when you don't want to re-fetch from YNAB or
+    re-link CSV records — just apply the new rule to pending items that
+    don't have a category yet.
+    """
+    config = load_config()
+    review_path = resolve_path(config.get("paypal_review_path", "data/paypal/review.json"))
+    updated = reapply_paypal_rules(review_path)
+    click.echo(f"Updated {updated} pending item(s) from config/paypal.yaml rules")
 
 
 @main.command("propose")
@@ -218,59 +290,6 @@ def propose_costco_cmd(since_str: str | None, until_str: str | None) -> None:
     click.echo(
         f"Proposals written to {resolve_path(config.get('costco_proposals_path', 'data/proposals/costco-latest.json'))}"
     )
-
-
-@main.command("audit-rules")
-@click.option("--since", "since_str", default=None, help="Only audit orders on or after YYYY-MM-DD")
-@click.option("--json", "as_json", is_flag=True, help="Emit machine-readable JSON")
-@click.option("--strict", is_flag=True, help="Exit non-zero on warnings too, not just errors")
-@click.option("--try-pattern", "try_pattern", default=None, help="Splice a hypothetical rule pattern")
-@click.option("--try-category", "try_category", default=None, help="Category for --try-pattern")
-@click.option(
-    "--try-at",
-    "try_at",
-    default=None,
-    type=int,
-    help="Index to insert the hypothetical rule at (default: end)",
-)
-def audit_rules_cmd(
-    since_str: str | None,
-    as_json: bool,
-    strict: bool,
-    try_pattern: str | None,
-    try_category: str | None,
-    try_at: int | None,
-) -> None:
-    """Audit config/rules.yaml against cached Target orders: unmatched items,
-    wrong-rule collisions, and static rule validation."""
-    if (try_pattern is None) != (try_category is None):
-        raise click.ClickException("--try-pattern and --try-category must be used together")
-
-    since_date = date.fromisoformat(since_str) if since_str else date.min
-    orders = load_cached_orders(resolve_path("data/target-orders"), since_date)
-
-    rules_data = load_rules()
-    rules = list(rules_data.get("rules", []))
-    fallback_category = rules_data.get("fallback_category", "Shopping")
-    allowed_categories = list(rules_data.get("allowed_categories", []))
-
-    if try_pattern is not None and try_category is not None:
-        insert_at = len(rules) if try_at is None else try_at
-        rules.insert(insert_at, {"pattern": try_pattern, "category": try_category})
-
-    categories = load_categories()
-
-    report = build_report(orders, rules, fallback_category, categories, allowed_categories)
-
-    if as_json:
-        click.echo(json.dumps(report_to_dict(report), indent=2))
-    else:
-        click.echo(render_text(report))
-
-    has_errors = any(issue.severity == "error" for issue in report.issues)
-    has_warnings = any(issue.severity == "warning" for issue in report.issues)
-    if has_errors or (strict and has_warnings):
-        raise SystemExit(1)
 
 
 @main.command("review")

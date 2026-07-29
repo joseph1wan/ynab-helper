@@ -45,6 +45,14 @@ def load_rules_costco() -> dict[str, Any]:
     return load_yaml(CONFIG_DIR / "rules_costco.yaml")
 
 
+def load_paypal_config() -> dict[str, Any]:
+    return load_yaml(CONFIG_DIR / "paypal.yaml")
+
+
+def load_paypal_categories() -> list[str]:
+    return list(load_paypal_config().get("paypal_categories", []))
+
+
 def load_categories() -> dict[str, str]:
     path = CONFIG_DIR / "categories.json"
     if not path.exists():

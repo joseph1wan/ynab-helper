@@ -7,7 +7,7 @@
 # (e.g. "KLNX ULTR", "KS ORG STOCK") rather than full product names — build
 # these rules up against real imported receipts, not guessed in advance.
 #
-# Verify changes with: uv run ynab-helper audit-rules --pipeline costco
+# Verify changes with: uv run pytest tests/test_rules_costco_config.py
 rules:
   - pattern: '^Costco Gas'
     category: 'Gas & Parking'

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YNAB Helper — PayPal</title>
+  <style>
+    :root {
+      --bg: #14161a;
+      --fg: #e6e6e6;
+      --muted: #9a9a9a;
+      --border: #333844;
+      --card-bg: #1c1f26;
+      --card-applied-bg: #17191d;
+      --row-border: #2a2e37;
+      --warn: #f0b429;
+      --unmatched: #f87171;
+      --btn-bg: #22252c;
+      --btn-border: #3a3f4a;
+      --primary-bg: #3b82f6;
+      --primary-border: #3b82f6;
+      --danger-bg: #dc2626;
+      --danger-border: #dc2626;
+      --btn-fg: #e6e6e6;
+      --input-bg: #14161a;
+      --ok: #34d399;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ffffff;
+        --fg: #1a1a1a;
+        --muted: #666;
+        --border: #ddd;
+        --card-bg: #ffffff;
+        --card-applied-bg: #f9f9f9;
+        --row-border: #eee;
+        --warn: #b45309;
+        --unmatched: #b91c1c;
+        --btn-bg: #fff;
+        --btn-border: #ccc;
+        --primary-bg: #2563eb;
+        --primary-border: #2563eb;
+        --danger-bg: #dc2626;
+        --danger-border: #dc2626;
+        --btn-fg: #1a1a1a;
+        --input-bg: #fff;
+        --ok: #15803d;
+      }
+    }
+    body { font-family: system-ui, sans-serif; margin: 2rem; max-width: 1080px; color: var(--fg); background: var(--bg); }
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.1rem; margin-top: 2rem; }
+    .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0.75rem; background: var(--card-bg); }
+    .card.applied { opacity: 0.7; background: var(--card-applied-bg); }
+    .row { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; align-items: center; }
+    .row .amount { font-weight: 600; min-width: 5.5rem; }
+    .row .date { color: var(--muted); min-width: 5.5rem; }
+    .row .payee { min-width: 12rem; }
+    .note { color: var(--muted); font-size: 0.85rem; margin-top: 0.4rem; }
+    .note strong { color: var(--fg); font-weight: 600; }
+    .via-name { color: var(--warn); font-size: 0.78rem; margin-left: 0.4rem; }
+    .ambiguous { color: var(--unmatched); font-size: 0.85rem; margin-top: 0.4rem; }
+    .ambiguous ul { margin: 0.3rem 0 0; padding-left: 1.2rem; }
+    .saved-flash { color: var(--ok); font-size: 0.8rem; margin-left: 0.4rem; opacity: 0; transition: opacity 0.15s; }
+    .saved-flash.show { opacity: 1; }
+    select { background: var(--input-bg); color: var(--fg); border: 1px solid var(--btn-border); border-radius: 4px; padding: 0.3rem 0.5rem; font-size: 0.85rem; min-width: 10rem; }
+    button { padding: 0.4rem 0.8rem; border-radius: 6px; border: 1px solid var(--btn-border); cursor: pointer; background: var(--btn-bg); color: var(--btn-fg); }
+    button.primary { background: var(--primary-bg); color: #fff; border-color: var(--primary-border); }
+    button.danger { background: var(--danger-bg); color: #fff; border-color: var(--danger-border); }
+    button.small { padding: 0.2rem 0.5rem; font-size: 0.8rem; }
+    .actions { margin-top: 0.6rem; }
+    .toolbar { margin-bottom: 1.5rem; display: flex; gap: 0.5rem; align-items: center; }
+    details.applied-section { margin-top: 2rem; }
+    details.applied-section summary { cursor: pointer; font-size: 1.1rem; margin: 0.5rem 0; display: flex; justify-content: space-between; align-items: center; }
+    nav.tabs { margin-bottom: 1.25rem; display: flex; gap: 0.4rem; }
+    nav.tabs a {
+      color: var(--fg); text-decoration: none; font-weight: 600; font-size: 0.9rem;
+      padding: 0.45rem 1rem; border-radius: 6px; border: 1px solid var(--btn-border);
+      background: var(--btn-bg);
+    }
+    nav.tabs a:hover { background: var(--card-applied-bg, var(--btn-bg)); }
+    nav.tabs a.active { background: var(--primary-bg); border-color: var(--primary-border); color: #fff; }
+  </style>
+</head>
+<body>
+  <h1>PayPal transactions</h1>
+  <nav class="tabs"><a href="/">Review</a><a href="/paypal" class="active">PayPal</a><a href="/rules">Rules</a><a href="/costco">Costco</a></nav>
+  <div class="meta">
+    Built {{ data.built_at }} ·
+    {{ pending | length }} pending ·
+    {{ applied | length }} applied
+  </div>
+
+  <div class="toolbar">
+    <form id="approve-all-form" method="post" action="/paypal/approve-all">
+      <button type="submit" id="approve-all-btn" class="primary" data-count="{{ pending_count }}" {% if pending_count == 0 %}disabled{% endif %}>
+        Approve all categorized &amp; push ({{ pending_count }})
+      </button>
+    </form>
+    <form method="post" action="/undo">
+      <button type="submit" class="danger" {% if undo_count == 0 %}disabled{% endif %}>
+        Undo last ({{ undo_count }})
+      </button>
+    </form>
+  </div>
+
+  {% macro render_item(qi, item, editable) %}
+  <div class="card {% if not editable %}applied{% endif %}" id="item-{{ qi }}">
+    <div class="row">
+      <span class="date">{{ item.ynab_transaction.date }}</span>
+      <span class="amount">{{ fmt(item.ynab_transaction.amount) }}</span>
+      <span class="payee">{{ item.ynab_transaction.payee_name or (item.paypal.name if item.paypal else None) or '—' }}</span>
+      {% if editable %}
+      <select class="cat-select" data-qi="{{ qi }}">
+        <option value="">— pick category —</option>
+        {% for cat in categories %}
+        <option value="{{ cat }}" {% if cat == item.category_name %}selected{% endif %}>{{ cat }}</option>
+        {% endfor %}
+      </select>
+      <span class="saved-flash">saved</span>
+      {% else %}
+      <span class="cat-value">{{ item.category_name or '—' }}</span>
+      {% endif %}
+    </div>
+
+    {% if item.paypal %}
+    <div class="note">
+      <strong>{{ item.paypal.name or item.paypal.type }}</strong>
+      {% if item.matched_via == 'name' %}<span class="via-name">(linked by payee name)</span>{% endif %}
+      — {{ item.paypal.note or 'no note' }}
+    </div>
+    {% elif item.candidates and item.candidates | length > 0 %}
+    <div class="ambiguous">
+      Ambiguous PayPal match — {{ item.candidates | length }} candidates within 3 days:
+      <ul>
+        {% for c in item.candidates %}
+        <li>{{ c.date }} · {{ fmt(c.amount) }} · {{ c.name }} — {{ c.note or 'no note' }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    {% if editable %}
+    <div class="actions">
+      <form method="post" action="/paypal/approve/{{ qi }}">
+        <button type="submit" class="primary" {% if not item.category_id %}disabled{% endif %}>Approve &amp; push to YNAB</button>
+      </form>
+    </div>
+    {% endif %}
+  </div>
+  {% endmacro %}
+
+  <h2>Pending</h2>
+  {% for qi, item in pending %}
+    {{ render_item(qi, item, true) }}
+  {% else %}
+  <p>No pending unapproved transactions.</p>
+  {% endfor %}
+
+  {% if applied %}
+  <details class="applied-section">
+    <summary>
+      Applied ({{ applied | length }})
+      <form method="post" action="/paypal/clear-applied" onsubmit="return confirm('Remove all {{ applied | length }} applied item(s) from this review? YNAB transactions are unaffected.')">
+        <button type="submit" class="danger small">Clear applied</button>
+      </form>
+    </summary>
+    {% for qi, item in applied %}
+      {{ render_item(qi, item, false) }}
+    {% endfor %}
+  </details>
+  {% endif %}
+
+  <script>
+    async function postForm(url, fields) {
+      const body = new URLSearchParams(fields);
+      const res = await fetch(url, { method: 'POST', body });
+      if (!res.ok) {
+        const detail = await res.text();
+        throw new Error(detail);
+      }
+      return res.json();
+    }
+
+    const approveAllBtn = document.getElementById('approve-all-btn');
+    const categorized = new Set();
+    document.querySelectorAll('.cat-select').forEach(select => {
+      if (select.value) categorized.add(select.dataset.qi);
+    });
+
+    function updateApproveAllButton() {
+      const count = categorized.size;
+      approveAllBtn.dataset.count = count;
+      approveAllBtn.disabled = count === 0;
+      approveAllBtn.textContent = `Approve all categorized & push (${count})`;
+    }
+
+    document.querySelectorAll('.cat-select').forEach(select => {
+      select.addEventListener('change', async () => {
+        const qi = select.dataset.qi;
+        if (!select.value) return;
+        try {
+          await postForm(`/paypal/recategorize/${qi}`, { category_name: select.value });
+          const card = document.getElementById('item-' + qi);
+          const approveBtn = card.querySelector('.actions button[type=submit]');
+          if (approveBtn) approveBtn.disabled = false;
+          categorized.add(qi);
+          updateApproveAllButton();
+          const flash = select.parentElement.querySelector('.saved-flash') || select.nextElementSibling;
+          if (flash) {
+            flash.classList.add('show');
+            setTimeout(() => flash.classList.remove('show'), 1200);
+          }
+        } catch (e) {
+          alert('Failed to update category: ' + e.message);
+        }
+      });
+    });
+
+    document.getElementById('approve-all-form').addEventListener('submit', (e) => {
+      if (!confirm(`Push ${approveAllBtn.dataset.count} categorized item(s) to YNAB?`)) {
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>

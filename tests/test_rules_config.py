@@ -97,7 +97,7 @@ def test_shipped_rules_have_no_collisions_on_cached_orders() -> None:
 
     collisions = [item for item in report.matched if item.collisions]
     assert collisions == [], (
-        "unanchored/overlapping rules found a real collision — run "
-        "`uv run ynab-helper audit-rules` to see details"
+        "unanchored/overlapping rules found a real collision — see "
+        "report.matched item.collisions for details"
     )
     assert not any(issue.severity == "error" for issue in report.issues)

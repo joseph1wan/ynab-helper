@@ -11,3 +11,6 @@ costco_account_names:
   - "Bilt Palladium Mastercard® – 9780"
 costco_proposals_path: data/proposals/costco-latest.json
 costco_orders_dir: data/costco-orders
+paypal_account_name: Paypal
+paypal_records_path: data/paypal/records.json
+paypal_review_path: data/paypal/review.json

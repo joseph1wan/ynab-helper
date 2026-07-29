@@ -295,4 +295,15 @@ def undo_last(count: int = 1) -> list[str]:
         with costco_proposals_path.open("w") as f:
             json.dump(data, f, indent=2)
 
+    review_path = resolve_path(config.get("paypal_review_path", "data/paypal/review.json"))
+    if review_path.exists():
+        with review_path.open() as f:
+            review_data = json.load(f)
+        for item in review_data.get("items", []):
+            if item.get("ynab_transaction", {}).get("id") in restored_set:
+                item["status"] = "pending"
+                item.pop("applied_at", None)
+        with review_path.open("w") as f:
+            json.dump(review_data, f, indent=2)
+
     return restored
