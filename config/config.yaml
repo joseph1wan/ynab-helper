@@ -14,3 +14,4 @@ costco_orders_dir: data/costco-orders
 paypal_account_name: Paypal
 paypal_records_path: data/paypal/records.json
 paypal_review_path: data/paypal/review.json
+other_review_path: data/other/review.json

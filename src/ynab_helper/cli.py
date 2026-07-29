@@ -12,6 +12,7 @@ from ynab_helper.config import CONFIG_DIR, load_config, resolve_path
 from ynab_helper.costco_fetch import run_costco_propose
 from ynab_helper.fetch import run_fetch, run_propose
 from ynab_helper.import_dispatch import import_inbox
+from ynab_helper.other_review import build_other_review
 from ynab_helper.paypal_review import build_paypal_review, reapply_paypal_rules
 from ynab_helper.target_scraper import load_cached_orders, save_target_session
 from ynab_helper.undo import undo_last
@@ -178,6 +179,17 @@ def propose_paypal_cmd() -> None:
     review_path = resolve_path(config.get("paypal_review_path", "data/paypal/review.json"))
     updated = reapply_paypal_rules(review_path)
     click.echo(f"Updated {updated} pending item(s) from config/paypal.yaml rules")
+
+
+@main.command("build-other-review")
+@click.option("--since", "since_str", default=None, help="Only include transactions on or after YYYY-MM-DD")
+def build_other_review_cmd(since_str: str | None) -> None:
+    """Build the Other review tab: every unapproved transaction, any account, not claimed by an existing Source."""
+    since_override = date.fromisoformat(since_str) if since_str else None
+    result = build_other_review(since_override)
+    click.echo(f"Other review built: {len(result['items'])} unclaimed unapproved transactions")
+    config = load_config()
+    click.echo(f"Review written to {resolve_path(config.get('other_review_path', 'data/other/review.json'))}")
 
 
 @main.command("propose")

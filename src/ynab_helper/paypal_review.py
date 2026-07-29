@@ -23,8 +23,16 @@ from ynab_helper.models import PaypalRecord, YnabTransaction
 from ynab_helper.paypal_csv import load_paypal_records
 from ynab_helper.paypal_linker import link_records
 from ynab_helper.paypal_rules import lookup
+from ynab_helper.source_scope import SourceScope
 from ynab_helper.undo import save_undo_snapshot
 from ynab_helper.ynab_client import YnabClient
+
+
+def get_source_scope(config: dict, client: YnabClient) -> SourceScope:
+    """PayPal's scope for the Other review tab: the Paypal account only."""
+    account_name = config.get("paypal_account_name", "Paypal")
+    account_id = client.get_account_id_by_name(account_name)
+    return SourceScope(account_ids={account_id} if account_id else set())
 
 
 def _serialize_txn(txn: YnabTransaction) -> dict[str, Any]:

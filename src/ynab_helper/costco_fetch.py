@@ -17,9 +17,19 @@ from ynab_helper.models import (
     LineItem,
     YnabTransaction,
 )
+from ynab_helper.source_scope import SourceScope
 from ynab_helper.split_calculator import compute_splits
 from ynab_helper.state import load_state
 from ynab_helper.ynab_client import YnabClient
+
+
+def get_source_scope(config: dict, client: YnabClient) -> SourceScope:
+    """Costco's scope for the Other review tab: its accounts + payee pattern."""
+    account_names = config.get("costco_account_names", [])
+    payee_pattern = config.get("costco_payee_pattern", "COSTCO")
+    accounts = client.list_accounts()
+    account_ids = {accounts[name] for name in account_names if name in accounts}
+    return SourceScope(account_ids=account_ids, payee_pattern=payee_pattern)
 
 
 def _serialize_line_item(item: LineItem) -> dict[str, Any]:

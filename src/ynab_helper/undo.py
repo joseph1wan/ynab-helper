@@ -306,4 +306,15 @@ def undo_last(count: int = 1) -> list[str]:
         with review_path.open("w") as f:
             json.dump(review_data, f, indent=2)
 
+    other_review_path = resolve_path(config.get("other_review_path", "data/other/review.json"))
+    if other_review_path.exists():
+        with other_review_path.open() as f:
+            other_data = json.load(f)
+        for item in other_data.get("items", []):
+            if item.get("ynab_transaction", {}).get("id") in restored_set:
+                item["status"] = "pending"
+                item.pop("applied_at", None)
+        with other_review_path.open("w") as f:
+            json.dump(other_data, f, indent=2)
+
     return restored

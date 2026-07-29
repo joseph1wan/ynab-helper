@@ -19,6 +19,13 @@ from ynab_helper.config import (
 from ynab_helper.costco_fetch import recategorize_line_costco
 from ynab_helper.costco_orders import load_cached_costco_orders
 from ynab_helper.fetch import clear_applied, load_proposals, recategorize_line, set_line_note
+from ynab_helper.other_review import (
+    apply_all_pending_other_items,
+    apply_other_item,
+    clear_applied_other_items,
+    load_other_review,
+    recategorize_other_item,
+)
 from ynab_helper.paypal_review import (
     apply_all_pending_paypal_items,
     apply_paypal_item,
@@ -473,3 +480,66 @@ def paypal_clear_applied() -> RedirectResponse:
     review_path = resolve_path(config.get("paypal_review_path", "data/paypal/review.json"))
     clear_applied_paypal_items(review_path)
     return RedirectResponse(url="/paypal", status_code=303)
+
+
+@app.get("/other", response_class=HTMLResponse)
+def other_index(request: Request) -> HTMLResponse:
+    config = load_config()
+    review_path = resolve_path(config.get("other_review_path", "data/other/review.json"))
+    if not review_path.exists():
+        raise HTTPException(
+            status_code=404,
+            detail="No Other review found. Run: ynab-helper build-other-review",
+        )
+    data = load_other_review(review_path)
+    items = data.get("items", [])
+    pending = [(i, item) for i, item in enumerate(items) if item.get("status") != "applied"]
+    applied = [(i, item) for i, item in enumerate(items) if item.get("status") == "applied"]
+    pending_categorized_count = sum(1 for _, item in pending if item.get("category_id"))
+    return TEMPLATES.TemplateResponse(
+        request,
+        "other.html",
+        {
+            "data": data,
+            "pending": pending,
+            "applied": applied,
+            "pending_count": pending_categorized_count,
+            "undo_count": len(list_undo_snapshots()),
+            "fmt": _milliunits_to_dollars,
+            "categories": sorted(load_categories().keys()),
+        },
+    )
+
+
+@app.post("/other/recategorize/{index}")
+def other_recategorize(index: int, category_name: str = Form(...)) -> JSONResponse:
+    config = load_config()
+    review_path = resolve_path(config.get("other_review_path", "data/other/review.json"))
+    try:
+        item = recategorize_other_item(review_path, index, category_name)
+    except (IndexError, ValueError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return JSONResponse({"category_name": item["category_name"]})
+
+
+@app.post("/other/approve/{index}")
+def other_approve(index: int) -> RedirectResponse:
+    try:
+        apply_other_item(index)
+    except (IndexError, ValueError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return RedirectResponse(url="/other", status_code=303)
+
+
+@app.post("/other/approve-all")
+def other_approve_all() -> RedirectResponse:
+    apply_all_pending_other_items()
+    return RedirectResponse(url="/other", status_code=303)
+
+
+@app.post("/other/clear-applied")
+def other_clear_applied_route() -> RedirectResponse:
+    config = load_config()
+    review_path = resolve_path(config.get("other_review_path", "data/other/review.json"))
+    clear_applied_other_items(review_path)
+    return RedirectResponse(url="/other", status_code=303)

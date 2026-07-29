@@ -10,10 +10,16 @@ from ynab_helper.categorizer import Categorizer
 from ynab_helper.config import load_categories, load_config, load_rules, resolve_path
 from ynab_helper.matcher import match_orders_to_transactions
 from ynab_helper.models import CategorizedLine, FetchResult, LineItem, MatchProposal, ScrapeResult, TargetOrder, YnabTransaction
+from ynab_helper.source_scope import SourceScope
 from ynab_helper.split_calculator import compute_splits
 from ynab_helper.state import load_state, mark_fetch_success, resolve_since_date
 from ynab_helper.target_scraper import load_cached_orders, scrape_target_orders
 from ynab_helper.ynab_client import YnabClient
+
+
+def get_source_scope(config: dict, client: YnabClient) -> SourceScope:
+    """Target's scope for the Other review tab: payee pattern only, no account restriction."""
+    return SourceScope(payee_pattern=config.get("payee_pattern", "TARGET"))
 
 
 def _serialize_line_item(item: LineItem) -> dict[str, Any]:

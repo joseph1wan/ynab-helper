@@ -197,6 +197,35 @@ class YnabClient:
             results.append(txn)
         return results
 
+    def get_all_unapproved_transactions(
+        self, since_date: date | None = None
+    ) -> list[YnabTransaction]:
+        """Unapproved, non-transfer transactions across every account.
+
+        Same filtering as get_unapproved_account_transactions (excludes
+        transfers and auto-assigned "Inflow: Ready to Assign" rows) but not
+        scoped to one account_id.
+        """
+        params: dict[str, Any] = {}
+        if since_date:
+            params["since_date"] = since_date.isoformat()
+        data = self._get(
+            f"/budgets/{self.budget_id}/transactions",
+            params=params or None,
+        )
+        ready_to_assign_id = self.list_categories().get("Inflow: Ready to Assign")
+        results: list[YnabTransaction] = []
+        for raw in data["transactions"]:
+            txn = self._parse_transaction(raw)
+            if txn.approved:
+                continue
+            if txn.transfer_account_id is not None:
+                continue
+            if ready_to_assign_id is not None and txn.category_id == ready_to_assign_id:
+                continue
+            results.append(txn)
+        return results
+
     def patch_transaction_fields(
         self,
         transaction_id: str,

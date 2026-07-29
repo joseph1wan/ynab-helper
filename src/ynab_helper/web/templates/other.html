@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YNAB Helper — PayPal</title>
+  <title>YNAB Helper — Other</title>
   <style>
     :root {
       --bg: #14161a;
@@ -57,11 +57,7 @@
     .row .amount { font-weight: 600; min-width: 5.5rem; }
     .row .date { color: var(--muted); min-width: 5.5rem; }
     .row .payee { min-width: 12rem; }
-    .note { color: var(--muted); font-size: 0.85rem; margin-top: 0.4rem; }
-    .note strong { color: var(--fg); font-weight: 600; }
-    .via-name { color: var(--warn); font-size: 0.78rem; margin-left: 0.4rem; }
-    .ambiguous { color: var(--unmatched); font-size: 0.85rem; margin-top: 0.4rem; }
-    .ambiguous ul { margin: 0.3rem 0 0; padding-left: 1.2rem; }
+    .memo { color: var(--muted); font-size: 0.85rem; margin-top: 0.4rem; }
     .saved-flash { color: var(--ok); font-size: 0.8rem; margin-left: 0.4rem; opacity: 0; transition: opacity 0.15s; }
     .saved-flash.show { opacity: 1; }
     select { background: var(--input-bg); color: var(--fg); border: 1px solid var(--btn-border); border-radius: 4px; padding: 0.3rem 0.5rem; font-size: 0.85rem; min-width: 10rem; }
@@ -84,16 +80,17 @@
   </style>
 </head>
 <body>
-  <h1>PayPal transactions</h1>
-  <nav class="tabs"><a href="/">Review</a><a href="/paypal" class="active">PayPal</a><a href="/rules">Rules</a><a href="/costco">Costco</a><a href="/other">Other</a></nav>
+  <h1>Other transactions</h1>
+  <nav class="tabs"><a href="/">Review</a><a href="/paypal">PayPal</a><a href="/rules">Rules</a><a href="/costco">Costco</a><a href="/other" class="active">Other</a></nav>
   <div class="meta">
     Built {{ data.built_at }} ·
     {{ pending | length }} pending ·
-    {{ applied | length }} applied
+    {{ applied | length }} applied ·
+    Everything here evaded Target, PayPal, and Costco's own scopes.
   </div>
 
   <div class="toolbar">
-    <form id="approve-all-form" method="post" action="/paypal/approve-all">
+    <form id="approve-all-form" method="post" action="/other/approve-all">
       <button type="submit" id="approve-all-btn" class="primary" data-count="{{ pending_count }}" {% if pending_count == 0 %}disabled{% endif %}>
         Approve all categorized &amp; push ({{ pending_count }})
       </button>
@@ -110,7 +107,7 @@
     <div class="row">
       <span class="date">{{ item.ynab_transaction.date }}</span>
       <span class="amount">{{ fmt(item.ynab_transaction.amount) }}</span>
-      <span class="payee">{{ item.ynab_transaction.payee_name or (item.paypal.name if item.paypal else None) or '—' }}</span>
+      <span class="payee">{{ item.ynab_transaction.payee_name or '—' }}</span>
       {% if editable %}
       <select class="cat-select" data-qi="{{ qi }}">
         <option value="">— pick category —</option>
@@ -124,26 +121,13 @@
       {% endif %}
     </div>
 
-    {% if item.paypal %}
-    <div class="note">
-      <strong>{{ item.paypal.name or item.paypal.type }}</strong>
-      {% if item.matched_via == 'name' %}<span class="via-name">(linked by payee name)</span>{% endif %}
-      — {{ item.paypal.note or 'no note' }}
-    </div>
-    {% elif item.candidates and item.candidates | length > 0 %}
-    <div class="ambiguous">
-      Ambiguous PayPal match — {{ item.candidates | length }} candidates within 3 days:
-      <ul>
-        {% for c in item.candidates %}
-        <li>{{ c.date }} · {{ fmt(c.amount) }} · {{ c.name }} — {{ c.note or 'no note' }}</li>
-        {% endfor %}
-      </ul>
-    </div>
+    {% if item.ynab_transaction.memo %}
+    <div class="memo">{{ item.ynab_transaction.memo }}</div>
     {% endif %}
 
     {% if editable %}
     <div class="actions">
-      <form method="post" action="/paypal/approve/{{ qi }}">
+      <form method="post" action="/other/approve/{{ qi }}">
         <button type="submit" class="primary" {% if not item.category_id %}disabled{% endif %}>Approve &amp; push to YNAB</button>
       </form>
     </div>
@@ -155,14 +139,14 @@
   {% for qi, item in pending %}
     {{ render_item(qi, item, true) }}
   {% else %}
-  <p>No pending unapproved transactions.</p>
+  <p>No pending unclaimed transactions.</p>
   {% endfor %}
 
   {% if applied %}
   <details class="applied-section">
     <summary>
       Applied ({{ applied | length }})
-      <form method="post" action="/paypal/clear-applied" onsubmit="return confirm('Remove all {{ applied | length }} applied item(s) from this review? YNAB transactions are unaffected.')">
+      <form method="post" action="/other/clear-applied" onsubmit="return confirm('Remove all {{ applied | length }} applied item(s) from this review? YNAB transactions are unaffected.')">
         <button type="submit" class="danger small">Clear applied</button>
       </form>
     </summary>
@@ -201,7 +185,7 @@
         const qi = select.dataset.qi;
         if (!select.value) return;
         try {
-          await postForm(`/paypal/recategorize/${qi}`, { category_name: select.value });
+          await postForm(`/other/recategorize/${qi}`, { category_name: select.value });
           const card = document.getElementById('item-' + qi);
           const approveBtn = card.querySelector('.actions button[type=submit]');
           if (approveBtn) approveBtn.disabled = false;
