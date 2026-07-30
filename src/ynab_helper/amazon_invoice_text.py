@@ -48,6 +48,22 @@ Notable real-world quirks this parser tolerates:
   effect on parsing. `Grand Total` is read directly and is the only total
   value matched against a YNAB transaction — nothing is computed from the
   other rows.
+- A return/refund order can carry an extra `Refund Total` row after Grand
+  Total, followed by return-status prose ("Return complete", "Your return
+  is complete...", "When will I get my refund?") before the actual item.
+  `Refund Total` (or any other stray "Label \\n $Amount" pair appearing
+  before the real item section) is distinguished from a real item because
+  its price follows *immediately* — a real item name is always followed by
+  at least one `Sold by:`/`Supplied by:`/`Return ...` line before its
+  price. Such rows are skipped outright rather than looked up.
+- Delivery/return status messages come in many different wordings ("left
+  near the front door", "left in the mail room", "handed directly to a
+  receptionist...") — rather than hardcode every phrasing, the item name
+  is simply whichever non-skip, non-price, non-qty line was seen *most
+  recently* before a price line closes out an item. Any stray prose
+  between the previous item's price (or the totals block) and the real
+  item name gets overwritten once the real name line is reached, so no
+  specific wording needs to be recognized.
 - An item's name can appear TWICE: once as a truncated image-alt-text
   preview with the quantity badge glued directly onto the end with no
   separator (`...Storage Bin2`), then again as the full title on the next
@@ -139,16 +155,12 @@ _ITEM_LINK_RE = re.compile(r"^\[(.+?)\]\(.*\)$")
 _BARE_QTY_RE = re.compile(r"^\d+$")
 _BARE_PRICE_RE = re.compile(r"^-?\$[\d,]+\.\d{2}$")
 _SKIP_PREFIXES = ("Sold by:", "Supplied by:", "Return", "Delivered ")
-# Fixed delivery-status prose lines that follow a "Delivered ..." header —
-# not item names, but don't match a simple prefix either.
-_SKIP_LINES = {
-    "Your package was left near the front door or porch.",
-}
 _TRAILING_DIGITS_RE = re.compile(r"^(.*\S)(\d+)$")
+_GRAND_TOTAL_LINE_RE = re.compile(r"^\*?\s*Grand Total\b", re.IGNORECASE)
 
 
 def _is_skip_line(line: str) -> bool:
-    return line in _SKIP_LINES or any(line.startswith(prefix) for prefix in _SKIP_PREFIXES)
+    return any(line.startswith(prefix) for prefix in _SKIP_PREFIXES)
 
 
 def _item_name_from_line(line: str) -> str:
@@ -158,6 +170,52 @@ def _item_name_from_line(line: str) -> str:
 
 def _is_candidate_name_line(line: str) -> bool:
     return not (_BARE_PRICE_RE.match(line) or _BARE_QTY_RE.match(line) or _is_skip_line(line))
+
+
+def _next_non_blank(lines: list[str], idx: int) -> int:
+    n = len(lines)
+    while idx < n and not lines[idx].strip():
+        idx += 1
+    return idx
+
+
+def _find_item_scan_start(lines: list[str]) -> int:
+    """Find where real item rows begin, skipping past the totals block.
+
+    Anchors on the Grand Total line, then skips its own value line if
+    separate, then keeps skipping any further "Label \\n $Amount" pairs
+    (e.g. a return/refund order's "Refund Total" row) — such a row is
+    distinguished from a real item name because its price follows
+    *immediately*, with no Sold-by/Supplied-by/Return-window line between,
+    unlike every real item.
+    """
+    grand_idx = next(
+        (i for i, line in enumerate(lines) if _GRAND_TOTAL_LINE_RE.match(line.strip())), None
+    )
+    idx = (grand_idx + 1) if grand_idx is not None else 0
+
+    idx = _next_non_blank(lines, idx)
+    if idx < len(lines) and _BARE_PRICE_RE.match(lines[idx].strip()):
+        idx += 1
+
+    n = len(lines)
+    while True:
+        label_idx = _next_non_blank(lines, idx)
+        if label_idx >= n:
+            break
+        label_line = lines[label_idx].strip()
+        price_idx = _next_non_blank(lines, label_idx + 1)
+        if (
+            price_idx < n
+            and _BARE_PRICE_RE.match(lines[price_idx].strip())
+            and not _BARE_PRICE_RE.match(label_line)
+            and not _BARE_QTY_RE.match(label_line)
+        ):
+            idx = price_idx + 1
+        else:
+            idx = label_idx
+            break
+    return idx
 
 
 def _extract_items(lines: list[str]) -> list[LineItem]:
@@ -195,11 +253,6 @@ def _extract_items(lines: list[str]) -> list[LineItem]:
         if _is_skip_line(line):
             continue
 
-        if pending_name is not None:
-            # Already have a pending name waiting on its price line — don't
-            # let stray prose overwrite it.
-            continue
-
         candidate = _item_name_from_line(line)
 
         # Look ahead for the "truncated preview + glued quantity" pattern:
@@ -207,10 +260,9 @@ def _extract_items(lines: list[str]) -> list[LineItem]:
         # name line, where stripping trailing digits from this one makes it
         # a prefix of the next. If found, this line is noise (an image-alt
         # preview) — its digits are the quantity, and the real name comes
-        # from the next line on the following loop iteration.
-        j = i
-        while j < n and not lines[j].strip():
-            j += 1
+        # from the next line (which will become pending_name naturally on
+        # a later iteration).
+        j = _next_non_blank(lines, i)
         if j < n and _is_candidate_name_line(lines[j].strip()):
             digits_match = _TRAILING_DIGITS_RE.match(candidate)
             if digits_match:
@@ -220,6 +272,11 @@ def _extract_items(lines: list[str]) -> list[LineItem]:
                     pending_qty = int(qty_str)
                     continue
 
+        # Any other non-skip line becomes the current candidate name,
+        # overwriting whatever came before — delivery/return status prose
+        # of arbitrary wording gets superseded once the real item name line
+        # is reached, rather than needing to be recognized and skipped by
+        # name.
         pending_name = candidate
 
     return items
@@ -265,15 +322,9 @@ def parse_invoice_text(text: str) -> ParsedAmazonOrder | None:
     free_shipping = _amount_to_milliunits(free_shipping_str) if free_shipping_str else 0
     shipping = (shipping_and_handling or 0) + (free_shipping or 0)
 
-    # Item rows appear after the totals block; anchoring the scan to start
-    # after Grand Total's own match keeps the totals' $-lines from ever
-    # being misread as item prices.
-    grand_total_pattern = re.compile(
-        r"\*?\s*Grand Total:?\s*-?\$[\d,]+\.\d{2}", re.IGNORECASE
-    )
-    grand_total_match = grand_total_pattern.search(text)
-    item_text = text[grand_total_match.end() :] if grand_total_match else text
-    items = _extract_items(item_text.splitlines())
+    lines = text.splitlines()
+    item_lines = lines[_find_item_scan_start(lines) :]
+    items = _extract_items(item_lines)
     if not items:
         return None
 

@@ -88,3 +88,58 @@ def test_parses_real_clipboard_paste_with_collapsed_header_and_glued_qty() -> No
     assert item.name == "iDesign Slim Extra Long Clear Storage Bin, Narrow Stackable Organizer for Kitchen or Pantry"
     assert item.quantity == 2
     assert item.line_total == 15380
+
+
+def test_arbitrary_delivery_status_prose_does_not_become_item_name() -> None:
+    """"Your package was left in the mail room." isn't hardcoded anywhere —
+    the item scanner must recover the real title regardless of wording."""
+    text = (FIXTURES / "amazon_sample_4_mailroom.txt").read_text()
+    order = parse_invoice_text(text)
+    assert order is not None
+    assert order.order_id == "114-3667658-8385813"
+    assert order.total == 41950
+    assert len(order.line_items) == 2
+    assert order.line_items[0].name.startswith("FEXIA Shelf Liners")
+    assert order.line_items[0].line_total == 33990
+    assert order.line_items[1].name.startswith("Stainless Steel Metal Ruler")
+    assert order.line_items[1].line_total == 4190
+
+
+def test_another_delivery_status_wording_also_recovers_real_item_name() -> None:
+    text = (FIXTURES / "amazon_sample_5_handed_to_receptionist.txt").read_text()
+    order = parse_invoice_text(text)
+    assert order is not None
+    assert order.order_id == "114-3246807-1137017"
+    assert order.total == 25970
+    assert order.shipping == 0  # $2.99 shipping netted against -$2.99 free shipping
+    assert len(order.line_items) == 2
+    assert order.line_items[0].name.startswith("FURTALK Baby Sun Hat")
+    assert order.line_items[0].line_total == 12990
+    assert order.line_items[1].name.startswith("uideazone Baby Boys")
+    assert order.line_items[1].line_total == 12980
+
+
+def test_return_refund_order_skips_refund_total_row_and_status_prose() -> None:
+    """A return/refund order has an extra "Refund Total" row after Grand
+    Total, plus "Return complete" / "Your return is complete..." /
+    "When will I get my refund?" prose before the real item — none of that
+    should become a false item or block the real one from being found."""
+    text = (FIXTURES / "amazon_sample_6_return_refund.txt").read_text()
+    order = parse_invoice_text(text)
+    assert order is not None
+    assert order.order_id == "114-1256788-9775405"
+    assert order.total == 38530  # Grand Total, not Refund Total
+    assert len(order.line_items) == 1
+    assert order.line_items[0].name.startswith("MLILY Foldable Mattress")
+    assert order.line_items[0].line_total == 74990
+
+
+def test_zero_grand_total_still_parses() -> None:
+    """A Grand Total of exactly $0.00 (fully offset by a gift card) must
+    still be treated as a found value, not as "missing"."""
+    text = (FIXTURES / "amazon_sample_7_zero_grand_total.txt").read_text()
+    order = parse_invoice_text(text)
+    assert order is not None
+    assert order.total == 0
+    assert len(order.line_items) == 1
+    assert order.line_items[0].line_total == 15990
