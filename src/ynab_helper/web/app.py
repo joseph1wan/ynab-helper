@@ -55,6 +55,7 @@ from ynab_helper.undo import (
     list_undo_snapshots,
     undo_last,
 )
+from ynab_helper.ynab_client import YnabApiError
 
 TEMPLATES = Jinja2Templates(
     directory=str(Path(__file__).parent / "templates")
@@ -114,7 +115,7 @@ def _line_patch_response(proposal: dict[str, Any], line_index: int) -> JSONRespo
 def approve(index: int) -> RedirectResponse:
     try:
         apply_proposal(index)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return RedirectResponse(url="/", status_code=303)
 
@@ -127,7 +128,7 @@ def recategorize(
     proposals_path = resolve_path(config["proposals_path"])
     try:
         proposal = recategorize_line(proposals_path, proposal_index, line_index, category_name)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return _line_patch_response(proposal, line_index)
 
@@ -138,7 +139,7 @@ def note(proposal_index: int, line_index: int, note: str = Form("")) -> JSONResp
     proposals_path = resolve_path(config["proposals_path"])
     try:
         proposal = set_line_note(proposals_path, proposal_index, line_index, note)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return _line_patch_response(proposal, line_index)
 
@@ -191,7 +192,7 @@ def move_rule(index: int, direction: str = Form(...)) -> JSONResponse:
 
     try:
         reorder_rule(index, to_index)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return JSONResponse({"rules": list_rules()})
 
@@ -202,7 +203,7 @@ def edit_rule(
 ) -> JSONResponse:
     try:
         result = update_rule(index, pattern, category_name, note or None)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return JSONResponse(
         {
@@ -217,7 +218,7 @@ def edit_rule(
 def delete_rule_route(index: int) -> JSONResponse:
     try:
         delete_rule(index)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return JSONResponse({"ok": True})
 
@@ -232,13 +233,19 @@ def clear_applied_route() -> RedirectResponse:
 
 @app.post("/approve-all")
 def approve_all() -> RedirectResponse:
-    apply_all_pending()
+    try:
+        apply_all_pending()
+    except (IndexError, ValueError, YnabApiError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
     return RedirectResponse(url="/", status_code=303)
 
 
 @app.post("/undo")
 def undo() -> RedirectResponse:
-    restored = undo_last(1)
+    try:
+        restored = undo_last(1)
+    except (IndexError, ValueError, YnabApiError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
     if not restored:
         raise HTTPException(status_code=404, detail="Nothing to undo")
     return RedirectResponse(url="/", status_code=303)
@@ -276,7 +283,7 @@ def costco_index(request: Request) -> HTMLResponse:
 def costco_approve(index: int) -> RedirectResponse:
     try:
         apply_costco_proposal(index)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return RedirectResponse(url="/costco", status_code=303)
 
@@ -289,7 +296,7 @@ def costco_recategorize(
     proposals_path = resolve_path(config.get("costco_proposals_path", "data/proposals/costco-latest.json"))
     try:
         proposal = recategorize_line_costco(proposals_path, proposal_index, line_index, category_name)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return _line_patch_response(proposal, line_index)
 
@@ -300,7 +307,7 @@ def costco_note(proposal_index: int, line_index: int, note: str = Form("")) -> J
     proposals_path = resolve_path(config.get("costco_proposals_path", "data/proposals/costco-latest.json"))
     try:
         proposal = set_line_note(proposals_path, proposal_index, line_index, note)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return _line_patch_response(proposal, line_index)
 
@@ -362,7 +369,7 @@ def costco_move_rule(index: int, direction: str = Form(...)) -> JSONResponse:
 
     try:
         reorder_rule(index, to_index, rules_path=COSTCO_RULES_PATH)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return JSONResponse({"rules": list_rules(rules_path=COSTCO_RULES_PATH)})
 
@@ -383,7 +390,7 @@ def costco_edit_rule(
             rules_data=load_rules_costco(),
             orders=load_cached_costco_orders(orders_dir, date.min),
         )
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return JSONResponse(
         {
@@ -398,7 +405,7 @@ def costco_edit_rule(
 def costco_delete_rule_route(index: int) -> JSONResponse:
     try:
         delete_rule(index, rules_path=COSTCO_RULES_PATH)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return JSONResponse({"ok": True})
 
@@ -413,13 +420,19 @@ def costco_clear_applied_route() -> RedirectResponse:
 
 @app.post("/costco/approve-all")
 def costco_approve_all() -> RedirectResponse:
-    apply_all_pending_costco()
+    try:
+        apply_all_pending_costco()
+    except (IndexError, ValueError, YnabApiError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
     return RedirectResponse(url="/costco", status_code=303)
 
 
 @app.post("/costco/undo")
 def costco_undo() -> RedirectResponse:
-    restored = undo_last(1)
+    try:
+        restored = undo_last(1)
+    except (IndexError, ValueError, YnabApiError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
     if not restored:
         raise HTTPException(status_code=404, detail="Nothing to undo")
     return RedirectResponse(url="/costco", status_code=303)
@@ -460,7 +473,7 @@ def paypal_recategorize(index: int, category_name: str = Form(...)) -> JSONRespo
     review_path = resolve_path(config.get("paypal_review_path", "data/paypal/review.json"))
     try:
         item = recategorize_item(review_path, index, category_name)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return JSONResponse({"category_name": item["category_name"]})
 
@@ -469,14 +482,17 @@ def paypal_recategorize(index: int, category_name: str = Form(...)) -> JSONRespo
 def paypal_approve(index: int) -> RedirectResponse:
     try:
         apply_paypal_item(index)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return RedirectResponse(url="/paypal", status_code=303)
 
 
 @app.post("/paypal/approve-all")
 def paypal_approve_all() -> RedirectResponse:
-    apply_all_pending_paypal_items()
+    try:
+        apply_all_pending_paypal_items()
+    except (IndexError, ValueError, YnabApiError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
     return RedirectResponse(url="/paypal", status_code=303)
 
 
@@ -523,7 +539,7 @@ def other_recategorize(index: int, category_name: str = Form(...)) -> JSONRespon
     review_path = resolve_path(config.get("other_review_path", "data/other/review.json"))
     try:
         item = recategorize_other_item(review_path, index, category_name)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return JSONResponse({"category_name": item["category_name"]})
 
@@ -532,14 +548,17 @@ def other_recategorize(index: int, category_name: str = Form(...)) -> JSONRespon
 def other_approve(index: int) -> RedirectResponse:
     try:
         apply_other_item(index)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return RedirectResponse(url="/other", status_code=303)
 
 
 @app.post("/other/approve-all")
 def other_approve_all() -> RedirectResponse:
-    apply_all_pending_other_items()
+    try:
+        apply_all_pending_other_items()
+    except (IndexError, ValueError, YnabApiError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
     return RedirectResponse(url="/other", status_code=303)
 
 
@@ -583,7 +602,7 @@ def amazon_index(request: Request) -> HTMLResponse:
 def amazon_approve(index: int) -> RedirectResponse:
     try:
         apply_amazon_proposal(index)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return RedirectResponse(url="/amazon", status_code=303)
 
@@ -596,7 +615,7 @@ def amazon_recategorize(
     proposals_path = resolve_path(config.get("amazon_proposals_path", "data/proposals/amazon-latest.json"))
     try:
         proposal = recategorize_line_amazon(proposals_path, proposal_index, line_index, category_name)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return _line_patch_response(proposal, line_index)
 
@@ -607,7 +626,7 @@ def amazon_note(proposal_index: int, line_index: int, note: str = Form("")) -> J
     proposals_path = resolve_path(config.get("amazon_proposals_path", "data/proposals/amazon-latest.json"))
     try:
         proposal = set_line_note(proposals_path, proposal_index, line_index, note)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return _line_patch_response(proposal, line_index)
 
@@ -669,7 +688,7 @@ def amazon_move_rule(index: int, direction: str = Form(...)) -> JSONResponse:
 
     try:
         reorder_rule(index, to_index, rules_path=AMAZON_RULES_PATH)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return JSONResponse({"rules": list_rules(rules_path=AMAZON_RULES_PATH)})
 
@@ -690,7 +709,7 @@ def amazon_edit_rule(
             rules_data=load_rules_amazon(),
             orders=load_cached_amazon_orders(orders_dir, date.min),
         )
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return JSONResponse(
         {
@@ -705,7 +724,7 @@ def amazon_edit_rule(
 def amazon_delete_rule_route(index: int) -> JSONResponse:
     try:
         delete_rule(index, rules_path=AMAZON_RULES_PATH)
-    except (IndexError, ValueError) as exc:
+    except (IndexError, ValueError, YnabApiError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return JSONResponse({"ok": True})
 
@@ -720,13 +739,19 @@ def amazon_clear_applied_route() -> RedirectResponse:
 
 @app.post("/amazon/approve-all")
 def amazon_approve_all() -> RedirectResponse:
-    apply_all_pending_amazon()
+    try:
+        apply_all_pending_amazon()
+    except (IndexError, ValueError, YnabApiError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
     return RedirectResponse(url="/amazon", status_code=303)
 
 
 @app.post("/amazon/undo")
 def amazon_undo() -> RedirectResponse:
-    restored = undo_last(1)
+    try:
+        restored = undo_last(1)
+    except (IndexError, ValueError, YnabApiError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
     if not restored:
         raise HTTPException(status_code=404, detail="Nothing to undo")
     return RedirectResponse(url="/amazon", status_code=303)

@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 import httpx
+import pytest
 
-from ynab_helper.ynab_client import YnabClient
+from ynab_helper.ynab_client import YnabApiError, YnabClient
 
 
 def _client_with_transport(transport: httpx.MockTransport) -> YnabClient:
@@ -83,3 +84,15 @@ def test_get_all_unapproved_transactions_excludes_transfers_and_ready_to_assign(
     client = _client_with_transport(httpx.MockTransport(handler))
     results = client.get_all_unapproved_transactions()
     assert [txn.id for txn in results] == ["t-unclaimed"]
+
+
+def test_patch_transactions_bulk_surfaces_ynab_error_detail() -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(
+            400,
+            json={"error": {"id": "400", "name": "bad_request", "detail": "Category is not valid"}},
+        )
+
+    client = _client_with_transport(httpx.MockTransport(handler))
+    with pytest.raises(YnabApiError, match="Category is not valid"):
+        client.patch_transactions_bulk([{"id": "t1", "category_id": "bad"}])

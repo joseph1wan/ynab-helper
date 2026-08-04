@@ -10,6 +10,26 @@ from ynab_helper.models import YnabTransaction
 BASE_URL = "https://api.ynab.com/v1"
 
 
+class YnabApiError(RuntimeError):
+    """A YNAB API request failed; message includes YNAB's own error detail
+    (not just the bare status code raise_for_status() would give)."""
+
+
+def _raise_for_status(response: httpx.Response) -> None:
+    try:
+        response.raise_for_status()
+    except httpx.HTTPStatusError as exc:
+        detail: Any = response.text
+        try:
+            detail = response.json().get("error", detail)
+        except ValueError:
+            pass
+        raise YnabApiError(
+            f"YNAB API {response.status_code} for {response.request.method} "
+            f"{response.request.url}: {detail}"
+        ) from exc
+
+
 class YnabClient:
     def __init__(self, token: str, budget_id: str = "last-used") -> None:
         self.budget_id = budget_id
@@ -30,7 +50,7 @@ class YnabClient:
 
     def _get(self, path: str, params: dict[str, Any] | None = None) -> dict[str, Any]:
         response = self._client.get(path, params=params)
-        response.raise_for_status()
+        _raise_for_status(response)
         body = response.json()
         if body.get("data") is None:
             raise RuntimeError(f"YNAB API error: {body}")
@@ -38,7 +58,7 @@ class YnabClient:
 
     def _patch(self, path: str, payload: dict[str, Any]) -> dict[str, Any]:
         response = self._client.patch(path, json={"transaction": payload})
-        response.raise_for_status()
+        _raise_for_status(response)
         body = response.json()
         return body["data"]["transaction"]
 
@@ -256,7 +276,7 @@ class YnabClient:
             f"/budgets/{self.budget_id}/transactions",
             json={"transactions": transactions},
         )
-        response.raise_for_status()
+        _raise_for_status(response)
         return response.json()["data"]
 
     def restore_transaction(
