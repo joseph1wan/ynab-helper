@@ -57,6 +57,53 @@ def test_compute_splits_even_fees(categorizer: Categorizer) -> None:
     assert sum(s.amount for s in splits) == -50000
     assert len(splits) == 2
     assert delta == 0
+    amounts = {s.category_name: s.amount for s in splits}
+    assert amounts == {"Baby": -30000, "Groceries": -20000}
+
+
+def test_compute_splits_fees_not_double_counted(categorizer: Categorizer) -> None:
+    order = TargetOrder(
+        order_id="1",
+        order_date=date(2026, 7, 1),
+        total=28170,
+        line_items=[
+            LineItem(name="Diapers", quantity=1, line_total=15730),
+            LineItem(name="Cheerios", quantity=2, line_total=5540),
+            LineItem(name="Wipes", quantity=1, line_total=4980),
+        ],
+        tax=1920,
+        shipping=0,
+        fees=0,
+    )
+    categorized, _ = categorizer.categorize_all(order.line_items)
+    splits, delta = compute_splits(order, categorized, -28170)
+    assert sum(s.amount for s in splits) == -28170
+    assert delta == 0
+    amounts = {s.category_name: s.amount for s in splits}
+    assert amounts == {"Baby": -22170, "Groceries": -6000}
+
+
+def test_compute_splits_fees_exceed_total_falls_back_to_proportional(
+    categorizer: Categorizer,
+) -> None:
+    order = TargetOrder(
+        order_id="1",
+        order_date=date(2026, 7, 1),
+        total=460,
+        line_items=[
+            LineItem(name="Diapers", quantity=1, line_total=8000),
+            LineItem(name="Milk", quantity=1, line_total=7380),
+        ],
+        tax=1540,
+        shipping=0,
+        fees=0,
+    )
+    categorized, _ = categorizer.categorize_all(order.line_items)
+    splits, delta = compute_splits(order, categorized, -460)
+    assert sum(s.amount for s in splits) == -460
+    assert delta == 0
+    for split in splits:
+        assert split.amount <= 0
 
 
 def test_compute_splits_refund_produces_positive_amounts(categorizer: Categorizer) -> None:

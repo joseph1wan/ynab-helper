@@ -371,7 +371,7 @@
         const result = form.querySelector('.rule-result');
         try {
           const data = await postForm('/amazon/rules', { pattern, category_name: category, note });
-          let msg = 'Rule added — re-run `propose-amazon` to apply it.';
+          let msg = 'Rule added — re-run `propose --source amazon` to apply it.';
           if (data.collisions && data.collisions.length) {
             msg += ' Collides with: ' + data.collisions.join(', ');
           }

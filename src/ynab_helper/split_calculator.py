@@ -29,6 +29,16 @@ def compute_splits(
     subtotal = order.subtotal or 1
     extra_fees = order.tax + order.shipping + order.fees
     num_lines = max(len(categorized_lines), 1)
+
+    # Allocate the pre-fee portion proportionally, then add each category's
+    # even share of fees. When the YNAB total doesn't cover the fees — an
+    # Amazon gift-card/promo order, where Grand Total can be far below
+    # subtotal + tax — there is no meaningful "fees on top" to split, so
+    # fall back to proportional allocation of the whole total.
+    net_total = abs_total - extra_fees
+    if net_total <= 0:
+        net_total = abs_total
+        extra_fees = 0
     fee_per_line = extra_fees // num_lines
 
     # Group line items by category
@@ -44,7 +54,7 @@ def compute_splits(
         else:
             cat_subtotal = sum(cl.line_item.line_total for cl in lines)
             share = cat_subtotal / subtotal
-        base = int(abs_total * share)
+        base = int(net_total * share)
         fee_share = fee_per_line * len(lines)
         raw_amounts[category_name] = base + fee_share
 

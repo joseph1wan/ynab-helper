@@ -23,9 +23,11 @@ from ynab_helper.ynab_client import YnabClient
 
 
 def get_source_scope(config: dict, client: YnabClient) -> SourceScope:
-    """Amazon's scope for the Other review tab: payee pattern only — Amazon
-    purchases can land on any card, unlike Costco's dedicated accounts."""
-    return SourceScope(payee_pattern=config.get("amazon_payee_pattern", "AMAZON"))
+    """Amazon's scope for the Other review tab: dedicated account."""
+    account_names = config.get("amazon_account_names", [])
+    accounts = client.list_accounts()
+    account_ids = {accounts[name] for name in account_names if name in accounts}
+    return SourceScope(account_ids=account_ids)
 
 
 def _serialize_line_item(item: LineItem) -> dict[str, Any]:

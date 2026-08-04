@@ -7,7 +7,23 @@
 # receipt codes) — build these rules up against real imported orders.
 #
 # Verify changes with: uv run pytest tests/test_rules_amazon_config.py
-rules: []
+rules:
+  - pattern: '\bToddler\s+Girls?\b|\bBaby\s+Girls?\b'
+    category: 'Chloe'
+  - pattern: '\bToddler\s+Boys?\b|\bBaby\s+Boys?\b|\bteether\b|\bdiapers?\b|\bbaby\s+wipes?\b'
+    category: 'Nathanael'
+  - pattern: '\bpasta\b|\bspaghetti\b|\bcereals?\b|\bsnacks?\b|\bcoffee\b'
+    category: 'Groceries'
+  - pattern: '\bwindshield\b|\bwiper\b|\brain-?x\b'
+    category: 'Maintenance'
+  - pattern: '\bbox cutter\b|\butility knife\b|\brulers?\b|\btape measure\b|\bscrewdrivers?\b'
+    category: 'Tools'
+  - pattern: '\bplatform bed\b|\bbed frame\b|\bheadboard\b'
+    category: 'Big Home Purchases'
+  - pattern: '\bmattress\b|\bmemory foam\b|\btoppers?\b|\bshelf liners?\b|\bdrawer liners?\b|\bdoor stoppers?\b'
+    category: 'Home Supplies'
+  - pattern: '\bstorage bins?\b|\bstackable\b|\borganizers?\b|\btissue box\b|\bwicker\b|\balarm clocks?\b'
+    category: 'Home Decor'
 fallback_category: 'One Offs'
 
 # Shared across all sources (Target, Costco, PayPal, Amazon) — same list as
