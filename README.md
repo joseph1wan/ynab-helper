@@ -47,6 +47,84 @@ uv run ynab-helper fetch --skip-scrape         # re-parse saved invoices only
 uv run ynab-helper fetch --overwrite           # ignore last-run state, re-scrape
 ```
 
+## Importing and Reviewing Orders
+
+ynab-helper works in two steps:
+1. **YNAB auto-imports** your transactions from connected accounts (RedCard, Costco, Amazon) or manual imports (PayPal CSV)
+2. **ynab-helper imports** detailed order data, matches it to those transactions, and proposes categorizations
+
+```mermaid
+graph LR
+    A["Your Purchase"] -->|Auto-import| B["YNAB Transaction"]
+    A -->|Export/Paste| C["ynab-helper<br/>Data Store"]
+    B -->|Match & Categorize| D["Split Proposal"]
+    C -->|Match & Categorize| D
+    D -->|Review & Approve| E["Categorized Transaction"]
+```
+
+### Target: RedCard Purchases
+
+```bash
+# Step 1: RedCard transactions auto-import to YNAB from your bank
+
+# Step 2a: Scrape Target orders (live)
+uv run ynab-helper fetch [--since 2026-07-01]
+
+# Step 2b: Or paste manually (if scraper is blocked or errors)
+# Copy invoice page text and save to inbox/target_1.txt (or use pb_target alias)
+# Then run: uv run ynab-helper import-invoices
+
+# Step 3: Match orders to YNAB and propose categorizations
+uv run ynab-helper propose
+```
+
+### PayPal: Exported CSV
+
+```bash
+# Step 1: Export Activity CSV from PayPal (Statements → Downloads)
+
+# Step 2: Place CSV file in inbox/ and import
+# Copy CSV file to inbox/paypal.csv (or any filename), then:
+uv run ynab-helper import-invoices
+
+# Step 3: Match records to YNAB and propose categorizations
+uv run ynab-helper propose-paypal
+
+# Or rebuild from scratch (after importing new CSV data):
+uv run ynab-helper build-paypal-review
+```
+
+Note: "Bank Deposit to PP Account" rows are excluded (these are already in YNAB as transfers).
+
+### Costco: Pasted Receipts
+
+```bash
+# Step 1: Costco account auto-imports to YNAB
+
+# Step 2: Copy receipt text and import
+# Copy receipt (Gas Station or In-Warehouse) and save to inbox/costco_1.txt
+# (or use pb_costco alias), then:
+uv run ynab-helper import-invoices
+
+# Step 3: Match receipts to YNAB and propose categorizations
+uv run ynab-helper propose --source costco
+```
+
+### Amazon: Pasted Order Confirmations
+
+```bash
+# Step 1: Amazon account auto-imports to YNAB
+
+# Step 2: Copy order confirmation and import
+# Copy order confirmation or invoice page and save to inbox/amazon_1.txt, then:
+uv run ynab-helper import-invoices
+
+# Step 3: Match orders to YNAB and propose categorizations
+uv run ynab-helper propose --source amazon
+```
+
+Note: Quantity is signaled by a digit-only line before the item name (defaults to 1 if omitted).
+
 ## Configuration
 
 - `config/config.yaml` — budget ID, payee match pattern (`TARGET`), file paths
