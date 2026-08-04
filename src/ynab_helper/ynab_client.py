@@ -62,6 +62,18 @@ class YnabClient:
         body = response.json()
         return body["data"]["transaction"]
 
+    def list_budgets(self) -> list[dict[str, Any]]:
+        """Return every budget on this account: [{'id', 'name', 'last_modified_on'}]."""
+        data = self._get("/budgets")
+        return [
+            {
+                "id": b["id"],
+                "name": b["name"],
+                "last_modified_on": b.get("last_modified_on"),
+            }
+            for b in data["budgets"]
+        ]
+
     def list_categories(self) -> dict[str, str]:
         """Return mapping of category name -> category id."""
         data = self._get(f"/budgets/{self.budget_id}/categories")
