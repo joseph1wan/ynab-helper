@@ -87,7 +87,7 @@ Costco (`costco_fetch.py` + `config/rules_costco.yaml` + `/costco`) and Amazon (
 - **`costco_import.py`** — drains `inbox/costco_*.txt` into `data/costco-orders/*.json`, archiving sources to `data/costco-orders/pasted/`.
 - **`costco_matcher.py`** — fuzzy match by amount within a ±3-day window (card charges post late), unlike Target's exact-date match.
 - **`costco_fetch.py`** — `run_costco_propose()`, scoped by `costco_account_names` + `costco_payee_pattern`; also exposes `get_source_scope()` for `/other`.
-- `propose-costco [--since] [--until]` CLI command builds the review; `/costco/rules` edits `config/rules_costco.yaml`.
+- `propose --source costco [--since] [--until]` CLI command builds the review; `/costco/rules` edits `config/rules_costco.yaml`.
 
 ### Amazon review (a fourth Source)
 
@@ -96,7 +96,7 @@ Costco (`costco_fetch.py` + `config/rules_costco.yaml` + `/costco`) and Amazon (
 - **`amazon_invoice_text.py`** — parses pasted Amazon order-confirmation-page text (a from-scratch parser, NOT a port of Costco's fixed-width receipt parser — Amazon's paste shape is markdown-link-style items with a bare `$X.XX` price line closing each item, and `* Label:` / `$Amount` total pairs). Quantity is signaled by a bare digit-only line immediately preceding an item's name (defaults to 1 when absent) — when present, the item's price line is a *per-unit* price, not the line total, so `line_total = unit_price * quantity`. Unrecognized total rows (e.g. `Gift Card Amount`) are simply not looked up and have no effect on parsing — `Grand Total` is read directly and is the only total value matched against a YNAB transaction; nothing is computed from the other rows.
 - **`amazon_import.py`** / **`amazon_orders.py`** / **`amazon_matcher.py`** — orchestration/cache/fuzzy-match layers, near-verbatim copies of Costco's equivalents (paste-shape-agnostic).
 - **`amazon_fetch.py`** — `run_amazon_propose()`; also exposes `get_source_scope()` for `/other` (payee-only, see above).
-- `propose-amazon [--since] [--until]` CLI command builds the review; `inbox/amazon_*.txt` is drained by `import-invoices`; `/amazon/rules` edits `config/rules_amazon.yaml`.
+- `propose --source amazon [--since] [--until]` CLI command builds the review; `inbox/amazon_*.txt` is drained by `import-invoices`; `/amazon/rules` edits `config/rules_amazon.yaml`.
 
 ### Milliunits
 

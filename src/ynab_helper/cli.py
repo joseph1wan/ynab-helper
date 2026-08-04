@@ -200,62 +200,45 @@ def build_other_review_cmd(since_str: str | None) -> None:
     click.echo(f"Review written to {resolve_path(config.get('other_review_path', 'data/other/review.json'))}")
 
 
+_PROPOSE_SOURCES = {
+    "target": (run_propose, "proposals_path", "data/proposals/latest.json", "unmatched orders"),
+    "costco": (run_costco_propose, "costco_proposals_path", "data/proposals/costco-latest.json", "unmatched receipts"),
+    "amazon": (run_amazon_propose, "amazon_proposals_path", "data/proposals/amazon-latest.json", "unmatched orders"),
+}
+
+
 @main.command("propose")
-@click.option("--since", "since_str", default=None, help="Only propose orders on or after YYYY-MM-DD")
-@click.option("--until", "until_str", default=None, help="Only propose orders on or before YYYY-MM-DD")
-def propose_cmd(since_str: str | None, until_str: str | None) -> None:
-    """Match saved Target orders to YNAB and write review proposals."""
+@click.option("--since", "since_str", default=None, help="Only propose orders/receipts on or after YYYY-MM-DD")
+@click.option("--until", "until_str", default=None, help="Only propose orders/receipts on or before YYYY-MM-DD")
+@click.option(
+    "--source",
+    "sources",
+    type=click.Choice([*_PROPOSE_SOURCES, "all"]),
+    multiple=True,
+    default=("all",),
+    help="Which source(s) to propose. Repeatable. Defaults to all.",
+)
+def propose_cmd(since_str: str | None, until_str: str | None, sources: tuple[str, ...]) -> None:
+    """Match saved Target/Costco/Amazon orders to YNAB and write review proposals."""
     since_override = date.fromisoformat(since_str) if since_str else None
     until_override = date.fromisoformat(until_str) if until_str else None
-    result = run_propose(since_override, until_override)
-    until_note = f" through {until_override}" if until_override else ""
-    click.echo(
-        f"Proposed since {result.since_date}{until_note}: {len(result.proposals)} matched, "
-        f"{len(result.unmatched_orders)} unmatched orders, "
-        f"{len(result.unmatched_transactions)} unmatched txns"
-    )
+    selected = list(_PROPOSE_SOURCES) if "all" in sources else list(dict.fromkeys(sources))
+
     config = load_config()
-    click.echo(f"Proposals written to {resolve_path(config['proposals_path'])}")
-
-
-@main.command("propose-costco")
-@click.option("--since", "since_str", default=None, help="Only propose receipts on or after YYYY-MM-DD")
-@click.option("--until", "until_str", default=None, help="Only propose receipts on or before YYYY-MM-DD")
-def propose_costco_cmd(since_str: str | None, until_str: str | None) -> None:
-    """Match saved Costco receipts to YNAB and write review proposals."""
-    since_override = date.fromisoformat(since_str) if since_str else None
-    until_override = date.fromisoformat(until_str) if until_str else None
-    result = run_costco_propose(since_override, until_override)
-    until_note = f" through {until_override}" if until_override else ""
-    click.echo(
-        f"Proposed since {result.since_date}{until_note}: {len(result.proposals)} matched, "
-        f"{len(result.unmatched_orders)} unmatched receipts, "
-        f"{len(result.unmatched_transactions)} unmatched txns"
-    )
-    config = load_config()
-    click.echo(
-        f"Proposals written to {resolve_path(config.get('costco_proposals_path', 'data/proposals/costco-latest.json'))}"
-    )
-
-
-@main.command("propose-amazon")
-@click.option("--since", "since_str", default=None, help="Only propose orders on or after YYYY-MM-DD")
-@click.option("--until", "until_str", default=None, help="Only propose orders on or before YYYY-MM-DD")
-def propose_amazon_cmd(since_str: str | None, until_str: str | None) -> None:
-    """Match saved Amazon orders to YNAB and write review proposals."""
-    since_override = date.fromisoformat(since_str) if since_str else None
-    until_override = date.fromisoformat(until_str) if until_str else None
-    result = run_amazon_propose(since_override, until_override)
-    until_note = f" through {until_override}" if until_override else ""
-    click.echo(
-        f"Proposed since {result.since_date}{until_note}: {len(result.proposals)} matched, "
-        f"{len(result.unmatched_orders)} unmatched orders, "
-        f"{len(result.unmatched_transactions)} unmatched txns"
-    )
-    config = load_config()
-    click.echo(
-        f"Proposals written to {resolve_path(config.get('amazon_proposals_path', 'data/proposals/amazon-latest.json'))}"
-    )
+    for name in selected:
+        run_fn, config_key, default_path, unmatched_label = _PROPOSE_SOURCES[name]
+        try:
+            result = run_fn(since_override, until_override)
+        except ValueError as exc:
+            click.echo(f"[{name}] Nothing to propose — {exc}")
+            continue
+        until_note = f" through {until_override}" if until_override else ""
+        click.echo(
+            f"[{name}] Proposed since {result.since_date}{until_note}: {len(result.proposals)} matched, "
+            f"{len(result.unmatched_orders)} {unmatched_label}, "
+            f"{len(result.unmatched_transactions)} unmatched txns"
+        )
+        click.echo(f"[{name}] Proposals written to {resolve_path(config.get(config_key, default_path))}")
 
 
 @main.command("review")

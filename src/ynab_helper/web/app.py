@@ -251,7 +251,7 @@ def costco_index(request: Request) -> HTMLResponse:
     if not proposals_path.exists():
         raise HTTPException(
             status_code=404,
-            detail="No Costco proposals found. Run: ynab-helper propose-costco",
+            detail="No Costco proposals found. Run: ynab-helper propose --source costco",
         )
     data = load_proposals(proposals_path)
     proposals = data.get("proposals", [])
@@ -558,7 +558,7 @@ def amazon_index(request: Request) -> HTMLResponse:
     if not proposals_path.exists():
         raise HTTPException(
             status_code=404,
-            detail="No Amazon proposals found. Run: ynab-helper propose-amazon",
+            detail="No Amazon proposals found. Run: ynab-helper propose --source amazon",
         )
     data = load_proposals(proposals_path)
     proposals = data.get("proposals", [])
