@@ -243,13 +243,21 @@ def propose_cmd(since_str: str | None, until_str: str | None, sources: tuple[str
 
 @main.command("review")
 @click.option("--port", default=8765, show_default=True)
-def review_cmd(port: int) -> None:
+@click.option(
+    "--reload/--no-reload",
+    "use_reload",
+    default=True,
+    show_default=True,
+    help="Restart the server when files under src/ change.",
+)
+def review_cmd(port: int, use_reload: bool) -> None:
     """Start local web UI to review and approve splits."""
     uvicorn.run(
         "ynab_helper.web.app:app",
         host="127.0.0.1",
         port=port,
-        reload=False,
+        reload=use_reload,
+        reload_dirs=[str(Path(__file__).resolve().parent)] if use_reload else None,
     )
 
 
