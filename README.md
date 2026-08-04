@@ -32,6 +32,7 @@ uv run ynab-helper fetch
 uv run ynab-helper propose
 
 # Review and approve splits in browser (localhost:8765)
+# Auto-restarts on source edits; pass --no-reload to disable
 uv run ynab-helper review
 
 # Revert last approved split
